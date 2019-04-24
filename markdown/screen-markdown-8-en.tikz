@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[height=5cm]{screen-markdown-8-en.png}};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+
+       \draw[->,>=latex,ultra thick,blue] (0,0.9)--++(1,0) node[above]{$x$};
+       \draw[->,>=latex,ultra thick,blue] (0,0.9)--++(0,-0.9) node[left]{$y$};
+        \coordinate (A) at (0.15,0.75);
+        \coordinate (B) at (0.35,0.2);
+        
+        \draw (A) rectangle (B);
+        
+        \coordinate (SW) at (0.49,0.65);
+
+       \fill[black] (A) circle (4pt) node[below left] {$(x_1,y_1)$};
+       \fill[black] (B) circle (4pt) node[below right] {$(x_2,y_2)$};
+       \fill[red] (SW) circle (4pt) ;
+      \draw[<-,>=latex,ultra thick,red] (SW)  to[bend right=10] (0.7,0.4) node[right]{South West anchor};
+
+       \fill[blue] (0,0.9) circle (4pt) node[above left] {$(0,0)$};
+
+
+    \end{scope}
+
+\end{tikzpicture} 

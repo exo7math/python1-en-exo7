@@ -1,0 +1,53 @@
+\begin{tikzpicture}
+
+\draw[<-,>=latex,ultra thick,red] (0.5,-2)--(9.5,-2);
+
+\begin{scope}
+  \draw[very thick] (0,0) -- (1,0); 
+  \draw[very thick] (0,-0.75) -- (0,0);
+
+  \node at (0.5,0.4) {$7$};
+
+  \node at (-0.5,-0.4) {$2$};
+  \node at (0.5,-0.4) {$14$};
+  \node[thick, red, draw, circle] at (0.5,-1.2) {$0$};
+\end{scope}
+
+\begin{scope}[xshift=3cm]
+  \draw[thick] (0,0) -- (1,0);
+  \draw[thick] (0,-0.75) -- (0,0);
+
+  \node at (0.5,0.4) {$3$};
+
+  \node at (-0.5,-0.4) {$2$};
+  \node at (0.5,-0.4) {$7$};
+  \node[thick, red, draw, circle] at (0.5,-1.2) {$1$};
+\end{scope}
+
+
+\begin{scope}[xshift=6cm]
+  \draw[thick] (0,0) -- (1,0);
+  \draw[thick] (0,-0.75) -- (0,0);
+
+  \node at (0.5,0.4) {$1$};
+
+  \node at (-0.5,-0.4) {$2$};
+  \node at (0.5,-0.4) {$3$};
+  \node[thick, red, draw, circle] at (0.5,-1.2) {$1$};
+\end{scope}
+
+
+\begin{scope}[xshift=9cm]
+  \draw[thick] (0,0) -- (1,0);
+  \draw[thick] (0,-0.75) -- (0,0);
+
+  \node at (0.5,0.4) {$0$};
+
+  \node at (-0.5,-0.4) {$2$};
+  \node at (0.5,-0.4) {$1$};
+  \node[thick, red, draw, circle] at (0.5,-1.2) {$1$};
+\end{scope}
+
+
+
+\end{tikzpicture}

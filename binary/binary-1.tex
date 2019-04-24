@@ -1,0 +1,455 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+\begin{document}
+
+
+
+%====================================================================
+\chapitre{Binary I}
+%====================================================================
+
+\objectifs{The computers transform all data into numbers and manipulate only those numbers. These numbers are stored in the form of lists of $0$'s and $1$'s. It's the binary numeral system of numbers. To better understand this binary numeral system, you will first understand the decimal numeral system better.}
+
+\index{binary}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Base $10$ system]
+
+\index{base 10}
+
+We usually denote integers with the decimal numeral system (based on $10$). For example, $70\,685$ is 
+${\color{blue}7} \times 10\,000
++{\color{blue}0} \times 1\,000
++{\color{blue}6} \times 100
++{\color{blue}8} \times 10 
++{\color{blue}5} \times 1$ : 
+$$
+\begin{array}{|c|c|c|c|c|}
+  \hline
+  {\color{blue}7} & {\color{blue}0} & {\color{blue}6} & {\color{blue}8} & {\color{blue}5} \\ 
+  \hline\hline
+  10000 & 1000 & 100 & 10 & 1 \\\hline
+  10^4 & 10^3 & 10^2 & 10^1 & 10^0 \\
+  \hline
+\end{array}
+$$   
+(we can see that $5$ is the number of units, $8$ the number of tens, $6$ the number of hundreds\ldots). 
+
+It is necessary to understand the powers of $10$. We note $10^k$ for $10 \times 10 \times \cdots \times 10$ (with $k$ factors).
+
+$$
+\begin{array}{|c|c|c|c|c|c|c|c|}
+  \hline
+  {\color{blue}d_{p-1}} & {\color{blue}d_{p-2}}& {\color{blue}\cdots} & {\color{blue}d_i}& {\color{blue}\cdots} & {\color{blue}d_2} & {\color{blue}d_1} & {\color{blue}d_0} \\ 
+  \hline\hline
+  10^{p-1} & 10^{p-2} & \cdots & 10^i &\cdots & 10^2 & 10^1 & 10^0 \\
+  \hline
+\end{array}
+$$   
+  
+We calculate the integer corresponding to the digits $[d_{p-1},d_{p-2}, \ldots,d_2,d_1,d_0]$ by the formula :
+$$n = {\color{blue}d_{p-1}} \times 10^{p-1} + {\color{blue}d_{p-2}} \times 10^{p-2} + \cdots + {\color{blue}d_i} \times 10^{i} +  \cdots + {\color{blue}d_2} \times 10^2 + {\color{blue}d_1} \times 10^1 + {\color{blue}d_0} \times 10^0$$
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[From decimal system to integer]
+
+\objectifs{Goal: from the decimal notation, find the integer.}
+
+Write a function \ci{decimal_to_integer(list_decimal)} which from a list representing the decimal notation calculates the corresponding integer.
+  
+  \begin{fonction}[\ci{decimal_to_integer()}]
+  Use: \ci{decimal_to_integer(list_decimal)} \\\
+  Input: a list of numbers between $0$ and $9$ \\
+  Output: the integer whose decimal notation is the list
+  
+  \medskip
+  Example: if the input is \ci{[1,2,3,4]}, the output is \ci{1234}.
+  \end{fonction} 
+  
+  \emph{Hints.}  It is necessary to sum up elements of type:
+    $$d_i \times 10^{i} \quad \text{ for } 0 \le i < p$$
+    where $p$ is the length of the list and $d_i$ is the digit at rank $i$ \emph{counting from the end} (i.e. from right to left). To manage the fact that the index $i$ used for the power of $10$ does not correspond to the rank in the list, there are two solutions:
+  \begin{itemize}
+    \item understand that $d_i = $ \ci{mylist}$[p-1-i]$ where \ci{mylist} is the list of $p$ digits,
+    \item or start by reversing \ci{mylist}.    
+   \end{itemize}  
+  
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cours}[Binary]
+\sauteligne
+\begin{itemize}
+  \item \textbf{Power of 2.}
+    We note $2^k$ for $2 \times 2 \times \cdots \times 2$ (with $k$ factors). For example, $2^3 = 2 \times 2 \times 2 = 8$. 
+$$
+\begin{array}{|c|c|c|c|c|c|c|c|}
+  \hline
+  2^7  & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0 \\
+  \hline
+  128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\ 
+  \hline
+\end{array}
+$$
+\index{power of 2}
+
+  \item \textbf{Binary system: an example.}
+  
+    Integers admit a binary numeral system, i.e. a notation where the only numbers are $0$ or $1$. In binary, the digits are called \defi{bits}.\index{bits}
+     For example, $1.0.1.1.0.0.1$ (pronounce the numbers one by one) is the binary numeral system of the integer $89$. How to do this calculation? It's like the base $10$, but using the powers of $2$.
+$$
+\begin{array}{|c|c|c|c|c|c|c|}
+  \hline
+  {\color{red}1} & {\color{red}0} & {\color{red}1} & {\color{red}1} & {\color{red}0} & {\color{red}0} & {\color{red}1} \\ 
+  \hline\hline
+  64 & 32 & 16  & 8 & 4 & 2 & 1 \\\hline
+  2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0 \\
+  \hline
+\end{array}
+$$
+
+
+    So the system {\color{red}1}.{\color{red}0}.{\color{red}1}.{\color{red}1}.{\color{red}0}.{\color{red}0}.{\color{red}1} represents the integer: 
+    $${\color{red}1} \times 64  + {\color{red}0} \times 32 + {\color{red}1} \times 16  + {\color{red}1} \times 8 + {\color{red}0} \times 4 + {\color{red}0} \times 2 + {\color{red}1} \times 1 = 64 + 16 + 8 + 1 = 89.$$
+    
+    
+   \item \textbf{Binary system: formula.} 
+ 
+ 
+  $$
+\begin{array}{|c|c|c|c|c|c|c|c|}
+  \hline
+  {\color{red}b_{p-1}} & {\color{red}b_{p-2}}& {\color{red}\cdots} & {\color{red}b_i}& {\color{red}\cdots} & {\color{red}b_2} & {\color{red}b_1} & {\color{red}b_0} \\ 
+  \hline\hline
+  2^{p-1} & 2^{p-2} & \cdots & 2^i &\cdots & 2^2 & 2^1 & 2^0 \\
+  \hline
+\end{array}
+$$   
+  
+We calculate the integer corresponding to the bits $[b_{p-1},b_{p-2}, \ldots,b_2,b_1,b_0]$ as a sum of terms $b_i \times 2^i$, by the formula :
+$$n = {\color{red}b_{p-1}} \times 2^{p-1} + {\color{red}b_{p-2}} \times 2^{p-2} + \cdots + {\color{red}b_i} \times 2^i +  \cdots + {\color{red}b_2} \times 2^2 + {\color{red}b_1} \times 2^1 + {\color{red}b_0} \times 2^0$$
+  
+    \item \textbf{\Python{} and the binary.} \Python{} accepts that we directly write the integers in binary numeral system, just use the prefix \og{}\ci{0b}\fg{}.
+    Examples:
+    \begin{itemize}
+      \item with \ci{x = 0b11010}, then \ci{print(x)} displays \ci{26},
+      \item with \ci{y = 0b11111}, then \ci{print(y)} displays \ci{31},
+      \item and \ci{print(x+y)} displays \ci{57}.
+    \end{itemize} 
+ \end{itemize}     
+
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[From binary numeral system to integer]
+
+\objectifs{Goal: find the integer from a binary notation.}
+
+\begin{enumerate}
+
+  \item Calculate integers whose binary numeral system is given below. You can do it by hand or help yourself from \Python. For example $1.0.0.1.1$ is equal to $2^4+2^1+2^0 = 19$ as confirmed by the command \ci{0b10011} which returns $19$.
+  
+  \begin{itemize}
+    \item $1.1$, $1.0.1$, $1.0.0.1$, $1.1.1.1$
+    \item $1.0.0.0.0$, $1.0.1.0.1$, $1.1.1.1.1$
+    \item $1.0.1.1.0.0$, $1.0.0.0.1.1$
+    \item $1.1.1.0.0.1.0.1$
+  \end{itemize}
+  
+
+  \item Write a function \ci{binary_to_integer(list_binary)} which from a list representing binary system calculates the corresponding integer.
+  
+  \begin{fonction}[\ci{binary_to_integer()}]
+  Use: \ci{binary_to_integer(list_binary)} \\\
+  Input: a list of bits, $0$ and $1$ \\
+  Output: the integer whose binary numeral system is the list
+  
+  \medskip
+  Examples: 
+  \begin{itemize}
+    \item input \ci{[1,1,0]}, output \ci{6}
+    \item input \ci{[1,1,0,1,1,1]}, output \ci{55}
+    \item input \ci{[1,1,0,1,0,0,1,1,0,1,1,1]}, output \ci{3383}
+  \end{itemize}       
+  \end{fonction}
+  
+  \emph{Hints.} This time it is necessary to sum up elements of type:
+    $$b_i \times 2^{i} \quad \text{ for } 0 \le i < p$$
+    where $p$ is the length of the list and $b_i$ is the bit ($0$ or $1$) at rank $i$ of the list counting from the end.
+  
+  
+  \item Here is an algorithm that does the same work: it allows the calculation of the integer from the binary notation, but it has the advantage of never directly calculating powers of $2$. Program this algorithm into a \ci{binary_to_integer_bis()} function that has the same characteristics as the previous function.
+  
+  \begin{algorithme}
+  Input: \ci{mylist} : a list of $0$ and $1$ 
+  
+  Output: the associated binary number 
+
+  \begin{itemize}
+    \item Initialize a variable $n$ to $0$.
+
+    
+    \item For each element $b$ from \ci{mylist} :
+    
+     \begin{itemize} 
+       \item if $b$ is $0$, then make $n \leftarrow 2n$,
+       \item if $b$ is $1$, then make $n \leftarrow 2n+1$.
+     \end{itemize}    
+         
+    \item The result is the value of $n$.
+  \end{itemize} 
+             
+ \end{algorithme}
+ 
+\end{enumerate}
+
+\end{activite}
+  
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Base $10$ system (bis)]
+
+Of course, when you see the number $1234$ you can immediately find the list of its digits $[1,2,3,4]$. But how to do it in general from an integer $n$?
+ 
+\begin{enumerate}
+  \item We will need the Euclidean division by $10$:
+  \begin{itemize}
+    \item calculate by \ci{n \% 10} the \defi{remainder}, we also call it \defi{$n$ modulo $10$}
+    \item calculate \ci{n // 10} the \defi{quotient} of this division. 
+  \end{itemize}
+  
+\myfigure{1}{
+\tikzinput{fig-binary-1}
+}
+  
+  \item Commands with \Python{} are simply \ci{n \% 10} and \ci{n // 10}.
+  
+  Example: \ci{1234 \% 10} is equal to \ci{4}; \ci{1234 // 10} is equal to \ci{123}.
+  
+  \item
+  \begin{itemize}
+    \item The digit of the units of $n$ is obtained as the remainder modulo $10$: it is $n\%10$. Example $1234 \% 10 = 4$.
+    \item The tens figure is obtained from the quotient of $n$ per $10$, then by taking the figure of the units of this number: it is therefore $(n // 10) \% 10$.
+   Example: $1234 // 10 = 123$, then we have $123 \% 10 = 3$; the figure of tens of $1234$ is indeed $3$.
+   
+   \item For the figure of hundreds, we calculate the quotient of the division of $n$ by $100$, then we take the figure of the units.  Example $1234 // 100 = 12$ ; $2$ is the figure of the units of $12$ and it is the figure of the hundreds of $1234$. Note: dividing by $100$ means dividing by $10$, then again by $10$.
+   
+   \item For the figure of thousands we calculate the quotient of the division by $1000$ then we take the figure of the units\ldots
+   \end{itemize} 
+ \end{enumerate}     
+
+\end{cours}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Find the digits of an integer]
+
+\objectifs{Goal: decompose an integer into a list of its figures (based on $10$).}
+
+Program the following algorithm into a function \ci{integer_to_decimal()}.
+
+ 
+   \begin{fonction}[\ci{integer_to_decimal()}]
+  Use: \ci{integer_to_decimal(n)} \\
+  Input: a positive integer \\
+  Output: the list of its digits
+  
+  \medskip
+    
+  Example: if the input is \ci{1234}, the output is \ci{[1,2,3,4]}.
+  \end{fonction}
+
+
+  \begin{algorithme}
+  Input: an integer $n>0$
+
+  Output: the list of its digits 
+
+  \begin{itemize}
+    \item Start from an empty list.
+    
+    \item As long as $n$ is not zero:
+    
+     \begin{itemize} 
+       \item add $n \% 10$ at the beginning of the list,
+       \item make $n \leftarrow n//10$.
+     \end{itemize}    
+         
+    \item The result is the list.
+  \end{itemize} 
+             
+ \end{algorithme}
+ 
+  
+
+\end{activite}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{cours}[Binary system with \Python]
+
+\Python{} calculates very well the binary numeral system of an integer using the function \ci{bin()}.
+\index{bin@\ci{bin}}
+  
+   \begin{fonctionpython}[\ci{python : bin()}]
+    Use: \ci{bin(n)}\\
+    Input: an integer \\
+    Output: the binary numeral system of $n$ in the form of a string starting with \ci{'0b'}
+  
+  \medskip
+     
+   Example:
+  \begin{itemize}  
+    \item \ci{bin(37)} returns \ci{'0b100101'}
+    \item \ci{bin(139)} returns \ci{'0b10001011'}
+  \end{itemize} 
+  \end{fonctionpython}  
+   
+\end{cours}
+
+
+\begin{cours}[Binary system calculation]
+
+To calculate the binary numeral system of an integer $n$, it is the same method as to calculate the decimal numeral system but by replacing the divisions by $10$ by divisions by $2$.
+
+So we need:
+  \begin{itemize}
+    \item $n\%2$ : the remainder of the Euclidean division from $n$ to $2$ (also called $n$ modulo $2$); the remainder is either $0$ or $1$.
+    \item and $n//2$: the quotient of this division. 
+  \end{itemize}
+  
+  Note that the remainder $n\%2$ is either $0$ (when $n$ is even) or $1$ (when $n$ is odd).
+  
+  Here is a general method to calculate the binary numeral system of an integer:
+\begin{itemize}
+  \item We start from the integer whose binary notation we want.
+  
+  \item A series of Euclidean divisions by 2 are performed: 
+  \begin{itemize}
+    \item for each division, you get an remainder 0 or 1; 
+    \item we get a quotient that we divide again by 2\ldots{} We stop when this quotient is zero.
+  \end{itemize}
+  
+  \item The binary system is read as the sequence of the remainders, but starting from the last one.
+\end{itemize}
+
+\begin{exemple}
+Calculation of the binary notation of 14.
+
+\begin{itemize}
+  \item We divide 14 by 2, the quotient is 7, the remainder is 0.
+  \item We divide 7 (the previous quotient) by 2: the new quotient is 3, the new remainder is 1.
+  \item We divide 3 by 2: quotient 1, remainder 1.
+  \item We divide 1 by 2: quotient 0, remainder 1.
+  \item It's over (the last quotient is zero).
+  \item The successive remainders are 0, 1, 1, 1. we read the binary numeral system backwards, it is 1.1.1.0.  
+\end{itemize}
+
+The divisions are done from left to right, but the remainders are read from right to left.
+
+\myfigure{1}{
+\tikzinput{fig-binary-2}
+}
+\end{exemple}
+
+\begin{exemple}
+Binary system of 50.
+
+\myfigure{1}{
+\tikzinput{fig-binary-3}
+}
+
+The successive remainders are 0, 1, 0, 0, 1, 1, so the binary notation of 50 is 1.1.0.0.1.0.
+\end{exemple}
+
+
+\end{cours}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[]
+
+\objectifs{Goal: find the binary numeral system of an integer.}
+
+\begin{enumerate}
+  \item Calculate by hand the binary numeral system of the following integers. Check your results using the \ci{bin()} \Python{} function.
+  
+   \begin{itemize}
+    \item $13$, $18$, $29$, $31$,
+    \item $44$, $48$, $63$, $64$,
+    \item $100$, $135$, $239$, $1023$.
+  \end{itemize} 
+  
+  \item
+  Program the following algorithm into a function \ci{integer_to_binary()}.
+
+  \begin{algorithme}
+  Input: an integer $n>0$
+
+  Output: its binary numeral system in the form of a list
+
+  \begin{itemize}
+    \item Start from an empty list.
+    
+    \item As long as $n$ is not zero:
+    
+     \begin{itemize} 
+       \item add $n \% 2$ at the beginning of the list,
+       \item make $n \leftarrow n//2$.
+     \end{itemize}    
+         
+    \item The result is the list.
+  \end{itemize} 
+             
+ \end{algorithme}
+ 
+   \begin{fonction}[\ci{integer_to_binary()}]
+  Use: \ci{integer_to_binary(n)} \\
+  Input: a positive integer \\
+  Output: its binary notation in the form of a list
+  
+  \medskip  
+  Example: if the input is \ci{204}, the output is \ci{[1,1,0,0,1,1,0,0]}.
+  \end{fonction} 
+  
+  Make sure your functions are working properly:
+  \begin{itemize}
+    \item start with any integer $n$,
+    \item calculate its binary numeral system,
+    \item calculate the integer associated with this binary notation,
+    \item you have to find the starting integer!
+  \end{itemize}
+\end{enumerate}
+\end{activite}
+
+\end{document}

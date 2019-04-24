@@ -1,0 +1,94 @@
+\begin{tikzpicture}
+
+
+\begin{scope}
+\fill[green!70!black] (3,3) rectangle ++(1,1);
+
+
+\draw[thick] (0,0) grid ++(7,7);
+
+\node at (3.5,-0.7) {\bf The seed};
+\end{scope}
+
+
+\begin{scope}[xshift=10cm]
+
+\fill[green!70!black] (3,3) rectangle ++(1,1);
+\fill[green!70!black] (5,4) rectangle ++(1,1);
+
+\draw[->,>=latex,red,ultra thick] (5.1,4.5) -- ++(-0.8,0);
+\draw[->,>=latex,red,ultra thick] (5.9,4.5) -- ++(0.8,0);
+\draw[->,>=latex,red,ultra thick] (5.5,4.9) -- ++(0,0.8);
+\draw[->,>=latex,red,ultra thick] (5.5,4.1) -- ++(0,-0.8);
+
+\draw[->,>=latex,red,ultra thick] (5.1,4.9) -- ++(-0.5,0.5);
+\draw[->,>=latex,red,ultra thick] (5.9,4.9) -- ++(0.5,0.5);
+\draw[->,>=latex,red,ultra thick] (5.1,4.1) -- ++(-0.5,-0.5);
+\draw[->,>=latex,red,ultra thick] (5.9,4.1) -- ++(0.5,-0.5);
+
+\draw[thick] (0,0) grid ++(7,7);
+
+
+\node[text width=4.5cm,text centered] at (3.5,-1.2) {\bf A new block and its 8 possible moves};
+\end{scope}
+
+
+\begin{scope}[xshift=20cm]
+
+\fill[green!70!black] (3,3) rectangle ++(1,1);
+
+\fill[green!70!black!20] (5,4) rectangle ++(1,1);
+\fill[green!70!black] (3,2) rectangle ++(1,1);
+
+\draw[->,>=latex,red,ultra thick] (5.1,4.5) -- ++(-0.6,0)
+-- ++(0,2) -- ++(-1,-1) -- ++(-1,0) -- ++(-1,1) -- ++(1,0) -- ++(-2,-2) --++ (1,0) --++ (0,-1) -- ++(1,-1) -- ++(1,0);
+
+
+\draw[thick] (0,0) grid ++(7,7);
+
+
+\node[text width=4.5cm,text centered] at (3.5,-1.2) {\bf Random move of the block};
+\end{scope}
+
+
+\begin{scope}[xshift=4cm,yshift=-10cm]
+
+\fill[green!70!black] (3,3) rectangle ++(1,1);
+
+
+\fill[green!70!black] (3,2) rectangle ++(1,1);
+
+\fill[green!70!black!20] (1,2) rectangle ++(1,1);
+
+
+\draw[->,>=latex,red,ultra thick] (1.5,2.9) -- ++(0,0.6)
+-- ++(1,1) -- ++(-1,1) -- ++(-1,-1) -- ++(0,2) -- ++(1,0) -- ++(0,1);
+
+
+\draw[thick] (0,0) grid ++(7,7);
+
+
+\node[text width=5cm,text centered] at (3.5,-1.2) {\bf A block leaves the grid};
+\end{scope}
+
+
+\begin{scope}[xshift=16cm,yshift=-10cm]
+
+\fill[green!70!black] (3,3) rectangle ++(1,1);
+\fill[green!70!black] (3,2) rectangle ++(1,1);
+\fill[green!70!black] (1,3) rectangle ++(1,1);
+\fill[green!70!black] (4,2) rectangle ++(1,1);
+\fill[green!70!black] (4,1) rectangle ++(1,1);
+\fill[green!70!black] (2,3) rectangle ++(1,1);
+\fill[green!70!black] (2,4) rectangle ++(1,1);
+\fill[green!70!black] (2,5) rectangle ++(1,1);
+\fill[green!70!black] (3,5) rectangle ++(1,1);
+\fill[green!70!black] (5,2) rectangle ++(1,1);
+
+\draw[thick] (0,0) grid ++(7,7);
+
+
+\node[text width=5cm,text centered] at (3.5,-1.2) {\bf 10 blocks};
+\end{scope}
+
+\end{tikzpicture}

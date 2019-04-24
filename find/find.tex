@@ -1,0 +1,329 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Find and replace}
+%====================================================================
+
+\objectifs{Finding and replacing are two very frequent tasks. Knowing how to use them and how they work will help you to be more effective.}
+
+\index{find}
+\index{replace}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Find]
+
+\objectifs{Goal: learn different ways to search with \Python.}
+
+\begin{enumerate}
+  \item \textbf{The operator \og{}in\fg{}.}
+  
+  \index{in@\ci{in}}
+  
+  The easiest way to know if a substring is present in a string is to use the operator \og{}\ci{in}\fg{}. For example, the expression: 
+  \mycenterline{\ci{"NOT" in "TO BE OR NOT TO BE"}}
+  
+  is equal to \og{}True\fg{} because the substring \mot{NOT} is present in the sentence.
+  
+  Deduce a function \ci{find_in(string,substring)} that returns \og{}True\fg{} or \og{}False\fg{}, depending on whether the substring is (or is not) present in the chain.
+  
+  \item \textbf{The method \ci{find()}.}
+  
+%  \index{find@\ci{find}}
+  
+  The \ci{find()} method of \Python{} is used as \ci{string.find(substring)} and returns the position to which the substring was found. 
+  
+  Test this on the previous example. What does the function return if the substring is not found?
+ 
+   \item \textbf{The method \ci{index()}.}
+  
+  \index{index@\ci{index}}
+  
+  The \ci{index()} method has the same utility, it is used in the form \ci{string.index(substring)} and returns the position to which the substring was found. 
+
+  Test this on the previous example. What does the function return if the substring is not found?
+ 
+  
+  \item \textbf{Your function \ci{find()}.}
+  
+  Write your own function \ci{myfind(string,substring)} which returns the starting position of the substring if it is found (and returns \ci{None} if it is not).
+  
+  You are not allowed to use some functions of \Python{}, you only have the right to test if two characters are equal. 
+  
+\end{enumerate}   
+     
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Replace]
+
+\objectifs{Goal: replace portions of text with others.}
+
+\begin{enumerate}
+  \item The \ci{replace()} method is used in the form:
+  \mycenterline{\ci{string.replace(substring,new_substring)}}
+
+%  \index {replace@\ci{replace}}
+	
+	Each time the sequence \ci{substring} is found in \ci{string}, it is replaced by \ci{new_substring}.
+	
+	Transform the sentence \mot{TO BE OR NOT TO BE} into \mot{TO BE AND NOT TO BE}, then into \mot{TO HAVE AND NOT TO HAVE}.
+	
+	\item Write your own function \ci{myreplace()} which you will call in the following form:	
+  \mycenterline{\ci{myreplace(string,substring,new_substring)}}
+  
+ and which only replaces the first occurrence of \ci{substring} found. For example, \ci{myreplace("ABBA","B","XY")} returns \ci{"AXYBA"}.
+  
+  
+  \emph{Hint.} You can use your \ci{myfind()} function from the previous activity to find the starting position of the sequence to replace.
+  
+ 	\item Improve your function to build a function \ci{replace_all()} which now replaces all occurrences encountered.
+ 	    
+\end{enumerate}    
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cours}[Regular expressions \emph{regex}]
+
+\index{regex@\emph{regex}}
+\index{regular expression}
+
+The \defi{regular expressions} allow you to search for substrings with greater freedom: for example, you can allow a wildcard character or several possible choices for a character.
+There are many other possibilities, but we are only studying these two.
+
+\begin{enumerate}
+  \item We allow ourselves a joker letter symbolized by a point \og\mot{.}\fg{}. For example, if we look for the expression \og\mot{P\,.\,R}\fg{} then:
+
+\begin{itemize}
+  \item \mot{PORK}, \mot{EMPIRE}, \mot{PURE}, \mot{REPORT} contain this group (for example for \mot{PORK} the point plays the role of \mot{O}),
+  \item but not the words \mot{CAR}, \mot{POOR}, \mot{RAP}, \mot{PRICE}. 
+\end{itemize}
+
+  \item We are still looking for groups of letters, we now allow ourselves several options. For example \og\mot{[CT]}\fg{} means \og\mot{C} or \mot{T}\fg{}. Thus the letter group \og\mot{[CT]O}\fg{} corresponds to the letter group \og\mot{CO}\fg{} or \og\mot{TO}\fg{}. This group is therefore contained in \mot{TOTEM}, \mot{COST}, \mot{ACTOR} but not in \mot{BLOCK} nor \mot{VOTE}. Similarly \og\mot{[ABC]}\fg{} would mean \og\mot{A} or \mot{B} or \mot{C}\fg{}.
+
+% \item We are now looking for groups of letters that do not contain certain given letters. An exclamation mark in front of a letter means that you don't want the letter. For example \og p\!!a \fg{} corresponds to a group of letters with a \og p \fg{} followed by a letter \emph{ which is not} a \og to \fg{}. For example \mot{pitre} contains \og p\!!a \fg{} but not \mot{papa}. On the other hand \mot{papi} contains it thanks to the two letters \og pi \fg{}. Another example with \og \!!ap \fg{} : we are looking for a letter that is not a \og to \fg{} and is followed by a \og p \fg{}.
+\end{enumerate}
+
+ 
+
+\bigskip
+
+We will use regular expressions through a command: \mycenterline{\ci{python_regex_find(string,exp)}} 
+whose function is defined below.
+
+\index{module!re@\ci{re}}
+
+\begin{lstlisting}
+from re import *
+
+def python_regex_find(string,exp):
+    pattern = search(exp,string)
+    if pattern:
+        return pattern.group(), pattern.start(), pattern.end()
+    else:
+        return None
+\end{lstlisting}
+
+Program it and test it. It returns: (1) the found substring, (2) the start position and (3) the end position.
+
+\begin{fonctionpython}[\ci{python : re.search() - python_regex_find()}]
+    Use: \ci{search(exp,string)} \\
+    \hspace*{9ex} or \ci{python_regex_find(string,exp)}\\
+    Input: a string \ci{string} and a regular expression \ci{exp} \\
+    Output: the result of the search (the substring found, its start position, its end position) 
+  
+  \medskip
+     
+   Example with \ci{string = "TO BE OR NOT TO BE"}
+  \begin{itemize}  
+    \item with \ci{exp = "N.T"}, then \ci{python_regex_find(string, exp)} returns
+    \ci{('NOT', 9, 12)}.
+    \item with \ci{exp = "B..O"}, the function returns
+    \ci{('BE O', 3, 7)} (the space counts as a character).
+    \item with \ci{exp = "[NM]O"}, the function returns
+    \ci{('NO', 9, 11)}.
+    
+    
+    \item with \ci{exp = "[BC]..O[RS]"}, the function returns \ci{('BE OR', 3, 8)}.
+    
+
+  \end{itemize} 
+  \end{fonctionpython}  
+
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Regular expressions \emph{regex}]
+
+\objectifs{Goal: program the search for simple regular expressions.}
+
+\begin{enumerate}
+  \item Program your function \ci{regex_find_wildcard(string,exp)}
+  who is looking for a substring that can contain one or more wildcards \og{}\mot{.}\fg{}.
+  The function must return: (1) the found substring, (2) the start position and (3) the end position (as for the function \ci{python_regex_find()} above).
+  
+  
+  \item Program your function \ci{regex_find_choice(string,exp)}
+  who is looking for a substring that can contain one or more choices contained in tags \og{}\mot{[]}\fg{}. The function must return again: (1) the found substring, (2) the start position and (3) the end position.  
+  
+  \emph{Hint.} You can start by writing a function \ci{all_choices(exp)} that generates all possibilities from \ci{exp}. For example, if 
+  \ci{exp = "[AB]X[CD]Y"} then \ci{all_choices(exp)} returns the list formed of:
+  \ci{"AXCY"}, \ci{"BXCY"}, \ci{"AXDY"} and \ci{"BXDY"}.
+    
+\end{enumerate}   
+     
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\rzero}{{\color{red}\textbf{0}}}
+\newcommand{\run}{{\color{blue}\textbf{1}}}
+
+\begin{cours}[Replace $0$ and $1$ and start again!]
+
+We consider a \og{}sentence\fg{} composed of only two possible letters 
+\rzero{} and \run. In this sentence we will search for a pattern (a substring) and replace it with another one.
+
+\begin{exemple}
+Apply the transformation \rzero\run{} $\rightarrow$ \run\rzero{}
+to the sentence \run\rzero\run\run\rzero.
+
+We read the sentence from left to right, we find the first pattern \rzero\run{} from the second letter, we replace it with \run\rzero{}:
+\mycenterline{\run(\rzero\run)\run\rzero{} \quad $\longmapsto$ \quad \run(\run\rzero)\run\rzero}
+
+We can start again from the beginning of the sentence obtained, with always the same transformation \rzero\run{} $\rightarrow$ \run\rzero{}:
+\mycenterline{\run\run(\rzero\run)\rzero{} \quad $\longmapsto$ \quad \run\run(\run\rzero)\rzero}
+
+The pattern \rzero\run{} no longer appears in the sentence \run\run\run\rzero\rzero{} so
+the transformation \rzero\run{} $\rightarrow$\run\rzero{} now leaves this sentence unchanged.
+
+Let's summarize: here is the effect of the iterated transformation \rzero\run{} $\rightarrow$ \run\rzero{} in the sentence \run\rzero\run\run\rzero{}:
+\mycenterline{\run\rzero\run\run\rzero{} \quad $\longmapsto$ \quad \run\run\rzero\run\rzero{} \quad $\longmapsto$ \quad \run\run\run\rzero\rzero}
+\end{exemple}
+
+\begin{exemple}
+Apply the transformation \rzero\rzero\run{} $\rightarrow$\run\run\rzero\rzero{}
+to the sentence \rzero\rzero\run\run.
+
+A first time:
+\mycenterline{(\rzero\rzero\run)\run{} \quad $\longmapsto$ \quad (\run\run\rzero\rzero)\run}
+A second time:
+\mycenterline{\run\run(\rzero\rzero\run) \quad $\longmapsto$ \quad \run\run(\run\run\rzero\rzero)}
+And then the transformation no longer modifies the sentence.
+\end{exemple}
+
+\begin{exemple}
+Let's see a last example with the transformation \rzero\run{} $\rightarrow$\run\run\rzero\rzero{} for the starting sentence \rzero\rzero\rzero\run{}: 
+\mycenterline{
+\rzero\rzero\rzero\run{} \quad $\longmapsto$ \quad 
+\rzero\rzero\run\run\rzero\rzero{} \quad $\longmapsto$ \quad 
+\rzero\run\run\rzero\rzero\run\rzero\rzero{} \quad $\longmapsto$ \quad 
+\run\run\rzero\rzero\run\rzero\rzero\run\rzero\rzero{} \quad $\longmapsto$ \quad $\cdots$}
+
+We can iterate the transformation, to obtain longer and longer sentences.
+\end{exemple}
+
+
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Replacement iterations]
+
+\objectifs{Goal: study some transformations and their iterations.}
+
+We consider here only transformations of the type \rzero$^a$\run$^b$$\rightarrow$\run$^c$\rzero$^d$, i.e. a pattern with first \rzero's then \run's is replaced by a pattern with first \run's then \rzero's.
+
+
+
+\begin{enumerate}
+  \item \textbf{One iteration.}
+  
+   Using your \ci{myreplace()} function from the first activity, check the above examples. Make sure you replace only one pattern at each step (the leftmost one).
+  
+  Example: the transformation \rzero\run{} $\rightarrow$ \run\rzero{} applied to the sentence \run\rzero\run, is calculated by \ci{myreplace("101","01","10")} and returns \ci{"110"}.
+   
+  \item \textbf{Multiple iterations.}
+  
+  
+  Program a function \ci{iterations(sentence,pattern,new_pattern)} that, from a sentence, iterates the transformation. Once the sentence is stabilized, the function returns the number of iterations performed and the resulting sentence. If the number of iterations does not seem to stop (for example when it exceeds $1000$) then returns \ci{None}.
+  
+  Example. For the transformation \rzero\rzero\run\run{} $\rightarrow$ \run\run\rzero\rzero{} and the sentence \rzero\rzero\rzero\rzero\run\run\rzero\run{}, the sentences obtained are: 
+  
+{\small
+\mycenterline{
+\ \rzero\rzero\rzero\rzero\run\run\rzero\run\run{} $\underset{\mathbf{1}}{\longmapsto}$
+\rzero\rzero\run\run\rzero\rzero\rzero\run\run{} $\underset{\mathbf{2}}{\longmapsto}$
+\run\run\rzero\rzero\rzero\rzero\rzero\run\run{} $\underset{\mathbf{3}}{\longmapsto}$
+\run\run\rzero\rzero\rzero\run\run\rzero\rzero{} $\underset{\mathbf{4}}{\longmapsto}$
+\run\run\rzero\run\run\rzero\rzero\rzero\rzero{} $\longmapsto$
+\quad $\cdots$
+}
+}
+
+
+
+\medskip
+
+For this example, the call to the \ci{iterations()} function returns $4$ (the number of transformations before stabilization) and \ci{"110110000"} (the stabilized sentence).
+
+	\item \textbf{The most iterations possible.}
+	
+	Program a function \ci{max_iterations(p,pattern,new_pattern)}
+which, among all the sentences of length $p$, is looking for one of those that takes the longest to stabilize. This function returns:
+\begin{itemize}
+  \item the maximum number of iterations,
+  \item a sentence that achieves this maximum,
+  \item and the corresponding stabilized sentence.
+\end{itemize}
+
+Example: for the transformation \rzero\run{} $\rightarrow$ \run\rzero\rzero, among all the sentences of length $p=4$, the maximum number of possible iterations is $7$. Such an example of a sentence is \rzero\run\run\run, which will stabilize (after 7 iterations) in \run\run\run\rzero\rzero\rzero\rzero\rzero\rzero\rzero\rzero.
+So the command \ci{max_iteration(4,"01","100")} returns: 
+\mycenterline{\ci{7, '0111', '11100000000'}}
+
+
+  \emph{Hint.} To generate all sentences with a length of $p$ formed of \rzero{} and \run{}, you can consult the chapter \og{}Binary II\fg{} (activity 3).
+
+	\item \textbf{Categories of transformations.}
+	
+	\begin{itemize} 
+	\item \textbf{Linear transformation.}
+	Experimentally check that the transformation \rzero\rzero\run\run{} $\rightarrow$\run\run\rzero{} is \emph{linear}, i.e. for all sentences with a length of $p$, there will be at most about $p$ iterations before stabilization. For example, for $p=10$, what is the maximum number of iterations?
+	
+	\item \textbf{Quadratic transformation.}
+	Experimentally check that the transformation \rzero\run{} $\rightarrow$\run\rzero{} is \emph{quadratic}, i.e. for all sentences with a length of $p$, there will be at most about $p^2$ iterations before stabilization. For example, for $p=10$, what is the maximum number of iterations?
+	
+	\item \textbf{Exponential transformation.}
+	Experimentally check that the transformation \rzero\run{} $\rightarrow$\run\run\rzero{} is \emph{exponential}, i.e. for all sentences with a length of $p$, there will be a finite number of iterations, but that this number can be very large (much larger than $p^2$) before stabilization. For example, for $p=10$, what is the maximum number of iterations?	
+
+	\item \textbf{Transformation without end.}
+	Experimentally verify that for the transformation \rzero\run{} $\rightarrow$\run\run\rzero\rzero{}, there are sentences that will never stabilize.
+	\end{itemize}
+
+\end{enumerate}   
+     
+\end{activite}
+
+\end{document}

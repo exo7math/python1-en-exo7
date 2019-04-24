@@ -1,0 +1,215 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+%====================================================================
+\chapitre{Binary II}
+%====================================================================
+
+\objectifs{We continue our exploration of the world of $0$ and $1$.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\index{binary}
+
+
+\begin{activite}[Palindromes]
+
+\objectifs{Goal: find palindromes in binary and decimal numeral system.}
+\index{palindrome}
+
+In English a palindrome is a word (or a sentence) that can be read in both directions, for example \og{}\mot{RADAR}\fg{} or \og{}\mot{A MAN, A PLAN, A CANAL: PANAMA}\fg{}.
+In this activity, a \defi{palindrome} will be a list, which has the same elements when browsing from left to right or right to left.
+
+Examples:
+\begin{itemize}
+  \item \ci{[1,0,1,0,1]} is a palindrome (with binary numeral system),
+  \item \ci{[2,9,4,4,9,2]} is a palindrome (with decimal numeral system).
+\end{itemize}
+
+\begin{enumerate}
+
+  \item Program a function \ci{is_palindrome(mylist)} that tests if a list is a palindrome or not. 
+  
+  \emph{Hints.} You can compare the items at ranks $i$ and $p-1-i$ or use \ci{list(reversed(liste))}.
+ 
+  \item We are looking for integers $n$ such that their binary numeral system is a palindrome. For example, the binary notation of $n=27$ is the palindrome \ci{[1,1,0,1,1]}. This is the tenth integer $n$ having this property. 
+  
+  What is the thousandth integer $n\ge0$ whose binary notation is a palindrome?
+  
+  \item What is the thousandth integer $n\ge0$ whose decimal notation is a palindrome?
+  
+  For example, the digits of $n=909$ in decimal notation, form the palindrome \ci{[9,0,9]}. This is the hundredth integer $n$ having this property.
+  
+  \item An integer $n$ is a \defi{bi-palindrome} if its binary notation \emph{and} its decimal notation are palindromes. For example $n=585$ has a decimal notation which is a palindrome and also is its binary notation 
+  \ci{[1,0,0,1,0,0,1,0,0,1]}. This is the tenth integer $n$ having this property.
+  
+  What is the twentieth integer $n\ge0$ to be a bi-palindrome?
+  
+\end{enumerate}
+
+\end{activite}
+  
+   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Logical operations]
+
+\index{logic operation}
+
+We consider that $0$ represents \og{}False\fg{} and $1$ is \og{}True\fg{}. 
+\begin{itemize}
+  \item With the logical operation \og{}OR\fg{}, the result is true as soon as at least one of the two terms is true. This is written:
+  \begin{itemize}
+    \item 0 OR 0 = 0
+    \item 0 OR 1 = 1
+    \item 1 OR 0 = 1
+    \item 1 OR 1 = 1
+   \end{itemize}
+   
+  \item With the logical operation \og{}AND\fg{}, the result is true only when both terms are true. This is written:
+  \begin{itemize}
+    \item 0 AND 0 = 0
+    \item 0 AND 1 = 0
+    \item 1 AND 0 = 0
+    \item 1 AND 1 = 1
+   \end{itemize}  
+   
+  \item The logical operation \og{}NOT\fg{}, exchange true and false values:
+  \begin{itemize}
+    \item NOT 0 = 1
+    \item NOT 1 = 0
+   \end{itemize}
+   
+    \item For numbers in binary notation, these operations range from bits to bits, i.e. digit by digit (starting with the digits on the right) as one would add (without carry). 
+    
+ For example: 
+    
+ \myfigure{1}{
+\tikzinput{fig-binary-4}
+}     
+
+If the two systems do not have the same number of bits, we add non-significant $0$ on the left (example of $1.0.0.1.0$ OR $1.1.0$ on the figure at the right).
+\end{itemize}  
+  
+   
+
+\end{cours}
+
+
+\begin{activite}[Logical operations]
+
+\objectifs{Goal: program the main logical operations.}
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item Program a function \ci{NOT()}\index{not@\ci{not}} which corresponds to the negation for a given list. For example, \ci{NOT([1,1,0,1])} returns \ci{[0,0,1,0]}.
+    \item Program a function \ci{OReq()}\index{or@\ci{or}} which corresponds to \og{}OR\fg{} with two lists of equal length. For example, with \ci{mylist1 = [1,0,1,0,1,0,1]} and \ci{mylist2 = [1,0,0,1,0,0,1]}, the function returns \ci{[1,0,1,1,1,0,1]}.
+    \item Do the same work with \ci{ANDeq()}\index{and@\ci{and}} for two lists having the same length.
+  \end{enumerate}
+  
+  \item Write a function \ci{zero_padding(mylist,p)} that adds zeros at the beginning of the list to get a list of length \ci{p}.
+  Example: if \ci{mylist = [1,0,1,1]} and \ci{p = 8}, then the function returns \ci{[0,0,0,0,1,0,1,1]}.
+  
+  \item Write two functions \ci{OR()} and \ci{AND()} which correspond to the logical operations, but with two lists that do not necessarily have the same length. 
+  
+  Example:
+  \begin{itemize}
+    \item \ci{mylist1 = [1,1,1,0,1]} and \ci{mylist2 = [1,1,0]},
+    \item it should be considered that \ci{mylist2} is equivalent to the list 
+    \ci{mylist2bis = [0,0,1,1,0]} of the same length as \ci{mylist1},
+    \item so \ci{OR(mylist1,mylist2)} returns \ci{[1,1,1,1,1]},
+    \item then \ci{AND(mylist1,mylist2)} returns \ci{[0,0,1,0,0]} (or \ci{[1,0,0]} depending on your choice).
+\end{itemize}  
+  
+  \emph{Hints.} You can take over the content of your functions \ci{OReq} and \ci{ANDeq}, or you can first add zeros to the shortest list.
+\end{enumerate}
+
+\end{activite}
+
+
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[De Morgan's laws]
+
+\objectifs{Goal: generate all possible lists of $0$ and $1$ to check a proposition.}
+\index{Morgan's laws}
+
+\begin{enumerate}
+  \item \textbf{First method: use binary notation.}
+  
+  We want to generate all possible lists of $0$ and $1$ of a given size $p$. Here's how to do it:
+  \begin{itemize}
+    \item An integer $n$ runs all integers from $0$ to $2^p -1$.
+    \item For each of these integers $n$, we calculate its binary notation (in the form of a list).
+    \item We add (if necessary) $0$ at the beginning of the list, in order to get a list of length $p$.
+  \end{itemize}
+  
+  Program this method.
+  
+  Example: for $n = 36$, its binary notation is \ci{[1,0,0,1,0,0]}. If you want a list of $p=8$ bits, you add two $0$:
+   \ci{[0,0,1,0,0,1,0,0]}.
+  
+  
+  \item \textbf{Second method (optional): a recursive algorithm.}
+  
+  We want to generate again all the possible lists of $0$ and $1$ of a given size. We adopt the following procedure: if we know how to find all the lists of size $p-1$, then to obtain all the lists of size $p$, we just have to add one $0$ at the beginning of each list of size $p-1$, then to start again by adding one $1$ at the beginning of each list of size $p-1$. 
+  
+  For example, there are $4$ lists of length $2$: \ci{[0, 0]}, \ci{[0, 1]}, \ci{[1, 0]}, \ci{[1, 1]}. I deduct the $8$ lists of length $3$:
+  \begin{itemize}
+    \item $4$ lists by adding $0$ at the front: \ci{[0, 0, 0]}, \ci{[0, 0, 1]}, \ci{[0, 1, 0]}, \ci{[0, 1, 1]}, 
+    \item $4$ lists by adding $1$ at the front: \ci{[1, 0, 0]}, \ci{[1, 0, 1]}, \ci{[1, 1, 0]}, \ci{[1, 1, 1]}.
+  \end{itemize}
+  
+  This gives the following algorithm, which is a recursive algorithm (because the function calls itself).
+  \begin{algorithme}
+  Use: \ci{every_binary_number(p)}\\
+  Input: an integer \ci{p}\,$>0$\\
+  Output: the list of all possible lists of $0$ and $1$ of length \ci{p}
+
+  \begin{itemize}
+% \item If \ci{p}$=0$ send back the empty list \ci{[]}.  
+    \item If \ci{p}\,$=1$ return the list \ci{[ [0], [1] ]}.     
+    \item If \ci{p}\,$\ge2$, then:
+    \begin{itemize}
+      \item get all lists of size \ci{p-1} by the call \ci{every_binary_number(p-1)}
+      \item for each item in this list, build two new items:
+       \begin{itemize} 
+         \item on the one hand add \ci{0} at the beginning of this element;
+         \item on the other hand add \ci{1} at the beginning of this element;
+         \item then add these two items to the list of lists of size \ci{p}.
+       \end{itemize}      
+    \end{itemize}
+    
+    \item Return the list of all the lists with a size \ci{p}.
+  \end{itemize}     
+ \end{algorithme}  
+  
+    \item \textbf{De Morgan's laws.} 
+    
+    De Morgan's laws state that for booleans (true/false) or bits (1/0), we always have these properties:
+    $$\text{NOT}( b_1 \text{ OR } b_2 ) = 
+    \text{NOT}( b_1 )  \text{ AND } \text{NOT}(b_2)
+    \qquad
+    \text{NOT}( b_1 \text{ AND } b_2 ) = 
+    \text{NOT}( b_1 )  \text{ OR } \text{NOT}(b_2).$$
+    
+    Experimentally checks that these equations are still true for any list $\ell_1$ and $\ell_2$ of exactly $8$ bits.
+    
+\end{enumerate}
+
+\end{activite}
+
+\end{document}

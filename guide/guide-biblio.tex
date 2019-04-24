@@ -1,0 +1,306 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+%====================================================================
+\chapitre{Notes and references}
+%====================================================================
+
+\objectifs{You will find here comments and readings on each of the activities.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{General resources}
+
+\begin{itemize}
+%  \item \emph{Learn to program with Python 3} by Gérard Swinnen, published by Eyrolles.
+%   It is one of the reference books in French to start with. The second half of the book contains much more advanced concepts. 
+%  The book is available for free download, under the license \emph{Creative Commons BY-NC-SA}:  
+%  \mycenterline{
+%  \href{https://inforef.be/swi/python.htm}{inforef.be/swi/python.htm}
+%}
+
+  \item The official documentation of \Python{} contains tutorials and explanations of each of the functions. 
+  % Unfortunately some pages are in English  
+  \mycenterline{
+\href{https://docs.python.org/3/}{docs.python.org/3/}
+}  
+
+  \item \emph{Wikipedia} is a reliable source for learning more about some concepts (mainly projects) but the level is not always suitable for a high school student.
+  
+  \item \emph{Internet} and in particular the forums often have the answer to the questions you ask yourself! 
+  
+  \item The most experienced among you can participate in the \emph{Euler project} which offers a list of mathematics-with-computer puzzles. Hang on! Hang on!  
+  \mycenterline{
+  \href{https://projecteuler.net/}{projecteuler.net}
+}  
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Hello world}
+
+Learning a programming language can be very difficult. It's hard enough to learn alone in your own corner. It is not uncommon to stay blocked for several hours for a stupid syntax error. You have to start small, don't hesitate to copy code already written by others, be persistent and ask for help quickly!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Turtle (Scratch with Python)}
+
+The ideal is to master \emph{Scratch} before attacking \Python{}.
+%For those who skipped \emph{Scratch}, there are activities \emph{Scratch in college}. The book and videos are available here:
+%\mycenterline{
+%\href{http://exo7.emath.fr/}{exo7.emath.fr} \qquad and \qquad  
+%\href{https://www.youtube.com/ScratchAuCollege}{youtube.com/ScratchAuCollege}
+%}
+\Python{} offers a module \emph{Turtle} that works on the same principle as  \emph{Scratch}.
+Of course instead of moving blocks, you have to write the code!
+It is a good exercise to transcribe into \Python{} all the activities you can do with \emph{Scratch}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{If ... then ...}
+
+We really start the programming with the test \og{}if/else\fg{}.
+The computer therefore acts in one way or another depending on the situation. It is no longer an automaton that always does the same thing. In addition to the keyboard entry, we can start having interactive programs.
+
+The classic syntax errors are:
+\begin{itemize}
+  \item forget the colon after \ci{if condition:} or \ci{else:},
+  \item incorrectly indent the blocks.
+\end{itemize}
+These errors will be reported by \Python{} with the line number where there is a problem (normally your editor places the cursor on the wrong line).
+On the other hand, if the program starts but does not do the right thing, it is surely the condition that is incorrectly formulated. It is more complicated to understand the right condition: a little logic and reflection with paper and pencil are welcome. 
+Some editors also allow a step-by-step execution of the \Python{} program.
+
+We will then come back to the \og{}true\fg{} and the \og{}false\fg{}.
+There is also the test
+\mycenterline{\ci{if ... elif ... elif ... else ...}}
+which allows you to run the tests in sequence and which is not covered here. 
+Understanding \ci{if ... else ...} is enough.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Functions}
+
+Quite quickly it is necessary to understand the structure of a computer program: the program is broken down into blocks of definitions and simple actions. Simple actions are grouped into intermediate actions. And at the end the main program is just to perform some good functions.
+
+The arguments/parameters of a function are a delicate learning process.
+You can define a function by \ci{def func(x):} and call it by
+\ci{func(y)}. The \ci{x} corresponds to a dummy mathematical variable. 
+In computing, we prefer to talk about the \defi{scope} of the variable which can be local or global.
+
+What we can remember is that nothing that happens within a function is accessible outside the function. You just have to use what the function returns.
+It is necessary to avoid the use of \ci{global} in the first instance.
+
+Last but not least, it is really important to comment extensively on your code and explain what your functions are doing. If you define a function \ci{func(x)}, plan three lines of comments to (a) say what this function does, (b) say what input is expected (\ci{x} must be an integer? a floating point number ? positive?\ldots), (c) say what the function returns.
+
+It is also necessary to comment on the main points of the code, give well-chosen names to the variables. You'll be happy to have a readable code when you come back to your code again later!
+
+A good computer scientist should check that the parameter passed as an argument verifies the expected hypothesis. For example if \ci{func(x)} is defined for an integer \ci{x} and the user transmits a string, then a nice warning message should be sent to the user without causing the whole program to fail.
+The commands \ci{assert}, \ci{try/except} allow to manage this kind of problem. 
+For our part, we will refrain from these checks assuming that the user/programmer uses the functions and variables in good intelligence.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Arithmetic -- While loop -- I}
+
+We will only use \Python3. If you don't know which version you have, type
+\ci{7/2}: \Python3 returns \ci{3.5} while \Python2 returns \ci{3} (in version 2, \Python{} considered that the division of two integers should return an integer).
+
+With \Python3 it is clearer, \ci{a / b} is the usual division (real numbers) while \ci{a // b} is the Euclidean division between two integers and returns the quotient.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Strings -- Analysis of a text}
+
+Handling the strings allows you to do fun activities and leave the mathematical world a little bit. You can code quizzes, programs that chat with the user\ldots{}
+Strings are especially a good introduction to the notion of list, which is an essential tool later on.
+
+%For those who like cryptography, it's very nice to program the ciphers of Caesar, Vigenère, with secret keys\ldots{} What's even nicer is to automate the decryption of encrypted messages as if you were a spy. With a little logic and a good frequency analysis it's easy!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lists I}
+
+\Python{} is particularly flexible and agile for using lists.
+The \og{}old\fg{} languages often only allowed lists containing a single type of element, and to browse a list you always had to do this:
+\begin{lstlisting}
+for i in range(len(mylist)):
+    print(mylist[i])
+\end{lstlisting}  
+While:
+\begin{lstlisting}
+for element in mylist:
+    print(element)
+\end{lstlisting} 
+is much more natural.
+
+Sorting a list is a fundamental operation in computer science. Would you imagine a dictionary containing $60\,000$ words, but not sorted in alphabetical order?
+Sorting a list is a difficult operation, there are many sorting algorithms. The bubble sort algorithm presented here is one of the simplest. Programming faster algorithms in high school is a great challenge: you have to understand recursivity and the notion of complexity.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Statistics -- Data visualization}
+
+If all readers can program the calculations of sum, mean, standard deviation, median\ldots{} and their visualization, then the objective of this book is achieved! This demonstrates a good understanding of basic mathematical and computer tools.
+
+The \ci{tkinter} module allows a graphic display. To begin with, you have to copy the lines of a code that works without asking yourself too many questions, then adapt it to your needs.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Files}
+
+The files make it possible to communicate \Python{} with the outside world: for example, you can retrieve a file of grades to calculate the averages and produce a report card for each student.
+% For the more advanced among you the files are a good opportunity to use error handling with \ci{try/except}.
+
+The activities on the images are nice and these image formats will be used later, even if this format has the big disadvantage of producing large files. Nevertheless they are standard and recognized by image software (\emph{Gimp} for example). Note that some software writes files with only one data per line (or all data on a single line). It is a good exercise to implement the reading of all possible formats.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Arithmetic -- While loop -- II}
+
+Arithmetic in general and prime numbers in particular are very important in computer science. They are the foundation of modern cryptography and ensure the security of transactions on the Internet.
+
+The algorithms presented here are of course elementary. There are sophisticated techniques to say in a few seconds if a number of several hundred digits is prime or not. However, factoring a large integer remains a difficult problem.
+
+A computer shows its power when it handles a large quantity of numbers or very large numbers. With arithmetic, we have both at the same time!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Binary I}
+
+The first difficulty with binary notation is to make a good distinction between a number and writing the number. We are so used to decimal numeral system that we forgot its origin, $1234$ is just $1\times 1000 + 2 \times 100 + 3 \times 10 + 4\times 1$.
+As computers work with $0$ and $1$ you have to be comfortable with binary numeral system. The transition to binary notation is not very difficult, but it is still better to make a few examples by hand before starting the programming.
+
+Binary writing will be used for other problems on the following principle: you have $4$ switches so $1.0.0.1$ means that you activate the first and last switch and not the others.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lists II}
+
+Lists are so useful that \Python{} has a whole efficient syntax to manage them: list slicing and list comprehension. We could of course do without it (which is the case for most other languages) but it would be a pity.
+We will also need lists of lists and in particular arrays to display beautiful images.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Binary II}
+
+There are $10$ kinds of people, those who understand binary and others!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Probabilities - Parrondo's paradox}
+
+Here is a project with some probabilities and a nice paradox, it's surprising (like all paradoxes) and have been recently discovered.
+This activity is based on the article \og{}Parrondo's paradox\fg{} by Hélène Davaux (\emph{La gazette des mathématiciens}, 2017).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Find and replace}
+
+Searching and replacing are two actions so common that you don't always realize how strong they are.
+First of all, it is a good exercise to program the search and replacement operations yourself. There is a sophisticated version of these operations called regular expressions (\emph{regex}). It is a language in its own right, very powerful, but a little esoteric.
+
+There is also the mathematics of \og{}find/replace\fg{}! The proposed activities are examples that illustrate the main theorem of the article \emph{A complete characterization of termination of $0^p1^q \rightarrow 1^r0^s$}, by H.~Zantema and A.~Geser (\emph{AAECC}, 2000).
+% which is introduced by Pierre Lescanne on the site \og{}Images de mathématiques\fg{}: \href{http://images.math.cnrs.fr/Est-ce-que-ca-s-arrete.html}{Does it stop? }
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Polish calculator -- Stacks}
+
+Polish notation (the exact name is \og{}reverse Polish notation\fg{}) is another way to write algebraic operations. Once again, the hardest part is to adapt your brain to this change in writing. This allows operations (and their priorities) to be seen in a new light. Another interesting vision is to see an operation in the form of a binary tree:
+
+\myfigure{0.5}{
+\tikzinput{fig-arbre}
+}
+which represents $(5 + 4) \times 3$ or in Polish notation $5 \ 4 \ +\  3 \ \times$.
+
+We have tried to postpone as much as possible the change of a global variable in a function, but here it is natural. The use of \ci{global} is to be avoided in general.
+
+The notion of a stack is a very simple way to structure and access data.
+However, this is the right way to manage an expression with brackets. The analogy with the sorting station should be illuminating. 
+We will find the stacks again in the activity on L-systems.
+
+
+A stack works on the principle of \og{}first in, last out\fg{} (\emph{filo}). Another possible data management is on the principle \og{}first in, first out\fg{} (\emph{fifo}) as in a queue.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Text viewer -- Markdown}
+
+The purpose of this chapter is twofold: to discover the \emph{Markdown} which is a very practical language for formatting a text, but also to understand the justification of a paragraph.
+
+Obviously the \emph{Markdown} language has more tags than those presented here. We could continue the project by doing the justification with fonts of different sizes and shapes, or even create a complete small word processor.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{L-systems}
+
+We come back to the theme \og{}find/replace\fg{} but this time with a geometric vision. The figures obtained are beautiful, easy to program using the turtle, but the most beautiful is to see in live the layout from the L-systems.
+For L-systems defined by expressions containing brackets, we find again the notion of stacks. 
+
+The formulas are taken from the book \emph{The algorithmic beauty of plants}, by 
+P.~Prusinkiewicz and A.~Lindenmayer (Springer-Verlag, 2004) with free access here:
+\href{http://algorithmicbotany.org/papers/abop/abop.pdf}{\emph{The algorithmic beauty of plants} (pdf)}.
+
+The illustrations that begin each part of this book are iterations of the L-system called the Hilbert curve and defined by:
+\mycenterline{
+\ci{start = "X"}
+\quad
+\ci{rule1 = ("X","lYArXAXrAYl")}
+\quad
+\ci{rule2 = ("Y","rXAlYAYlAXr")}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dynamic images}
+
+
+This activity is based on the article \og{}Blurred images, recovered images\fg{} by Jean-Paul Delahaye and Philippe Mathieu (\emph{Pour la science}, 1997). This article also looks at the calculation of the number of iterations required to find the original image. The underlying mathematical notion is that of \emph{permutation}: a one-to-one transformation of a finite set (here the set of pixels) into itself.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Game of life}
+
+A great classic of fun computing! There are dozens of sites on the Internet with buildings having incredible properties and many other ideas. But the most fascinating thing is that extremely simple rules lead to complex behaviors that resemble the life and death of cells.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ramsey graphs and combinatorics}
+
+Graphs are very common objects in mathematics and computer science.
+The problem presented here is simple and fun. But what we may have to remember from this chapter is how the difficulty increases with the number of vertices. 
+Here we do the calculations up to $6$ vertices and we can't go much further with our exhaustive verification method.
+
+
+A great mathematician Paul Erd\"os stated that if aliens landed on Earth threatening to destroy our planet unless we could solve the problem of $5$ friends/$5$ foreigners, then by mobilizing all the computers and mathematicians in the world we would manage to get by (we know that the answer is between $43$ and $48$ people). On the other hand, if the aliens asked us to solve the problem for $6$ friends/$6$ foreigners, then the easiest thing would be to prepare for war!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bitcoin}
+
+Before investing all your savings in bitcoins it is better to understand how it works! The activities presented here are intended to present a (very) simplified version of the blockchain that is the basis of this virtual currency. The principle of the blockchain and the proof of work are not so complicated.
+
+%, you will find more detailed explanations in Jean-Paul Delahaye's articles published in the journal \emph{Pour la science}:
+%\begin{itemize}
+%  \item Bitcoin, cryptomonnaie (2013) 
+%  \href{http://www.lifl.fr/~jdelahay/pls/2013/241.pdf}{\small (www.lifl.fr/$\sim$jdelahay/pls/2013/241.pdf)}
+%  \item Proof of work (2014) 
+%  \href{http://cristal.univ-lille.fr/$\sim$jdelahay/pls/2014/245.pdf}{\small (cristal.univ-lille.fr/\~jdelahay/pls/2014/245.pdf)}
+%  \item From Bitcoin to Ethereum: the computer-world (2016)
+%  \href{http://cristal.univ-lille.fr/$\sim$jdelahay/pls/2016/276.pdf}{\small (cristal.univ-lille.fr/\~jdelahay/pls/2016/276.pdf)}
+%\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Random blocks}
+
+These random constructions are first of all computer recreations that produce pretty figures, all similar but all different. But they are also the subject of modern and difficult mathematical work. Martin Hairer won the Fields Medal in 2014 for studying the upper boundary of our falling blocks, whose shape is governed by an equation, called \og{}KPZ equation\fg{}.
+A good bonus activity would be to drop blocks of the game \emph{Tetris} instead of small squares.
+
+\end{document}

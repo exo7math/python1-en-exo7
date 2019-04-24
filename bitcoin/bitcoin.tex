@@ -1,0 +1,462 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Bitcoin}
+%====================================================================
+
+\objectifs{The \emph{bitcoin} is a dematerialized and decentralized currency. It is based on two computer principles: public key cryptography and proof of work. To understand this second principle, you will create a simple model of bitcoin.}
+
+\index{bitcoin}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Proof of work]
+
+\objectifs{Goal: understand what \og{}proof of work\fg{} means by studying a simple model. This activity is independent of the rest of the chapter. The idea is to find a problem that is difficult to solve but easy to check. Like sudokus for example: it only takes ten seconds to check that a grid is filled correctly, but it took more than ten minutes to solve it.}
+
+\index{proof of work}
+
+The mathematical problem is as follows: you are given a prime number $p$ and an integer $y$; you must find an integer $x$ such that:
+$$x^2 = y \pmod{p}$$
+In other words, $x$ is a square root of $y$ modulo $p$.
+Be careful, there is not always a solution for $x$. 
+
+\textbf{Examples.}
+\begin{itemize}
+  \item For $p=13$ and $y = 10$, then a solution is $x = 6$: because $x^2 = 6^2 = 36$ and $36 = 2\times 13 + 10$ so $x^2 = 10 \pmod{13}$.
+  
+  \item The solution is not necessarily unique. For example, check that $x=7$ is also a solution.
+  
+  \item There is not always a solution, for example for $p=13$ and $y=5$, no integer $x$ is a solution.
+  
+  \item Exercise: for $p = 13$, find by hand two solutions $x$ to the problem $x^2 = 9 \pmod{13}$; find a solution $x$ to the problem $x^2 = 3 \pmod{13}$.
+  
+\end{itemize}
+
+
+The prime number $p$ is fixed for all the activity. 
+For easy examples we will take $p = 101$, for medium examples $p = 15\,486\,869$ and for difficult examples $p = 2\,276\,856\,017$. The larger the integer $p$ is, the more difficult it is to obtain proof of work.
+
+\begin{enumerate}
+  \item \textbf{Verification (easy).} 
+  Write a function \ci{verification(x,y)} that returns \og{}True\fg{} if $x$ is the solution to the problem $x^2 = y \pmod{p}$ and \og{}False\fg{} otherwise.
+  
+  Check that $x = 6\,543\,210$ is the solution when $y = 8\,371\,779$ and $p = 15\,486\,869$. Display the calculation time required for this verification. (See the explanations after this activity.)
+  
+  \item \textbf{Search for a solution (difficult).} To find a solution $x$, there is really no other choice for us than to test all $x$ starting with $x=0$, $x=1$\ldots{}
+Program a \ci{square_root(y)} function that returns a solution $x$ to the problem for a given $y$ (or \ci{None} if there is no solution).
+
+  \begin{itemize}
+    \item For $p = 101$ and $y=17$, find $x$ such as $x^2 = y \pmod{p}$. 
+    \item For $p = 15\,486\,869$ and $y = 8\,371\,779$, you must find the $x$ of the first question. How long did the search take? 
+    
+    \item For $p = 15\,486\,869$ and $y = 13\,017\,204$, find $x$ such as $x^2 = y \pmod{p}$.    
+   \end{itemize}
+
+
+\medskip
+
+\emph{Conclusion: we found a problem that was difficult to solve, but for which it is easy to check that a given solution is suitable. For higher values of $p$, the search for a solution $x$ can be much too long and not succeed. We'll see how we can adjust the difficulty of the problem.}
+
+
+	\item Instead of looking for an exact solution to our problem $x^2 = y \pmod{p}$, which is equivalent to $x^2-y \pmod{p} = 0$, we are looking for an approximate solution, i.e. one that checks: $$x^2 - y \pmod{p} \ \le m.$$
+	For example if $m=5$, then you can have (modulo $p$) : $x^2 - y = 0$, $x^2 - y = 1$,
+	$x^2-y = 2$,\ldots{} or $x^2-y=5$. 
+	Of course there are now many possible solutions $x$
+	
+	Program a function \ci{approximate_square_root(y,margin)} that finds an approximate solution to our problem $x^2 = y \pmod{p}$.
+	
+	How long does it take to find one solution to the problem when $p = 15\,486\,869$, $y = 8\,371\,779$ and $m=20$?
+	Choose a prime number $p$ large enough and find a margin of error $m$ so that finding a solution to the approximate problem requires about 30 to 60 seconds of calculations (for any $y$).
+
+\end{enumerate}
+  
+
+Here are some examples of prime numbers you can use for your tests:
+$$101 \quad
+1097 \quad
+10651 \quad
+100109 \quad
+1300573 \quad
+15486869$$
+$$179426321 \quad  
+2276856017 \quad 
+32416187567$$
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Stopwatch]
+
+\index{calculation time}
+\index{module!time@\ci{time}}
+\index{time@\ci{time}}
+
+The \ci{time} module allows you to measure the execution time but also to know the date and time (see also the \ci{timeit} module explained in the \og{}Arithmetic -- While loop -- I\fg{}).
+Here is a small script to measure the calculation time of an instruction. 
+
+\begin{lstlisting}
+import time
+
+start_chrono = time.time()
+
+time.sleep(2)
+
+end_chrono = time.time()
+
+total_chrono = end_chrono - start_chrono
+print("Execution time (in seconds):", total_chrono)
+\end{lstlisting}
+
+
+\textbf{Explanations.}
+\begin{itemize}
+  \item The module is named \ci{time}.
+  \item The function that returns the time is also named \ci{time()}, so we call it by \ci{time.time()}!
+  \item The function \ci{time()} returns a number that we are not interested in. What interests us is the difference between two values of this function. 
+  \item \ci{start_chrono = time.time()} is like starting a stopwatch.
+  \item \ci{end_chrono = time.time()} is like stopping it.
+  \item \ci{total_chrono = end_chrono - start_chrono} is the total time taken by our script in seconds.
+  \item The \ci{time.sleep(duration)} function pauses the program for a certain amount of seconds.
+\end{itemize}
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Bitcoin and blockchain]
+
+The bitcoin is a dematerialized currency. Transactions are recorded in a ledger called \emph{blockchain}.\index{blockchain} We will build a (very simplified) model of such an account book.
+
+
+Imagine a group of friends who want to share the group's expenses in the simplest possible way. At the beginning everyone has 1000 bitcoins and everyone's expenses and income are recorded as they go along. 
+At the end of the holidays, they will regularize the situation.
+
+The list of expenses/revenues is noted in the account book, for example:
+\begin{itemize}
+  \item \og{}Amir spent 100 bitcoins\fg{}
+  \item \og{}Barbara received 45 bitcoins\fg{}
+  \item etc.
+\end{itemize}
+Just look through the account book to see how much everyone has received or spent since the beginning.
+
+\bigskip
+
+To prevent someone from falsifying the account book, after each transaction a certification based on a proof of work is added to the book.
+Here is what is written in the ledger:
+\begin{enumerate}
+  \item We start with any initial proof of work. For us it will be 
+  \ci{[0,0,0,0,0,0]}.
+  \item The first transaction is written (for example \ci{"Amir -100"}).
+  \item A proof of work is calculated and written in the book, which will serve as a certificate. It's a list
+  (for example \ci{[56,42,10,98,2,34]}) obtained after many calculations taking into account the previous transaction and the previous proof of work.
+  \item For each new transaction (for example \ci{"Barbara +45"}), someone calculates a proof of work for the last transaction associated with the previous proof. We write the transaction, then the proof of work.
+\end{enumerate}
+
+\myfigure{0.5}{
+\tikzinput{fig-bitcoin-4}
+}  
+
+
+The proof of work that is calculated depends on the previous transaction but also on the previous proof of work, which itself depends on the previous data... Thus, each new proof of work actually depends on everything that has been written since the beginning (even if the calculation explicitly refers only to the last two entries).
+
+Someone who would like to fake a past transaction should recalculate all the proofs of work that come next. This is not possible for a single person: there are several proofs of work to calculate and each proof requires a lot of calculations.
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Tools for lists]
+
+\objectifs{Goal: build useful functions to manipulate lists of integers for the following activities.}
+
+Our lists are lists of integers between $0$ and $99$.
+
+\begin{enumerate}
+  \item Program a function \ci{addition(mylist1,mylist2)} that adds term to term and modulo $100$, the elements of two lists of the same length. 
+  For example, \ci{addition([1,2,3,4,5,6],[1,1,1,98,98,98])} returns \ci{[2,3,4,2,3,4]}.
+  
+  \item We will look for lists that start with zeros (or zeros and then rather small numbers).  A list \ci{mylist} is smaller than the \ci{max_list} list if each element of \ci{mylist} is less than or equal to each element of the same rank of \ci{max_list}.
+  
+  For example, the list \ci{[0,0,1,2,3,4]} is smaller than the list \ci{[0,0,5]}.
+  This is not the case with the \ci{[0,10,0,1,1]} list.
+  Another example: being smaller than the list \ci{[0,0,0]} means starting with three zeros. Being smaller than the list \ci{[0,0,1]} means starting with \ci{[0,0,0]} or \ci{[0,0,1]}.
+  
+  Program a function \ci{is_smaller(mylist,max_list)} that returns \og{}True\fg{} when \ci{mylist} is smaller than \ci{max_list}.
+
+  \item We will need to transform a sentence into a list of numbers. In addition, we will split our lists into blocks of size $N$ (with $N=6$), hence we add zeros at the beginning of the list so that its length is a multiple of $N$.
+  
+  Write a function \ci{sentence_to_list(sentence)} that converts a string into a list of integers between $0$ and $99$ and if necessary adds leading zeros so that the list has the correct size. 
+  
+  The formula to use to convert a character to an integer strictly less than $100$ is:  
+  \mycenterline{\ci{ord(c) \% 100}}  
+  
+  For example: if \ci{sentence = "Be happy\!"} then the function returns:   
+\mycenterline{\ci{[0, 0, 0, 66, 1, 32, 4, 97, 12, 12, 21, 33]}}
+
+
+
+The character \ci{"e"} has ASCII/unicode code $101$ so, modulo $100$, the number is $1$. Note that the function adds three $0$'s at the beginning of the list to have a length that is a multiple of $N=6$.
+  
+\end{enumerate}   
+     
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Hash function]
+
+\objectifs{Goal: create a hash function. From a long message we calculate a short footprint. It's hard to find two different messages with the same footprint.}
+
+\index{function!hash}
+\index{hash}
+
+In this activity, our message is a list of integers (between $0$ and $99$) of any length that is a multiple of $N=6$. We transform it into a list of length $N=6$: its footprint, named \emph{hash}. Here are some examples of what our hash function will do:
+\begin{itemize}	
+  \item the list \ci{[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]} has a hash:  
+  \mycenterline{\ci{[10, 0, 58, 28, 0, 90]}}
+  
+  \item the list \ci{[1, 1, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]} has a hash:  
+  \mycenterline{\ci{[25, 14, 29, 1, 19, 6]}}
+\end{itemize}  
+  
+ The idea is to mix the numbers per block of $N=6$ integers, then combine this block with the next and start again, until you get a single block.
+\begin{enumerate}
+
+
+  \item \textbf{One round.} 
+  
+  For a block $[b_0,b_1,b_2,b_3,b_4,b_5]$ of size $N=6$, \emph{doing a round} consists in making the following operations:
+  \begin{enumerate}
+    \item We add some integers: 
+    $$[b_0',b_1',b_2',b_3',b_4',b_5'] = [b_0,b_1+b_0,b_2,b_3+b_2,b_4,b_5+b_4]$$
+    
+    \item We multiply these integers by prime numbers (in order $7,11,13,17,19,23$) and add $1$:
+    $$[b_0'',b_1'',b_2'',b_3'',b_4'',b_5''] = [7 \times b_0'+1,11\times b_1'+1,13\times b_2'+1,17 \times b_3'+1,19 \times b_4'+1,23 \times b_5'+1]$$
+    
+    \item We make a circular permutation (the last one goes first):
+    $$[b_0''',b_1''',b_2''',b_3''',b_4''',b_5'''] = [b_5'',b_0'',b_1'',b_2'',b_3'',b_4'']$$
+    
+    \item We reduce each integer modulo $100$ to get integers between $0$ and $99$.
+  \end{enumerate}
+
+
+\myfigure{0.7}{
+\tikzinput{fig-bitcoin-1}
+}  
+
+  
+  Starting from the block $[0, 1, 2, 3, 4, 5]$, we have successively:
+   \begin{enumerate}
+    \item additions: $[0, 1, 2, 5, 4, 9]$
+    
+    \item multiplications: $[7\times 0 + 1, 11\times 1+1, 13\times 2+1, 17 \times 5+1,19 \times  4+1, 23 \times 9+1] = [1,12,27,86,77,208]$ 
+    
+    \item permutation: $[208,1,12,27,86,77]$
+    
+    \item reduction modulo $100$: $[8,1,12,27,86,77]$
+  \end{enumerate}
+  
+  Program such a function \ci{one_round(block)} which returns the transformation of the block after these operations. Verifies that the block $[1, 1, 2, 3, 4, 5]$ is transformed into $[8, 8, 23, 27, 86, 77]$.
+ 
+    \item \textbf{Ten rounds.} 
+    
+    To mix each block well, program a \ci{ten_rounds(block)} function that iterates ten times the previous operations.
+    After $10$ rounds:
+    \begin{itemize}
+      \item the block $[0, 1, 2, 3, 4, 5]$ becomes $[98, 95, 86, 55, 66, 75]$,
+      \item the block $[1, 1, 2, 3, 4, 5]$ becomes $[18, 74, 4, 42, 77, 42]$.
+    \end{itemize}
+ Two nearby blocks are transformed into two very different blocks! 
+   
+   \item \textbf{Hash of a list.} 
+   
+   Starting from a list of length a multiple of $N=6$, it is split into blocks of length $6$ and the hash of this list is calculated according to the following algorithm:
+   \begin{itemize}
+     \item The first block of the list is extracted, then mixed by $10$ rounds.
+     \item We add term to term (and modulo $100$), the result of this mix to the second block.
+     \item We start again from the new second block.
+     \item When there is only one block left, we do $10$ rounds, the result is the hash of the list.
+   \end{itemize}
+ 
+ 
+Here is the diagram of a situation with three blocks: first there are three blocks (A, B, C); secondly there are only two blocks (B' and C) left; at the end there is only one block (C''): this is the hash!
+\myfigure{0.5}{
+\tikzinput{fig-bitcoin-2}
+}  
+  
+  
+  Example with the list $[0,1,2,3,4,5,1,1,1,1,1,1,10,10,10,10,10,10]$.
+  \begin{itemize}
+    \item The first block is $[0,1,2,3,4,5]$, its mix after $10$ rounds is    $[98, 95, 86, 55, 66, 75]$. 
+    \item This mix is added to the second block $[1,1,1,1,1,1]$ (see function \ci{addition()} in activity 2).
+    \item The remaining list is now $[99,96,87,56,67,76,10,10,10,10,10,10]$.
+    \item Let's do it again. The new first block is $[99,96,87,56,67,76]$, its mix after $10$ rounds is $[60, 82, 12, 94, 6, 80]$, it is added to the last block $[10,10,10,10,10,10$] to get (modulo $100$) $[70,92,22,4,16,90]$.
+    \item A last mix is made with $10$ rounds to obtain the hash: $[77, 91, 5, 91, 89, 99]$.
+   \end{itemize}
+   
+   Program a \ci{bithash(mylist)} function that returns the fingerprint of a list. Test it on the examples given at the beginning of the activity.
+\end{enumerate}   
+     
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Proof of work - Mining]
+
+\objectifs{Goal: build a proof of work mechanism using our hash function.}
+
+\index{mining}
+
+We are going to build a complicated problem to solve, for which, if someone gives us the solution, then it is easy to check that it is correct.
+
+\medskip
+
+\textbf{Problem to solve.} We are given a list, it is a matter of finding a block such that, when you add it to the list, it produces a hash starting with zeros.
+More precisely, given a list \ci{mylist} and a maximum target of \ci{max_list}, we have to find a block  \ci{proof} which, concatenated to the list and then hashed, is smaller than the list of \ci{max_list}, i.e.: 
+\mycenterline{\ci{bithash(mylist + proof)} \ smaller than \ \ci{max_list}}
+
+The list is of any length (a multiple of $N=6$), the proof is a block of length $N$, the objective is to find a list starting with $0$ (see activity 2).
+
+\medskip
+
+For example: let \ci{mylist = [0,1,2,3,4,5]} and \ci{max_list = [0,0,7]}. Which block \ci{proof} can I concatenate to \ci{mylist} to solve my problem?
+\begin{itemize}
+  \item \ci{proof = [12,3,24,72,47,77]} is appropriate because concatenated to our list it gives \ci{[0,1,2,3,4,5,12,3,24,72,47,77]} and the hash of this whole list gives
+  \ci{[0,0,5,47,44,71]} which starts with \ci{[0,0,5]} smaller than the target.
+
+  \item \ci{proof = [0,0,2,0,61,2]} is also suitable because after concatenation we have 
+  \ci{[0,1,2,3,4,5,0,0,2,0,61,2]} whose hash gives \ci{[0,0,3,12,58,92]}.
+  
+  \item \ci{[97,49,93,87,89,47]} is not suitable, because after concatenation and hashing we get 
+  \ci{[0,0,8,28,6,60]} which is greater than the desired objective.
+\end{itemize}
+
+\bigskip
+
+\begin{enumerate}
+  \item \textbf{Verification (easy).} 
+  
+  Program a function \ci{verification_proof_of_work(mylist,proof)} that returns true if the proposed solution \ci{proof} is suitable for \ci{mylist}. Use the \ci{is_smaller()} function of activity 2.
+  
+  \item \textbf{Search for a solution (difficult).}
+  
+  Program a function \ci{proof_of_work(mylist)} that looks for a block \ci{proof} solution to our problem for the given list. 
+  
+  
+  \emph{Hints.}
+  
+  \begin{itemize}
+    \item The easiest method is to take a block \ci{proof} of random numbers and start again until a solution is found.
+    
+    \item You can also systematically test all blocks starting with \ci{[0,0,0,0,0,0]}, then \ci{[0,0,0,0,0,1]}\ldots{} and stop at the first appropriate one.
+    
+    \item You adjust the difficulty of the problem by changing the objective: easy with \ci{Max = [0,0,50]}, medium with \ci{max_list = [0,0,5]}, difficult with \ci{max_list = [0,0,0]}, too difficult with \ci{max_list = [0,0,0,0]}.
+    
+    \item As there are several solutions, you do not necessarily get the same solution for each search. 
+    
+   \end{itemize}
+   
+   \item \textbf{Calculation time.}
+   
+   Compare the calculation time of a simple check against the time of searching for a solution. Choose the objective \ci{max_list} so that the search for a proof of work requires about 30 to 60 seconds of calculations.
+  
+\end{enumerate}  
+
+For the bitcoin, those who calculate proofs of work are called the \emph{minors}. The first one to find a proof wins a reward. The difficulty of the problem is adjusted so that 
+that the calculation time taken by the winner (among all the minors) to find a solution is about $10$ minutes.
+
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Your bitcoins]
+
+\objectifs{Goal: create an account book (called \emph{blockchain} for the bitcoin) that records all transactions, this register is public and certified. It is practically impossible to falsify a transaction that has already been registered.}
+
+
+\myfigure{0.5}{
+\tikzinput{fig-bitcoin-3}
+}  
+
+\begin{enumerate}
+  \item \textbf{Initialization and addition of a transaction.}
+  
+  \begin{enumerate}
+    \item Initialize a global variable \ci{blockchain} which is a list and contains at the beginning a zero proof: \ci{blockchain = [ [0,0,0,0,0,0] ]} .
+  
+    \item A \emph{transaction} is a string including a name and the amount to add (or deduct) to your account. For example \ci{"Abel +25"} or \ci{"Barbara -45"}.
+    
+    Program a function \ci{add_transaction(transaction)} that adds the string \ci{transaction} to the list \ci{blockchain}. 
+For example after initialization \ci{add_transaction("Camille +100")},  
+    \ci{blockchain} is \ci{[ [0,0,0,0,0,0], "Camille +100" ]}.
+    Attention, to be able to modify \ci{blockchain} you must start the function with: \ci{global blockchain}.
+    
+  \end{enumerate} 
+  
+   \item As soon as a transaction is added, a proof of work must be calculated and added to the account book. Program a \ci{mining()} function, without parameters, that adds a proof of work to the book.   
+   
+Here's how to do it:
+  \begin{itemize}
+    \item We take the last transaction \ci{transaction}, we transform it into a list of integers by the function \ci{sentence_to_list()} of activity 2.
+    \item We also need \ci{prev_proof}, the previous proof of work just before this transaction.
+    \item We form the list \ci{mylist} composed first of elements of \ci{prev_proof}, then of elements of the list of integers obtained by converting the string \ci{transaction}.
+    \item A proof of work is calculated from this list.
+    \item This proof is added to the account book.
+  \end{itemize}
+  For example, if the book ends with:
+  \mycenterline{\ci{[3,1,4,1,5,9], "Abel +35"}}
+  
+  then after calculation of the proof of work the book ends with, for example:  
+  \mycenterline{\ci{[3,1,4,1,5,9], "Abel +35", [32,17,37,73,52,90]}}  
+  
+     It should be remembered that proof of work is not unique and that it also depends on the objective \ci{max_list}.
+   
+   Only one person at a time adds a proof of work. However, everyone has the opportunity to verify that the proposed proof is correct (and should do it). 
+	Write a function \ci{verification_blockchain()}, without parameters, that checks that the last proof added to the \ci{blockchain} is valid.
+	
+	\item Write a blockchain that corresponds to the following data:
+	\begin{itemize}
+	  \item We take \ci{max_list  = [0,0,5]} and start with \ci{blockchain = [ [0,0,0,0,0,0] ]}.
+	  \item \ci{"Alfred -100"} (Alfred owes 100 bitcoins).
+	  \item Barnabe receives 150.
+	  \item Chloe wins 35 bitcoins.
+	\end{itemize}
+
+\end{enumerate} 
+
+
+Conclusion: let's imagine that Alfred wants to cheat, he wants to change the account book in order to receive 100 bitcoins instead of having a debit, so he has to change the transaction concerning him to \ci{"Alfred +100"} but then he has to recalculate a new proof of work which is complicated, moreover he has to recalculate the proof of the Barnabe transaction and also that of the Chloe transaction! 
+
+Someone who wants to modify a transaction must modify all the following proofs of work. If each proof requires sufficient computing time this is impossible. For the bitcoin each proof requires a lot of calculations (too much for a single person) and a new proof is to be calculated every 10 minutes. It is therefore impossible for a person to modify a past transaction.
+
+\end{activite}
+
+
+The other aspect of the bitcoin that we didn't address is to make sure that each person involved is who they are, so that no one can get the money of somebody else. This is made possible by private/public key cryptography (RSA system). Each account is identified by a public key (two very large integers), which guarantees anonymity. But above all, only the one who has the private key to the account (a large integer) can access his bitcoins.
+
+\end{document}

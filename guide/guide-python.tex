@@ -1,0 +1,449 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+%====================================================================
+\chapitre{Python survival guide}
+%====================================================================
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Test and loops}
+
+%---------------------------------------------------
+\subsection{If ... then ...}
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../ifthen/fig-ifthen-lesson-1}
+} }
+
+%---------------------------------------------------
+\subsection{If ... then ... else ... }
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../ifthen/fig-ifthen-lesson-2}
+} }
+
+%---------------------------------------------------
+\subsection{Loop for}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../hello_world/fig_hello_world_loop_for}
+} }
+
+%---------------------------------------------------
+\subsection{Loop while}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../while/fig-while-lesson}
+} }
+
+%---------------------------------------------------
+\subsection{Quit a loop}
+
+The command \ci{break} immediately leaves a loop \og{}while\fg{}
+or a loop \og{}for\fg{}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Data type}
+
+
+\begin{itemize}
+  \item \ci{int} \quad Integer. Examples: \ci{123} or \ci{-15}.
+  \item \ci{float} \quad Floating point (or decimal) number. Examples: \ci{4.56}, \ci{-0.001}, \ci{6.022e23} (for $6.022 \times 10^{23}$), \ci{4e-3} (for $0.004 = 4 \times 10^{-3}$).
+  \item \ci{str} \quad Character or string. Examples: \ci{'Y'},
+  \ci{"k"}, \ci{'Hello'}, \ci{"World\!"}. 
+  \item \ci{bool} \quad Boolean. \ci{True} or \ci{False}.
+  \item \ci{list} \quad List. Example: \ci{[1,2,3,4]}.
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Define functions}
+
+%---------------------------------------------------
+\subsection{Definition of a function}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../functions/fig-functions-lesson-1}
+} }
+
+%---------------------------------------------------
+\subsection{Function with parameter}
+
+Functions achieve their full potential with:
+\begin{itemize}
+  \item an \defi{input}, which groups variables that serve as \defi{parameters},
+  \item an \defi{output}, which is a result returned by the function (and which will often depend on the input parameters).
+\end{itemize}
+
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../functions/fig-functions-lesson-2}
+} }
+
+
+%---------------------------------------------------
+\subsection{Function with several parameters}
+
+There can be several input parameters, there can be several output results.
+  
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../functions/fig-functions-lesson-3}
+} }
+
+Here is an example of a function with two parameters and two outputs.
+\begin{lstlisting}
+def sum_product(a,b):
+    """ Computes the sum and product of two numbers. """
+    s = a + b
+    p = a * b
+    return s, p
+
+# Call of the function
+mysum, myprod = sum_product(6,7)  # Results
+print("The sum is:",mysum)        # Display
+print("The product is:",myprod)   # Display
+\end{lstlisting}
+
+\begin{itemize}
+  \item Very important! Do not confuse displaying and returning a value.
+  The display (by the command \ci{print()}) just displays something on the screen. Most functions do not display anything, but return one (or more) value. This is much more useful because this value can be used elsewhere in the program.
+
+  
+  \item As soon as the program meets the instruction \ci{return}\index{return@\ci{return}}\index{function!return@\ci{return}}, the function stops and returns the result. There may be several times the instruction \ci{return} in a function but only one will be executed. It is also possible not to put an instruction \ci{return} if the function returns nothing.
+  
+  \item In the instructions of a function, you can of course use other functions.
+   
+% \item It is important to comment carefully on your programs. To document a function, you can describe what it does by starting with a \emph{docstring}\index{docstring@\emph{docstring}}}\index{function!docstring@\emph{docstring}, i.e. a description (in French) surrounded by three quotation marks: \ci{""" Ma fonction fait ceci et cela. """} to be placed just after the header.
+\end{itemize}
+
+%---------------------------------------------------
+\subsection{Comments and docstring}
+
+\begin{itemize}
+  \item \textbf{Comment.} Anything following the hash sign \ci{#} is a comment and is ignored by \Python. 
+  For example:
+\begin{lstlisting}
+# Main loop
+while r != 0:   # While this number is not zero
+    r = r - 1   # Decrease it by one
+\end{lstlisting}
+  
+  \item \textbf{Docstring.} You can describe what a function does by starting it with a \emph{docstring}, i.e. a description     
+in English, surrounded by three quotation marks.  
+ For example:
+\begin{lstlisting}
+def product(x,y):
+    """ Compute the product of two numbers
+    Input: two numbers x and y
+    Output: the product of x and y """
+    p = x * y
+    return p 
+\end{lstlisting} 
+
+\end{itemize}
+
+
+%---------------------------------------------------
+\subsection{Local variable}
+
+Here is a very simple function that takes a number as an input and returns the number increased by one.
+\begin{center}
+\begin{lstlisting}
+def my_function(x):
+    x = x + 1
+    return x
+\end{lstlisting}
+\end{center}
+
+\begin{itemize}
+  \item Of course \ci{my_function(3)} returns \ci{4}.
+  
+  \item If I define a variable by \ci{y = 5} then \ci{my_function(y)} returns \ci{6}. And the value of \ci{y} has not changed, it is still equal to \ci{5}.
+  
+  \item Here is the delicate situation that you must understand:
+\begin{center}
+\begin{lstlisting}
+x = 7
+print(my_function(x))
+print(x)
+\end{lstlisting}
+\end{center}
+  \begin{itemize}
+    \item The variable \ci{x} is initialized to \ci{7}.
+    
+    \item The call of the function \ci{my_function(x)} is therefore the same as 
+     \ci{my_function(7)} and logically returns \ci{8}.
+     
+    
+    \item What is the value of \ci{x} at the end? The variable \ci{x} is unchanged and is still equal to \ci{7}! Even if in the meantime there has been an instruction \ci{x = x + 1}. This instruction changed the \ci{x} inside the function, but not the \ci{x} outside the function.
+\end{itemize}   
+\end{itemize} 
+ 
+\bigskip
+
+\begin{itemize}
+  \item Variables defined within a function are called 
+\defi{local variables}\index{local variable}. 
+They do not exist outside the function.
+  
+  \item If there is a variable in a function that has the same name as a variable in the program (like the \ci{x} in the example above), it is as if there were two distinct variables; the local variable only exists inside the function.
+  
+\end{itemize}
+
+
+To understand the scope of the variables, you can color the global variables of a function in red, and the local variables with one color per function.
+The following small program defines a function that adds one and another that calculates the double.
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../functions/fig-functions-lesson-4}
+} }
+
+The program first displays the value of \ci{x}, so \ci{7}, then it increases it by $1$, so it displays \ci{8}, then it displays twice as much as \ci{x}, so \ci{14}. The global variable \ci{x} has never changed, so the last display of \ci{x} is still \ci{7}.
+
+%---------------------------------------------------
+\subsection{Global variable}
+
+A \defi{global variable} is a variable that is defined for the entire program. It is generally not recommended to use such variables but it may be useful in some cases. Let us look at an example.
+
+The global variable, here the gravitational constant, is declared at the beginning of the program as a classic variable: 
+\mycenterline{\ci{gravitation = 9.81}}
+
+The content of the variable \ci{gravitation} is now available everywhere.
+On the other hand, if you want to change the value of this variable in a function, you must specify to \Python{} that you are aware of modifying a global variable.
+
+For example, for calculations on the Moon, it is necessary to change the gravitational constant, which is much lower there.
+
+\begin{lstlisting}
+def on_the_moon():
+    global gravitation   # Yes, I really want to modify this variable!
+    gravitation = 1.625  # New value for the entire program
+    ...
+\end{lstlisting}
+
+%---------------------------------------------------
+\subsection{Optional arguments}
+
+
+It is possible to give optional arguments. Here is how to define a function (here that would draw a line) by giving default values:
+ \mycenterline{\ci{def draw(length, width=5, color="blue"):}}
+ 
+\begin{itemize}
+  \item The command \ci{draw(100)} traces my line, and as I only specified the length, the arguments \ci{width} and \ci{color} take the default values ($5$ and blue).
+  
+   \item The command \ci{draw(100, width=10)} traces my line with a new thickness (the color is the default one).
+   
+    \item The command \ci{draw(100, color="red")} traces my line with a new color (the thickness is the default one).  
+    
+     \item The command \ci{draw(100, width=10, color="red")} traces my line with a new thickness and a new color.
+     
+     \item Here is also what you can use:
+     \begin{itemize}
+       \item \ci{draw(100, 10, "red")}: do not specify the names of the options if you pay attention to the order.
+       \item \ci{draw(color="red", width=10, length=100)}: you can name any variable, the named variables can pass as arguments in any order.
+ 
+  \end{itemize}   
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modules}
+
+%---------------------------------------------------
+\subsection{Use a module}
+
+\begin{itemize}
+  \item \ci{from math import *} \quad Imports all functions from the module \ci{math}. You are now able to use the sine function for example, by \ci{sin(0)}. This is the simplest method and it is the one we use in this book.
+  
+  \item \ci{import math} \quad Allows you to use the functions of the module \ci{math}. You can then access the sine function with \ci{math.sin(0)}. This is the officially recommended method to avoid conflicts between modules.
+\end{itemize}
+
+%---------------------------------------------------
+\subsection{Main modules}
+
+
+\begin{itemize}
+  \item \ci{math} \quad contains the main mathematical functions. 
+  \item \ci{random} \quad simulates the random draw.
+  \item \ci{turtle}\quad the \Python{} turtle, it is some equivalent of \emph{Scratch}.
+  \item \ci{matplotlib} \quad allows you to draw graphs and visualize data.
+  \item \ci{tkinter} \quad allows you to display graphic windows.
+  \item \ci{time} \quad for date, time and length of time.
+  \item \ci{timeit} \quad to measure the execution time of a function.
+\end{itemize}
+
+There are many other modules!
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Errors}
+
+%---------------------------------------------------
+\subsection{Indentation errors}
+
+\begin{lstlisting}
+a = 3
+ b = 2
+\end{lstlisting}
+
+\Python{} returns the error message \emph{IndentationError: unexpected indent}.
+It also indicates the line number where the indentation error is located, it even points using the symbol \og{}\ci{\^}\fg{} to the exact location of the error.
+
+%---------------------------------------------------
+\subsection{Syntax errors}
+
+\begin{itemize}
+   \item 
+\begin{lstlisting}
+while x >= 0
+    x  = x - 1
+\end{lstlisting}
+
+\Python{} returns the error message \emph{SyntaxError: invalid syntax} because the colon is missing after the condition. It should be \ci{while x >= 0 :}
+
+  \item \ci{string = Hello world\!} returns an error because the quotation marks to define the string are missing. 
+  
+
+  \item \ci{print("Hi there"} \quad \Python{} returns the error message \emph{SyntaxError: unexpected EOF while parsing} because the expression is incorrectly parenthesized.
+
+  \item \ci{if val = 1:} \quad Another syntax error, because you would have to write \ci{if val == 1:}
+\end{itemize}
+
+
+
+%---------------------------------------------------
+\subsection{Type errors}
+
+\begin{itemize}
+   \item \textbf{Integer}
+\begin{lstlisting}
+n = 7.0
+for i in range(n):
+    print(i)
+\end{lstlisting}
+
+\Python{} returns the error message \emph{TypeError: 'float' object cannot be interpreted as an integer}. Indeed \ci{7.0} is not an integer, but a floating point number. 
+
+  \item \textbf{Floating point number}
+\begin{lstlisting}
+x = "9"
+sqrt(x)
+\end{lstlisting} 
+  \Python{} returns the error message \emph{TypeError: a float is required}, because \ci{"9"} is a string and not a number.
+  
+  \item \textbf{Wrong number of arguments}
+  
+  \ci{gcd(12)} \quad \Python{} returns the error message \emph{TypeError: gcd() takes exactly 2 arguments (1 given)}
+  because the \ci{gcd()} function of the \ci{math} module requires two arguments, such as \ci{gcd(12,18)}.
+ 
+ \end{itemize}
+
+
+%---------------------------------------------------
+\subsection{Name errors}
+
+\begin{itemize}
+  
+  \item \ci{if y \!= 0: y = y - 1} \quad \Python{} returns the message \emph{NameError: name 'y' is not defined} if the variable \ci{y} has not yet been defined.
+  
+  \item This error can also occur if upper/lower case letters are not scrupulously respected. 
+  \ci{variable}, \ci{Variable} and \ci{VARIABLE} are three different variable names.
+  
+  \item \ci{x = sqrt(2)} \quad \Python{} returns the message \emph{NameError: name 'sqrt' is not defined}, you must import the module \ci{math} to be able to use the function \ci{sqrt()}.
+  
+   \item \textbf{Function not yet defined}  
+   
+\begin{lstlisting}
+product(6,7)
+
+def product(a,b):
+    return a*b
+\end{lstlisting}   
+  
+Returns an error \emph{NameError: name 'product' is not defined} because a function must be defined before it can be used.
+\end{itemize}
+
+
+  
+%---------------------------------------------------
+\subsection{Exercise}
+
+Fix the code! \Python{} should display \ci{7 5 9}.
+
+\begin{lstlisting}
+a == 7
+if (a = 2) or (a >= 5) 
+    b = a - 2
+     c = a + 2
+else
+b = a // 2
+c = 2 * a
+print(a b c)
+\end{lstlisting}
+
+
+
+%---------------------------------------------------
+\subsection{Other problems}
+
+The program starts but stops along the way or doesn't do what you want? That's where the trouble starts, you have to debug the code!  There are no general solutions but only a few tips:
+\begin{itemize}
+  \item A clean, well structured, well commented code, with well chosen variable and function names, is easier to read.
+
+  \item Test your algorithm by hand with paper and pencil for easy cases.
+
+  \item Do not hesitate to display the values of the variables, to see their evolution over time. For example \ci{print(i,mylist[i])} in a loop. 
+  
+  \item A better way to inspect the code is to view the values associated with the variables using the features \emph{debug} of your favorite \Python{} editor. It is also possible to make a step by step execution.
+
+  \item Does the program work with some values and not others? Have you thought about extreme cases? Is $n$ zero but was not allowed to? Is the list empty, while the program does not handle this case? etc.
+\end{itemize}
+
+ \medskip
+ 
+Here are some examples.
+
+\begin{itemize}
+  \item I want to display the squares of integers from $1$ to $10$. The following program does not return any errors but does not do what I want.
+\begin{lstlisting}
+for i in range(10):
+    print(i ** 2)
+\end{lstlisting}
+The loop iterates on integers from $0$ to $9$. You have to write \ci{range(1,11)}.
+
+  \item I want to display the last item in my list.
+\begin{lstlisting}     
+mylist = [1,2,3,4]
+print(mylist[4])
+\end{lstlisting}  
+\Python{} returns the error message \emph{IndexError: list index out of range} because the last element is the one of rank $3$.
+
+
+  \item I want to do a countdown. The next program never stops.
+\begin{lstlisting}   
+n = 10
+while n != "0":
+    n = n - 1
+    print(n)
+\end{lstlisting} 
+With a loop \og{}while\fg{} you have to take great care to write the condition well and check that it ends up being wrong. Here, it is poorly formulated, it should be \ci{while n\!= 0:}
+
+
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,662 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+
+\begin{document}
+
+% Specific command
+\newcommand{\badletter}[1]{\underline{\textcolor{red}{#1}}}
+
+
+%====================================================================
+\chapitre{Strings -- Analysis of a text}
+%====================================================================
+
+\objectifs{You're going to do some fun activities by manipulating strings and characters.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Characters and strings]
+\sauteligne
+\begin{enumerate}
+  \item A \defi{character}\index{character@character} is a unique symbol, for example a lowercase letter \codeinline{"a"}, a capital letter \codeinline{"B"}, a special symbol \codeinline{"\&"}, a symbol representing a number \codeinline{"7"}, a space \codeinline{" "} that we will also note \lstinline[showstringspaces=true]!" "!.
+  
+To designate a character, it must be put in single quotation marks \codeinline{'z' } or double quotation marks \codeinline{"z"}.
+  
+  \item A \defi{string}\index{string} is a sequence of characters, such as a word \codeinline{"Hello"}, a sentence \codeinline{'It is sunny.'}, a password \codeinline{"N[w5ms\}e\!"}.
+  
+  \item The type of a character or string is \codeinline{str}\index{str@\ci{str}}.
+
+\end{enumerate}  
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cours}[Operations on strings]
+\sauteligne
+\begin{enumerate}
+  \item The \defi{concatenation}\index{concatenation}, i.e. the end-to-end placing of two strings, is done using the operator \ci{+}. For example \ci{"umbr" + "ella"} gives the string \ci{"umbrella"}.
+ 
+  \item The empty string \ci{""} is useful when you want to initialize a string before adding other characters.
+  
+  \item The \defi{length} of a string is the number of characters it contains. It is obtained by the function \ci{len()}\index{len@\ci{len}}.
+  For example \lstinline[showstringspaces=true]!len("Hello World")! returns $11$ (a space counts as a character).
+  
+  \item If \ci{word} is a string then you can retrieve each character by the command \ci{word[i]}. For example, if 
+  \ci{word = "plane"} then:
+  \begin{itemize}
+    \item \ci{word[0]} is the character \ci{"p"},
+    \item \ci{word[1]} is the character \ci{"l"}, 
+    \item \ci{word[2]} is the character \ci{"a"},
+    \item \ci{word[3]} is the character \ci{"n"},       
+    \item \ci{word[4]} is the character \ci{"e"}.
+  \end{itemize} 
+\end{enumerate}  
+
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|c|}
+\hline
+Letter & p & l & a & n & e \\ \hline
+Rank   & 0 & 1 & 2 & 3 & 4 \\ \hline
+\end{tabular}
+\end{center}
+
+  Note that there are $5$ letters in the word \ci{"plane"} and that you access it through the ranks starting with $0$. The indices are therefore here $0$, $1$, $2$, $3$, and $4$ for the last letter.  More generally, if \ci{word} is a string, characters are obtained by \ci{word[i]} for \ci{i} varying from \ci{0} to \ci{len(word)-1}.
+\end{cours}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Substrings]
+\sauteligne
+
+You can extract several characters from a string using the syntax \ci{word[i:j]} which returns a string formed by characters ranked $i$ to $j-1$ (beware the character number $j$ is not included).
+
+For example if \ci{word = "wednesday"} then:
+\begin{itemize}
+  \item \ci{word[0:4]} returns the \ci{"wedn"} substring formed by the characters of ranks $0$, $1$, $2$ and $3$ (but not $4$),
+  \item \ci{word[3:6]} returns \ci{"nes"} corresponding to indices $3$, $4$ and $5$.
+\end{itemize}  
+
+\begin{center}
+\begin{tabular}{|c|||c|c|c|c|c|c|c|c|c|}
+\hline
+Letter & w & e & d & n & e & s & d & a & y \\ \hline
+Rank   & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
+\end{tabular}
+\end{center}
+ 
+Another example: \ci{word[1:len(word)-1]} returns the word but with its first and last letter cut off.
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Plurals of words]
+
+\objectifs{Goal: write step by step a program that returns the plural of a given word.}
+
+\begin{enumerate}
+  \item For a string \ci{word}, for example \ci{"cat"}, displays the plural of this word by adding a \ci{"s"}. 
+  
+  \item For a word, for example \ci{"bus"}, display the last letter of this string (here \ci{"s"}). Improve your program of the first question, by testing if the last letter is already a \ci{"s"}:
+  \begin{itemize}
+    \item if this is the case, then add \ci{"es"} to form the plural (\ci{"bus"} becomes \ci{"buses"}),
+    \item otherwise you have to add \ci{"s"}.
+  \end{itemize} 
+
+  \item Test if a word ends with \ci{"y"}. If so, display the plural in \ci{"ies"} (the plural of \ci{"city"}
+  is \ci{"cities"}). (Exceptions are not taken into account.)
+  
+  \item Collect all your work from the first three questions in a function \ci{plural()}. The function displays nothing, but returns the word in the plural.
+  
+  \medskip
+  
+  \begin{fonction}[\ci{plural()}]
+  Use: \ci{plural(word)} \\\
+  Input: a word (a string) \\\
+  Output: the plural of the word 
+  
+  \bigskip
+  
+  Examples: 
+  \begin{itemize}
+    \item \ci{plural("cat")} returns \ci{"cats"}
+    \item \ci{plural("bus")} returns \ci{"buses"}  
+    \item \ci{plural("city")} returns \ci{"cities"}         
+  \end{itemize}     
+  \end{fonction}
+
+  \item Write a function \ci{conjugation()} that conjugates a verb to the present continuous tense.
+  
+  \medskip
+  
+  \begin{fonction}[\ci{conjugation()}]
+  Use: \ci{conjugation(verb)} \\\
+  Input: a verb (a string, exceptions are not taken into account) \\
+  Output: no result but displays conjugation in the present continuous tense
+  
+  \bigskip
+    
+  Example: \ci{conjugation("sing")}, prints \ci{"I am singing, you are singing,..."}
+  \end{fonction}
+
+\end{enumerate} 
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cours}[A little more on strings]
+
+\sauteligne
+
+\begin{enumerate}
+  \item A loop \ci{for ... in ...} allows you to browse a string, character by character: \index{loop!for}\index{for@\ci{for}}
+  \begin{center}
+  \begin{minipage}{0.4\textwidth}
+  \ci{for charac in word:}\\
+  \indentation \ci{print(charac)}
+  \end{minipage}
+  \end{center}
+
+  \item You can test if a character belongs to a certain list of characters. For example: 
+    
+  \smallskip
+    
+  \mycenterline{\codeinline{if charac in ["a", "A", "b", "B", "c", "C"]:}}
+\index{in@\ci{in}}allows you to execute instructions if the character \ci{charac} is one of the letters a, A, b, B, c, C. 
+  
+  To avoid some letters, we would use: 
+  \mycenterline{\codeinline{if charac not in ["X", "Y", "Z"]:}}  
+  \index{not in@\ci{not in}}
+
+  \end{enumerate}  
+\end{cours}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Word games]
+
+\objectifs{Goal: manipulating words in a fun way.}
+
+  
+  %\medskip
+  
+\begin{enumerate}
+  \item \textbf{Distance between two words.}
+  
+  The Hamming distance\index{distance} between two words of the same length is the number of places where the letters are different.
+
+For example: 
+
+\mycenterline{\mot{
+S\badletter{N}A\badletter{KE}}\qquad \mot{S\badletter{T}A\badletter{CK}}
+}
+
+The second letter of \mot{SNAKE} is different from the second letter of \mot{STACK}, the fourth and fifth ones are also different. The Hamming distance between \mot{SNAKE} and \mot{STACK} is therefore equal to $3$.  
+
+Write a function \ci{hamming_distance()} that calculates the Hamming distance between two words of the same length.
+
+  \begin{fonction}[\ci{hamming_distance()}]
+  Use: \ci{hamming_distance(word1,word2)} \\
+  Input: two words (strings) \\
+  Output: the Hamming distance (an integer)
+  
+  \medskip
+    
+  Example: \ci{hamming_distance("SHORT","SKIRT")} returns $2$
+  \end{fonction}
+
+      
+
+  
+  \item \textbf{Upside down.} 
+  
+  Write a function \ci{upsidedown()} that returns a word backwards: \mot{HELLO} becomes \mot{OLLEH}.
+  
+  \medskip
+  
+  \begin{fonction}[\ci{upsidedown()}]
+  Use: \ci{upsidedown(word)} \\\
+  Input: a word (a string) \\\
+  Output: the word backwards
+  
+  \medskip
+    
+  Example: \ci{upsidedown("PYTHON")} returns \ci{"NOHTYP"}
+  \end{fonction}
+  
+  %\medskip
+  
+  \item \textbf{Palindrome.}
+  
+  Deduce a function that tests whether a word is a palindrome or not. A \emph{palindrome}\index{palindrome} is a word that can be written from left to right or right to left; for example \mot{RADAR} is a palindrome.
+  
+  \begin{fonction}[\ci{is_palindrome()}]
+  Use: \ci{is_palindrome(word)} \\\
+  Input: a word (a string) \\\
+  Output: \og{}True\fg{} if the word is a palindrome, \og{}False\fg{} otherwise.
+  
+  \medskip
+ 
+  Example: \ci{is_palindrome("KAYAK")} returns \ci{True}
+  \end{fonction}
+
+  %\medskip
+  
+  \item \textbf{Pig latin.} 
+  Pig latin is word play, here are the rules according to \emph{Wikipedia}:
+  \begin{itemize}
+  
+   \item For words that begin with vowel sounds, one just adds "way" to the end. Examples are:
+     \begin{itemize} 
+      \item \mot{EAT} becomes \mot{EATWAY}
+      \item \mot{OMELET} becomes \mot{OMELETWAY}
+      \item \mot{EGG} becomes \mot{EGGWAY}
+     \end{itemize}
+     
+  \item   
+  For words that begin with consonant sounds, all letters before the initial vowel are placed at the end of the word sequence. Then, "ay" is added, as in the following examples:
+  \begin{itemize}
+  \item \mot{PIG} becomes \mot{IGPAY}
+  \item \mot{LATIN} becomes \mot{ATINLAY}
+  \item \mot{BANANA} becomes \mot{ANANABAY}
+  \item \mot{STUPID} becomes \mot{UPIDSTAY}
+  \item \mot{GLOVE} becomes \mot{OVEGLAY}
+  \end{itemize}
+  
+
+   
+ \end{itemize}
+ 
+  Write a function \ci{pig_latin()} that transforms a word according to this procedure.
+  
+  \begin{fonction}[\ci{pig_latin()}]
+  Use: \ci{pig_latin(word)} \\\
+  Input: a word (a string) \\\
+  Output: the word transformed into pig latin.
+  
+  \medskip
+    
+  Examples: 
+  \begin{itemize}
+    \item \ci{pig_latin("DUCK")} returns \ci{"UCKDWAY"}
+    \item \ci{pig_latin("ALWAYS")} returns \ci{"ALWAYSWAY"}
+  \end{itemize}    
+  \end{fonction} 
+  
+  %\medskip
+
+\end{enumerate} 
+
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[DNA]
+\objectifs{
+A DNA molecule is made up of about six billion nucleotides. 
+The computer is therefore an essential tool for DNA analysis.
+In a DNA strand there are only four types of nucleotides that are noted \mot{A}, \mot{C}, \mot{T} or \mot{G}. A DNA sequence is therefore a long word in the form: \mot{TAATTACAGACACCTGAA...}
+}\index{DNA}
+
+\begin{enumerate}
+  \item Write a function \ci{presence_of_A()} that tests if a sequence contains the nucleotide \mot{A}.
+  
+  \begin{fonction}[\ci{presence_of_A()}]
+  Use: \ci{presence_of_A(sequence)} \\
+  Input: a DNA sequence (a string whose characters are among A, C, T, G) \\
+  Output: \og{}True\fg{} if the sequence contains \og{}A\fg{}, \og{}False\fg{} otherwise.
+  
+  \medskip
+    
+  Example: \ci{presence_of_A("CTTGCT")} returns \ci{False}
+  \end{fonction}
+  
+
+   
+  \item Write a function \ci{position_of_AT()} that tests if a sequence contains the nucleotide \mot{A} followed by the nucleotide \mot{T} and returns the position of the first occurrence found.
+  
+  \begin{fonction}[\ci{position_of_AT()}]
+  Use: \ci{position_of_AT(sequence)} \\
+  Input: a DNA sequence (a string whose characters are among A, C, T, G) \\
+  Output: the position of the first sequence \og{}AT\fg{} found (starting at 0); \ci{None} if not found.
+  
+  \medskip
+    
+  Example: 
+  \begin{itemize}  
+    \item \ci{position_of_AT("CTTATGCT")} returns \ci{3}
+    \item \ci{position_of_AT("GATATAT")} returns \ci{1}
+    \item \ci{position_of_AT("GACCGTA")} returns \ci{None}
+  \end{itemize} 
+  \end{fonction}
+  
+  \emph{Hint.} \ci{None}\index{none@\ci{None}} is assigned to a variable to indicate the absence of value. 
+  
+\medskip
+   
+  \item Write a function \ci{position()} that tests if a sequence contains a given code and returns the position of the first occurrence.
+  
+   \medskip
+   
+  \begin{fonction}[\ci{position()}]
+  Use: \ci{position(code,sequence)} \\
+  Input: a code and a DNA sequence \\
+  Output: the position of the beginning of the code found; \ci{None} if not found
+  
+  \medskip
+    
+  Example: \ci{position("CCG","CTCCGTT")} returns \ci{2}
+  \end{fonction}
+  
+    \medskip
+  
+  \item A crime has been committed in the castle of Adeno. 
+You recovered two strands of DNA, from two distant positions from the culprit's DNA. There are four suspects, whose DNA you sequenced.
+Can you find out who did it?
+
+First code of the culprit: \mot{CATA} 
+
+Second code of the culprit: \mot{ATGC}
+
+\medskip
+
+{\footnotesize
+DNA of Colonel Mustard:
+
+\mot{
+CCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGC
+}
+
+Miss Scarlet's DNA:
+
+\mot{
+CTCCTGATGCTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGG
+}
+
+
+Mrs. Peacock's DNA:
+
+\mot{
+AAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGTACTCCGCGCGCCGGGACAGAATGCC
+}
+
+Pr. Plum's DNA:
+
+\mot{
+CTGCAGGAACTTCTTCTGGAAGTACTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAG
+}
+
+}
+\end{enumerate}
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Character encoding]
+
+\index{character encoding}
+
+A character is stored by the computer as an integer.
+For ASCII/unicode encoding, the capital letter \og{}A\fg{} is encoded by $65$, the lowercase letter \og{}h\fg{} is encoded by $104$, the symbol \og{}\#\fg{} by $35$.
+
+Here is the table of the first characters. Numbers $0$ to $32$ are not printable characters. However, the number $32$ is the space character \lstinline[showstringspaces=true]!" "!.
+
+\index{ascii}
+\index{unicode}
+
+\myfigure{0.77}{
+\small
+  \tikzinput{strings-unicode}
+} 
+
+\begin{enumerate}  
+
+  \item The function \ci{chr()}\index{chr@\ci{chr}} is a \Python{} function that returns the character associated to a code.
+  
+  \begin{fonctionpython}[\ci{python : chr()}]
+  Use: \ci{chr(code)}\\
+  Input: a code (an integer)\\
+  Output: a character
+  
+  \medskip
+     
+   Example:
+  \begin{itemize}  
+    \item \ci{chr(65)} returns \ci{"A"}
+    \item \ci{chr(123)} returns \ci{"\{"}
+  \end{itemize} 
+  \end{fonctionpython} 
+  
+  \item The function \ci{ord()}\index{ord@\ci{ord}} is a \Python{} function corresponding to the reverse operation: it returns the code associated with a character.
+  
+  \smallskip
+  
+  \begin{fonctionpython}[\ci{python : ord()}]
+  Use: \ci{ord(charac)}\\
+  Input: a character (a string of length $1$)\\
+  Output: an integer
+  
+  \medskip
+     
+  Example:
+  \begin{itemize}  
+    \item \ci{ord("A")} returns \ci{65}
+    \item \ci{ord("*")} returns \ci{42}
+  \end{itemize} 
+  \end{fonctionpython}  
+\end{enumerate}
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Upper case/lower case]
+
+\objectifs{Goal: convert a word to upper or lower case.}
+
+
+\begin{enumerate}
+  \item Decodes by hand the encrypted message hidden under the following codes: 
+\mycenterline{80-121-116-104-111-110 \quad 105-115 \quad 99-64-64-108}
+
+% "Python is c@@l"
+      
+  \item Write a loop that displays characters encoded by integers from $33$ to $127$.
+  
+  \item What does the command \ci{chr(ord("a")-32)}  return? And \ci{chr(ord("B")+32)}?
+  
+  \item Write a function \ci{upper_letter()} that transforms a lowercase letter into its uppercase letter.
+  
+  \begin{fonction}[\ci{upper_letter()}]
+  
+   Use: \ci{upper_letter(charac)}\\
+   Input: a lowercase character among \ci{"a"},...,\ci{"z"}\\
+   Output: the same letter in upper case
+  
+  \medskip
+     
+   Example: \ci{upper_letter("t")} returns \ci{"T"}
+  \end{fonction} 
+  
+    \item Write a function \ci{uppercase()} which from a sentence written in lower case returns the same sentence written in upper case. Characters that are not lowercase letters remain unchanged.
+  
+  \begin{fonction}[\ci{uppercase()}]
+   Use: \ci{uppercase(sentence)}\\
+   Input: a sentence\\
+   Output: the same sentence in upper case
+  
+  \medskip
+     
+   Example: \ci{uppercase("Hello world\!")} returns \ci{"HELLO WORLD\!"}
+  \end{fonction} 
+   
+   Do the same work for a function \ci{lowercase()}.
+  
+   \item Write a function \ci{format_full_name()} that returns the first name and last name formatted according to the style \mot{First\_name LAST\_NAME}.
+   
+   
+  \begin{fonction}[\ci{format_full_name()}]
+  Use: \ci{format_full_name(somebody)}\\
+  Input: a person's first name and surname (without accent, separated by a space)\\
+  Output: the full name following the format \ci{"First name LAST NAME"}
+  
+  \medskip
+     
+   Example:
+   \begin{itemize}  
+    \item \ci{format_full_name("harry Potter")} returns \ci{"Harry POTTER"}
+    \item \ci{format_full_name("LORD Voldemort")} returns \ci{"Lord VOLDEMORT"}
+  \end{itemize} 
+  \end{fonction}    
+    
+\end{enumerate}
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}
+
+\objectifs{Goal: determine the language of a text from the analysis of letter frequencies.}
+
+\begin{enumerate}
+  \item Write a function \ci{occurrences_letter()} that counts the number of times the given letter appears in a sentence (in upper case).
+  
+    \begin{fonction}[\ci{occurrences_letter()}]
+   Use: \ci{occurrences_letter(letter,sentence)}\\\
+   Input: a letter (a character) and a sentence in capital letters (a string)\\
+   Output: the number of occurrences of the letter (an integer)
+  
+  \medskip
+     
+   Example: \ci{occurrences_letter("E","IS THERE ANYBODY OUT THERE")} returns \ci{4}
+  \end{fonction}
+  
+ \item Write a function \ci{number_letters()} that counts the total number of letters that appear in a sentence (in upper case). Do not count spaces or punctuation.
+ 
+     \begin{fonction}[\ci{number_letters()}]
+   Use: \ci{number_letters(sentence)}\\
+   Input: a sentence in capital letters (a string)\\
+   Output: the total number of letters from \og{}A\fg{} to \og{}Z\fg{} (an integer)
+  
+  \medskip
+     
+   Example: \ci{number_letters("IS THERE ANYBODY OUT THERE")} returns \ci{22}.
+  \end{fonction}
+ 
+ \item The \defi{frequency of appearance} of a letter in a text or sentence is the percentage given according to the formula :
+ $$\text{frequency of appearance of a letter} = \frac{\text{number of occurrences of the letter}}{\text{total number of letters}} \times 100.$$
+ 
+ \medskip
+ 
+ For example, the sentence \mot{IS THERE ANYBODY OUT THERE} contains $22$ letters; 
+  the letter \mot{E} appears there $4$ times. The frequency of appearance of \mot{E} in this sentence is therefore:
+  $$f_E = \frac{\text{number of occurrences of E}}{\text{total number of letters}} \times 100  = \frac{4}{22} \times  100 \simeq 16.66$$
+ The frequency is therefore about $17\%$.
+  
+  Write a function \ci{percentage_letter()} that calculates this frequency of appearance.
+  
+  \begin{fonction}[\ci{percentage_letter()}]
+  Use: \ci{percentage_letter(letter,sentence)}\\\
+  Input: a letter (a character) and a sentence in capital letters (a string)\\
+  Output: the frequency of appearance of the letter (a number lower than $100$)
+   
+  \medskip
+    
+   Example: \ci{percentage_letter("E","IS THERE ANYBODY OUT THERE")} returns \ci{16.66}\ldots
+  \end{fonction}
+  
+  Use this function to properly display the frequency of appearance of all letters in a sentence.
+ 
+   
+  \item  
+  Here is the frequency of appearance of letters according to the language used (source:
+  \href{https://en.wikipedia.org/wiki/Letter_frequency}{en.wikipedia.org/wiki/Letter\_frequency}). For example, the most common letter in English is \og{}E\fg{} with a frequency of more than $12\%$. The \og{}W\fg{} represents about $2\%$ of letters in English and German, but almost does not appear in French and Spanish. These frequencies also vary according to the text analyzed.
+
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|} 
+\hline
+Letter & English & French & German & Spanish \\ \hline\hline
+a&8.167\%&8.173\%&7.094\%&12.027\% \\
+b&1.492\%&0.901\%&1.886\%&2.215\% \\
+c&2.782\%&3.345\%&2.732\%&4.019\% \\
+d&4.253\%&3.669\%&5.076\%&5.010\% \\
+e&12.702\%&16.734\%&16.396\%&12.614\% \\
+f&2.228\%&1.066\%&1.656\%&0.692\% \\
+g&2.015\%&0.866\%&3.009\%&1.768\% \\
+h&6.094\%&0.737\%&4.577\%&0.703\% \\
+i&6.966\%&7.579\%&6.550\%&6.972\% \\
+j&0.153\%&0.613\%&0.268\%&0.493\% \\
+k&0.772\%&0.049\%&1.417\%&0.011\% \\
+l&4.025\%&5.456\%&3.437\%&4.967\% \\
+m&2.406\%&2.968\%&2.534\%&3.157\% \\
+n&6.749\%&7.095\%&9.776\%&7.023\% \\
+o&7.507\%&5.819\%&3.037\%&9.510\% \\
+p&1.929\%&2.521\%&0.670\%&2.510\% \\
+q&0.095\%&1.362\%&0.018\%&0.877\% \\
+r&5.987\%&6.693\%&7.003\%&6.871\% \\
+s&6.327\%&7.948\%&7.577\%&7.977\% \\
+t&9.056\%&7.244\%&6.154\%&4.632\% \\
+u&2.758\%&6.429\%&5.161\%&3.107\% \\
+v&0.978\%&1.838\%&0.846\%&1.138\% \\
+w&2.360\%&0.074\%&1.921\%&0.017\% \\
+x&0.150\%&0.427\%&0.034\%&0.215\% \\
+y&1.974\%&0.128\%&0.039\%&1.008\% \\
+z&0.074\%&0.326\%&1.134\%&0.467\% \\ 
+\hline
+\end{tabular} 
+\end{center}
+
+\bigskip
+
+In your opinion, in which languages were written the following four texts (the letters of each word were mixed).
+
+{\small
+\begin{center}
+TMAIER BERACUO RSU NU REBRA PRCEEH EIANTT NE ONS EBC NU GAOFREM EIMATR RERNAD APR L RDUOE LAHECLE UIL TTNI A EUP SREP EC LGNGAEA TE RBONUJO ERMNOUSI DU UBRACEO QUE OVSU EEST LIJO UQE OUVS EM MSZELBE BAEU ASNS MIERNT IS RVETO AGRAME ES PRARPTOE A OEVTR AMGUPLE VUOS SEET EL PNIHXE DSE OSHET ED CSE BIOS A ESC MSOT LE OUBRCEA NE ES ESTN ASP DE IEJO TE OUPR ERRNOTM AS BELEL XOVI IL OREVU NU RGLEA ECB ILESSA EBOMTR AS PIOER EL NRDAER S EN ISIAST TE ITD MNO NOB EUSRMNOI NRPEEAZP QEU UTOT EUTLRFTA IVT XUA SPNEDE DE UECIL UQI L TECEOU TECET NEOCL VATU BNEI UN GMAEORF SNAS TUOED LE EOABURC OHENTXU TE NSCOFU UJRA SMIA UN EPU TRDA UQ NO EN L Y ARRPEIDNT ULSP
+\end{center}
+
+\begin{center}
+WRE TREITE SO TSPA CUDHR AHNCT UND WIND SE STI RED AEVRT MTI ESEIMN IDNK RE ATH END NEABNK WLOH IN EMD AMR ER AFTSS HIN IHSERC RE AHTL HIN MRWA EINM SHNO SAW SRTIBG UD SO NGBA DNEI EIHSGTC ESISTH RAETV UD DEN LERNIOKG NITHC NDE LOENINKGRE TIM OKRN UDN CHWFSEI NEIM NSOH ES STI IEN BIFTRLSEEEN DU BILESE IKDN OMKM EHG MIT MIR RAG ECHNOS EPELSI EIPSL IHC ITM RDI HNCMA BEUTN MBLUNE DINS NA DEM TNDRAS NMIEE UTETMR AHT CAMHN UDNGEL GDAWEN MIEN EATRV MENI VEART DUN OSTHER DU CINTH SAW KNNOEIREGL RIM ILEES PRSTVRCIEH ISE IHGRU BEEILB RIGUH MNEI KNDI NI RDNEUR NATBRLET STAESUL EDR WNID
+\end{center}
+
+\begin{center}
+DSNOACAIF ORP ANU DAEDALRI DNAAEIMTI EQU NNCOSETE EL RSTEOUL SMA AACTFAITNS UQE EL TSVAO OINSRVUE DE US ANIGIICANOM EIORDP TOOD RTEIENS RPO LE ITOABOLRROA ED QIUAMALI USOP A NSSRCAEAD LA TMREAAI NXTADAUEE ROP GOARLS EMESS DE NNAMICLUIAPO Y LOVOIV A RES LE RHMEOB EOMDNEERPRD DE LOS RSOPMRIE OMTSIPE UEQ CIIDADE LE RTDAAOZ ED LSA CELSAL Y LA NICOIOPS ED LAS UESVNA SSACA Y ES ITRMNEEOD QEU AERFU EL UEQIN IIIRDEGAR LA NAIORTREICP DE AL RRTEIA
+\end{center}
+
+\begin{center}
+IMTRUESMME DNA TEH LNGIIV SI EYAS SIFH REA GJPNUIM DNA HET TTNOCO IS GHIH OH OUYR DDADY SI IRHC DAN ROUY MA SI DOGO GKOILON OS USHH LTLIET BBYA NDOT OUY CYR NEO OF HESET GNSRONIM YUO RE NANGO SIER PU SNIGING NAD OULLY EPADRS YUOR GINSW DAN LYOLU KATE OT HET KSY TUB ITLL TATH MGNIRNO EREHT NATI INTGOHN ACN AHMR OYU TWIH DADYD NDA MYMMA NSTIDGAN YB
+\end{center}
+}
+\end{enumerate}
+
+\end{activite}
+
+\end{document}

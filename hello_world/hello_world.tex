@@ -1,0 +1,549 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Hello world!}
+%====================================================================
+
+
+\objectifs{Get into programming! In this very first activity, you will learn to manipulate numbers, variables and code your first loops with \Python.}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Numbers with \Python]
+
+Check in the console that \Python{} works correctly, by typing the following commands in a \Python{} console:
+\begin{lstlisting}
+>>> 2+2
+>>> "Hello world!"
+\end{lstlisting}
+
+Here are some instructions.
+\begin{itemize}
+  \item \textbf{Addition.} \ci{5+7}.
+  \item \textbf{Multiplication.} 
+  \ci{6*7}; with brackets \ci{3*(12+5)}; with decimal numbers \ci{3*1.5}.
+  \item \textbf{Power.}\index{power}\index{**@\ci{**}} \ci{3**2} for $3^2=9$; negative power \ci{10**-3} for $10^{-3} = 0.001$.
+  \item \textbf{Real division.} \ci{14/4} is equal to \ci{3.5}; \ci{1/3} is equal to \ci{0.3333333333333333}.
+  \item \textbf{Integer division\index{Euclidean division} and modulo\index{modulo}\index{remainder}.}
+  \begin{itemize}
+    \item \ci{14//4} returns \ci{3}: it is the quotient of the Euclidean division of $14$ by $4$, note the double slash;
+    \item \ci{14\%4} returns \ci{2}: it is the remainder of the Euclidean division of $14$ by $4$, we also say \og{}$14$ modulo $4$\fg.
+  \end{itemize}
+\end{itemize}
+
+\emph{Note.} Inside the computer, decimals numbers are encoded as \og{}floating point numbers\fg{}\index{floating point number}.
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[First steps]
+
+\objectifs{Goal: make your first calculations with \Python.}
+
+\begin{enumerate}
+  \item How many seconds are there in a century? (Do not take leap years into account.)
+  
+  \item How far do you have to complete the dotted formula to obtain a number greater than one billion?
+  $$(1+2)\times(3+4)\times(5+6)\times(7+8)\times\cdots$$
+  
+  \item What are the last three digits of 
+  $$\underbrace{123456789 \times 123456789 \times \cdots}_{7 \text{ instance of } 123456789} \quad ?$$
+  
+  \item $7$ is the first integer such that its inverse has a repeating decimal representation of period $6$:
+  $$\frac{1}{7} = 0.\underbrace{142857}\underbrace{142857}\underbrace{142857}\ldots$$ 
+  Find the first integer whose inverse has a repeating decimal representation of period $7$:
+  $$\frac{1}{???} = 0.00\underbrace{abcdefg}\underbrace{abcdefg}\ldots$$
+  
+  \emph{Hint.} The integer is bigger than $230$!
+  
+  \item Find the unique integer:
+  \begin{itemize}
+    \item which gives a quotient of $107$ when you divide by $11$ (with integer division),
+    \item and which gives a quotient of $90$ when you divide by $13$ (with integer division),
+    \item and which gives a remainder equal to $6$ modulo $7$.
+  \end{itemize}
+    
+\end{enumerate}
+
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Working with an editor]
+From now on, it is better if you work in a text editor dedicated to \Python. You must then explicitly ask to display the result\index{print@\ci{print}}:
+\begin{lstlisting}
+print(2+2)
+print("Hello world!")
+\end{lstlisting}
+
+In the following you continue to write your code in the editor but we will no longer indicate that you must use \ci{print()} to display the results.
+\end{cours}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Variables]
+
+
+\textbf{Variable.} 
+A \defi{variable}\index{variable} is a name associated with a memory location. It is like a box that is identified by a label.
+The command \og{}\ci{a = 3}\fg{}\index{=@\ci{=}}\index{assignment} means that I have a variable \og{}\ci{a}\fg{} associated with the value $3$. 
+
+Here is a first example:
+\begin{lstlisting}
+a = 3  # One variable
+b = 5  # Another variable
+
+print("The sum is",a+b)   # Display the sum
+print("The product",a*b)  # Display the product
+
+c = b**a     # New variable...
+print(c)     # ... that is displayed
+\end{lstlisting}
+
+
+\medskip
+
+\textbf{Comments.}
+\index{\#@\#}
+\index{comments}
+Any text following the sharp character \og{}\#\fg{} is not executed by \Python{} but is used to explain the program. It is a good habit to comment extensively on your code.
+
+ 
+\medskip
+
+\textbf{Names.} 
+It is very important to give a clear and precise name to the variables. For example, with the right names you should know what the following code calculates:
+\begin{lstlisting}
+base = 8
+height = 3
+area = base * height / 2
+print(area)
+# print(Area)  # !! Error !!
+\end{lstlisting}
+
+Attention! \Python{} is case sensitive. So \ci{myvariable}, \ci{Myvariable} and \ci{MYVARIABLE} are different variables.
+
+\medskip
+
+\textbf{Re-assignment.}\index{assignment} Imagine you want to keep your daily accounts. You start with $S_0 = 1000$, the next day you earn $100$, so now $S_1 = S_0 + 100$; the next day you add $200$, so $S_2 = S_1 + 200$; then you lose $50$, so on the third day $S_3 = S_2 - 50$. With \Python{} you can use only one variable \ci{S} for all these operations.
+
+\begin{lstlisting}
+S = 1000
+S = S + 100
+S = S + 200
+S = S - 50
+print(S)
+\end{lstlisting}
+You have to understand the instruction \og{}\ci{S = S + 100}\fg{} like this: \og{}I take the contents of the box \ci{S}, I add $100$, I put everything back in the same box\fg{}.
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Variables]
+
+\objectifs{Goal: use variables!}
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item Define variables, then calculate the area of a trapezoid. 
+  Your program should display \ci{"The value of the area is ..."} using \ci{print("The value of the area is",area)}.
+
+\myfigure{0.9}{
+  \tikzinput{fig_trapezoid}
+}  
+
+    
+    \item Define variables to calculate the volume of a box (a rectangular parallelepiped) whose dimensions are $10$, $8$, $3$.
+    
+    \item Define a variable \ci{PI} equals to $3.14$. Define a radius $R = 10$. Write the formula for the area of a disc of radius $R$.
+
+\end{enumerate}    
+
+  
+  \item Put the lines back in order so that, at the end, $x$ has the value $46$.
+\begin{center}
+\begin{minipage}{0.5\textwidth}
+\begin{lstlisting}  
+(1)  y = y - 1
+(2)  y = 2*x
+(3)  x = x + 3*y     
+(4)  x = 7
+\end{lstlisting}
+\end{minipage}
+\end{center}  
+  
+  \item You place the sum of $1000$ dollars in a savings account. Each year the interest on the money invested brings in $10\%$ (the capital is multiplied by $1.10$).
+  Write the code to calculate the capital for the first three years.
+
+  \item I define two variables by \ci{a = 9} and \ci{b = 11}. I would like to exchange the content of \ci{a} and \ci{b}. Which instructions agree so that at the end \ci{a} equals $11$ and \ci{b} equals $9$?
+  
+\begin{center}
+\begin{minipage}{0.2\textwidth}
+\begin{lstlisting}  
+a = b
+b = a   
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+\begin{lstlisting}  
+c = b
+a = b
+b = c
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+\begin{lstlisting}
+c = a
+a = b
+b = c 
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+\begin{lstlisting} 
+c = a
+a = c
+c = b
+b = c
+\end{lstlisting}
+\end{minipage}
+
+\end{center} 
+ 
+\end{enumerate}  
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Use functions]
+\sauteligne
+\begin{itemize}
+  \item \textbf{Use functions of \Python.}
+  
+  You already know the \ci{print()} function that displays a string of characters (or numbers). It can be used by \ci{print("Hi there.")} or through a value: 
+\begin{center}
+\begin{minipage}{0.5\textwidth}
+\begin{lstlisting}  
+string = "Hi there."
+print(string)
+\end{lstlisting}
+\end{minipage}
+\end{center} 	 
+
+  There are many other functions. For example, the function \ci{abs()} calculates the absolute value: \ci{abs(-3)} returns \ci{3}, \ci{abs(5)} returns \ci{5}.
+ % Other example: \ci{float()} transforms a character string into a number: \ci{float("+1.234567")} returns the floating number \ci{1.234567}.
+
+  \item \textbf{The module \ci{math}.}
+
+	Not all functions are directly accessible. They are often grouped in \defi{modules}\index{module}. For example, the module \ci{math}\index{math@\ci{math}}\index{module!math@\ci{math}} contains the mathematical functions. For instance, you will find the square root function \ci{sqrt()}\index{sqrt@\ci{sqrt}}\index{square root}. Here's how to use it: 
+\begin{center}
+\begin{minipage}{0.5\textwidth}
+\begin{lstlisting} 
+from math import *
+
+x = sqrt(2)
+print(x)
+print(x**2)
+\end{lstlisting}
+\end{minipage}
+
+\end{center} 	
+
+The first line imports all the functions of the module named \ci{math}\index{import@\ci{import}}, the second line calculates $x = \sqrt{2}$ (in approximate value) and then displays $x$ and $x^2$.	
+
+  \item \textbf{Sine and cosine.} 
+  
+  The module \ci{math} contains the trigonometric functions sine \index{sin@\ci{sin}} and cosine \index{cos@\ci{cos}} and even the constant \ci{pi}\index{pi@\ci{pi}}\index{$\pi$} which is an approximate value of $\pi$. Be careful, the angles are expressed in radians.
+
+Here is the calculation of $\sin(\frac\pi2)$. 
+\begin{center}
+\begin{minipage}{0.5\textwidth} 
+\begin{lstlisting}
+angle = pi/2
+print(angle)
+print(sin(angle))
+\end{lstlisting}
+\end{minipage}
+\end{center}
+
+  \item \textbf{Decimal to integer.}
+
+In the module \ci{math} there are also functions to round a decimal number: 
+  \begin{itemize}
+    \item \ci{round()}\index{round@\ci{round}} rounds to the nearest integer: \ci{round(5.6)} returns \ci{6}, \ci{round(1.5)} returns \ci{2}.
+    \item \ci{floor()}\index{floor@\ci{floor}} returns the integer less than or equal to: \ci{floor(5.6)} returns \ci{5}.
+    \item \ci{ceil()}\index{this@\ci{ceil}} returns the integer greater than or equal to: \ci{ceil(5.6)} returns \ci{6}.
+  \end{itemize}       
+    
+\end{itemize}
+
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Use functions]
+
+\objectifs{Goal: use functions from \Python{} and the module \ci{math}.}
+
+\begin{enumerate}
+  \item The function \Python{} for gcd is \ci{gcd(a,b)}\index{gcd@\ci{gcd}} (for greatest common divisor). Calculate the gcd of $a = 10\,403$ and $b = 10\,506$. Deduce the lcm\index{lcm} from $a$ and $b$. The function lcm does not exist, you must use the formula :
+  $$\text{lcm}(a,b) = \frac{a \times b}{\text{gcd}(a,b)}.$$
+  
+  \item Find by trial and error a real number $x$ that checks all the following conditions (several solutions are possible):
+  \begin{itemize}
+    \item \ci{abs(x**2 - 15)} is less than \ci{0.5}
+    \item \ci{round(2*x)} returns \ci{8}
+    \item \ci{floor(3*x)} returns \ci{11}
+    \item \ci{ceil(4*x)} returns \ci{16} 
+  \end{itemize}
+ 
+  \emph{Hint.} \ci{abs()}\index{abs@\ci{abs}}\index{absolute value} refers to the absolute value function.
+  
+  \item You know the trigonometric formula 
+  $$\cos^2 \theta + \sin^2 \theta = 1.$$
+  Check that for $\theta = \frac\pi7$ (or other values) this formula is numerically true (this is not a proof of the formula, because \Python{} only makes approximate computations of the sine and cosine).
+\end{enumerate}  
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Loop \og{}for\fg{}]
+
+\objectifs{The loop \og{}for\fg{} is the easiest way to repeat instructions.}
+
+\index{for@\ci{for}}
+\index{in@\ci{in}}
+\index{loop!for}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{fig_hello_world_loop_for}
+} }
+
+
+Note that what delimits the block of instructions to be repeated is \defi{indentation}\index{indentation}, i.e.~the spaces at the beginning of each line that shift the lines to the right.
+All lines in a block must have exactly the same indentation. In this book, we choose an indentation of $4$ spaces.
+
+Don't forget the colon \og{}\ci{:}\fg{} at the end of the line of the \ci{for} declaration!
+
+\begin{itemize}
+  \item \textbf{Example of a \og{}for\fg{} loop.}
+
+Here is a loop that displays the squares of the first integers. 
+\begin{center}
+\begin{minipage}{0.5\textwidth} 
+\begin{lstlisting}
+for i in range(10):
+    print(i*i)
+\end{lstlisting}
+\end{minipage}
+\end{center} 
+The second line is shifted and constitutes the block to be repeated.
+The variable \ci{i} takes the value $0$ and the instruction displays $0^2$;
+then \ci{i} takes the value $1$, and the instruction displays $1^2$; then $2^2$, $3^2$\ldots
+
+In the end this program displays:
+$$0,1,4,9,16,25,36,49,64,81.$$
+
+Warning: the last value taken by \ci{i} is $9$ (and not $10$).
+
+  \item \textbf{Browse any list.}
+  
+The loop \og{}for\fg{} allows you to browse any list. Here is a loop that displays the cube of the first prime numbers.
+\begin{center}
+\begin{minipage}{0.5\textwidth} 
+\begin{lstlisting}
+for p in [2,3,5,7,11,13]:
+    print(p**3)
+\end{lstlisting}
+\end{minipage}
+\end{center} 
+
+  \item \textbf{Sum all.}
+
+Here is a program that calculates 
+$$0+1+2+3+\cdots + 18 +19.$$
+
+\begin{center}
+\begin{minipage}{0.5\textwidth} 
+\begin{lstlisting}
+mysum = 0
+for i in range(20):
+    mysum = mysum + i
+print(mysum)
+\end{lstlisting}
+\end{minipage}
+\end{center} 
+
+Understand this code well: a variable \ci{mysum} is initialized at $0$. 
+We will add $0$, then $1$, then $2$\ldots{}
+This loop can be better understood by filling a table:
+  $$
+  \begin{array}{l}
+  \text{Initialisation: \ci{mysum}$=0$}    \\
+  \begin{array}{|c|c|}
+  \hline  
+   \text{\ci{i}} &  \text{\ci{mysum}} \\
+  \hline\hline
+  0 & 0 \\  
+  1 & 1 \\
+  2 & 3 \\
+  3 & 6 \\
+  4 & 10\\
+  \hspace*{5ex}\ldots\hspace*{5ex} & \hspace*{5ex}\ldots\hspace*{5ex} \\
+  18 & 171 \\
+  19 & 190 \\ 
+  \hline
+  \end{array} \\
+  \text{Display: $190$}  
+  \end{array} 
+  $$ 
+\end{itemize} 
+
+% No index inside a mybox!  
+
+\index{range@\ci{range}}
+\index{list@\ci{list}}  
+\mybox
+{ 
+ \begin{minipage}{0.95\textwidth}
+ \begin{itemize}
+ \item \textbf{\ci{range()}.}
+	\begin{itemize}
+	  \item With \ci{range(n)} we run the entire range from $0$ to $n-1$.
+	  For example \ci{range(10)} corresponds to the list \ci{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}. 
+	  
+	  Attention! the list stops at $n-1$ and not at $n$. What to remember 
+	  is that the list contains $n$ items (because it starts at $0$).
+	  
+	 \item If you want to display the list of items browsed, you must use the command:	 
+	  \mycenterline{\ci{list(range(10))}}
+	
+	\item With \ci{range(a,b)} we go through the elements from $a$ to $b-1$.
+	For example \ci{range(10,20)} corresponds to the list \ci{[10, 11, 12, 13, 14, 15, 16, 17, 18, 19]}.  
+	
+	\item With \ci{range(a,b,step)} you can browse the items $a$, $a+\text{step}$, $a + 2\text{step}$\ldots{} For example \ci{range(10,20,2)} corresponds to the list \ci{[10, 12, 14, 16, 18]}.  
+
+	\end{itemize}
+\end{itemize}
+\end{minipage}	
+}
+\begin{itemize}
+  \item \textbf{Nested loops.}
+
+It is possible to nest loops, i.e.~inside the block of a loop, a new loop is used.
+\begin{center}
+\begin{minipage}{0.5\textwidth} 
+\begin{lstlisting}
+for x in [10,20,30,40,50]:
+    for y in [3,7]:
+        print(x+y)
+\end{lstlisting}
+\end{minipage}
+\end{center}
+In this small program $x$ is first equal to $10$, $y$ takes the value $3$ then the value $7$ (so the program displays $13$, then $17$). Then $x=20$, and $y$ again equals $3$, then $7$ again (so the program displays $23$, then $27$). 
+Finally the program displays:
+$$13,17,23,27,33,37,43,47,53,57.$$
+    
+\end{itemize} 
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[\og{}for\fg{} loop]
+
+\objectifs{Goal: build simple loops.}
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item Display the cubes of integers from $0$ to $100$.
+    \item Display the fourth powers of integers from $10$ to $20$.
+    \item Display the square roots of integers $0$, $5$, $10$, $15$,\ldots{} up to $100$.   
+  \end{enumerate}
+
+  \item Display the powers of $2$, from $2^1$ to $2^{10}$, and memorize the results!
+  
+  
+  \item Experimentally search for a value close to the minimum of the function 
+  $$f(x) = x^3-x^2-\frac14x+1$$
+   on the interval $[0,1]$.
+  
+  \emph{Hints.}
+  \begin{itemize}
+    \item Build a loop in which a variable $i$ scans integers from $0$ to $100$.
+    \item Defined $x=\frac{i}{100}$. So $x=0.00$, then $x=0.01$, $x=0.02$\ldots
+    \item Calculate $y = x^3-x^2-\frac14x+1$.
+    \item Display the values using \ci{print("x =",x,"y =",y)}.
+    \item Search by hand for which value of $x$ you get the smallest possible $y$.
+    \item Feel free to modify your program to increase accuracy.
+  \end{itemize}
+    
+  \item Seek an approximate value that must have
+  the radius $R$ of a ball so that its volume is $100$.
+  
+  \emph{Hints.} 
+  \begin{itemize}
+    \item Use a scanning method as in the previous question.
+    \item The formula for the volume of a ball is $V = \frac43 \pi R^3$.
+    \item Display values using \ci{print("R =",R,"V =",V)}.    
+    \item For $\pi$ you can take the approximate value $3.14$ or the approximate value \ci{pi} of the module \ci{math}.
+  \end{itemize}
+  
+\end{enumerate}  
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Loop \og{}for\fg{} (continued)]
+
+\objectifs{Goal: build more complicated loops.}
+
+\begin{enumerate}
+  \item Define a variable $n$ (for example $n=20$). Calculate the sum
+  $$1^2+2^2+3^2+\cdots+i^2+\cdots +n^2.$$
+  
+  \item Calculate the product:
+  $$1 \times 3 \times 5 \times \cdots \times 19.$$
+  
+  \emph{Hints.} Begin by defining a variable \ci{myproduct} initialized to the value $1$. Use \ci{range(a,b,2)} to get every other integer.
+  
+  \item Display multiplication tables between $1$ and $10$. Here is an example of a line to display:
+  \mycenterline{\ci{7 x 9 = 63}}
+  
+  Use a display command of the style: \ci{print(a,"x",b,"=",a*b)}.
+\end{enumerate}  
+\end{activite}
+
+\end{document}
+

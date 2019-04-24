@@ -1,0 +1,679 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+%====================================================================
+\chapitre{Polish calculator -- Stacks}
+%====================================================================
+
+\objectifs{You're going to program your own calculator! For that you will discover a new notation for formulas and also discover what a \og{}stack\fg{} is in computer science.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Stack]
+
+  A \defi{stack} is a sequence of data with three basic operations:
+  \begin{itemize}
+    \item \defi{push}\index{push}: you add an element to the top of the stack,
+    \item \defi{pop}\index{pop@\ci{pop}}: the value of the element at the top of the stack is read and this element is removed from the stack,
+    \item and finally, we can test if the stack is empty.
+  \end{itemize}  
+
+\myfigure{0.6}{
+  \tikzinput{fig-stacks1}
+} 
+
+\myfigure{0.45}{
+  \tikzinput{fig-stacks2}
+} 
+
+Remarks.
+\begin{itemize}
+  \item \textbf{Analogy.} You can make the connection with a stack of plates. You can put plates on a stack one by one. You can remove the plates one by one, starting of course with the top one. In addition, it must be considered that on each plate is drawn a data (a number, a character, a string \ldots).
+
+  \item \textbf{Last in, first out.} 
+  In a queue, the first one to wait is the first one to be served and comes out. Here it's the opposite! A stack works on the principle of \og{}last in, first out\fg{}.
+  
+  \item In a list, you can directly access any element; in a stack, you can only directly access the element at the top of the stack. To access the other elements, you have to pop several times.
+  
+  \item The advantage of a stack is that it is a very simple data structure that corresponds well to what happens in a computer's memory.
+\end{itemize}
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cours}[Global variable]
+
+\index{variable}
+\index{global@\ci{global}}
+
+A \defi{global variable} is a variable that is defined for the entire program. It is generally not recommended to use such variables but it may be useful in some cases. Let us look at an example.
+
+The global variable, here the gravitational constant, is declared at the beginning of the program as a classic variable: 
+\mycenterline{\ci{gravitation = 9.81}}
+
+The content of the variable \ci{gravitation} is now available everywhere.
+On the other hand, if you want to change the value of this variable in a function, you must specify to \Python{} that you are aware of modifying a global variable.
+
+For example, for calculations on the Moon, it is necessary to change the gravitational constant, which is much lower there.
+
+\begin{lstlisting}
+def on_the_moon():
+    global gravitation   # Yes, I really want to modify this variable!
+    gravitation = 1.625  # New value for the entire program
+    ...
+\end{lstlisting}
+
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Stack basic operations]
+
+\objectifs{Goal: define the three (very simple) commands to use the stacks.}
+
+In this chapter, a stack will be modeled by a list. The item at the end of the list is the top of the stack.
+
+\myfigure{0.6}{
+  \tikzinput{fig-stacks3}
+} 
+
+The stack will be stored in a global variable \ci{stack}. 
+It is necessary to start each function that modifies the stack with the command: 
+\mycenterline{\ci{global stack}}
+
+
+\begin{enumerate}
+  \item Write a function \ci{push_to_stack()} that adds an element to the top of the stack.
+  
+  \begin{fonction}[\ci{push_to_stack()}]
+  Use: \ci{push_to_stack(item)} \\
+  Input: an integer, a string\ldots \\
+  Output: nothing \\
+  Action: the stack contains an additional element
+  
+  \medskip
+    
+  Example: if at the beginning \ci{stack = [5,1,3]} then, after the instruction \ci{push_to_stack(8)}, the stack is \ci{[5,1,3,8]} and if you continue with the instruction
+\ci{push_to_stack(6)}, the stack is now \ci{[5,1,3,8,6]}.     
+  \end{fonction}
+
+  \item Write a function \ci{pop_from_stack()}, without parameters, that removes the element at the top of the stack and returns its value.
+  
+  \begin{fonction}[\ci{pop_from_stack()}]
+  Use: \ci{pop_from_stack()} \\
+  Input: nothing \\
+  Output: the element at the top of the stack \\
+  Action: the stack contains one less element
+  
+  \medskip
+    
+  Example: if initially \ci{stack = [13,4,9]} then the instruction \ci{pop_from_stack()} returns the value \ci{9} and the stack is now \ci{[13,4]}; if you execute a new instruction \ci{pop_from_stack()}, it returns this time the value \ci{4} and the stack is now \ci{[13]}.
+  \end{fonction}
+  
+  \item Write a function \ci{is_stack_empty()}, without parameter, that tests if the stack is empty or not. 
+  
+  \begin{fonction}[\ci{is_stack_empty()}]
+  Use: \ci{is_stack_empty()} \\
+  Input: nothing \\
+  Output: true or false \\
+  Action: does nothing on the stack
+  
+  \medskip
+    
+  Example: 
+  \begin{itemize}
+    \item if \ci{stack = [13,4,9]} then the instruction \ci{is_stack_empty()} returns \ci{False},
+    \item if \ci{stack = []} then the instruction \ci{is_stack_empty()} returns \ci{True}.
+  \end{itemize}
+  \end{fonction}
+\end{enumerate} 
+\end{activite}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Operations on a stack]
+
+\objectifs{Goal: handle the stacks using only the three functions \ci{push_to_stack()}, \ci{pop_from_stack()} and \ci{is_stack_empty()}.}
+
+In this exercise, we work with a stack of integers. The questions are independent.
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item Starting from an empty stack, arrive at a stack \ci{[5,7,2,4]}.
+    \item Then execute the instructions \ci{pop_from_stack()}, \ci{push_to_stack(8)}, \ci{push_to_stack(1)}, \ci{push_to_stack(1)}, \ci{push_to_stack(3)}. What is the stack now? What does the instruction  \ci{pop_from_stack()} now return?
+\end{enumerate}  
+
+  \item Start from a stack. Write a function \ci{is_in_stack(item)} that tests if the stack contains a given element.
+  
+  \item Start from a stack. Write a function that calculates the sum of the elements of the stack. 
+  
+  \item Start from a stack. Write a function that returns the second last element of the stack (the last element is the one at the very bottom; if this second last element does not exist, the function returns \ci{None}). 
+  
+\end{enumerate} 
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cours}[String manipulation]
+\sauteligne
+
+\begin{enumerate}
+  \item The function \ci{split()}\index{split@\ci{split}}\index{string@split} is a \Python{} method that separates a string into pieces. If no separator is specified, the separator is the space character.
+  
+  \begin{fonctionpython}[\ci{python: split()}]
+    Use: \ci{string.split(separator)}\\
+    Input: a string \ci{string} and possibly a separator \ci{separator} \\
+    Output: a list of strings
+  
+  \medskip
+     
+   Example :
+  \begin{itemize}  
+    \item \ci{"To be or not to be.".split()} returns \ci{['To', 'be', 'or', 'not', 'to', 'be.']}
+    \item \ci{"12.5;17.5;18".split(";")} returns \ci{['12.5', '17.5', '18']}
+  \end{itemize} 
+  \end{fonctionpython}  
+  
+  \item The function \ci{join()}\index{join@\ci{join}}\index{string@join} is a \Python{} method that gathers a list of strings into a single string. This is the opposite of \ci{split()}.
+  
+   \begin{fonctionpython}[\ci{python: join()}]
+    Use: \ci{separator.join(mylist)}\\
+    Input: a list of strings \ci{mylist} and a separator \ci{separator} \\
+    Output: a string
+  
+  \medskip
+     
+   Example :
+  \begin{itemize}  
+    \item \ci{"".join(["To", "be", "or", "not", "to", "be."])} returns \ci{'Tobeornottobe.'} Spaces are missing.
+    \item \ci{" ".join(["To", "be", "or", "not", "to", "be."])} returns \ci{'To be or not to be.'} It's better when the separator is a space.
+    \item \ci{"--".join(["To", "be", "or", "not", "to", "be."])} returns \ci{'To--be--or--not--to--be.'}  
+  \end{itemize} 
+  \end{fonctionpython}  
+
+  \item The function \ci{isdigit()}\index{isdigit@\ci{isdigit}} is a \Python{}    method that tests if a string contains only numbers. This allows to test if a string corresponds to a positive integer.
+ Here are some examples: \ci{"1776".isdigit()} returns \ci{True}; \ci{"Hello".isdigit()} returns \ci{False}.
+ 
+ Remember that you can convert a string into an integer by the command \ci{int(string)}. The following small program tests if a string can be converted into a positive integer:
+ 
+\begin{lstlisting}
+mystring = "1776"                # A string
+if mystring.isdigit():
+    myinteger = int(mystring)    # myinteger is an integer
+else:                            # Problem
+    print("I don't know how to convert this string to an integer!")
+\end{lstlisting} 
+
+\end{enumerate}  
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Sorting station]
+
+\objectifs{Goal: solve a sorting problem by modeling a storage area by a stack.}
+
+
+
+A train has blue wagons with a number and red wagons with a letter. 
+
+\myfigure{0.6}{
+  \tikzinput{fig-sort1}
+} 
+
+The stationmaster wants to separate the wagons: first all the blues and then all the reds (the order of the blue wagons does not matter, the order of the red wagons either). 
+
+\myfigure{0.6}{
+  \tikzinput{fig-sort2}
+} 
+
+For this purpose, there is an output station and a waiting area: a wagon can either be sent directly to the output station or temporarily stored in the waiting area.
+
+\myfigure{0.8}{
+  \tikzinput{fig-sort3}
+} 
+
+
+Here are the instructions from the stationmaster.
+\begin{itemize}
+
+  \item \textbf{Phase 1.} For each wagon in the train:
+     \begin{itemize} 
+       \item if it is a blue wagon, send it directly to the output station;
+       \item if it is a red wagon, send it to the waiting area.
+     \end{itemize}
+   
+  \item \textbf{Phase 2.} Then, move the (red) wagons one by one from the waiting area to the output station by attaching them to the blue ones.
+\end{itemize}  
+ 
+\myfigure{0.8}{
+  \tikzinput{fig-sort4}
+} 
+ 
+\myfigure{0.8}{
+  \tikzinput{fig-sort5}
+} 
+  
+
+
+Here is how we will model the train and its waiting area.
+\begin{itemize}
+  \item The train is a string of characters made up of a series of numbers (blue wagons) and letters (red wagons) separated by spaces. For example \ci{train = "G 6 Z J 14"}. 
+  
+  \item The list of wagons is obtained by asking \ci{train.split()}.
+  
+  \item We test if a wagon is blue and check if it is marked with a number, by the function \ci{wagon.isdigit()}.
+  
+  \item The train reconstructed by the sorted wagons is also a string of characters. At first, it is the empty string.
+  
+  \item The waiting area will be the stack. At the beginning the stack is empty. We're only going to add the red wagons. At the end, the stack is drained towards the tail end of the reconstituted train.
+\end{itemize}
+
+
+Following the station manager's instructions and using stack operations, write a \ci{sort_wagons()} function that separates the blue and red wagons from a train.
+
+
+\begin{fonction}[\ci{sort_wagons()}]
+  Use: \ci{sort_wagons(train)} \\
+  Input: a string with blue wagons (numbers) and red wagons (letters) \\
+  Output: blue wagons first and red wagons second.\\
+  Action: use a stack
+  
+  \medskip
+    
+  Example : 
+  \begin{itemize}
+    \item \ci{sort_wagons("A 4 C 12")} returns \ci{"4 12 C A"}
+    \item \ci{sort_wagons("K 8 P 17 L B R 3 10 2 N")} returns \ci{"8 17 3 10 2 N R B L P K"}
+    \end{itemize}
+    
+\end{fonction}
+
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Polish notation]
+
+\objectifs{Writing in Polish notation (of its real name, reverse Polish notation) is another way to write an algebraic expression. Its advantage is that this notation does not use brackets and is easier to handle for a computer. Its disadvantage is that we're not used to it.}
+
+\index{Polish notation}
+
+Here is the classic way to write an algebraic expression (left) and its Polish notation (right). In any case, the result will be $13$!
+$$\text{Classic: } \quad 7 + 6 \qquad\qquad\qquad \text{Polish: } \quad 7 \ \ 6 \ \ +$$
+Other examples:
+\begin{itemize}
+  \item 
+  Classic: $(10 + 5) \times 3$  \quad; \quad
+  Polish: $10 \ \ 5 \ \ + \ \ 3 \ \ \times$
+  
+  \item 
+  Classic: $10 + 2 \times 3$ \quad; \quad
+  Polish: $10 \ \ 2 \ \ 3 \ \ \times \ \ +$  
+   
+  \item 
+  Classic: $(2 + 8) \times (6 + 11)$ \quad ; \quad
+  Polish: $2 \ \ 8 \ \ + \ \ 6 \ \ 11 \ \ + \ \ \times$ 
+\end{itemize}
+
+\bigskip
+
+Let's see how to calculate the value of an expression in Polish notation. 
+\begin{itemize}
+  \item We read the expression from left to right:
+$$\color{red}\underrightarrow{\color{black}2 \ \ 8 \ \ + \ \ 6 \ \ 11 \ \ + \ \ \times}$$ 
+
+  \item When you meet a first operator ($+$, $\times$, \ldots) you calculate the operation \emph{with the two members just before this operator}: 
+$$\underbrace{\color{red}2 \ \ 8 \ \ +}_{2 + 8} \ \ 6 \ \ 11 \ \ + \ \ \times$$ 
+   
+  \item This operation is replaced by the result:
+$$\underbrace{\color{red} 10}_{\substack{\text{result of }\\2 + 8}} \ \ 6 \ \ 11 \ \ + \ \ \times$$
+  
+  \item We continue reading the expression (we are looking for the first operator and the two terms just before):
+ $$10 \ \ \underbrace{\color{red}6 \ \ 11 \ \ +}_{6 + 11 = 17}  \ \ \times
+ \qquad \text{ becomes } \qquad 
+10 \ \ 17  \ \ \times  \qquad \text{ that is equal to } \qquad 170$$
+  
+  \item At the end there is only one value left, it's the result! (Here $170$.)
+\end{itemize}
+
+\bigskip
+
+Other examples:
+\begin{itemize}
+  \item $8 \ \ 2 \ \ \div \ \ 3 \ \ \times \ \ 7 \ \ +$  
+$$\underbrace{8 \ \ 2 \ \ \div}_{8 \div 2 = 4} \ \ 3 \ \ \times \ \ 7 \ \ +
+\quad\text{ becomes }\quad
+\underbrace{4 \ \ 3 \ \ \times}_{4 \times 3 = 12} \ \ 7 \ \ + 
+\quad\text{ becomes }\quad
+ 12 \ \ 7 \ \ +
+\quad\text{ that is equal to }\quad
+19$$ 
+ 
+  \item $11 \ \ 9 \ \ 4 \ \ 3 \ \ + \ \ - \ \ \times$  
+$$11 \ \ 9 \ \ \underbrace{4 \ \ 3 \ \ +}_{4+3=7} \ \ - \ \ \times
+\quad\text{ becomes }\quad
+11 \ \ \underbrace{9 \ \ 7 \ \ -}_{9 - 7 = 2} \ \ \times 
+\quad\text{ becomes }\quad
+11 \ \ 2 \ \ \times
+\quad\text{ that is equal to }\quad
+22$$ 
+\end{itemize}  
+
+Exercise. Calculates the value of expressions:
+\begin{itemize}
+  \item $13 \ \ 5 \ \ + \ \ 3 \ \ \times$
+  \item $3 \ \ 5 \ \ 7 \ \ \times \ \ +$
+  \item $3 \ \ 5 \ \ 7 \ \ + \ \ \times$  
+  \item $15 \ \ 5 \ \ \div \ \ 4 \ \ 12 \ \ + \ \ \times$
+\end{itemize}
+
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Polish calculator]
+
+\objectifs{Goal: program a mini-calculator that evaluates expressions in Polish notations.}
+
+\begin{enumerate}
+  \item Write a function \ci{operation()} that calculates the sum or product of two numbers.
+  
+  \begin{fonction}[\ci{operation()}]
+  Use: \ci{operation(a,b,op)} \\
+  Input: two numbers \ci{a} and \ci{b}, one operation character \ci{"+"} or \ci{"*"} \\
+  Output: the result of the operation \ci{a + b} or \ci{a * b} 
+  
+  \medskip
+    
+  Example: 
+  \begin{itemize}
+    \item \ci{operation(2,4,"+")} returns \ci{6}
+    \item \ci{operation(2,4,"*")} returns \ci{8}        
+  \end{itemize}     
+  \end{fonction}
+
+
+  \item Program a Polish calculator, according to the following algorithm:
+ 
+ \begin{algorithme}
+  \sauteligne 
+ \begin{itemize}
+   \item
+   \begin{itemize}
+     \item Input: an expression in Polish notation (a string).
+     \item Output: the value of this expression.
+     \item Example: \ci{"2 3 + 4 *"} (the calculation $(2+3) \times 4$) returns $20$.        
+   \end{itemize}
+
+  \item Start with an empty stack.   
+   
+   \item For each element of the expression (read from left to right):
+   \begin{itemize}
+     \item if the element is a number, then add this number to the stack,
+     
+     \item if the element is an operation character, then:
+       \begin{itemize}
+         \item pop the stack once to get a number $b$,
+         \item pop a second time to get a number $a$,
+         \item calculate $a+b$ or $a \times b$ depending on the operation,
+         \item push this result to the stack.
+       \end{itemize}
+     \end{itemize}   
+   \item At the end, the stack contains only one element, it is the result of the calculation.
+   
+ \end{itemize}  
+ \end{algorithme}
+
+\begin{fonction}[\ci{polish_calculator()}]
+  Use: \ci{polish_calculator(expression)} \\
+  Input: an expression in Polish notation (a string) \\
+  Output: the result of the calculation \\
+  Action: uses a stack
+   
+  \medskip
+   
+  Example: 
+  \begin{itemize}
+    \item \ci{polish_calculator("2 3 4 + +")} returns \ci{9}
+    \item \ci{polish_calculator("2 3 + 5 *")} returns \ci{25}
+    \end{itemize}    
+\end{fonction}  
+  
+\end{enumerate} 
+
+\medskip
+
+\textbf{Bonus.} Change your code to support subtraction and division!
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Expression with balanced brackets]
+
+\objectifs{Goal: determine if the parentheses of an expression are placed appropriately.}
+
+Here are some examples of well and bad balanced bracketed expressions:
+\begin{itemize}
+  \item $2 + (3 + b) \times (5 + (a - 4))$ is well balanced parenthesized;
+  \item $(a+ 8) \times 3 ) + 4$ is incorrectly bracketed: there is a closing bracket \og{}$)$\fg{} alone;
+  \item $(b + 8 / 5)) + (4$ is incorrectly bracketed: there are as many opening parentheses  \og{}$($\fg{} than closing parentheses \og{}$)$\fg{} but they are badly positioned.
+\end{itemize}
+
+\begin{enumerate}
+  \item 
+ 
+  Here is the algorithm that decides if the parentheses of an expression are well placed. 
+  The stack acts as an intermediate storage area for opening parenthesis \ci{"("}. Each time we find a closing parenthesis \ci{")"} in the expression we delete an opening parenthesis from the stack.
+  
+  \begin{algorithme}
+  Input: any expression (a string).
+  
+  Output: \og{}True\fg{} if the parentheses are well balanced, \og{}False\fg{} otherwise. 
+  
+  \begin{itemize}
+   \item Start with an empty stack.   
+   
+   \item For each character of the expression read from left to right:
+   \begin{itemize}
+     \item if the character is neither \ci{"("}, nor \ci{")"} then do nothing!
+     
+     \item if the character is an opening parenthesis \ci{"("} then add this character to the stack;
+     
+     \item if the character is a closing parenthesis \ci{")"}:
+       \begin{itemize}
+         \item test if the stack is empty, if it is empty then return \og{}False\fg{} (the program ends there, the expression is incorrectly parenthesized), if the stack is not empty continue, 
+         \item pop the stack once, it gives a \ci{"("}.
+       \end{itemize}
+     \end{itemize} 
+       
+   \item If at the end, the stack is empty then return the value \og{}True\fg{}, otherwise return \og{}False\fg{}.
+   
+ \end{itemize}  
+   \end{algorithme}
+
+
+\begin{fonction}[\ci{are_parentheses_balanced()}]
+  Use: \ci{are_parentheses_balanced(expression)} \\
+  Input: an expression (string) \\
+  Output: true or false depending on whether the parentheses are correctly placed or not \\
+  Action: uses a stack
+   
+  \medskip
+   
+  Example : 
+  \begin{itemize}
+    \item \ci{are_parentheses_balanced("(2+3)*(4+(8/2))")} returns \ci{True}
+    \item \ci{are_parentheses_balanced("(x+y)*((7+z)")} returns \ci{False}
+    \end{itemize}    
+\end{fonction}  
+  
+  
+\item Enhance this function to test an expression with parentheses and square brackets.
+Here is a correct expression: $[(a+b)*(a-b)]$, here are some incorrect expressions:
+$[a+b)$, $(a+b]*[a-b)$.
+
+Here is the algorithm to program a function \ci{are_brackets_balanced()}.
+
+
+  \begin{algorithme}
+  Input: an expression (a string). 
+
+  Output: \og{}True\fg{} if the parentheses and square brackets are well balanced, \og{}False\fg{} otherwise.     
+
+  \begin{itemize}
+
+  \item Start with an empty stack.   
+   
+   \item For each character of the expression read from left to right:
+   \begin{itemize}
+     \item if the character is neither \ci{"("}, nor \ci{")"}, nor \ci{"["}, nor \ci{"]"} then do nothing;
+     
+     \item if the character is an opening parenthesis \ci{"("} or an opening square bracket \ci{"["}, then add this character to the stack;
+     
+     \item if the character is a closing parenthesis \ci{")"} or a closing square bracket \ci{"]"}, then:
+       \begin{itemize}
+         \item test if the stack is empty, if it is empty then return \og{}False\fg{} (the program ends there, the expression is not correct), if the stack is not empty continue, 
+         \item pop the stack once, you get a \ci{"("} or a \ci{"["},
+         \item if the popped (opening) character does not match the character read in the expression, then return \og{}False\fg{}. The program ends there, the expression is not consistent. To match means that the character \ci{"("} corresponds to \ci{")"} and  \ci{"["} corresponds to \ci{"]"}.
+       \end{itemize}
+     \end{itemize} 
+       
+   \item If at the end, the stack is empty then return the value \og{}True\fg{}, otherwise return \og{}False\fg{}.
+   
+ \end{itemize} 
+ \end{algorithme}
+ 
+ This time the stack can contain opening parentheses \ci{"("} or opening square brackets \ci{"["}.  Each time you find a closing parenthesis \ci{")"} in the expression, the top of the stack must be an opening parenthesis \ci{"("}. 
+Each time you find a closing square bracket \ci{"]"} in the expression, the top of the stack must be a opening square bracket \ci{"["}.
+
+\end{enumerate} 
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activity 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Conversion to Polish notation]
+
+\objectifs{Goal: transform a classic algebraic expression with parentheses into a Polish notation expression. The algorithm is a much improved version of the previous activity. We will not give any justification.}
+ 
+ 
+You are used to writing \og{}$(13+5) \times 7$\fg{}; you have seen that the computer can easily calculate \og{}$13 \  5 \ + \ 7 \ \times$\fg{}. All that remains is to switch from classical algebraic expression (with parentheses) to Polish notation (without parentheses)!
+
+  Here is the algorithm for expressions with only additions and multiplications. 
+ 
+  \begin{algorithme}
+  Input: a classic expression
+
+  Output: an expression in Polish notation
+
+  \begin{itemize}
+    \item Start with an empty stack.  
+    
+    \item Start with an empty string \ci{polish} which at the end will contain the result.
+   
+   \item For each character of the expression (read from left to right):
+   \begin{itemize} 
+     \item if the character is a number, then add this number to the output string \ci{polish};
+     
+     \item if the character is an opening parenthesis \ci{"("}, then add this character to the stack;
+     
+     \item if the character is the multiplication operator \ci{"*"}, then add this character to the stack;  
+        
+     \item if the character is the addition operator \ci{"+"}, then: \\
+     while the the stack is not empty: \\
+     \indentation pop an element from the stack, \\
+     \indentation if this element is the multiplication operator \ci{"*"}, then: \\
+     \indentation \indentation add this item to the output string \ci{polish}\\
+     \indentation otherwise: \\
+     \indentation \indentation push this element to the stack (we put it back on the stack after removing it)\\
+     \indentation \indentation end the \og{}while\fg{} loop immediately  (with \ci{break})\\              
+     finally, add the \ci{"+"} addition operator to the stack.
+
+     \item if the character is a closing parenthesis \ci{")"}, then: \\
+     while the stack is not empty: \\
+     \indentation pop an element from the stack, \\
+     \indentation if this element is an opening parenthesis \ci{"("}, then: \\
+     \indentation \indentation end the \og{}while\fg{} loop immediately  (with \ci{break})\\  
+     \indentation otherwise: \\       
+     \indentation \indentation add this item to the output string \ci{polish}\\
+
+   \end{itemize}          
+         
+    \item If at the end, the stack is not empty, then add each element of the stack to the output string \ci{polish}.
+  \end{itemize} 
+             
+ \end{algorithme}
+ 
+ 
+   \begin{fonction}[\ci{polish_notation()}]
+  Use: \ci{polish_notation(expression)} \\
+  Input: a classic expression (with elements separated by spaces) \\
+  Output: the expression in Polish notation \\
+  Action: use the stack
+  
+  \medskip
+  
+  Example:
+  \begin{itemize}
+     \item \ci{polish_notation("2 + 3")} returns \ci{"2 3 +"}
+     \item \ci{polish_notation("4 * ( 2 + 3 )")} returns \ci{"4 2 3 + *"}
+     \item \ci{polish_notation("( 2 + 3 ) * ( 4 + 8 )")} returns \ci{"2 3 + 4 8 + *"}
+  \end{itemize}     
+  \end{fonction}
+  
+ In this algorithm, each element between two spaces of an expression is miscalled \og{}character\fg{}. Example: the characters of \ci{"( 17 + 10 ) * 3"} are \ci{(}, \ci{17}, \ci{+}, \ci{10}, \ci{)}, \ci{*} and \ci{3}.
+ 
+ You see that the addition has a more complicated treatment than the multiplication. This is due to the fact that multiplication takes priority over addition. For example, $2+3 \times 5$ means $2+(3 \times 5)$ and not $(2+3) \times 5$. 
+ If you want to take into account subtraction and division, you have to be careful about non-commutativity ($a-b$ is not equal to $b-a$; $a\div b$ is not equal to $b \div a$).
+ 
+
+
+\end{activite}
+
+\bigskip
+\bigskip
+
+End this chapter by checking that everything works correctly with different expressions.
+For example:
+\begin{itemize}
+  \item Define an expression \ci{exp = "( 17 * ( 2 + 3 ) ) + ( 4 + ( 8 * 5 ) )"}
+  \item Ask \Python{} to calculate this expression: \ci{eval(exp)}.\index{eval@\ci{eval}} \Python{} returns \ci{129}.
+  \item Convert the expression to Polish notation: \ci{polish_notation(exp)} returns  
+  \mycenterline{ \ci{"17 2 3 + * 4 8 5 * + +"} }
+  
+  \item With your calculator calculates the result: \ci{polish_calculator("17 2 3 + * 4 8 5 * + +")} returns \ci{129}. We get the same result!
+  \end{itemize}
+  
+
+
+\end{document}

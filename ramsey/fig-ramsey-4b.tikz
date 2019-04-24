@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+
+
+
+\draw (0,0) grid ++(8,1);
+
+\node at(-5,0.5) {$p = 57$};
+\node at(-5,0) {$(n = 8)$};
+
+\node at(-5,-1.5) {\bf Initial integer $p$};
+
+\draw[->,>=latex,ultra thick, blue] (-3.5,0.5)--++(2,0);
+
+\node at (0.5,0.5) {\bf 0};
+\node at (1.5,0.5) {\bf 0};
+\node[red] at (2.5,0.5) {\bf 1};
+\node[red] at (3.5,0.5) {\bf 1};
+\node[red] at (4.5,0.5) {\bf 1};
+\node at (5.5,0.5) {\bf 0};
+\node at (6.5,0.5) {\bf 0};
+\node[red] at (7.5,0.5) {\bf 1};
+
+
+\node at (-0.5,-0.47) {rank : };
+\node at (0.5,-0.5) {0};
+\node at (1.5,-0.5) {1};
+\node[blue] at (2.5,-0.5) {2};
+\node[blue]  at (3.5,-0.5) {3};
+\node[blue] at (4.5,-0.5) {4};
+\node  at (5.5,-0.5) {5};
+\node at (6.5,-0.5) {6};
+\node[blue]  at (7.5,-0.5) {7};
+
+\node at(4,-1.5) {\bf Binary notation of $p$ on $n$ bits};
+
+
+\draw[->,>=latex,ultra thick, blue] (9,0.5)--++(2,0);
+
+\node[scale=1.4,blue] at (13,0.5) {$\{2,3,4,7\}$};
+
+\node at(13,-1.5) {\bf Subset associated to $p$};
+
+
+\end{tikzpicture}
