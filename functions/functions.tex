@@ -19,7 +19,7 @@
 \index{function}
 
 A computer function is a portion of code that performs a specific task and can be used one or more times during the rest of the program. 
-To define a function with \Python{}, it's very simple. 
+Defining a function in \Python{} is very simple. 
 Here are two examples:
 \begin{center}
 \begin{minipage}{0.4\textwidth}
@@ -57,7 +57,7 @@ The instructions are grouped into an indented block. The word \ci{return}\index{
 
 Functions achieve their full potential with:
 \begin{itemize}
-  \item an \defi{input}, which groups variables that serve as \defi{parameters}\index{parameter@parameter}\index{function!parametre@parameter},
+  \item an \defi{input}, which defines variables that serve as \defi{parameters}\index{parameter@parameter}\index{function!parametre@parameter},
   \item an \defi{output}, which is a result returned by the function (and which will often depend on the input parameters).
 \end{itemize}
 
@@ -75,7 +75,7 @@ def display_month(number):
     return
 \end{lstlisting}
 \end{center}
-When called this function displays the name of the month based on the number provided as input. For example \ci{display_month(3)} will display \ci{"We are in March."}.
+When called, this function displays the name of the month based on the number provided as input. For example \ci{display_month(3)} will display \ci{"We are in March."}.
 
 \begin{center}
 \begin{lstlisting}
@@ -96,7 +96,7 @@ z = compute_cube(x) + compute_cube(y)
 print(z)
 \end{lstlisting}
 \end{center}
-In mathematical terms, we put $x=3$, $y=4$, then we calculate the cube of $x$, the cube of $y$ and add them up:
+In mathematical terms, we set $x=3$, $y=4$, then we calculated the cube of $x$, the cube of $y$ and added them up:
 $$z = x^3 + y^3 = 3^3 + 4^3 = 27 + 64 = 91$$
 Thus the program displays \ci{91}.
 \mybox{
@@ -106,8 +106,8 @@ Thus the program displays \ci{91}.
 
 The advantages of programming using functions are as follows:
 \begin{itemize}
-  \item you write the code of a function only once, but you can call the function several times;
-  \item by dividing our program into small blocks, each with its own use, the program is easier to write, read, correct and modify;
+  \item you write the code for a function only once, but you can call the function several times;
+  \item by dividing our program into small blocks, each with its own use, the program is easier to write, read, correct, and modify;
   \item you can use a function written by someone else (such as the \ci{sqrt()} function) without knowing all the internal details of its programming.
 \end{itemize} 
 
@@ -122,32 +122,32 @@ The advantages of programming using functions are as follows:
 \objectifs{Goal: write very simple functions.}
 
 \begin{enumerate}
-  \item \textbf{Function without parameter or output.}
+  \item \textbf{Functions without parameters or outputs.}
   \begin{enumerate}
-    \item Program a function called \ci{print_table_of_7()} that displays the multiplication table by $7$: $1 \times 7 = 7$, $2\times 7 = 14$\ldots
+    \item Define a function called \ci{print_table_of_7()} that displays the multiplication table by $7$: $1 \times 7 = 7$, $2\times 7 = 14$\ldots
     
-    \item Program a function called \ci{print_hello()} that asks the user for his first name and then displays \og{}Hello\fg{} followed by his name.
+    \item Define a function called \ci{print_hello()} that asks the user for their first name and then displays \og{}Hello\fg{} followed by their name.
     
     \emph{Hint.} Use \ci{input()}.
   \end{enumerate}
 
-  \item \textbf{Function with one parameter and no output.}
+  \item \textbf{Functions with one parameter and no outputs.}
   \begin{enumerate}
-    \item Program a function called \ci{print_a_table(n)} that depends on a parameter \ci{n} and displays the multiplication table by this integer $n$.
+    \item Define a function called \ci{print_a_table(n)} that depends on a parameter \ci{n} and displays the multiplication table of this integer $n$.
     For example, the command \ci{print_a_table(5)} must display: $1 \times 5 = 5$, $2\times 5 = 10$\ldots
     
-    \item Program a function called \ci{say_greeting(sentence)} that depends on a parameter \ci{sentence}. This function asks for the user's first name and displays a greeting followed by the first name. For example, \ci{say_greeting("Hi")} would display \og{}Hi\fg{} followed by the first name given by the user.
+    \item Define a function called \ci{say_greeting(sentence)} that depends on a parameter \ci{sentence}. This function asks for the user's first name and displays the sentence followed by the first name. For example, \ci{say_greeting("Hi")} would display \og{}Hi\fg{} followed by the first name given by the user.
   \end{enumerate}  
   
-  \item \textbf{Function without parameter and with output.}
+  \item \textbf{Functions without parameters and with an output.}
   
-Program a function called \ci{ask_full_name()} that first asks for the user's first name, then his last name and returns the complete identity with the last name in upper case as a result. For example, if the user enters \og{}Dark\fg{} then \og{}Vador\fg{}, the function returns the string \ci{"Dark VADOR"} (the function displays nothing).
+Define a function called \ci{ask_full_name()} that first asks for the user's first name, then their last name and returns the complete identity with the last name in upper case as a result. For example, if the user enters \og{}Darth\fg{} then \og{}Vader\fg{}, the function returns the string \ci{"Darth VADER"} (the function displays nothing).
 
 \emph{Hints.} 
 \begin{itemize}
-  \item If \ci{string} is a string, then \ci{string.upper()}\index{string}\index{upper@\ci{upper}} is the transformed string with characters in capital letters. Example: if \ci{string = "Vador"} then \ci{string.upper()} returns \ci{"VADOR"}.
+  \item If \ci{word} is a string, then \ci{word.upper()}\index{string}\index{upper@\ci{upper}} is the transformed string with characters in capital letters. Example: if \ci{word = "Vader"} then \ci{word.upper()} returns \ci{"VADER"}.
   
-  \item \index{concatenation} You can merge two strings by using the operator \og{}\ci{+}\fg{}. Example: \ci{"Dark" + "Vador"} is equal to \ci{"DarkVador"}.  Another example: if \ci{string1 = "Dark"} and \ci{string2 = "Vador"} then \ci{string1 + " " + string2} is equal to \ci{"Dark Vador"}.
+  \item \index{concatenation} You can merge two strings by using the operator \og{}\ci{+}\fg{}. Example: \ci{"Darth" + "Vader"} is equal to \ci{"DarthVader"}.  Another example: if \ci{string1 = "Darth"} and \ci{string2 = "Vader"} then \ci{string1 + " " + string2} is equal to \ci{"Darth Vader"}.
 \end{itemize}
 \end{enumerate}
 \end{activite}
@@ -187,19 +187,18 @@ So let's remember:
   \item There can be several results at the output.
   
   \item Very important! Do not confuse displaying and returning a value.
-  The display (by the command \ci{print()}) just displays something on the screen. Most functions do not display anything, but return one (or more) value. This is much more useful because this value can be used elsewhere in the program.
+  Display (by the command \ci{print()}) just displays something on the screen. Most functions do not display anything, but instead return one (or more) value. This is much more useful because this value can then be used elsewhere in the program.
   
-  \item As soon as the program encounters the instruction \ci{return}\index{return@\ci{return}}\index{function!return@\ci{return}}, the function stops and returns the result. There may be several times the instruction \ci{return} in a function but only one will be executed. It is also possible not to put an instruction \ci{return} if the function returns nothing.
+  \item As soon as the program encounters the instruction \ci{return}\index{return@\ci{return}}\index{function!return@\ci{return}}, the function stops and returns the result. There may be several instances of the \ci{return} instruction in a function but only one will be executed. It is also possible not to put an instruction \ci{return} if the function returns nothing.
   
-  \item In the instructions of a function, you can of course use other functions!
+  \item You can, of course, call other functions in the body of your function!
    
-  \item It is important to comment well on your programs. To document a function, you can describe what it does starting with a \emph{docstring}\index{docstring@\emph{docstring}}\index{function!docstring@\emph{docstring}}, i.e. a description (in English) surrounded by three quotation marks:   
-  \mycenterline{\ci{""" My function does this and that. """}}
-  
+  \item It is important to write lots of comments about your code. To document a function, you can describe what it does starting with a \emph{docstring}\index{docstring@\emph{docstring}}\index{function!docstring@\emph{docstring}}, i.e. a description (in English) surrounded by three quotation marks:   
+  \mycenterline{\ci{""" My function does this and that. """}} 
   to be placed just after the header.
 
   
-  \item When defining a function, the variables that appear between the parentheses are called the \defi{parameters}; when calling the function, however, the values between the parentheses are called the \defi{arguments}\index{argument}\index{function!argument}. There is of course a correspondence between the two.
+  \item In the definition of a function, the variables that appear between the parentheses are called the \defi{parameters}; in a function call, however, the values between the parentheses are called the \defi{arguments}\index{argument}\index{function!argument}. There is of course a correspondence between the two.
 
 
 \end{itemize}
@@ -227,17 +226,17 @@ So let's remember:
   \item \textbf{Currencies.}
   
    \begin{enumerate}
-    \item Write a function \ci{conversion_dollars_to_euros(amount)} which depends on a parameter and which for a sum of money \ci{amount}, expressed in dollars, returns its value in euros (you will take for example $1$ dollar = $0.89$ euro).
+    \item Write a function \ci{conversion_dollars_to_euros(amount)} which takes in a sum of money \ci{amount}, expressed in dollars and returns its value in euros (for example $1$ dollar = $0.89$ euro).
     
     \item Write a function \ci{conversion_dollars(amount,currency)} which depends on two parameters \ci{amount} and \ci{currency} and converts the amount given in dollars, to the desired currency.
     Examples of currencies: 
     $1$ dollar = $0.89$ euros;
     $1$ dollar = $0.77$ pounds;
     $1$ dollar = $110$ yen.
-    For example, \ci{conversion_dollars(100,"pound")} returns $77$.   
+    For instance, \ci{conversion_dollars(100,"pound")} returns $77$.   
     
     
-  \emph{Take care to give an intelligible name to your functions and variables. Don't forget to document each function by adding a small explanatory text between triple quotation marks at the very beginning of your function.}
+  \emph{Make sure to give meaningful names to your functions and variables. Don't forget to document each function by adding a small explanatory text between triple quotation marks at the very beginning of your function.}
     
     
   \end{enumerate}   
@@ -252,17 +251,17 @@ So let's remember:
     \item the volume of a rectangular parallelepiped box according to its three dimensions.
    \end{itemize}
    
-   For the value of $\pi$, you will take either the approximate value $3.14$, or the approximate value provided by the constant \ci{pi} of the module \ci{math}.
+   For the value of $\pi$, you should use either the approximate value $3.14$, or the approximate value provided by the constant \ci{pi} in the \ci{math} module.
   
   
   \item \textbf{Perimeters and areas.}
   
   \begin{enumerate}
-    \item Write a function whose use is \ci{perimeter_area_rectangle(a,b)} and which returns the perimeter and area of a rectangle with dimensions of $a$ and $b$.
+    \item Write a function whose use is \ci{perimeter_area_rectangle(a,b)} and which returns the perimeter and area of a rectangle with dimensions $a$ and $b$.
       
     \item Same question with \ci{perimeter_area_disc(r)} for the perimeter and area of a  disc of radius $r$.
     
-    \item Use your previous function to guess from which radius, the area of a disc is larger than the perimeter of that disc.
+    \item Use your previous function to guess the radius, for which the area of a disc is larger than the perimeter of that disc.
     
     \emph{Hint.} If you want to scan the radius by incrementing the value of $0.1$ each time, you can build a loop as follows:   
     \mycenterline{\ci{for R in range(0,30):}}    
@@ -283,21 +282,21 @@ So let's remember:
 \begin{activite}[Turtle]
 \index{turtle}
 
-\objectifs{Goal: define some functions that draw geometric shapes. Creating a function is similar to creating a block with \emph{Scratch}.}
+\objectifs{Goal: define functions that draw geometric shapes. Creating a function is similar to creating a block in \emph{Scratch}.}
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.4]{screen-functions-tortue}
 \end{center}
 
 \begin{enumerate}
-  \item Program a function \ci{triangle()} that draws a triangle (in red, each side measuring $200$).
+  \item Program a \ci{triangle()} function that draws a triangle (in red, each side measuring $200$).
 
-  \item Program a function \ci{square()} that draws a square (in green, each side measuring $200$). Use a loop \og{}for\fg{} so you don't have to rewrite the same instructions several times.  
+  \item Program a \ci{square()} function that draws a square (in green, each side measuring $200$). Use a \og{}for\fg{} loop so you don't have to rewrite the same instructions several times.  
   
   \item Program a \ci{hexagon(length)} function that draws a hexagon (in blue) of a given side length (the angle to turn is $60$ degrees).
   
   
-  \item Program a function \ci{polygon(n,length)} that draws a regular polygon of $n$ sides and a given side length (the angle to rotate is $360/n$ degrees). 
+  \item Program a \ci{polygon(n,length)} function that draws a regular polygon of $n$ sides and a given side length (the angle to rotate is $360/n$ degrees). 
 \end{enumerate}
 
 \end{activite}
@@ -325,7 +324,7 @@ So let's remember:
     \item reduction of $20\%$ for $60$ years old and over.
   \end{itemize}
   
-  Write a function \ci{reduction()} that returns the reduction according to age and whose properties are recalled in the box below:
+  Write a function \ci{reduction()} that returns the reduction according to age. The function properties are described in the box below:
 \begin{fonction}[\ci{reduction()}]
   Use: \ci{reduction(age)} \\
   Input: an integer corresponding to age \\
@@ -340,7 +339,7 @@ So let's remember:
   \end{itemize}
   \end{fonction}  
   
-  Deduce a \ci{amount()} function that calculates the amount to be paid based on the normal fare and the traveler's age.
+  Deduce an \ci{amount()} function that calculates the amount to be paid based on the normal fare and the traveler's age.
   
 \begin{fonction}[\ci{amount()}]
   Use: \ci{amount(normal_rate,age)}\\
@@ -365,7 +364,7 @@ So let's remember:
   \end{enumerate}
   
   
-  \item We want to program a small quiz on the multiplication tables.
+  \item We want to program a small multiplication tables quiz.
   
   \begin{enumerate}
     \item Program a function \ci{is_calculation_correct()} that decides if the answer given to a multiplication is right or not.
@@ -420,12 +419,12 @@ So let's remember:
 \begin{enumerate}
   \item
   \begin{enumerate}
-    \item Build a function \ci{absolute_value(x)} that returns the absolute value of a number (without using the function \ci{abs()} of \Python{}).
+    \item Build an \ci{absolute_value(x)} function that returns the absolute value of a number (without using the function \ci{abs()} in \Python{}).
 
     \item Build a function \ci{root_of_square(x)} which corresponds to the calculation of $\sqrt{x^2}$.
 
   
-  \item Two functions (of one variable) $f$ and $g$ are said to be \defi{experimentally equal} if $f(i)=g(i)$ for $i=-100,-99,\ldots,0,1,2,\ldots,100$. Check by computer that the two functions defined by
+  \item Two mathematical functions (of one variable) $f$ and $g$ are said to be \defi{experimentally equal} if $f(i)=g(i)$ for $i=-100,-99,\ldots,0,1,2,\ldots,100$. Check by computer that the two functions defined by
   $$|x| \qquad \text{ and } \qquad \sqrt{x^2}$$
   are experimentally equal. 
   
@@ -433,21 +432,21 @@ So let's remember:
   
   \item
     \begin{enumerate}
-    \item Build a two-parameter function \ci{F1(a,b)} that returns $(a+b)^2$. Same thing with \ci{F2(a,b)} that returns $a^2+2ab+b^2$.
+    \item Build a two-parameter function \ci{F(a,b)} that returns $(a+b)^2$. Same thing with \ci{G(a,b)} that returns $a^2+2ab+b^2$.
  
-  \item Two functions of two variables $F$ and $G$ are said to be \defi{experimentally equal} if $F(i,j)=G(i,j)$ for all $i=-100,-99,\ldots,100$ and for all $j = -100,-99,\ldots,100$. Check by computer that the functions defined by $(a+b)^2$ and $a^2+2ab+b^2$ are experimentally equal. 
+  \item Two functions of two variables $F$ and $G$ are said to be \defi{experimentally equal} if $F(i,j)=G(i,j)$ for all $i=-100,-99,\ldots,100$ and for all $j = -100,-99,\ldots,100$. Check by computer that the functions you defined $(a+b)^2$ and $a^2+2ab+b^2$ are experimentally equal. 
   
    \item I know that one of the following two identities is true:
    $$(a-b)^3 = a^3 - 3a^2b -3ab^2+b^3 \qquad \text{ or } \qquad (a-b)^3 = a^3 - 3a^2b  + 3ab^2 - b^3.$$
-   Help yourself from the computer to decide which one it is!
+   Use the computer to help you to decide which one it is!
    
   \end{enumerate} 
   
   \item 
    \begin{enumerate}
-    \item Build a function \ci{sincos(x)} that returns $(\sin(x))^2 + (\cos(x))^2$ and another \ci{one(x)} that always returns $1$. Are these two functions experimentally equal (in the sense of the first question)? Find out what could be the cause of this answer.
+    \item Build a function \ci{sincos(x)} that returns $(\sin(x))^2 + (\cos(x))^2$ and another \ci{one(x)} that always returns $1$. Are these two functions experimentally equal (in the sense of the first question)? Find out why that is.
     
-    \item Fix $\epsilon = 0.00001$. It is said that two functions (of one variable) $f$ and $g$ are \defi{experimentally approximately equal} if $|f(i)-g(i)| \le \epsilon$ for $i=-100,-99,\ldots,100$. Do the two functions defined by \ci{sincos(x)} and \ci{one(x)} now check this criterion?
+    \item Fix $\epsilon = 0.00001$. It is said that two functions (of one variable) $f$ and $g$ are \defi{experimentally approximately equal} if $|f(i)-g(i)| \le \epsilon$ for $i=-100,-99,\ldots,100$. Do the two functions defined by \ci{sincos(x)} and \ci{one(x)} now satisfy this criterion?
     
     \item Experimentally check and experimentally approximately check the identities:
     $$\sin(2x) = 2\sin(x)\cos(x), \qquad \cos\left(\frac\pi2-x\right)=\sin(x).$$
@@ -511,18 +510,18 @@ They do not exist outside the function.
 
 
 To understand the scope of the variables, you can color the global variables of a function in red, and the local variables with one color per function.
-The following small program defines a function that adds one and another that calculates the double.
+The following small program defines two functions. The first adds one to a number and the second calculates the double.
 
 \mybox{
 \myfigure{0.7}{
   \tikzinput{fig-functions-lesson-4}
 } }
 
-The program first displays the value of \ci{x}, so \ci{7}, then it increases it by $1$, so it displays \ci{8}, then it displays twice as much as \ci{x}, so \ci{14}. The global variable \ci{x} has never changed, so the last display of \ci{x} is still \ci{7}.
+The program first displays the value of \ci{x}, or \ci{7}, then it increases it by $1$, so it displays \ci{8}, then it displays twice as much as \ci{x}, so \ci{14}. The global variable \ci{x} has never changed, so the last display of \ci{x} is still \ci{7}.
 
 \bigskip
 
-It is still possible to force the hand to \Python{} and modify a global variable in a function using the keyword \ci{global}. See the chapter \og{}Polish calculator -- Stacks\fg{}.
+It is still possible to force the hand of \Python{} and modify a global variable in a function using the keyword \ci{global}. See the chapter \og{}Polish calculator -- Stacks\fg{}.
 
 \end{cours}
 

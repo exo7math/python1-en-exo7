@@ -8,7 +8,7 @@
 \chapitre{Arithmetic -- While loop -- I}
 %====================================================================
 
-\objectifs{The activities in this sheet focus on arithmetic: Euclidean division, prime numbers \ldots{} This is an opportunity to use the loop \og{}while\fg{} intensively.}
+\objectifs{The activities in this sheet focus on arithmetic: long division, prime numbers \ldots{} This is an opportunity to use the \og{}while\fg{} loop intensively.}
 
 
 
@@ -24,7 +24,7 @@
 \index{\ci{//}}
 \index{\ci{\%}}
 
-We recall what Euclidean division is. Here is the division of $a$ by $b$, $a$ is a positive integer, $b$ is a strictly positive integer (with an example of $100$ divided by $7$) :
+Let us recall what Euclidean division is. Here is the division of $a$ by $b$, $a$ is a positive integer, $b$ is a strictly positive integer (with the example of $100$ divided by $7$) :
 
 \myfigure{1}{
 \tikzinput{fig-while-en}
@@ -55,11 +55,11 @@ It is easy to check that:
 
 \begin{activite}[Quotient, remainder, divisibility]
 
-\objectifs{Goal: use the remainder to find out if an integer divides another.}
+\objectifs{Goal: use the remainder to find out if one integer divides another.}
 
 
 \begin{enumerate}
-  \item Program a function \ci{quotient_remainder(a,b)} that does the following tasks for two integers $a\ge0$ and $b>0$ :
+  \item Program a function named \ci{quotient_remainder(a,b)} that does the following tasks for two integers $a\ge0$ and $b>0$ :
   \begin{itemize}
     \item It displays the quotient $q$ of the Euclidean division of $a$ per $b$,
     \item it displays the remainder $r$ of this division,
@@ -67,9 +67,9 @@ It is easy to check that:
     \item it displays \ci{True} if you have equality $a = bq+r$, and \ci{False} if not.
    \end{itemize}
     
-Here is for example what the call should display \ci{quotient_remainder(100,7)}:
+Here is an example of what the call should display for \ci{quotient_remainder(100,7)}:
 \begin{lstlisting}  
-Division of a = 100 per b = 7
+Division of a = 100 by b = 7
 The quotient is q = 14
 The remainder is r = 2
 Check remainder: 0 <= r < b? True
@@ -79,16 +79,16 @@ Check equality: a = bq + r? True
 \emph{Note.} You have to check without cheating that we have $0 \le r<b$ and $a=bq+r$, but of course it must always be true!
   
   
-  \item Program a function \ci{is_even(n)} that tests if the integer $n$ is even or not. The function returns \ci{True} or \ci{False}.
+  \item Program a function called \ci{is_even(n)} that tests if the integer $n$ is even or not. The function should return \ci{True} or \ci{False}.
   
   \emph{Hints.}
   \begin{itemize}
-    \item First possibility: calculate \ci{n \% 2} and discuss as appropriate.
-    \item Second possibility: calculate \ci{n \% 10} (which returns the digit of units) and discuss.
+    \item First possibility: calculate \ci{n \% 2}.
+    \item Second possibility: calculate \ci{n \% 10} (which returns the digit of units).
     \item The smartest people will be able to write the function with only two lines (one for \ci{def...} and the other for \ci{return...}).
    \end{itemize}
    
-  \item Program a function \ci{is_divisible(a,b)} that tests if $b$ divides $a$. The function returns \ci{True} or \ci{False}.
+  \item Program a function called \ci{is_divisible(a,b)} that tests if $b$ divides $a$. The function should return \ci{True} or \ci{False}.
   
 \end{enumerate}   
      
@@ -98,8 +98,8 @@ Check equality: a = bq + r? True
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{cours}[Loop \og{}while\fg{}]
-The loop \og{}while\fg{} executes instructions as long as a condition is true.
+\begin{cours}[\og{}while\fg{} loop]
+The \og{}while\fg{} loop executes instructions as long as a condition is true.
 As soon as the condition becomes false, it proceeds to the next instructions.
 
 \index{loop!while}
@@ -153,7 +153,7 @@ This is summarized in the form of a table:
 \begin{exemple}
 \begin{minipage}{0.55\textwidth}
 This piece of code looks for the first power of $2$ greater than a given integer $n$.
-The loop prints the values $2$, $4$, $8$, $16$,\ldots{} It stops as soon as the power of $2$ is higher or equal to $n$, so here this program displays $128$.
+The loop prints the values $2$, $4$, $8$, $16$,\ldots{} It stops as soon as the power of $2$ is higher or equal to $n$, so this program displays $128$.
 \end{minipage}\qquad\qquad
 \begin{minipage}{0.4\textwidth}
 \begin{lstlisting}
@@ -191,7 +191,7 @@ print(p)
 
 \begin{exemple}
 \begin{minipage}{0.55\textwidth}
-For this last loop we have already prepared a function \ci{is_even(n)} which returns \ci{True} if the integer $n$ is even and \ci{False} otherwise. The loop does this: as long as the integer $n$ is even, $n$ becomes $n/2$. This amounts to removing all factors $2$ from the integer $n$. As here $n = 56 = 2\times 2 \times 2 \times 7$, this program displays $7$.
+For this last loop we have already prepared a function called \ci{is_even(n)} which returns \ci{True} if the integer $n$ is even and \ci{False} otherwise. The loop does this: as long as the integer $n$ is even, $n$ becomes $n/2$. This amounts to removing all factors $2$ from the integer $n$. As $n = 56 = 2\times 2 \times 2 \times 7$, this program displays $7$.
 \end{minipage}\qquad\qquad
 \begin{minipage}{0.4\textwidth}
 \begin{lstlisting}
@@ -227,7 +227,7 @@ For the latter example, it is much more natural to start the loop with
 \mycenterline{\ci{while is_even(n):}}
 
 Indeed \ci{is_even(n)} is already a value \og{}True\fg{} or \og{}False\fg{}.
-We're getting closer to the English sentence \og{}while $n$ is even...\fg{}
+Therefore we're getting closer to the English sentence \og{}while $n$ is even...\fg{}
 
 \end{exemple}
 
@@ -256,7 +256,7 @@ The second writing is shorter but makes the program less readable.
 \begin{enumerate}
   \item \textbf{Smallest divisor.}
   
-  Program a function \ci{smallest_divisor(n)} that returns, the smallest divisor $d\ge2$ of the integer $n\ge2$.
+  Program a function called \ci{smallest_divisor(n)} that returns, the smallest divisor $d\ge2$ of the integer $n\ge2$.
   
   For example \ci{smallest_divisor(91)} returns $7$, because $91 = 7 \times 13$.
   
@@ -265,15 +265,15 @@ The second writing is shorter but makes the program less readable.
   \textbf{Method.}
   \begin{itemize}
     \item We remind you that $d$ divides $n$ if and only if \ci{n \% d} is equal to $0$.
-    \item The bad idea is to use a loop \og{}for $d$ ranging from $2$ to $n$\fg{}. Indeed, if for example we know that $7$ is a divisor of $91$ it is useless to test if $8,9,10\ldots$ are also divisors because we have already found a smaller one.
+    \item It is a bad idea is to use a loop \og{}for $d$ ranging from $2$ to $n$\fg{}, since, if for example we know that $7$ is a divisor of $91$ it is useless to test if $8,9,10\ldots$ are also divisors because we have already found a smaller one.
     
-    \item The good idea is to use a loop \og{}while\fg{}!
-    The principle is: \og{}as long as I haven't got my divisor, I keep looking for\fg{}. (And so, as soon as I find it, I stop looking.)
+    \item A good idea is to use a \og{}while\fg{} loop!
+    The principle is: \og{}as long as I haven't got my divisor, I should keep looking for\fg{}. (And so, as soon as I find it, I stop looking.)
     
     \item In practice here are the main lines:
     \begin{itemize}
       \item Begin with $d=2$.
-      \item As long as $d$ does not divide $n$ then pass to the next candidate ($d$ becomes $d+1$).
+      \item As long as $d$ does not divide $n$ move on to the next candidate ($d$ becomes $d+1$).
       \item At the end $d$ is the smallest divisor of $n$ (in the worst case $d=n$).
      \end{itemize} 
   \end{itemize}
@@ -281,7 +281,7 @@ The second writing is shorter but makes the program less readable.
   
   \item \textbf{Prime numbers (1).}
   
-  Slightly modify your function \ci{smallest_divisor(n)} to write a first function \ci{is_prime_1(n)} which returns \og{}True\fg{} if $n$ is a prime number and \og{}False\fg{} otherwise.
+  Slightly modify your function \ci{smallest_divisor(n)} to write your first  prime function \ci{is_prime_1(n)} which returns \og{}True\fg{} if $n$ is a prime number and \og{}False\fg{} otherwise.
   
   For example \ci{is_prime_1(13)} returns \ci{True}, \ci{is_prime_1(14)} returns \ci{False}.
   
@@ -295,15 +295,15 @@ The second writing is shorter but makes the program less readable.
   
   \bigskip
   
-  \emph{We will improve our function which tests if a number is prime or not, it will allow us to test more quickly lots of numbers or very large numbers.}  
+  \emph{We will improve our function which tests if a number is prime or not, it will allow us to test lots of numbers or very large numbers more quickly.}  
   
   \item \textbf{Prime numbers (2).}
   
-   Enhance your previous function to a \ci{is_prime_2(n)} that does not test all divisors $d$ from $2$ to $n$, but only up to $\sqrt{n}$.
+   Enhance your previous function to become \ci{is_prime_2(n)}. It should not test all the divisors $d$ from $2$ to $n$, but only up to $\sqrt{n}$.
    
   \emph{Explanations.}
   \begin{itemize}
-    \item For example, to test if $101$ is a prime number, just see if it admits divisors among $2,3,\ldots,10$. The gain is significant!
+    \item For example, to test if $101$ is a prime number, just see if it divisible by $2,3,\ldots,10$. It is faster!
     
     \item This improvement is due to the following proposal: if an integer is not prime then it admits a divisor $d$ that verifies $2 \le d \le \sqrt{n}$.
     
@@ -313,10 +313,10 @@ The second writing is shorter but makes the program less readable.
   
   \item \textbf{Prime numbers (3).}  
   
-  Improve your function into a function \ci{is_prime_3(n)} using the following idea.  We test if $d=2$ divides $n$, but from $d=3$, we just test the odd divisors (we test $d$, then $d+2$\ldots).
+  Improve your function to become \ci{is_prime_3(n)} using the following idea.  We test if $n$ is divisible by $d=2$, but from $d=3$, we just test the odd divisors (we test $d$, then $d+2$\ldots).
  
  \begin{itemize}
-   \item For example to test if $n = 419$ is a prime number, we first test if $d=2$ divides $n$, then $d=3$ and then $d=5$, $d=7$\ldots 
+   \item For example to test if $n = 419$ is a prime number, we first test if $n$ is divisible by $d=2$, then $d=3$ and then $d=5$, $d=7$\ldots 
    \item This allows you to do about half less tests!
    \item Explanations: if an even number $d$ divides $n$, then we already know that $2$ divides $n$.   
    \end{itemize}
@@ -324,7 +324,7 @@ The second writing is shorter but makes the program less readable.
   
   \item \textbf{Calculation time.}
   
-  Compare the calculation times of your different functions \ci{is_prime()} by repeating for example a million times the call \ci{is_prime(97)}. See the course below for more information on how to do this.
+  Compare the calculation times of your different functions \ci{is_prime()} by repeating the call \ci{is_prime(97)}, for example, a million times. See the course below for more information on how to do this.
 \end{enumerate}   
      
 \end{activite}
@@ -334,7 +334,7 @@ The second writing is shorter but makes the program less readable.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{cours}[Calculation time]
 
-There are two ways to run programs faster: a good and a bad one. The bad way is to buy a more powerful computer.
+There are two ways to make programs run faster: a good way and a bad way. The bad way is to buy a more powerful computer.
 The good method is to find a more efficient algorithm!
 
 With \Python, it is easy to measure the execution time of a function in order to compare it with the execution time of another. Just use the module \ci{timeit}.
@@ -389,7 +389,7 @@ The result depends on the computer, but allows the comparison of the execution t
   \item The module is named \ci{timeit}.
     
   \item The function \ci{timeit.timeit()} returns the execution time in seconds.
-It takes as parameters: 
+The function takes the following parameters: 
   \begin{itemize}
     \item a string for the call of the function to be tested (here we ask if $1000$ is divisible by $7$),
     \item an argument \ci{setup="..."} which indicates where to find this function,
@@ -407,7 +407,7 @@ It takes as parameters:
 
 \begin{activite}[More prime numbers]
 
-\objectifs{Goal: program more loops \og{}while\fg{} and study different kinds of prime numbers using your function \ci{is_prime()}.}
+\objectifs{Goal: program more \og{}while\fg{} loops and study different kinds of prime numbers using your \ci{is_prime()} function.}
 
 \begin{enumerate}
   \item Write a function \ci{prime_after(n)} that returns the first prime number $p$ greater than or equal to $n$. 

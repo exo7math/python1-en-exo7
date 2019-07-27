@@ -23,6 +23,6 @@
 
  \draw[<-,>=latex,ultra thick, red]    (EE.east)  to[bend right=10] (8,-2.5) node[right, text width = 7cm] {immediate termination of the function in this case};
 
- \draw[<-,>=latex,ultra thick, red]  (G.south)  to[bend right] (8,-6) node[right] {returns several values};
+ \draw[<-,>=latex,ultra thick, red]  (G.south)  to[bend right] (8,-6) node[right] {returns one or several values};
 
 \end{tikzpicture}

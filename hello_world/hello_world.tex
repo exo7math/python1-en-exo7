@@ -9,7 +9,7 @@
 %====================================================================
 
 
-\objectifs{Get into programming! In this very first activity, you will learn to manipulate numbers, variables and code your first loops with \Python.}
+\objectifs{Get into programming! In this very first activity, you will learn to manipulate numbers, variables and code your first loop with \Python.}
 
 
 
@@ -19,13 +19,13 @@
 
 \begin{cours}[Numbers with \Python]
 
-Check in the console that \Python{} works correctly, by typing the following commands in a \Python{} console:
+Check that \Python{} works correctly, by typing the following commands in the  \Python{} console:
 \begin{lstlisting}
 >>> 2+2
 >>> "Hello world!"
 \end{lstlisting}
 
-Here are some instructions.
+Here are some instructions to try.
 \begin{itemize}
   \item \textbf{Addition.} \ci{5+7}.
   \item \textbf{Multiplication.} 
@@ -49,7 +49,7 @@ Here are some instructions.
 
 \begin{activite}[First steps]
 
-\objectifs{Goal: make your first calculations with \Python.}
+\objectifs{Goal: code your first calculations with \Python.}
 
 \begin{enumerate}
   \item How many seconds are there in a century? (Do not take leap years into account.)
@@ -58,7 +58,7 @@ Here are some instructions.
   $$(1+2)\times(3+4)\times(5+6)\times(7+8)\times\cdots$$
   
   \item What are the last three digits of 
-  $$\underbrace{123456789 \times 123456789 \times \cdots}_{7 \text{ instance of } 123456789} \quad ?$$
+  $$123456789 \times 123456789 \times 123456789 \times 123456789 \times 123456789 \times 123456789 \times 123456789 \quad ?$$
   
   \item $7$ is the first integer such that its inverse has a repeating decimal representation of period $6$:
   $$\frac{1}{7} = 0.\underbrace{142857}\underbrace{142857}\underbrace{142857}\ldots$$ 
@@ -69,8 +69,8 @@ Here are some instructions.
   
   \item Find the unique integer:
   \begin{itemize}
-    \item which gives a quotient of $107$ when you divide by $11$ (with integer division),
-    \item and which gives a quotient of $90$ when you divide by $13$ (with integer division),
+    \item which gives a quotient of $107$ when you divide it by $11$ (with integer division),
+    \item and which gives a quotient of $90$ when you divide it by $13$ (with integer division),
     \item and which gives a remainder equal to $6$ modulo $7$.
   \end{itemize}
     
@@ -82,7 +82,7 @@ Here are some instructions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{cours}[Working with an editor]
-From now on, it is better if you work in a text editor dedicated to \Python. You must then explicitly ask to display the result\index{print@\ci{print}}:
+From now on, it is better if you work in a text editor dedicated to \Python{} rather than with the console. You must then explicitly ask to display the result\index{print@\ci{print}}:
 \begin{lstlisting}
 print(2+2)
 print("Hello world!")
@@ -121,7 +121,7 @@ print(c)     # ... that is displayed
 \textbf{Comments.}
 \index{\#@\#}
 \index{comments}
-Any text following the sharp character \og{}\#\fg{} is not executed by \Python{} but is used to explain the program. It is a good habit to comment extensively on your code.
+Any text following the hashtag character \og{}\#\fg{} is not executed by \Python{} but is used to explain the program. It is a good habit to comment extensively on your code.
 
  
 \medskip
@@ -140,7 +140,7 @@ Attention! \Python{} is case sensitive. So \ci{myvariable}, \ci{Myvariable} and 
 
 \medskip
 
-\textbf{Re-assignment.}\index{assignment} Imagine you want to keep your daily accounts. You start with $S_0 = 1000$, the next day you earn $100$, so now $S_1 = S_0 + 100$; the next day you add $200$, so $S_2 = S_1 + 200$; then you lose $50$, so on the third day $S_3 = S_2 - 50$. With \Python{} you can use only one variable \ci{S} for all these operations.
+\textbf{Re-assignment.}\index{assignment} Imagine you want to keep your daily accounts. You start with $S_0 = 1000$, the next day you earn $100$, so now $S_1 = S_0 + 100$; the next day you add $200$, so $S_2 = S_1 + 200$; then you lose $50$, so on the third day $S_3 = S_2 - 50$. With \Python{} you can use just one variable \ci{S} for all these operations.
 
 \begin{lstlisting}
 S = 1000
@@ -194,7 +194,7 @@ You have to understand the instruction \og{}\ci{S = S + 100}\fg{} like this: \og
   \item You place the sum of $1000$ dollars in a savings account. Each year the interest on the money invested brings in $10\%$ (the capital is multiplied by $1.10$).
   Write the code to calculate the capital for the first three years.
 
-  \item I define two variables by \ci{a = 9} and \ci{b = 11}. I would like to exchange the content of \ci{a} and \ci{b}. Which instructions agree so that at the end \ci{a} equals $11$ and \ci{b} equals $9$?
+  \item I define two variables by \ci{a = 9} and \ci{b = 11}. I would like to exchange the content of \ci{a} and \ci{b}. Which instructions should I use so that at the end \ci{a} equals $11$ and \ci{b} equals $9$?
   
 \begin{center}
 \begin{minipage}{0.2\textwidth}
@@ -238,7 +238,7 @@ b = c
 \begin{cours}[Use functions]
 \sauteligne
 \begin{itemize}
-  \item \textbf{Use functions of \Python.}
+  \item \textbf{Use \Python{} functions.}
   
   You already know the \ci{print()} function that displays a string of characters (or numbers). It can be used by \ci{print("Hi there.")} or through a value: 
 \begin{center}
@@ -250,12 +250,12 @@ print(string)
 \end{minipage}
 \end{center} 	 
 
-  There are many other functions. For example, the function \ci{abs()} calculates the absolute value: \ci{abs(-3)} returns \ci{3}, \ci{abs(5)} returns \ci{5}.
+  There are many other functions. For example, the function \ci{abs()} calculates the absolute value of a number: for example \ci{abs(-3)} returns \ci{3}, \ci{abs(5)} returns \ci{5}.
  % Other example: \ci{float()} transforms a character string into a number: \ci{float("+1.234567")} returns the floating number \ci{1.234567}.
 
   \item \textbf{The module \ci{math}.}
 
-	Not all functions are directly accessible. They are often grouped in \defi{modules}\index{module}. For example, the module \ci{math}\index{math@\ci{math}}\index{module!math@\ci{math}} contains the mathematical functions. For instance, you will find the square root function \ci{sqrt()}\index{sqrt@\ci{sqrt}}\index{square root}. Here's how to use it: 
+	Not all functions are directly accessible. They are often grouped into \defi{modules}\index{module}. For example, the \ci{math} module\index{math@\ci{math}}\index{module!math@\ci{math}} contains mathematical functions. For instance, you will find the square root function \ci{sqrt()}\index{sqrt@\ci{sqrt}}\index{square root}. Here's how to use it: 
 \begin{center}
 \begin{minipage}{0.5\textwidth}
 \begin{lstlisting} 
@@ -269,11 +269,11 @@ print(x**2)
 
 \end{center} 	
 
-The first line imports all the functions of the module named \ci{math}\index{import@\ci{import}}, the second line calculates $x = \sqrt{2}$ (in approximate value) and then displays $x$ and $x^2$.	
+The first line imports all the functions of the module named \ci{math}\index{import@\ci{import}}, the second line calculates $x = \sqrt{2}$ (as an approximate value) and then displays $x$ and $x^2$.	
 
   \item \textbf{Sine and cosine.} 
   
-  The module \ci{math} contains the trigonometric functions sine \index{sin@\ci{sin}} and cosine \index{cos@\ci{cos}} and even the constant \ci{pi}\index{pi@\ci{pi}}\index{$\pi$} which is an approximate value of $\pi$. Be careful, the angles are expressed in radians.
+  The \ci{math} module contains the trigonometric functions sine \index{sin@\ci{sin}} and cosine \index{cos@\ci{cos}} and even the constant \ci{pi}\index{pi@\ci{pi}}\index{$\pi$} which is an approximate value of $\pi$. Be careful, the angles are expressed in radians.
 
 Here is the calculation of $\sin(\frac\pi2)$. 
 \begin{center}
@@ -288,7 +288,7 @@ print(sin(angle))
 
   \item \textbf{Decimal to integer.}
 
-In the module \ci{math} there are also functions to round a decimal number: 
+In the \ci{math} module there are also functions to round a decimal number: 
   \begin{itemize}
     \item \ci{round()}\index{round@\ci{round}} rounds to the nearest integer: \ci{round(5.6)} returns \ci{6}, \ci{round(1.5)} returns \ci{2}.
     \item \ci{floor()}\index{floor@\ci{floor}} returns the integer less than or equal to: \ci{floor(5.6)} returns \ci{5}.
@@ -306,13 +306,13 @@ In the module \ci{math} there are also functions to round a decimal number:
 
 \begin{activite}[Use functions]
 
-\objectifs{Goal: use functions from \Python{} and the module \ci{math}.}
+\objectifs{Goal: use functions from \Python{} and the \ci{math} module.}
 
 \begin{enumerate}
-  \item The function \Python{} for gcd is \ci{gcd(a,b)}\index{gcd@\ci{gcd}} (for greatest common divisor). Calculate the gcd of $a = 10\,403$ and $b = 10\,506$. Deduce the lcm\index{lcm} from $a$ and $b$. The function lcm does not exist, you must use the formula :
+  \item The \Python{} function for gcd is \ci{gcd(a,b)}\index{gcd@\ci{gcd}} (for greatest common divisor). Calculate the gcd of $a = 10\,403$ and $b = 10\,506$. Deduce the lcm\index{lcm} from $a$ and $b$. The function lcm does not exist, you must use the formula :
   $$\text{lcm}(a,b) = \frac{a \times b}{\text{gcd}(a,b)}.$$
   
-  \item Find by trial and error a real number $x$ that checks all the following conditions (several solutions are possible):
+  \item By trial and error, find a real number $x$ that checks all the following conditions (several solutions are possible):
   \begin{itemize}
     \item \ci{abs(x**2 - 15)} is less than \ci{0.5}
     \item \ci{round(2*x)} returns \ci{8}
@@ -331,9 +331,9 @@ In the module \ci{math} there are also functions to round a decimal number:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{cours}[Loop \og{}for\fg{}]
+\begin{cours}[\og{}for\fg{} loop]
 
-\objectifs{The loop \og{}for\fg{} is the easiest way to repeat instructions.}
+\objectifs{The \og{}for\fg{} loop is the easiest way to repeat instructions.}
 
 \index{for@\ci{for}}
 \index{in@\ci{in}}
@@ -373,7 +373,7 @@ Warning: the last value taken by \ci{i} is $9$ (and not $10$).
 
   \item \textbf{Browse any list.}
   
-The loop \og{}for\fg{} allows you to browse any list. Here is a loop that displays the cube of the first prime numbers.
+The \og{}for\fg{} loop allows you to browse any list. Here is a loop that displays the cube of the first prime numbers.
 \begin{center}
 \begin{minipage}{0.5\textwidth} 
 \begin{lstlisting}
@@ -401,7 +401,7 @@ print(mysum)
 
 Understand this code well: a variable \ci{mysum} is initialized at $0$. 
 We will add $0$, then $1$, then $2$\ldots{}
-This loop can be better understood by filling a table:
+This loop can be better understood by filling in a table:
   $$
   \begin{array}{l}
   \text{Initialisation: \ci{mysum}$=0$}    \\
@@ -455,7 +455,7 @@ This loop can be better understood by filling a table:
 \begin{itemize}
   \item \textbf{Nested loops.}
 
-It is possible to nest loops, i.e.~inside the block of a loop, a new loop is used.
+It is possible to nest loops, i.e.~use a loop inside the block of another loop.
 \begin{center}
 \begin{minipage}{0.5\textwidth} 
 \begin{lstlisting}
@@ -514,7 +514,7 @@ $$13,17,23,27,33,37,43,47,53,57.$$
     \item Use a scanning method as in the previous question.
     \item The formula for the volume of a ball is $V = \frac43 \pi R^3$.
     \item Display values using \ci{print("R =",R,"V =",V)}.    
-    \item For $\pi$ you can take the approximate value $3.14$ or the approximate value \ci{pi} of the module \ci{math}.
+    \item For $\pi$ you can take the approximate value $3.14$ or the approximate value \ci{pi} of the \ci{math} module.
   \end{itemize}
   
 \end{enumerate}  
@@ -525,7 +525,7 @@ $$13,17,23,27,33,37,43,47,53,57.$$
 % Activity 5
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{activite}[Loop \og{}for\fg{} (continued)]
+\begin{activite}[\og{}for\fg{} loop (continued)]
 
 \objectifs{Goal: build more complicated loops.}
 
