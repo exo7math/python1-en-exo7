@@ -18,14 +18,14 @@
 
 \begin{cours}[List (1)]
 
-A \defi{list}\index{list} is a series of elements. This can be a list of integers, for example \ci{[5,-7,12,99]}, or a list of strings, for example \ci{["March","April","May"]} or objects can be of different types \ci{[3.14,"pi",10e-3,"x",True]}.
+A \defi{list}\index{list} is a series of elements. This can be a list of integers, for example \ci{[5,-7,12,99]}, or a list of strings, for example \ci{["March","April","May"]} or objects of different types \ci{[3.14,"pi",10e-3,"x",True]}.
 
 \begin{itemize}
   \item \textbf{Construction of a list.} A list is defined by elements between square brackets:
   \begin{itemize}
     \item \ci{mylist1 = [5,4,3,2,1]} a list of $5$ integers,
     \item \ci{mylist2 = ["Friday","Saturday","Sunday"]} a list of $3$ strings,
-    \item \ci{mylist3 = []} the empty list (very useful to complete it later).
+    \item \ci{mylist3 = []} the empty list (very useful if you intend to complete the list later).
   \end{itemize}
 
   \item \textbf{Get an item.} To get an item from the list, simply write \ci{mylist[i]} where $i$ is the rank of the desired item. 
@@ -51,9 +51,9 @@ A \defi{list}\index{list} is a series of elements. This can be a list of integer
   
   \item \textbf{Add an element.} To add an item at the end of a list, just use the command \ci{mylist.append(element)}\index{append@\ci{append}}\index{list!add}. 
   For example if \ci{primes = [2,3,5,7]} then 
-  \ci{primes.append(11)} adds $11$ to the list, if you then execute the instruction \ci{primes.append(13)} then the list \ci{primes} is now  \ci{[2,3,5,7,11,13]}.
+  \ci{primes.append(11)} adds $11$ to the list, if you then execute the instruction \ci{primes.append(13)} then the list \ci{primes} becomes  \ci{[2,3,5,7,11,13]}.
   
-  \item \textbf{Example of construction.} Here is how to build the list that contains the first squares:
+  \item \textbf{Example of construction.} Here is how to build the list that contains the first ten squares:
    \begin{center}
   \begin{minipage}{0.9\textwidth}
 \begin{lstlisting}
@@ -74,18 +74,18 @@ At the end \ci{list_squares} is:
 \begin{cours}[List (2)]
 \sauteligne
 \begin{itemize}
-  \item \textbf{Length of a list.} The length of a list is the number of elements it contains. The command \ci{len(mylist)}\index{len@\ci{len}}\index{list!length} returns the length. The list \ci{[5,4,3,2,1]} is $5$ long, the list \ci{["Friday","Saturday","Sunday"]} has length $3$, the empty list \ci{[]} has length $0$.
+  \item \textbf{Length of a list.} The length of a list is the number of elements it contains. The command \ci{len(mylist)}\index{len@\ci{len}}\index{list!length} returns the length. The list \ci{[5,4,3,2,1]} is $5$ elements long, the list \ci{["Friday","Saturday","Sunday"]} has length $3$, the empty list \ci{[]} has length $0$.
   
   \item \textbf{Browse a list.} 
-	Here is the easiest way to scan a list (and here to display each item):
+	Here is the easiest way to scan a list (and in this case, to display each item):
 \index{for@\ci{for}}\index{loop!for}
 \begin{lstlisting}
 for item in mylist:
     print(item)
 \end{lstlisting}
 
-  \item \textbf{Browse a list (bis).} 
-  Sometimes you need to know the rank of the elements. Here is another way to do it (which here displays the rank and the element).
+  \item \textbf{Browse a list (again).} 
+  Sometimes you need to know the index of the elements. Here is another way to do it (which here displays the index and the element).
 \begin{lstlisting}
 n = len(mylist)
 for i in range(n):
@@ -156,7 +156,7 @@ for i in range(n):
   the item is added at the beginning of the list.
   For example \ci{[5] + [1,2,3,4]} is \ci{[5,1,2,3,4]}. 
   
-  \item \textbf{Slicing lists.}\index{list!sublist} You can extract a whole part of the list at once: \ci{mylist[a:b]} returns the sublist of items with ranks $a$ to $b-1$.
+  \item \textbf{Slicing lists.}\index{list!sublist} You can extract a whole part of the list at once: \ci{mylist[a:b]} returns the sublist of items with indices $a$ to $b-1$.
   
   \smallskip
   
@@ -170,7 +170,7 @@ for i in range(n):
     \item \ci{mylist[0:2]} returns \ci{["A","B"]}
     \item \ci{mylist[4:7]} returns \ci{["E","F","G"]}
   \end{itemize} 
-  Once again, it is important to remember that the rank of a list starts at $0$ and that the slicing \ci{mylist[a:b]} stops at the rank $b-1$.
+  Once again, it is important to remember that the index of a list starts at $0$ and that slicing \ci{mylist[a:b]} stops at the rank $b-1$.
    
 \end{itemize}
 \end{cours}
@@ -184,7 +184,7 @@ for i in range(n):
 \objectifs{Goal: program small routines that manipulate lists.}
 
 \begin{enumerate}
-  \item Program a function \ci{rotate(mylist)} that shifts all the elements of a list by one rank (the last element becoming the first). The function returns a new list.
+  \item Program a function \ci{rotate(mylist)} that shifts all the elements of a list by one index (the last element becoming the first). The function returns a new list.
   
   For example, \ci{rotate([1,2,3,4])} returns the list \ci{[4,1,2,3]}.
   
@@ -192,9 +192,9 @@ for i in range(n):
   
   For example, \ci{inverse([1,2,3,4])} returns the list \ci{[4,3,2,1]}.
   
-  \item Program a function \ci{delete_rank(mylist,rank)} that returns a list of all elements, except the one at the given rank. 
+  \item Program a function \ci{delete_rank(mylist,rank)} that returns a list of all elements, except the one at the given index. 
   
-  For example, \ci{delete_rank([8,7,6,5,4],2)} returns the list \ci{[8,7,5,4]} (the item $6$ that was at rank $2$ is deleted).
+  For example, \ci{delete_rank([8,7,6,5,4],2)} returns the list \ci{[8,7,5,4]} (item $6$ that was at index $2$ is deleted).
   
     \item Program a function \ci{delete_element(mylist,element)} returning a list that contains all items except those equal to the specified element. 
     
@@ -217,9 +217,9 @@ for i in range(n):
   \item \ci{mylist[::-1]} returns a new list. 
 \end{itemize}  
 
-  \item \textbf{Delete an item.}  The command \ci{mylist.remove(element)}\index{list!delete}\index{remove@\ci{remove}} deletes the first occurrence found (the list is modified). For example with \ci{mylist = [2,5,3,8,5]} the call \ci{mylist.remove(5)} modifies the list which is now  \ci{[2,3,8,5]} (the first $5$ has disappeared).
+  \item \textbf{Delete an item.}  The command \ci{mylist.remove(element)}\index{list!delete}\index{remove@\ci{remove}} deletes the first occurrence found (the list is modified). For example if \ci{mylist = [2,5,3,8,5]} the call \ci{mylist.remove(5)} modifies the list to become \ci{[2,3,8,5]} (the first $5$ has disappeared).
   
-   \item \textbf{Delete an element (bis).}  The command \ci{del mylist[i]}\index{del@\ci{del}} deletes the element of rank $i$ (the list is modified).
+   \item \textbf{Delete an element (again).}  The command \ci{del mylist[i]}\index{del@\ci{del}} deletes the element of rank $i$ (the list is modified).
   
 \end{itemize}
 \end{cours}
@@ -313,13 +313,13 @@ You can now use the \ci{sorted()} function from \Python{} which orders lists.
 
 \begin{activite}[Arithmetic]
 
-\objectifs{Goal: improve some functions of the chapter \og{}Arithmetic -- While loop -- I\fg{}.}
+\objectifs{Goal: improve some of the \og{}Arithmetic -- While loop -- I\fg{} chapter functions.}
 
 \index{prime number}
 
 
 \begin{enumerate}
-  \item \textbf{Prime factors.}  Program a function \ci{prime_factors(n)} that returns a list of all the prime factors of an integer $n\ge2$. For example, for $n = 12\,936$, whose decomposition into prime factors is $n = 2^3 \times 3 \times 7^2 \times 11$, the function returns \ci{[2, 2, 2, 3, 7, 7, 11] }.
+  \item \textbf{Prime factors.}  Program a function \ci{prime_factors(n)} that returns a list of all the prime factors of an integer $n\ge2$. For example, for $n = 12\,936$, its decomposition into prime factors is $n = 2^3 \times 3 \times 7^2 \times 11$, the function returns \ci{[2, 2, 2, 3, 7, 7, 11] }.
   
   \emph{Hints.} Consult the chapter \og{}Arithmetic -- While loop -- I\fg{}. The core of the algorithm is as follows:
 
@@ -353,7 +353,7 @@ As long as $d \le n$:\\
    
 
   
-  \item Initialize \ci{mylist} by a list that contains all integers from $2$ to $n-1$. 
+  \item Initialize \ci{mylist} with a list that contains all integers from $2$ to $n-1$. 
    
    \item For $d$ ranging from $2$ to $n-1$:\\
    \indentation For $k$ in \ci{mylist}:\\
@@ -424,7 +424,7 @@ plt.show()
 
 \emph{Explanations.}
 \begin{itemize}
-  \item The module is \ci{matplotlib.pyplot} and is given the new simpler name of \ci{plt}.
+  \item The module is named \ci{matplotlib.pyplot} and is given the new simpler name of \ci{plt}.
   
   \item Attention! The \ci{matplotlib} module is not always installed by default with \Python.
   
@@ -438,7 +438,7 @@ plt.show()
 
 \bigskip
 
-To display points $(x_i,y_i)$ you must provide the list of abscissa then the list of ordinates:
+To display points $(x_i,y_i)$ you must provide the list of $x$-values then the list of $y$-values:
 \mycenterline{\ci{plt.plot(mylist_x,mylist_y,color="red")}}
 Here is an example of a graph obtained by displaying coordinate points of the type $(x,y)$ with $y = x^2$.
 
@@ -494,7 +494,7 @@ where
   \emph{Hint.} Be careful with the units for the angle $\alpha$. If for example you choose that the unit for the angle is degrees, then to apply the formula with \Python{} you must first convert the angles to radians :
   $$\alpha_{\text{radian}} = \frac{2\pi}{360} \alpha_{\text{degree}}$$
   
-  \item Program a function \ci{list_trajectory(xmax,n,v,alpha)} that calculates the list of ordinates $y$ of the $n+1$ points of the trajectory whose abscissa are regularly spaced between $0$ and $x_{\max}$. 
+  \item Program a function \ci{list_trajectory(xmax,n,v,alpha)} that calculates the list of $y$-values of the $n+1$ points of the trajectory whose $x$-values are regularly spaced between $0$ and $x_{\max}$. 
   
   \emph{Method.} For $i$ ranging from $0$ to $n$:
   \begin{itemize}
