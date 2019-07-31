@@ -45,7 +45,7 @@ In this activity \ci{mylist} refers to a list of numbers (integer or floating po
   
   \item Write a function \ci{mean(mylist)} that calculates the average of the items in a given list (and returns $0$ if the list is empty). \index{average}
   
-  \item Write your own function \ci{minimum(mylist)} that returns the smallest value of the items in a given list. Compare your result with the \Python{} function \ci{min()} described below (who can also calculate the minimum of two numbers).
+  \item Write your own function \ci{minimum(mylist)} that returns the smallest value of the items in a given list. Compare your result with the \Python{} function \ci{min()} described below (which can also calculate the minimum of two numbers).
   
   \index{min@\ci{min}}  
   
@@ -186,7 +186,7 @@ Some explanations:
 \includegraphics[scale=\myscale,width=4cm]{screen-stat-2d}
 
 \qquad\textbf{Percentage graphics}\qquad\qquad\qquad\qquad\qquad\qquad
-\textbf{Sector graph}
+\textbf{Pie chart}
 \end{center}
 
 \begin{enumerate}
@@ -215,9 +215,9 @@ mylist = [randint(1,20) for i in range(10)]
   
 
 
-  \item \textbf{Sector graphics.} Write a function \ci{sector_graphics(mylist)} that displays the values of a list as a fixed size disk divided into sectors representing the values. 
+  \item \textbf{Pie chart.} Write a function \ci{sector_graphics(mylist)} that displays the values of a list as a pie chart (a fixed size disk divided into sectors representing the values). 
  
-The \ci{create_arc()} function, which allows you to draw arcs of circles, is not very intuitive. It is necessary to think that we draw a circle, by specifying the coordinates of the corners of a square which surrounds it, then by specifying the starting angle and the angle of the sector (in degrees). 
+The \ci{tkinter} \ci{create_arc()} function, which allows you to draw arcs of circles, is not very intuitive. Imagine that we draw a circle, by specifying the coordinates of the corners of a square that surrounds it, then by specifying the starting angle and the angle of the sector (in degrees). 
 
 \mycenterline{\ci{canvas.create_arc(x1,y1,x2,y2,start=start_angle,extent=my_angle)}}
 
@@ -300,19 +300,19 @@ Some explanations:
 \objectifs{Goal: calculate the median and quartiles of some data.}
 
 \begin{enumerate}
-  \item Program a function \ci{median(mylist)}\index{median} which calculates the median value of the items of a given list. By definition, half of the values are less than or equal to the median, the other half are greater than or equal to the median.
+  \item Program a function \ci{median(mylist)}\index{median} which calculates the median value of the items in a given list. By definition, half of the values are less than or equal to the median, the other half are greater than or equal to the median.
 
   \emph{Background.} We note $n$ the length of the list and we assume that the list is ordered (from the smallest to the largest element).
   \begin{itemize}
-    \item \textbf{Case $n$ odd.} The median is the value of the list at the rank $\frac{n-1}{2}$.    
+    \item \textbf{Case $n$ odd.} The median is the value of the list at the index $\frac{n-1}{2}$.    
     Example with \ci{mylist = [12,12,14,15,19]}:
     \begin{itemize}
       \item the length of the list is $n=5$ (indices range from $0$ to $4$),
-      \item the middle index is the rank $2$,
+      \item the middle value at index $2$,
       \item the median is the value \ci{mylist[2]}, so it is $14$.
     \end{itemize}
     
-    \item \textbf{Case $n$ even.} The median is the average between the value of the list at rank $\frac{n}{2}-1$ and rank $\frac{n}{2}$.
+    \item \textbf{Case $n$ even.} The median is the average between the value of the list at index $\frac{n}{2}-1$ and index $\frac{n}{2}$.
     Example with \ci{mylist = [10,14,19,20]}:
     \begin{itemize}
       \item the length of the list is $n=4$ (indices range from $0$ to $3$),
@@ -327,9 +327,9 @@ Some explanations:
     \item The results of a class are collected in the following form of a number of students per grade:   
     \mycenterline{\ci{grade_count = [0,0,1,2,5,2,3,5,4,1,2]}} 
     
-    The rank $i$ range is from $0$ to $10$. And the value at rank $i$ indicates the number of students who received the grade $i$.
+    The index $i$ range is from $0$ to $10$. And the value at index $i$ indicates the number of students who received the grade $i$.
     For example here, $1$ student got the grade $2$, $2$ students got the grade $3$, $5$ students got $4$, \ldots{}  
-    Write a \ci{grades_to_list(grade_count)} function that takes the numbers of students for each grade as input and returns the list of all grades. For our example the function must return \ci{[2,3,3,4,4,4,4,4,5,5,6,6,6,7,...]}.
+    Write a \ci{grades_to_list(grade_count)} function that takes the list of numbers of students for each grade as input and returns the list of all grades. For our example the function must return \ci{[2,3,3,4,4,4,4,4,5,5,6,6,6,7,...]}.
 
 %[2, 3, 3, 4, 4, 4, 4, 4, 5, 5, 6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 8, 9, 10, 10]
 
@@ -337,7 +337,7 @@ Some explanations:
     Deduce a function that calculates the median of a class's scores from the numbers of students for each grade.
     
     \item Write a function \ci{quartiles(mylist)} that calculates the quartiles $Q_1$, $Q_2$, $Q_3$ of the items in a given list. The quartiles\index{quartiles} divide the values into: one quarter below $Q_1$, one quarter between $Q_1$ and $Q_2$, one quarter between $Q_2$ and $Q_3$, one quarter above $Q_3$.
-    For the calculation, we will use that:
+    For the calculation, we will use the fact that:
     \begin{itemize}
       \item $Q_2$ is simply the median of the entire list (assumed ordered),
       \item $Q_1$ is the median of the sublist formed by the first half of the values,
@@ -345,9 +345,9 @@ Some explanations:
     \end{itemize}           
 \end{enumerate}
 
-  For the implementation, it is necessary to discuss again whether the length $n$ of the list is even or not.
+  For the implementation, it is necessary to consider again whether the length $n$ of the list is even or not.
   
-  Deduce a function that calculates the quartiles of a class's grades from a list of a number of students per grade.
+  Deduce a function that calculates the quartiles of a class's grades from a list of the numbers of students per grade.
 
 \end{activite}
 
@@ -366,7 +366,7 @@ A \defi{box plot} is a diagram that represents the main characteristics of a sta
   \tikzinput{fig-stat-boite}
 } 
 
-Write a \ci{box_plot(grade_count)} function that draws the box plot of a class's grades from a list of a number of students per grade (see previous activity).
+Write a \ci{box_plot(grade_count)} function that draws the box plot of a class's grades from a list of the numbers of students per grade (see previous activity).
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.7]{screen-stat-4-en}
@@ -388,14 +388,14 @@ Write a \ci{box_plot(grade_count)} function that draws the box plot of a class's
 \index{average}
 
 \begin{enumerate}
-  \item Simulates the stock market price of the index \emph{NISDUQ} over 365 days.
+  \item Simulate the stock market price of the \emph{NISDUQ} index over 365 days.
   At the beginning, the day $j=0$, the index is equal to $1000$. Then the index for a day is determined by adding a random value (positive or negative) to the value of the previous day's index:  
   \mycenterline{index of the day $j$ = index of the day $(j-1)$ \ + \ random value.}
   
   For this random value, you can try a formula like:  
   \mycenterline{\ci{value = randint(-10,12)/3}}
   
-  Write a function \ci{index_stock_exchange()}, without parameter, which returns a list of $365$ index values using this method.
+  Write a function \ci{index_stock_exchange()}, without parameters, which returns a list of $365$ index values using this method.
   
   \item Trace point by point the index curve over a year. (To draw a point, you can display a square with a size of $1$ pixel.)
   
@@ -403,13 +403,13 @@ Write a \ci{box_plot(grade_count)} function that draws the box plot of a class's
 \includegraphics[scale=\myscale,scale=0.7]{screen-stat-5a}
 \end{center}
 
-   \item \emph{Since the daily index curve is very chaotic, we want to smooth it out in order to make it more readable. For this we calculate moving averages.}
+   \item \emph{Since the daily index curve is very chaotic, we want to smooth it out in order to make it more readable. For this we can calculate moving averages.}
    
-   The moving average at $7$ days for the day $j$, is the average of the last $7$ indices. For example: the moving average (at $7$ days) for the day $j = 7$ is the average of the day's indices $j=1,2,3,4,5,6,7$. You can change the duration: for example the moving average at $30$ days is the average of the last $30$ indices.
+   The $7$-day moving average at the day $j$, is the average of the last $7$ indices. For example: the $7$-day moving average for the day $j = 7$ is the average of the day's indices $j=1,2,3,4,5,6,7$. You can change the duration: for example the $30$-day moving average is the average of the last $30$ indices.
    
    Write a function \ci{moving_average(mylist,duration)} that returns a list of all moving averages in a data set with respect to a fixed time.
    
-    \item Trace point by point on the same graph: the index curve over a year\couleurnb{ (in red below)}{}, the moving average curve at $7$ days\couleurnb{  (in blue below)}{} and the moving average curve at $30$ days\couleurnb{ (in brown below)}{}. Note that the longer the duration, the more the curve is \og{}smooth\fg{}. (Of course the moving average curve at $30$ days only starts from the thirtieth day.)
+    \item Trace these data point by point on the same graph: the index curve over a year\couleurnb{ (shown in red below)}{}, the $7$-day moving average curve\couleurnb{  (shown in blue below)}{} and the $30$-day moving average curve\couleurnb{ (shown in brown below)}{}. Note that the longer the duration, the more the curve is \og{}smooth\fg{}. (Of course the $30$-day moving average curve only starts from the thirtieth day.)
    
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.8]{screen-stat-5b}
