@@ -31,7 +31,7 @@
 
 Remarks.
 \begin{itemize}
-  \item \textbf{Analogy.} You can make the connection with a stack of plates. You can put plates on a stack one by one. You can remove the plates one by one, starting of course with the top one. In addition, it must be considered that on each plate is drawn a data (a number, a character, a string \ldots).
+  \item \textbf{Analogy.} You can make the connection with a stack of plates. You can put plates on a stack one by one. You can remove the plates one by one, starting of course with the top one. In addition, it must be considered that on each plate is drawn one piece of data (a number, a character, a string \ldots).
 
   \item \textbf{Last in, first out.} 
   In a queue, the first one to wait is the first one to be served and comes out. Here it's the opposite! A stack works on the principle of \og{}last in, first out\fg{}.
@@ -92,7 +92,7 @@ It is necessary to start each function that modifies the stack with the command:
 
 
 \begin{enumerate}
-  \item Write a function \ci{push_to_stack()} that adds an element to the top of the stack.
+  \item Write a \ci{push_to_stack()} function that adds an element to the top of the stack.
   
   \begin{fonction}[\ci{push_to_stack()}]
   Use: \ci{push_to_stack(item)} \\
@@ -106,7 +106,7 @@ It is necessary to start each function that modifies the stack with the command:
 \ci{push_to_stack(6)}, the stack is now \ci{[5,1,3,8,6]}.     
   \end{fonction}
 
-  \item Write a function \ci{pop_from_stack()}, without parameters, that removes the element at the top of the stack and returns its value.
+  \item Write a \ci{pop_from_stack()} function, without parameters, that removes the element at the top of the stack and returns its value.
   
   \begin{fonction}[\ci{pop_from_stack()}]
   Use: \ci{pop_from_stack()} \\
@@ -119,7 +119,7 @@ It is necessary to start each function that modifies the stack with the command:
   Example: if initially \ci{stack = [13,4,9]} then the instruction \ci{pop_from_stack()} returns the value \ci{9} and the stack is now \ci{[13,4]}; if you execute a new instruction \ci{pop_from_stack()}, it returns this time the value \ci{4} and the stack is now \ci{[13]}.
   \end{fonction}
   
-  \item Write a function \ci{is_stack_empty()}, without parameter, that tests if the stack is empty or not. 
+  \item Write a \ci{is_stack_empty()} function, without parameter, that tests if the stack is empty or not. 
   
   \begin{fonction}[\ci{is_stack_empty()}]
   Use: \ci{is_stack_empty()} \\
@@ -147,7 +147,7 @@ It is necessary to start each function that modifies the stack with the command:
 
 \begin{activite}[Operations on a stack]
 
-\objectifs{Goal: handle the stacks using only the three functions \ci{push_to_stack()}, \ci{pop_from_stack()} and \ci{is_stack_empty()}.}
+\objectifs{Goal: handle the stack using only the three functions \ci{push_to_stack()}, \ci{pop_from_stack()} and \ci{is_stack_empty()}.}
 
 In this exercise, we work with a stack of integers. The questions are independent.
 
@@ -158,7 +158,7 @@ In this exercise, we work with a stack of integers. The questions are independen
     \item Then execute the instructions \ci{pop_from_stack()}, \ci{push_to_stack(8)}, \ci{push_to_stack(1)}, \ci{push_to_stack(1)}, \ci{push_to_stack(3)}. What is the stack now? What does the instruction  \ci{pop_from_stack()} now return?
 \end{enumerate}  
 
-  \item Start from a stack. Write a function \ci{is_in_stack(item)} that tests if the stack contains a given element.
+  \item Start from a stack. Write an \ci{is_in_stack(item)} function that tests if the stack contains a given element.
   
   \item Start from a stack. Write a function that calculates the sum of the elements of the stack. 
   
@@ -208,10 +208,10 @@ In this exercise, we work with a stack of integers. The questions are independen
   \end{itemize} 
   \end{fonctionpython}  
 
-  \item The function \ci{isdigit()}\index{isdigit@\ci{isdigit}} is a \Python{}    method that tests if a string contains only numbers. This allows to test if a string corresponds to a positive integer.
+  \item The function \ci{isdigit()}\index{isdigit@\ci{isdigit}} is a \Python{}    method that tests if a string contains only numbers. This allows you to test if a string corresponds to a positive integer.
  Here are some examples: \ci{"1776".isdigit()} returns \ci{True}; \ci{"Hello".isdigit()} returns \ci{False}.
  
- Remember that you can convert a string into an integer by the command \ci{int(string)}. The following small program tests if a string can be converted into a positive integer:
+ Remember that you can convert a string into an integer by the \ci{int(string)} command. The following small program tests if a string can be converted into a positive integer:
  
 \begin{lstlisting}
 mystring = "1776"                # A string
@@ -240,7 +240,7 @@ A train has blue wagons with a number and red wagons with a letter.
   \tikzinput{fig-sort1}
 } 
 
-The stationmaster wants to separate the wagons: first all the blues and then all the reds (the order of the blue wagons does not matter, the order of the red wagons either). 
+The stationmaster wants to separate the wagons: first all the blues and then all the reds (the order of the blue wagons does not matter, neither does the order of the red wagons). 
 
 \myfigure{0.6}{
   \tikzinput{fig-sort2}
@@ -279,9 +279,9 @@ Here is how we will model the train and its waiting area.
 \begin{itemize}
   \item The train is a string of characters made up of a series of numbers (blue wagons) and letters (red wagons) separated by spaces. For example \ci{train = "G 6 Z J 14"}. 
   
-  \item The list of wagons is obtained by asking \ci{train.split()}.
+  \item The list of wagons is obtained by calling \ci{train.split()}.
   
-  \item We test if a wagon is blue and check if it is marked with a number, by the function \ci{wagon.isdigit()}.
+  \item We test if a wagon is blue by checking if it is marked with a number, using the \ci{wagon.isdigit()} function.
   
   \item The train reconstructed by the sorted wagons is also a string of characters. At first, it is the empty string.
   
@@ -315,7 +315,7 @@ Following the station manager's instructions and using stack operations, write a
 
 \begin{cours}[Polish notation]
 
-\objectifs{Writing in Polish notation (of its real name, reverse Polish notation) is another way to write an algebraic expression. Its advantage is that this notation does not use brackets and is easier to handle for a computer. Its disadvantage is that we're not used to it.}
+\objectifs{Writing in Polish notation (of its full name, reverse Polish notation) is another way to write an algebraic expression. Its advantage is that this notation does not use brackets and is easier to handle for a computer. Its disadvantage is that we're not used to it.}
 
 \index{Polish notation}
 
@@ -380,7 +380,7 @@ $$11 \ \ 9 \ \ \underbrace{4 \ \ 3 \ \ +}_{4+3=7} \ \ - \ \ \times
 22$$ 
 \end{itemize}  
 
-Exercise. Calculates the value of expressions:
+Exercise. Compute the value of the expressions:
 \begin{itemize}
   \item $13 \ \ 5 \ \ + \ \ 3 \ \ \times$
   \item $3 \ \ 5 \ \ 7 \ \ \times \ \ +$
@@ -477,13 +477,13 @@ Exercise. Calculates the value of expressions:
 
 \begin{activite}[Expression with balanced brackets]
 
-\objectifs{Goal: determine if the parentheses of an expression are placed appropriately.}
+\objectifs{Goal: determine if the parentheses in an expression are placed appropriately.}
 
 Here are some examples of well and bad balanced bracketed expressions:
 \begin{itemize}
-  \item $2 + (3 + b) \times (5 + (a - 4))$ is well balanced parenthesized;
-  \item $(a+ 8) \times 3 ) + 4$ is incorrectly bracketed: there is a closing bracket \og{}$)$\fg{} alone;
-  \item $(b + 8 / 5)) + (4$ is incorrectly bracketed: there are as many opening parentheses  \og{}$($\fg{} than closing parentheses \og{}$)$\fg{} but they are badly positioned.
+  \item $2 + (3 + b) \times (5 + (a - 4))$ has well balanced parentheseses;
+  \item $(a+ 8) \times 3 ) + 4$ is incorrectly bracketed: there is a closing bracket \og{}$)$\fg{} that does not have an opening bracket;
+  \item $(b + 8 / 5)) + (4$ is incorrectly bracketed: there are as many opening parentheses  \og{}$($\fg{} as closing parentheses \og{}$)$\fg{} but they are poorly positioned.
 \end{itemize}
 
 \begin{enumerate}
@@ -536,10 +536,10 @@ Here are some examples of well and bad balanced bracketed expressions:
   
   
 \item Enhance this function to test an expression with parentheses and square brackets.
-Here is a correct expression: $[(a+b)*(a-b)]$, here are some incorrect expressions:
+Here is a correct expression: $[(a+b)*(a-b)]$, here are two incorrect expressions:
 $[a+b)$, $(a+b]*[a-b)$.
 
-Here is the algorithm to program a function \ci{are_brackets_balanced()}.
+Here is the algorithm to program an \ci{are_brackets_balanced()} function.
 
 
   \begin{algorithme}
@@ -584,10 +584,10 @@ Each time you find a closing square bracket \ci{"]"} in the expression, the top 
 
 \begin{activite}[Conversion to Polish notation]
 
-\objectifs{Goal: transform a classic algebraic expression with parentheses into a Polish notation expression. The algorithm is a much improved version of the previous activity. We will not give any justification.}
+\objectifs{Goal: transform a classic algebraic expression with parentheses into a Polish notation expression. This algorithm is a much improved version of the previous activity. We will not give any justification.}
  
  
-You are used to writing \og{}$(13+5) \times 7$\fg{}; you have seen that the computer can easily calculate \og{}$13 \  5 \ + \ 7 \ \times$\fg{}. All that remains is to switch from classical algebraic expression (with parentheses) to Polish notation (without parentheses)!
+You are used to writing \og{}$(13+5) \times 7$\fg{} andyou have seen that the computer can easily calculate \og{}$13 \  5 \ + \ 7 \ \times$\fg{}. All that remains is to switch from a classical algebraic expression (with parentheses) to Polish notation (without parentheses)!
 
   Here is the algorithm for expressions with only additions and multiplications. 
  
@@ -599,7 +599,7 @@ You are used to writing \og{}$(13+5) \times 7$\fg{}; you have seen that the comp
   \begin{itemize}
     \item Start with an empty stack.  
     
-    \item Start with an empty string \ci{polish} which at the end will contain the result.
+    \item Start with an empty string, \ci{polish}, which at the end will contain the result.
    
    \item For each character of the expression (read from left to right):
    \begin{itemize} 
@@ -613,9 +613,9 @@ You are used to writing \og{}$(13+5) \times 7$\fg{}; you have seen that the comp
      while the the stack is not empty: \\
      \indentation pop an element from the stack, \\
      \indentation if this element is the multiplication operator \ci{"*"}, then: \\
-     \indentation \indentation add this item to the output string \ci{polish}\\
+     \indentation \indentation add this element  \ci{"*"} to the output string \ci{polish}\\
      \indentation otherwise: \\
-     \indentation \indentation push this element to the stack (we put it back on the stack after removing it)\\
+     \indentation \indentation push this element  \ci{"*"} to the stack (we put it back on the stack after removing it)\\
      \indentation \indentation end the \og{}while\fg{} loop immediately  (with \ci{break})\\              
      finally, add the \ci{"+"} addition operator to the stack.
 
@@ -653,8 +653,8 @@ You are used to writing \og{}$(13+5) \times 7$\fg{}; you have seen that the comp
   
  In this algorithm, each element between two spaces of an expression is miscalled \og{}character\fg{}. Example: the characters of \ci{"( 17 + 10 ) * 3"} are \ci{(}, \ci{17}, \ci{+}, \ci{10}, \ci{)}, \ci{*} and \ci{3}.
  
- You see that the addition has a more complicated treatment than the multiplication. This is due to the fact that multiplication takes priority over addition. For example, $2+3 \times 5$ means $2+(3 \times 5)$ and not $(2+3) \times 5$. 
- If you want to take into account subtraction and division, you have to be careful about non-commutativity ($a-b$ is not equal to $b-a$; $a\div b$ is not equal to $b \div a$).
+ You see that addition is more complicated to process than the multiplication. This is due to the fact that multiplication takes priority over addition. For example, $2+3 \times 5$ means $2+(3 \times 5)$ and not $(2+3) \times 5$. 
+ If you want to take into account subtraction and division, you have to be careful about non-commutativity ($a-b$ is not equal to $b-a$ and $a\div b$ is not equal to $b \div a$).
  
 
 
@@ -671,7 +671,7 @@ For example:
   \item Convert the expression to Polish notation: \ci{polish_notation(exp)} returns  
   \mycenterline{ \ci{"17 2 3 + * 4 8 5 * + +"} }
   
-  \item With your calculator calculates the result: \ci{polish_calculator("17 2 3 + * 4 8 5 * + +")} returns \ci{129}. We get the same result!
+  \item With your calculator calculate the result: \ci{polish_calculator("17 2 3 + * 4 8 5 * + +")} returns \ci{129}. We get the same result!
   \end{itemize}
   
 

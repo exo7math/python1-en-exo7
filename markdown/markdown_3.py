@@ -23,7 +23,7 @@ list_lengths = [8, 11, 9, 14, 8, 8, 15, 10, 14, 11, 15, 15, 5, 12, 9, 9, 15, 10,
 line_length = 100
 space_length = 1
 
-def hyphenation_simple(list_len):
+def justification_simple(list_len):
     """ Compute where to end the line for left alignment (without spaces)
     Input: a sequence of lengths (a list of integers)
     Output: the list of ranks where to cut the line """
@@ -47,14 +47,14 @@ def hyphenation_simple(list_len):
 
 
 ################################################
-def print_hyphenation_simple():
-    """ Test: print hyphenation simple """
+def print_justification_simple():
+    """ Test: print justification simple """
 
-    print("\n--- Hyphenation without spaces ---")
+    print("\n--- Justification without spaces ---")
     print("Length of words :",list_lengths)
 
-    hyphen = hyphenation_simple(list_lengths)   
-    print("Hyphenation:",hyphen)
+    hyphen = justification_simple(list_lengths)   
+    print("Justification:",hyphen)
 
     for i in range(len(hyphen)-1):
         line = list_lengths[hyphen[i]:hyphen[i+1]]
@@ -64,14 +64,14 @@ def print_hyphenation_simple():
     return
 
 # Test
-print_hyphenation_simple()
+print_justification_simple()
 
 
 
 ################################################
 ## Question 2 ##
 
-def hyphenation_spaces(list_len):
+def justification_spaces(list_len):
     """ Compute where to end the line for left alignment (wit spaces)
     Input: a sequence of lengths (a list of integers)
     Output: the list of ranks where to cut the line """
@@ -97,14 +97,14 @@ def hyphenation_spaces(list_len):
 
 
 ################################################
-def print_hyphenation_spaces():
-    """ Test: print hyphenations with spaces """
+def print_justification_spaces():
+    """ Test: print justifications with spaces """
 
-    print("\n--- Hyphenation with spaces ---")
+    print("\n--- Justification with spaces ---")
     print("Length of words :",list_lengths)
 
-    hyphen = hyphenation_spaces(list_lengths) 
-    print("Hyphenation:",hyphen)
+    hyphen = justification_spaces(list_lengths) 
+    print("Justification:",hyphen)
 
     for i in range(len(hyphen)-1):
         line = list_lengths[hyphen[i]:hyphen[i+1]]
@@ -115,7 +115,7 @@ def print_hyphenation_spaces():
     return
 
 # Test 
-print_hyphenation_spaces()
+print_justification_spaces()
 
 
 
@@ -124,7 +124,7 @@ print_hyphenation_spaces()
 
 def compute_space_lengths(list_len,hyphen):
     """ Compute the length of the spaces in order to justify the 'text'  (i.e. sum = 100)
-    Input: a sequence of lengths (a list of integers) and the already computed hyphenations
+    Input: a sequence of lengths (a list of integers) and the already computed justifications
     Output: the list of lengths for spaces for each line """   
 
     list_space_lengths = []
@@ -154,11 +154,11 @@ def compute_space_lengths(list_len,hyphen):
 def print_space_lengths():
     """ Test: print the lengths of the spaces to get justification """
 
-    print("\n--- Hyphenation with spaces et justification ---")
+    print("\n--- Justification with spaces ---")
     print("Length of words :",list_lengths)
 
-    hyphen = hyphenation_spaces(list_lengths) 
-    print("Hyphenation:",hyphen)
+    hyphen = justification_spaces(list_lengths) 
+    print("Justification:",hyphen)
 
     list_space_lengths = compute_space_lengths(list_lengths,hyphen)
     print("Lengths of spaces for each line:",[float("{0:0.2f}".format(l)) for l in list_space_lengths])

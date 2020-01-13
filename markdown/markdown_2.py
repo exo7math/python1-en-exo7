@@ -132,13 +132,13 @@ def print_line_v2(par,posy):
 
 
 # Tests
-# print_line_v2("# Here is a title",80)
-# print_line_v2("## And there a subtitle",115)
-# print_line_v2("Normal text and, below, a list:",150)
-# print_line_v2("+ Apple",175)
-# print_line_v2("+ Banana",200)
-# print_line_v2("+ Cherry",225)
-# root.mainloop()
+print_line_v2("# Here is a title",80)
+print_line_v2("## And here a subtitle",115)
+print_line_v2("Normal text and, below, a list:",150)
+print_line_v2("+ Apple",175)
+print_line_v2("+ Banana",200)
+print_line_v2("+ Cherry",225)
+root.mainloop()
 
 
 ##################################################
@@ -195,7 +195,7 @@ def print_line_v3(par,posy):
 
 
 # Tests
-print_line_v3("These ** words in bold ** but this * one in italics *",100)
+print_line_v3("These ** words are in bold ** but these * ones are in italics *",100)
 print_line_v3("+ Apples and also ** bananas ** but * no cherries *",125)
 root.mainloop()
 
