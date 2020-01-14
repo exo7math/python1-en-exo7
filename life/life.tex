@@ -8,7 +8,7 @@
 \chapitre{Game of life}
 %====================================================================
 
-\objectifs{The \emph{game of life} is a simple model of the evolution of a population of cells that split and die over time. The \og{}game\fg{} consists in finding initial configurations that give interesting evolution: some groups of cells disappear, others stabilize, some move\ldots}
+\objectifs{The \emph{game of life} is a simple model of the evolution of a population of cells that split and die over time. The \og{}game\fg{} consists of finding initial configurations that give interesting evolution: some groups of cells disappear, others stabilize, some move\ldots}
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.3]{screen-life-0}
@@ -23,13 +23,13 @@ The \emph{game of life}\index{game of life} takes place on a grid. Each square c
 
 Here are the rules:
 \begin{itemize}
-  \item For an empty square on the day $j$ and having exactly $3$ neighboring cells: a cell is born on the day $j+1$.
+  \item For an empty square on day $j$ and having exactly $3$ neighboring cells: a cell is born on day $j+1$.
 
 \myfigure{0.5}{
   \tikzinput{fig-life-0a}
 }
 
-  \item For a square containing a cell at day $j$, having either $2$ or $3$ neighboring cells: then the cell continues to live.
+  \item If a square containing a cell at day $j$, has either $2$ or $3$ neighboring cells: then the cell continues to live.
   In other cases the cell dies (with $0$ or $1$, it dies of isolation, with more than $4$ neighbors, it dies of overpopulation).
   
   \medskip
@@ -48,7 +48,7 @@ Here is a simple example, the \og{}blinker\fg{}.
   \tikzinput{fig-life-0c}
 } 
  
-Here is another example (with directly the number of neighbors), the first evolution and the evolution of the evolution.
+Here is another example (with the number of neighbors written in each case), the first evolution and the evolution of the evolution.
 
 \myfigure{0.5}{
   \tikzinput{fig-life-0d}
@@ -64,7 +64,7 @@ Here is another example (with directly the number of neighbors), the first evolu
 \begin{activite}[Display]
 \objectifs{Goal: define and display arrays.}
 
-We model the living space of the cells by a double entry table, containing integers, $1$ to indicate the presence of a cell, $0$ otherwise. Here is an example of the configuration \og{}toad\fg{} and its array:
+We model the living space of the cells by a double entry table, containing integers, $1$ to indicate the presence of a cell, $0$ otherwise. Here is an example of the \og{}toad\fg{} configuration and its array:
 
 \myfigure{0.6}{
   \tikzinput{fig-life-1}
@@ -73,12 +73,12 @@ We model the living space of the cells by a double entry table, containing integ
 \begin{enumerate}
   \item 
   \begin{itemize}
-    \item Initialize two variables \ci{n} (the height of the table) and \ci{p} (the width) (for example at $5$ and $8$).
+    \item Initialize two variables: \ci{n} (the height of the table) and \ci{p} (the width) (for example at $5$ and $8$).
     
     \item Define a two-dimensional table filled with zeros by the command:  
     \mycenterline{\ci{array = [[0 for j in range(p)] for i in range(n)]}}
     
-    \item By instructions of the type \ci{array[i][j] = 1}, fill in the table to define the configuration of the blinker, the toad \ldots
+    \item By using instructions of the type \ci{array[i][j] = 1}, fill in the table to define the configurations of the blinker, the toad \ldots
   \end{itemize}
   
   \item Program the display of a given array on the screen. 
@@ -92,8 +92,7 @@ We model the living space of the cells by a double entry table, containing integ
 \ci{00000000}
 \end{center}
 
-  \emph{Hint.} By default the command \ci{print()} passes to the next line on each call (it adds the character \ci{"\\n"} which is the end of line character). It can be specified not to do so by the option
-  \ci{print("My text",end="")}.
+  \emph{Hint.} By default the \ci{print()} start a new line on each call (i effectively adds \ci{"\\n"} which is the end of line character). It can be specified not to do sthis by the option \ci{print("My text",end="")}.
   
 \end{enumerate}
 \end{activite}
@@ -113,14 +112,14 @@ We model the living space of the cells by a double entry table, containing integ
 \end{center} 
 
 \begin{enumerate}
-  \item Program the creation of a  \ci{tkinter} window (see chapter \og{}Statistics -- Data visualization\fg{}). Write a function \ci{draw_grid()}, without parameters, that displays a blank grid of coordinates. You will need a constant \ci{scale} (for example \ci{scale = 50}) to transform the indices $i$ and $j$ into graphic coordinates $x$ and $y$, depending on the relationship: $x= s \times j$ and $y = s \times i$ ($s$ being the scale).
+  \item Program the creation of a \ci{tkinter} window (see the \og{}Statistics -- Data visualization\fg{} chapter). Write a \ci{draw_grid()} function, without parameters, that displays a blank grid of coordinates. You will need a constant \ci{scale} (for example \ci{scale = 50}) to transform the indices $i$ and $j$ into graphic coordinates $x$ and $y$, depending on the relationship: $x= s \times j$ and $y = s \times i$ ($s$ being the scale).
   
   \textbf{Bonus.} You can also mark the values of the indices $i$ and $j$ at the top and the left to make it easier to read the grid.
   
-  \item Build a function \ci{draw_array(array)} that graphically displays the cells from a table. 
+  \item Build a \ci{draw_array(array)} function that graphically displays the cells from a table. 
   
-  \textbf{Bonus.}  Add a button \og{}View\fg{} and a button \og{}Quit\fg{}
-(see chapter \og{}Statistics -- Data visualization\fg{}).  
+  \textbf{Bonus.}  Add a \og{}View\fg{} button and a \og{}Quit\fg{} button
+(see the \og{}Statistics -- Data visualization\fg{} chapter).  
   
 \end{enumerate}
 \end{activite}
@@ -133,18 +132,18 @@ We model the living space of the cells by a double entry table, containing integ
 
 \begin{activite}[Evolution]
 
-\objectifs{Goal: calculate the evolution of a configuration to the next day.}
+\objectifs{Goal: calculate the evolution of a configuration from one day to the next.}
 
 \begin{enumerate}
-  \item Program a function \ci{number_neighbors(i,j,array)} that calculates the number of living neighboring cells to the cell $(i,j)$.
+  \item Program a \ci{number_neighbors(i,j,array)} function that calculates the number of living neighboring cells to the cell $(i,j)$.
   
   \emph{Hints.}
   \begin{itemize}
-    \item There is a maximum of $8$ for possible neighbors. The easiest way is to test them one by one!
-    \item For the counting, it is necessary to be very careful with the cells that are placed near one edge (and have less than $8$ neighbors).
+    \item There is a maximum of $8$ possible neighbors. The easiest way is to test them one by one!
+    \item For counting, it is necessary to be very careful with the cells that are placed near an edge (and have less than $8$ possible neighbors).
   \end{itemize}
   
-  \item Program a function \ci{evolution(array)} that receives a table at the input and returns a new array corresponding to the situation on the next day, according to the rules of the game of life described at the beginning.
+  \item Program a \ci{evolution(array)} function that receives a table as an input and returns a new array corresponding to the situation on the next day, according to the rules of the game of life described at the beginning.
  For example, if the table on the left corresponds to the input, then the output corresponds to the table on the right:
 
 \begin{center}
@@ -185,13 +184,13 @@ We model the living space of the cells by a double entry table, containing integ
 
 \begin{activite}[Iterations]
 
-\objectifs{Goal: end the graphic program so that the user can define configurations and make them evolve with a simple click.}
+\objectifs{Goal: complete the graphic program so that the user can define configurations and make them evolve with a simple click.}
 
 \begin{enumerate}
-  \item Improve the graphic window to make the user's life easier:
+  \item Improve the graphics window to make the user's life easier:
   \begin{itemize}
-    \item A button \og{}evolve\fg{} which displays a new evolution with each click.
-    \item Buttons to display predefined configurations (on the screenshot below is the configuration \og{}pentadecathlon\fg{}).
+    \item An \og{}evolve\fg{} button which displays the next evolution with each click.
+    \item Buttons to display predefined configurations (in the screenshot below is the configuration \og{}pentadecathlon\fg{}).
   \end{itemize}
   
 \begin{center}
@@ -199,10 +198,10 @@ We model the living space of the cells by a double entry table, containing integ
 \end{center}  
   
   \item Perfect your program so that the user can draw the configuration he wants with mouse clicks. Clicking on an extinguished cell turns it on, clicking on an living cell turns it off. 
-  You can break this work down into three functions:
+  You can break this task down into three functions:
   \begin{itemize}
     \item \ci{on_off(i,j)}, which switches the cell $(i,j)$ ;
-    \item \ci{xy_to_ij(x,y)} that converts graphic coordinates $(x,y)$ into integers coordinates $(i,j)$ (use variable \ci{scale} and the integer division).
+    \item \ci{xy_to_ij(x,y)} that converts graphic coordinates $(x,y)$ into integers coordinates $(i,j)$ (use the \ci{scale}  variable and the integer division).
     \item \ci{action_click_mouse(event)} to retrieve the coordinates $(x,y)$ with a mouse click (see course below) and switch the clicked box.
   \end{itemize}   
     
@@ -251,14 +250,14 @@ root.mainloop()
 
 Here are some explanations:
 \begin{itemize}
-  \item The creation of the window is usual. The program ends with the launch by the command \ci{mainloop()}.
+  \item The creation of the window is usual. The program ends with the launch of the \ci{mainloop()} command.
   
-  \item The first key point is to associate a mouse click to an action, that's what the line does: 
+  \item The first key point is to associate a mouse click to an action, that's what this line does: 
 \mycenterline{\ci{canvas.bind("<Button-1>", action_mouse_click)}}
 
 Each time the left mouse button is clicked, \Python{} executes the function \ci{action_mouse_click}. (Note that there are no brackets for the call to the function.)
 
-   \item Second key point: the \ci{action_mouse_click} function retrieves the click coordinates and then does two things here: it displays a small rectangle at the click location and displays the $(x,y)$ coordinates in the terminal window.
+   \item Second key point: the \ci{action_mouse_click} function retrieves the click coordinates and then does two things here: it displays a small rectangle at the click location and prints the $(x,y)$ coordinates to the terminal window.
    
    \item The coordinates $x$ and $y$ are expressed in pixels; $(0,0)$ refers to the upper left corner of the window (the area delimited by \ci{canvas}).
 \end{itemize}
@@ -270,7 +269,7 @@ Here are some ideas to go further:
 \begin{itemize}
   \item Make sure that the grid automatically adapts to the screen width, i.e. calculate \ci{scale} based on \ci{n} and \ci{p}.
   
-  \item Add an intermediate step before evolving: color in green a cell that will be born and in black a cell that will die. For this purpose the elements of \ci{array} can take values other than $0$ and $1$.
+  \item Add an intermediate step before evolving: color  a cell that will be born  in green and a cell that will die in black. For this purpose the elements of \ci{array} can take values other than $0$ and $1$.
 \end{itemize}
 
 Here are some interesting configurations. 
@@ -286,8 +285,8 @@ In particular, find configurations:
   \item that remain fixed over time;
   \item which evolve, then become fixed;
   \item which are periodic (the same configurations come back in loops) with a period of $2$, $3$ or more;
-  \item who travel;
-  \item that propel cells; 
+  \item which travel;
+  \item which propel cells; 
   \item whose population is increasing indefinitely!
 \end{itemize}
 
