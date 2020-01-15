@@ -58,8 +58,9 @@ Here are some instructions to try.
   $$(1+2)\times(3+4)\times(5+6)\times(7+8)\times\cdots$$
   
   \item What are the last three digits of 
+  {\footnotesize
   $$123456789 \times 123456789 \times 123456789 \times 123456789 \times 123456789 \times 123456789 \times 123456789 \quad ?$$
-  
+  }
   \item $7$ is the first integer such that its inverse has a repeating decimal representation of period $6$:
   $$\frac{1}{7} = 0.\underbrace{142857}\underbrace{142857}\underbrace{142857}\ldots$$ 
   Find the first integer whose inverse has a repeating decimal representation of period $7$:
@@ -266,10 +267,9 @@ print(x)
 print(x**2)
 \end{lstlisting}
 \end{minipage}
-
 \end{center} 	
 
-The first line imports all the functions of the module named \ci{math}\index{import@\ci{import}}, the second line calculates $x = \sqrt{2}$ (as an approximate value) and then displays $x$ and $x^2$.	
+The first line imports all the functions of the module named \ci{math}\index{import@\ci{import}}, the next lines calculate $x = \sqrt{2}$ (as an approximate value) and then display $x$ and $x^2$.	
 
   \item \textbf{Sine and cosine.} 
   
@@ -298,6 +298,12 @@ In the \ci{math} module there are also functions to round a decimal number:
 \end{itemize}
 
 \end{cours}
+
+\bigskip
+
+\bigskip
+
+\bigskip
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -328,8 +334,10 @@ In the \ci{math} module there are also functions to round a decimal number:
 \end{enumerate}  
 \end{activite}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{cours}[\og{}for\fg{} loop]
 
@@ -339,8 +347,10 @@ In the \ci{math} module there are also functions to round a decimal number:
 \index{in@\ci{in}}
 \index{loop!for}
 
+\vspace*{1ex}
+
 \mybox{
-\myfigure{0.7}{
+\myfigure{0.70}{
   \tikzinput{fig_hello_world_loop_for}
 } }
 
@@ -536,7 +546,7 @@ $$13,17,23,27,33,37,43,47,53,57.$$
   \item Calculate the product:
   $$1 \times 3 \times 5 \times \cdots \times 19.$$
   
-  \emph{Hints.} Begin by defining a variable \ci{myproduct} initialized to the value $1$. Use \ci{range(a,b,2)} to get every other integer.
+  \emph{Hints.} Begin by defining a \ci{myproduct} variable initialized to the value $1$. Use \ci{range(a,b,2)} to get every other integer.
   
   \item Display multiplication tables between $1$ and $10$. Here is an example of a line to display:
   \mycenterline{\ci{7 x 9 = 63}}

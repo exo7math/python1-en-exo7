@@ -46,7 +46,7 @@ For easy examples we will take $p = 101$, for medium examples $p = 15\,486\,869$
 
 \begin{enumerate}
   \item \textbf{Verification (easy).} 
-  Write a function \ci{verification(x,y)} that returns \og{}True\fg{} if $x$ is the solution to the problem $x^2 = y \pmod{p}$ and \og{}False\fg{} otherwise.
+  Write a \ci{verification(x,y)} function that returns \ci{True} if $x$ is the solution to the problem $x^2 = y \pmod{p}$ and \ci{False} otherwise.
   
   Check that $x = 6\,543\,210$ is the solution when $y = 8\,371\,779$ and $p = 15\,486\,869$. Display the calculation time required for this verification. (See the explanations after this activity.)
   
@@ -69,9 +69,9 @@ Program a \ci{square_root(y)} function that returns a solution $x$ to the proble
 	\item Instead of looking for an exact solution to our problem $x^2 = y \pmod{p}$, which is equivalent to $x^2-y \pmod{p} = 0$, we are looking for an approximate solution, i.e. one that checks: $$x^2 - y \pmod{p} \ \le m.$$
 	For example if $m=5$, then you can have (modulo $p$) : $x^2 - y = 0$, $x^2 - y = 1$,
 	$x^2-y = 2$,\ldots{} or $x^2-y=5$. 
-	Of course there are now many possible solutions $x$
+	Of course there are now many possible solutions $x$.
 	
-	Program a function \ci{approximate_square_root(y,margin)} that finds an approximate solution to our problem $x^2 = y \pmod{p}$.
+	Program an \ci{approximate_square_root(y,margin)} function that finds one approximate solution to our problem $x^2 = y \pmod{p}$.
 	
 	How long does it take to find one solution to the problem when $p = 15\,486\,869$, $y = 8\,371\,779$ and $m=20$?
 	Choose a prime number $p$ large enough and find a margin of error $m$ so that finding a solution to the approximate problem requires about 30 to 60 seconds of calculations (for any $y$).
@@ -102,7 +102,7 @@ $$179426321 \quad
 \index{module!time@\ci{time}}
 \index{time@\ci{time}}
 
-The \ci{time} module allows you to measure the execution time but also to know the date and time (see also the \ci{timeit} module explained in the \og{}Arithmetic -- While loop -- I\fg{}).
+The \ci{time} module allows you to measure the execution time but also to know the date and time (see also the \ci{timeit} module explained in the \og{}Arithmetic -- While loop -- I\fg{} chapter).
 Here is a small script to measure the calculation time of an instruction. 
 
 \begin{lstlisting}
@@ -123,7 +123,7 @@ print("Execution time (in seconds):", total_chrono)
 \begin{itemize}
   \item The module is named \ci{time}.
   \item The function that returns the time is also named \ci{time()}, so we call it by \ci{time.time()}!
-  \item The function \ci{time()} returns a number that we are not interested in. What interests us is the difference between two values of this function. 
+  \item The \ci{time()} function returns a number that we are not interested in. What interests us is the difference between two values of this function. 
   \item \ci{start_chrono = time.time()} is like starting a stopwatch.
   \item \ci{end_chrono = time.time()} is like stopping it.
   \item \ci{total_chrono = end_chrono - start_chrono} is the total time taken by our script in seconds.
@@ -186,7 +186,7 @@ Someone who would like to fake a past transaction should recalculate all the pro
 Our lists are lists of integers between $0$ and $99$.
 
 \begin{enumerate}
-  \item Program a function \ci{addition(mylist1,mylist2)} that adds term to term and modulo $100$, the elements of two lists of the same length. 
+  \item Program an \ci{addition(mylist1,mylist2)} function that adds term to term and modulo $100$, the elements of two lists of the same length. 
   For example, \ci{addition([1,2,3,4,5,6],[1,1,1,98,98,98])} returns \ci{[2,3,4,2,3,4]}.
   
   \item We will look for lists that start with zeros (or zeros and then rather small numbers).  A list \ci{mylist} is smaller than the \ci{max_list} list if each element of \ci{mylist} is less than or equal to each element of the same rank of \ci{max_list}.
@@ -195,11 +195,11 @@ Our lists are lists of integers between $0$ and $99$.
   This is not the case with the \ci{[0,10,0,1,1]} list.
   Another example: being smaller than the list \ci{[0,0,0]} means starting with three zeros. Being smaller than the list \ci{[0,0,1]} means starting with \ci{[0,0,0]} or \ci{[0,0,1]}.
   
-  Program a function \ci{is_smaller(mylist,max_list)} that returns \og{}True\fg{} when \ci{mylist} is smaller than \ci{max_list}.
+  Program an \ci{is_smaller(mylist,max_list)} function that returns \ci{True} when \ci{mylist} is smaller than \ci{max_list}.
 
   \item We will need to transform a sentence into a list of numbers. In addition, we will split our lists into blocks of size $N$ (with $N=6$), hence we add zeros at the beginning of the list so that its length is a multiple of $N$.
   
-  Write a function \ci{sentence_to_list(sentence)} that converts a string into a list of integers between $0$ and $99$ and if necessary adds leading zeros so that the list has the correct size. 
+  Write a \ci{sentence_to_list(sentence)} function that converts a string into a list of integers between $0$ and $99$ and if necessary adds leading zeros so that the list has the correct size. 
   
   The formula to use to convert a character to an integer strictly less than $100$ is:  
   \mycenterline{\ci{ord(c) \% 100}}  
@@ -274,7 +274,7 @@ In this activity, our message is a list of integers (between $0$ and $99$) of an
     \item reduction modulo $100$: $[8,1,12,27,86,77]$
   \end{enumerate}
   
-  Program such a function \ci{one_round(block)} which returns the transformation of the block after these operations. Verifies that the block $[1, 1, 2, 3, 4, 5]$ is transformed into $[8, 8, 23, 27, 86, 77]$.
+  Program an \ci{one_round(block)} function which returns the transformation of the block after these operations. Verifies that the block $[1, 1, 2, 3, 4, 5]$ is transformed into $[8, 8, 23, 27, 86, 77]$.
  
     \item \textbf{Ten rounds.} 
     
@@ -306,7 +306,7 @@ Here is the diagram of a situation with three blocks: first there are three bloc
   Example with the list $[0,1,2,3,4,5,1,1,1,1,1,1,10,10,10,10,10,10]$.
   \begin{itemize}
     \item The first block is $[0,1,2,3,4,5]$, its mix after $10$ rounds is    $[98, 95, 86, 55, 66, 75]$. 
-    \item This mix is added to the second block $[1,1,1,1,1,1]$ (see function \ci{addition()} in activity 2).
+    \item This mix is added to the second block $[1,1,1,1,1,1]$ (see the \ci{addition()} function of activity 2).
     \item The remaining list is now $[99,96,87,56,67,76,10,10,10,10,10,10]$.
     \item Let's do it again. The new first block is $[99,96,87,56,67,76]$, its mix after $10$ rounds is $[60, 82, 12, 94, 6, 80]$, it is added to the last block $[10,10,10,10,10,10$] to get (modulo $100$) $[70,92,22,4,16,90]$.
     \item A last mix is made with $10$ rounds to obtain the hash: $[77, 91, 5, 91, 89, 99]$.
@@ -337,11 +337,11 @@ We are going to build a complicated problem to solve, for which, if someone give
 More precisely, given a list \ci{mylist} and a maximum target of \ci{max_list}, we have to find a block  \ci{proof} which, concatenated to the list and then hashed, is smaller than the list of \ci{max_list}, i.e.: 
 \mycenterline{\ci{bithash(mylist + proof)} \ smaller than \ \ci{max_list}}
 
-The list is of any length (a multiple of $N=6$), the proof is a block of length $N$, the objective is to find a list starting with $0$ (see activity 2).
+The list is of any length (a multiple of $N=6$), the proof is a block of length $N$, the objective is to find a list starting with $0$'s (see activity 2).
 
 \medskip
 
-For example: let \ci{mylist = [0,1,2,3,4,5]} and \ci{max_list = [0,0,7]}. Which block \ci{proof} can I concatenate to \ci{mylist} to solve my problem?
+For example: let \ci{mylist = [0,1,2,3,4,5]} and \ci{max_list = [0,0,7]}. Which \ci{proof} block can I concatenate to \ci{mylist} to solve my problem?
 \begin{itemize}
   \item \ci{proof = [12,3,24,72,47,77]} is appropriate because concatenated to our list it gives \ci{[0,1,2,3,4,5,12,3,24,72,47,77]} and the hash of this whole list gives
   \ci{[0,0,5,47,44,71]} which starts with \ci{[0,0,5]} smaller than the target.
@@ -358,21 +358,21 @@ For example: let \ci{mylist = [0,1,2,3,4,5]} and \ci{max_list = [0,0,7]}. Which 
 \begin{enumerate}
   \item \textbf{Verification (easy).} 
   
-  Program a function \ci{verification_proof_of_work(mylist,proof)} that returns true if the proposed solution \ci{proof} is suitable for \ci{mylist}. Use the \ci{is_smaller()} function of activity 2.
+  Program a \ci{verification_proof_of_work(mylist,proof)} function that returns true if the proposed solution \ci{proof} is suitable for \ci{mylist}. Use the \ci{is_smaller()} function of activity 2.
   
   \item \textbf{Search for a solution (difficult).}
   
-  Program a function \ci{proof_of_work(mylist)} that looks for a block \ci{proof} solution to our problem for the given list. 
+  Program a \ci{proof_of_work(mylist)} function that looks for a \ci{proof} block, solution to our problem for the given list. 
   
   
   \emph{Hints.}
   
   \begin{itemize}
-    \item The easiest method is to take a block \ci{proof} of random numbers and start again until a solution is found.
+    \item The easiest method is to take a \ci{proof} block of random numbers and start again until a solution is found.
     
     \item You can also systematically test all blocks starting with \ci{[0,0,0,0,0,0]}, then \ci{[0,0,0,0,0,1]}\ldots{} and stop at the first appropriate one.
     
-    \item You adjust the difficulty of the problem by changing the objective: easy with \ci{Max = [0,0,50]}, medium with \ci{max_list = [0,0,5]}, difficult with \ci{max_list = [0,0,0]}, too difficult with \ci{max_list = [0,0,0,0]}.
+    \item You adjust the difficulty of the problem by changing the objective: easy with \ci{max_list = [0,0,50]}, medium with \ci{max_list = [0,0,5]}, difficult with \ci{max_list = [0,0,0]}, too difficult with \ci{max_list = [0,0,0,0]}.
     
     \item As there are several solutions, you do not necessarily get the same solution for each search. 
     
@@ -380,7 +380,7 @@ For example: let \ci{mylist = [0,1,2,3,4,5]} and \ci{max_list = [0,0,7]}. Which 
    
    \item \textbf{Calculation time.}
    
-   Compare the calculation time of a simple check against the time of searching for a solution. Choose the objective \ci{max_list} so that the search for a proof of work requires about 30 to 60 seconds of calculations.
+   Compare the calculation time of a simple check against the time of searching for a solution. Choose the \ci{max_list} objective so that the search for a proof of work requires about 30 to 60 seconds of calculations.
   
 \end{enumerate}  
 
@@ -396,7 +396,7 @@ that the calculation time taken by the winner (among all the minors) to find a s
 
 \begin{activite}[Your bitcoins]
 
-\objectifs{Goal: create an account book (called \emph{blockchain} for the bitcoin) that records all transactions, this register is public and certified. It is practically impossible to falsify a transaction that has already been registered.}
+\objectifs{Goal: create an account book (called \emph{blockchain} for the bitcoin) that records all transactions, this ledger is public and certified. It is practically impossible to falsify a transaction that has already been registered.}
 
 
 \myfigure{0.5}{
@@ -407,11 +407,11 @@ that the calculation time taken by the winner (among all the minors) to find a s
   \item \textbf{Initialization and addition of a transaction.}
   
   \begin{enumerate}
-    \item Initialize a global variable \ci{blockchain} which is a list and contains at the beginning a zero proof: \ci{blockchain = [ [0,0,0,0,0,0] ]} .
+    \item Initialize a global \ci{blockchain} variable which is a list and contains at the beginning a zero proof: \ci{blockchain = [ [0,0,0,0,0,0] ]} .
   
     \item A \emph{transaction} is a string including a name and the amount to add (or deduct) to your account. For example \ci{"Abel +25"} or \ci{"Barbara -45"}.
     
-    Program a function \ci{add_transaction(transaction)} that adds the string \ci{transaction} to the list \ci{blockchain}. 
+    Program an \ci{add_transaction(transaction)} function that adds the string \ci{transaction} to the list \ci{blockchain}. 
 For example after initialization \ci{add_transaction("Camille +100")},  
     \ci{blockchain} is \ci{[ [0,0,0,0,0,0], "Camille +100" ]}.
     Attention, to be able to modify \ci{blockchain} you must start the function with: \ci{global blockchain}.
@@ -422,9 +422,9 @@ For example after initialization \ci{add_transaction("Camille +100")},
    
 Here's how to do it:
   \begin{itemize}
-    \item We take the last transaction \ci{transaction}, we transform it into a list of integers by the function \ci{sentence_to_list()} of activity 2.
+    \item We take the last transaction \ci{transaction}, we transform it into a list of integers by the \ci{sentence_to_list()} function of activity 2.
     \item We also need \ci{prev_proof}, the previous proof of work just before this transaction.
-    \item We form the list \ci{mylist} composed first of elements of \ci{prev_proof}, then of elements of the list of integers obtained by converting the string \ci{transaction}.
+    \item We form the \ci{mylist} list composed, first of elements of \ci{prev_proof}, then of elements of the list of integers obtained by converting the string \ci{transaction}.
     \item A proof of work is calculated from this list.
     \item This proof is added to the account book.
   \end{itemize}
@@ -434,10 +434,10 @@ Here's how to do it:
   then after calculation of the proof of work the book ends with, for example:  
   \mycenterline{\ci{[3,1,4,1,5,9], "Abel +35", [32,17,37,73,52,90]}}  
   
-     It should be remembered that proof of work is not unique and that it also depends on the objective \ci{max_list}.
+     It should be remembered that a proof of work is not unique and that it also depends on the \ci{max_list} objective.
    
    Only one person at a time adds a proof of work. However, everyone has the opportunity to verify that the proposed proof is correct (and should do it). 
-	Write a function \ci{verification_blockchain()}, without parameters, that checks that the last proof added to the \ci{blockchain} is valid.
+	Write a \ci{verification_blockchain()} function, without parameters, that checks that the last proof added to the \ci{blockchain} is valid.
 	
 	\item Write a blockchain that corresponds to the following data:
 	\begin{itemize}

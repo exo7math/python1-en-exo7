@@ -81,7 +81,7 @@ $$\begin{array}{cccccc}
 \end{center}
 
 \begin{enumerate}
-  \item Program a function \ci{can_fall(i,j)} that determines if the block in position $(i,j)$ can drop to the square below or not.
+  \item Program a \ci{can_fall(i,j)} function that determines if the block in position $(i,j)$ can drop to the square below or not.
   
   Here are the cases in which the block \emph{cannot} fall:
   \begin{itemize}
@@ -90,7 +90,7 @@ $$\begin{array}{cccccc}
     \item if there is a block just to the right or just to the left.
   \end{itemize}
   
-  \item Program a function \ci{drop_one_block(j)}
+  \item Program a \ci{drop_one_block(j)} function
 which drops a block in the $j$ column until it can no longer go down.
 This function modifies the array.  
   
@@ -115,7 +115,7 @@ $$
 } 
 
  
-  \item Program a function \ci{drop_blocks(k)} that launches 
+  \item Program a \ci{drop_blocks(k)} function that launches 
   $k$ blocks one by one, each time choosing a random column (i.e. an integer $j$ with $0 \le j < p$). 
   
   Here is an example of a table obtained after throwing $10$ blocks:
@@ -235,13 +235,13 @@ Gradually, we obtain a kind of tree that looks like coral. The calculations are 
 \textbf{Part 1.}
 
 \begin{enumerate}
-  \item Model the workspace again with an array of $n$ rows and $p$ columns containing $0$ or $1$. Initialize all values to $0$, except $1$ in the center of the table.
+  \item Model the workspace again with an array of $n$ rows and $p$ columns containing $0$'s or $1$'s. Initialize all values to $0$, except $1$ in the center of the table.
   
-  \item Program a function \ci{is_inside(i,j)} which determines if the position $(i,j)$ is in the grid (otherwise the block is coming out).
+  \item Program an \ci{is_inside(i,j)} function which determines if the position $(i,j)$ is in the grid (otherwise the block is coming out).
     
-  \item Program a function \ci{can_move(i,j)} that determines if the block in position $(i,j)$ can move (the function returns \og{}True\fg{}) or if it is hung on (the function returns \og{}False\fg{}).
+  \item Program a \ci{can_move(i,j)} function that determines if the block in position $(i,j)$ can move (the function returns \ci{True}) or if it is hung on (the function returns \ci{False}).
 
-  \item Program a function \ci{launch_one_block()}, without parameters, that simulates the creation of a block and its random movement, until it sticks or leaves the grid.
+  \item Program a \ci{launch_one_block()} function, without parameters, that simulates the creation of a block and its random movement, until it sticks or leaves the grid.
   
   \emph{Hints.}
   \begin{itemize}
@@ -255,7 +255,7 @@ Gradually, we obtain a kind of tree that looks like coral. The calculations are 
   \end{itemize}
 
   
-    \item End with a function \ci{launch_blocks(k)} that launches $k$ blocks.   
+    \item End with a \ci{launch_blocks(k)} function that launches $k$ blocks.   
 \end{enumerate}
 
 
@@ -287,13 +287,13 @@ Here is a program that moves a small square and bounces it off the edges of the 
 
 Here are the main points:
 \begin{itemize}
-  \item An object \ci{rect} is defined, it is a global variable, as well as its coordinates \ci{x0}, \ci{y0}.
+  \item A  \ci{rect} object is defined, it is a global variable, as well as its coordinates \ci{x0}, \ci{y0}.
   
-  \item This object is (a little bit) moved by the function \ci{mymove()} which shifts the rectangle by \ci{(dx,dy)}.
+  \item This object is (a little bit) moved by the \ci{mymove()} function which shifts the rectangle by \ci{(dx,dy)}.
     
   \item The key point is that this function will be executed again after a short period of time. The command: 
   \mycenterline{\ci{canvas.after(50,mymove)}}  
-  requests a new execution of the function \ci{mymove()} after a short delay (here $50$ milliseconds).
+  requests a new execution of the \ci{mymove()} function after a short delay (here $50$ milliseconds).
   
   \item The repetition of small shifts simulates movement.
 \end{itemize}

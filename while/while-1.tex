@@ -188,11 +188,12 @@ print(p)
   
 \end{exemple}
 
+\bigskip
 
 \begin{exemple}
 \begin{minipage}{0.55\textwidth}
 For this last loop we have already prepared a function called \ci{is_even(n)} which returns \ci{True} if the integer $n$ is even and \ci{False} otherwise. The loop does this: as long as the integer $n$ is even, $n$ becomes $n/2$. This amounts to removing all factors $2$ from the integer $n$. As $n = 56 = 2\times 2 \times 2 \times 7$, this program displays $7$.
-\end{minipage}\qquad\qquad
+\end{minipage}\qquad\quad
 \begin{minipage}{0.4\textwidth}
 \begin{lstlisting}
 n = 56
@@ -201,9 +202,9 @@ while is_even(n) == True:
 print(n)
 \end{lstlisting}
 
-
-
 \end{minipage}
+
+\smallskip
 
   $$
   \begin{array}{l}
@@ -245,6 +246,8 @@ The second writing is shorter but makes the program less readable.
 % Activity 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\bigskip
+\bigskip
 
 \begin{activite}[Prime numbers]
 
@@ -265,7 +268,7 @@ The second writing is shorter but makes the program less readable.
   \textbf{Method.}
   \begin{itemize}
     \item We remind you that $d$ divides $n$ if and only if \ci{n \% d} is equal to $0$.
-    \item It is a bad idea is to use a loop \og{}for $d$ ranging from $2$ to $n$\fg{}, since, if for example we know that $7$ is a divisor of $91$ it is useless to test if $8,9,10\ldots$ are also divisors because we have already found a smaller one.
+    \item It is a bad idea to use a loop \og{}for $d$ ranging from $2$ to $n$\fg{}, since, if for example we know that $7$ is a divisor of $91$ it is useless to test if $8,9,10\ldots$ are also divisors because we have already found a smaller one.
     
     \item A good idea is to use a \og{}while\fg{} loop!
     The principle is: \og{}as long as I haven't got my divisor, I should keep looking for\fg{}. (And so, as soon as I find it, I stop looking.)
@@ -281,7 +284,7 @@ The second writing is shorter but makes the program less readable.
   
   \item \textbf{Prime numbers (1).}
   
-  Slightly modify your function \ci{smallest_divisor(n)} to write your first  prime function \ci{is_prime_1(n)} which returns \og{}True\fg{} if $n$ is a prime number and \og{}False\fg{} otherwise.
+  Slightly modify your \ci{smallest_divisor(n)} function to write your first  prime function \ci{is_prime_1(n)} which returns \og{}True\fg{} if $n$ is a prime number and \og{}False\fg{} otherwise.
   
   For example \ci{is_prime_1(13)} returns \ci{True}, \ci{is_prime_1(14)} returns \ci{False}.
   
@@ -410,17 +413,17 @@ The function takes the following parameters:
 \objectifs{Goal: program more \og{}while\fg{} loops and study different kinds of prime numbers using your \ci{is_prime()} function.}
 
 \begin{enumerate}
-  \item Write a function \ci{prime_after(n)} that returns the first prime number $p$ greater than or equal to $n$. 
+  \item Write a \ci{prime_after(n)} function that returns the first prime number $p$ greater than or equal to $n$. 
   
   For example, the first prime number after $n=60$ is $p=61$. 
   What is the first prime number after $n=100\,000$?
   
-  \item Two prime numbers $p$ and $p+2$ are called \defi{twin prime numbers}. Write a function \ci{twin_prime_after(n)} that returns the first pair $p$, $p+2$ of twin prime numbers, with $p \ge n$.
+  \item Two prime numbers $p$ and $p+2$ are called \defi{twin prime numbers}. Write a \ci{twin_prime_after(n)} function that returns the first pair $p$, $p+2$ of twin prime numbers, with $p \ge n$.
   
   For example, the first pair of twin primes after $n=60$ is $p=71$ and $p+2=73$.   
   What is the first pair of twin primes after $n=100\,000$?
     
-  \item An integer $p$ is a \defi{Germain prime number} if $p$ and $2p+1$ are prime numbers. Write a function \ci{germain_after(n)} that returns the pair $p$, $2p+1$ where $p$ is the first Germain prime number $p \ge n$.
+  \item An integer $p$ is a \defi{Germain prime number} if $p$ and $2p+1$ are prime numbers. Write a \ci{germain_after(n)} function that returns the pair $p$, $2p+1$ where $p$ is the first Germain prime number $p \ge n$.
   
   For example, the first Germain prime number after $n=60$ is $p=83$, with $2p+1=167$.   
   What is the first Germain prime number after $n=100\,000$?

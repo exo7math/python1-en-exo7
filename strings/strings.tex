@@ -171,7 +171,7 @@ Another example: \ci{word[1:len(word)-1]} returns the word but with its first an
   \end{minipage}
   \end{center}
 
-  \item You can test if a character belongs to a certain list of characters. For example: 
+  \item You can test if a character belongs to a given list of characters. For example: 
     
   \smallskip
     
@@ -193,7 +193,7 @@ Another example: \ci{word[1:len(word)-1]} returns the word but with its first an
 
 \begin{activite}[Word games]
 
-\objectifs{Goal: manipulating words in a fun way.}
+\objectifs{Goal: manipulate words in a fun way.}
 
   
   %\medskip
@@ -285,7 +285,7 @@ Write a function \ci{hamming_distance()} that calculates the Hamming distance be
    
  \end{itemize}
  
-  Write a function \ci{pig_latin()} that translates into pig latin a word according to this procedure.
+  Write a \ci{pig_latin()} function that translates into pig latin a word according to this procedure.
   
   \begin{fonction}[\ci{pig_latin()}]
   Use: \ci{pig_latin(word)} \\\
@@ -320,7 +320,7 @@ In a DNA strand there are only four types of nucleotides that are noted \mot{A},
 }\index{DNA}
 
 \begin{enumerate}
-  \item Write a function \ci{presence_of_A()} that tests if a sequence contains the nucleotide \mot{A}.
+  \item Write a \ci{presence_of_A()} function that tests if a sequence contains the nucleotide \mot{A}.
   
   \begin{fonction}[\ci{presence_of_A()}]
   Use: \ci{presence_of_A(sequence)} \\
@@ -334,7 +334,7 @@ In a DNA strand there are only four types of nucleotides that are noted \mot{A},
   
 
    
-  \item Write a function \ci{position_of_AT()} that tests if a sequence contains the nucleotide \mot{A} followed by the nucleotide \mot{T} and returns the position of the first occurrence found.
+  \item Write a \ci{position_of_AT()} function that tests if a sequence contains the nucleotide \mot{A} followed by the nucleotide \mot{T} and returns the position of the first occurrence found.
   
   \begin{fonction}[\ci{position_of_AT()}]
   Use: \ci{position_of_AT(sequence)} \\
@@ -355,7 +355,7 @@ In a DNA strand there are only four types of nucleotides that are noted \mot{A},
   
 \medskip
    
-  \item Write a function \ci{position()} that tests if a sequence contains a given code and returns the position of the first occurrence.
+  \item Write a \ci{position()} function that tests if a sequence contains a given code and returns the position of the first occurrence.
   
    \medskip
    
@@ -434,7 +434,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
 
 \begin{enumerate}  
 
-  \item The function \ci{chr()}\index{chr@\ci{chr}} is a \Python{} function that returns the character associated to a code.
+  \item The \ci{chr()}\index{chr@\ci{chr}} function is a \Python{} function that returns the character associated to a code.
   
   \begin{fonctionpython}[\ci{python : chr()}]
   Use: \ci{chr(code)}\\
@@ -450,7 +450,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
   \end{itemize} 
   \end{fonctionpython} 
   
-  \item The function \ci{ord()}\index{ord@\ci{ord}} is a \Python{} function corresponding to the reverse operation: it returns the code associated with a character.
+  \item The \ci{ord()}\index{ord@\ci{ord}} function is a \Python{} function corresponding to the reverse operation: it returns the code associated with a character.
   
   \smallskip
   
@@ -490,7 +490,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
   
   \item What does the command \ci{chr(ord("a")-32)}  return? And \ci{chr(ord("B")+32)}?
   
-  \item Write a function \ci{upper_letter()} that transforms a lowercase letter into its uppercase letter.
+  \item Write an \ci{upper_letter()} function that transforms a lowercase letter into its uppercase letter.
   
   \begin{fonction}[\ci{upper_letter()}]
   
@@ -503,7 +503,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
    Example: \ci{upper_letter("t")} returns \ci{"T"}
   \end{fonction} 
   
-    \item Write a function \ci{uppercase()} that takes a sentence written in lower case and returns the same sentence written in upper case. Characters that are not lowercase letters remain unchanged.
+    \item Write an \ci{uppercase()} function that takes a sentence written in lower case and returns the same sentence written in upper case. Characters that are not lowercase letters remain unchanged.
   
   \begin{fonction}[\ci{uppercase()}]
    Use: \ci{uppercase(sentence)}\\
@@ -523,7 +523,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
   \begin{fonction}[\ci{format_full_name()}]
   Use: \ci{format_full_name(somebody)}\\
   Input: a person's first name and surname (separated by a space)\\
-  Output: the full name following the format \ci{"First name LAST NAME"}
+  Output: the full name following the format \ci{"Firstname LASTNAME"}
   
   \medskip
      
@@ -568,7 +568,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
   
   \medskip
      
-   Example: \ci{number_letters("IS THERE ANYBODY OUT THERE")} returns \ci{22}.
+   Example: \ci{number_letters("IS THERE ANYBODY OUT THERE")} returns \ci{22}
   \end{fonction}
  
  \item The \defi{frequency of appearance} of a letter in a text or sentence is the percentage given according to the formula :

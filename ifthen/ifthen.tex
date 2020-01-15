@@ -118,12 +118,12 @@ The \ci{random} module generates numbers as if they were randomly drawn.
   \item Here is the command to place at the beginning of the program to call this module:
   \mycenterline{\ci{from random import *}}
   
-  \item The command \ci{randint(a,b)}\index{randint@\ci{randint}} returns a random integer between $a$ and $b$.
+  \item The \ci{randint(a,b)}\index{randint@\ci{randint}} command returns a random integer between $a$ and $b$.
   
   For example after the instruction \ci{n = randint(1,6)}, $n$ is a random integer such that $1 \le n \le 6$.
   If you repeat the instruction \ci{n = randint(1,6)}, $n$ takes a new value. It's like rolling a 6-face dice.
   
-  \item The command \ci{random()}, without argument, returns a floating number (i.e.~a decimal number) between $0$ and $1$.  
+  \item The \ci{random()} command, without argument, returns a floating number (i.e.~a decimal number) between $0$ and $1$.  
   For example, after the instruction \ci{x = random()}, then $x$ is a floating point number with $0 \le x < 1$.
 \end{itemize}
 
@@ -206,7 +206,7 @@ for c in word:
 \end{lstlisting}
 \end{minipage} 
 \end{center} 
-Finally remember that \ci{up()} and \ci{down()} sets the position of the pen.
+Finally remember that \ci{up()} and \ci{down()} set the position of the pen.
 
 \end{activite}
 
@@ -218,7 +218,7 @@ Finally remember that \ci{up()} and \ci{down()} sets the position of the pen.
 \begin{cours}[Booleans]
 \sauteligne
 \begin{itemize}
-  \item A \defi{bolean}\index{boolean} is a type of data that is either equal to the value \og{}True\fg{} or the value \og{}False\fg{}. In \Python{} the values are \ci{True}\index{true@\ci{True}} and \ci{False}\index{false@\ci{False}} (with a capital letter).
+  \item A \defi{boolean}\index{boolean} is a type of data that is either equal to the value \og{}True\fg{} or the value \og{}False\fg{}. In \Python{} the values are \ci{True}\index{true@\ci{True}} and \ci{False}\index{false@\ci{False}} (with a capital letter).
   
   \item We can obtain a boolean as a result of the comparison of two numbers.
   For example \ci{7 < 4} is equal to \ci{False} (because $7$ is not smaller than $4$). 
@@ -349,7 +349,7 @@ Define three variables $a$, $b$ and $c$ with integer values and $a \le b \le c$ 
    
    \item \textbf{Isosceles triangle.} Test if the triangle is isosceles.   
    
-   \item \textbf{Acute triangle.} Tests if all angles are acute (i.e.~less than or equal to $90$ degrees).
+   \item \textbf{Acute triangle.} Test if all angles are acute (i.e.~less than or equal to $90$ degrees).
    
     \emph{Hints.} 
     \begin{itemize}

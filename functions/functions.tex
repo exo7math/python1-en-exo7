@@ -41,10 +41,10 @@ def print_squares():
 
 \index{def@\ci{def}}
 
-The instructions are grouped into an indented block. The word \ci{return}\index{return@\ci{return}} (optional) indicates the end of the function. These instructions are executed only if I call the function. For example, each time I execute the command \ci{say_hello()}, \Python{} displays the sentence \og{}Hello world!\fg{}. Each time I execute the command \ci{print_squares()}, \Python{} displays $0,1,4,9,16,\ldots$, i.e. the numbers $i^2$ for $i=0,\ldots,19$.
+The instructions are grouped into an indented block. The word \ci{return}\index{return@\ci{return}} (optional) indicates the end of the function. These instructions are executed only if I call the function. For example, each time I execute the \ci{say_hello()} command, \Python{} displays the sentence \og{}Hello world!\fg{}. Each time I execute the \ci{print_squares()} command, \Python{} displays $0,1,4,9,16,\ldots$, i.e. the numbers $i^2$ for $i=0,\ldots,19$.
 
 \mybox{
-\myfigure{0.7}{
+\myfigure{0.75}{
   \tikzinput{fig-functions-lesson-1}
 } }
 
@@ -400,7 +400,7 @@ So let's remember:
   \end{enumerate}
   
   
-  \textbf{Bonus.} Improve your program so that the computer offers random operations to the player. (Use the \ci{randint()} function of the module \ci{random}.)
+  \textbf{Bonus.} Improve your program so that the computer offers random operations to the player. (Use the \ci{randint()} function of the \ci{random} module.)
   
 \end{enumerate}
 \end{activite}
@@ -419,9 +419,9 @@ So let's remember:
 \begin{enumerate}
   \item
   \begin{enumerate}
-    \item Build an \ci{absolute_value(x)} function that returns the absolute value of a number (without using the function \ci{abs()} in \Python{}).
+    \item Build an \ci{absolute_value(x)} function that returns the absolute value of a number (without using the \ci{abs()} function in \Python{}).
 
-    \item Build a function \ci{root_of_square(x)} which corresponds to the calculation of $\sqrt{x^2}$.
+    \item Build a \ci{root_of_square(x)} function which corresponds to the calculation of $\sqrt{x^2}$.
 
   
   \item Two mathematical functions (of one variable) $f$ and $g$ are said to be \defi{experimentally equal} if $f(i)=g(i)$ for $i=-100,-99,\ldots,0,1,2,\ldots,100$. Check by computer that the two functions defined by
@@ -434,7 +434,7 @@ So let's remember:
     \begin{enumerate}
     \item Build a two-parameter function \ci{F(a,b)} that returns $(a+b)^2$. Same thing with \ci{G(a,b)} that returns $a^2+2ab+b^2$.
  
-  \item Two functions of two variables $F$ and $G$ are said to be \defi{experimentally equal} if $F(i,j)=G(i,j)$ for all $i=-100,-99,\ldots,100$ and for all $j = -100,-99,\ldots,100$. Check by computer that the functions you defined $(a+b)^2$ and $a^2+2ab+b^2$ are experimentally equal. 
+  \item Two functions of two variables $F$ and $G$ are said to be \defi{experimentally equal} if $F(i,j)=G(i,j)$ for all $i=-100,-99,\ldots,100$ and for all $j = -100,-99,\ldots,100$. Check by computer that the functions $(a+b)^2$ and $a^2+2ab+b^2$ you defined are experimentally equal. 
   
    \item I know that one of the following two identities is true:
    $$(a-b)^3 = a^3 - 3a^2b -3ab^2+b^3 \qquad \text{ or } \qquad (a-b)^3 = a^3 - 3a^2b  + 3ab^2 - b^3.$$
@@ -513,15 +513,15 @@ To understand the scope of the variables, you can color the global variables of 
 The following small program defines two functions. The first adds one to a number and the second calculates the double.
 
 \mybox{
-\myfigure{0.7}{
+\myfigure{0.67}{
   \tikzinput{fig-functions-lesson-4}
 } }
 
 The program first displays the value of \ci{x}, or \ci{7}, then it increases it by $1$, so it displays \ci{8}, then it displays twice as much as \ci{x}, so \ci{14}. The global variable \ci{x} has never changed, so the last display of \ci{x} is still \ci{7}.
 
-\bigskip
+\medskip
 
-It is still possible to force the hand of \Python{} and modify a global variable in a function using the keyword \ci{global}. See the chapter \og{}Polish calculator -- Stacks\fg{}.
+It is still possible to force the hand of \Python{} and modify a global variable in a function using the keyword \ci{global}. See the \og{}Polish calculator -- Stacks\fg{} chapter.
 
 \end{cours}
 
