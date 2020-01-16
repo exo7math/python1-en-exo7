@@ -227,7 +227,7 @@ For example with \ci{word = "ArAAl"}, \ci{replace_1(word,"A","Al")} returns the 
 \begin{enumerate}
   \item Program a \ci{replace_2(word,letter1,pattern1,letter2,pattern2)} function that replaces the first letter with a pattern and the second letter with another pattern. 
 
-For example when \ci{word = "ArBlA"}, \ci{replace_2(word,"A","ABl","B","Br")} returns the word \ci{ABlrBrlABl}: each letter \mot{A} has been replaced by the pattern \mot{ABl} and at the same time each letter \mot{B} has been replaced by the \mot{Br}.
+For example when \ci{word = "ArBlA"}, \ci{replace_2(word,"A","ABl","B","Br")} returns the word \ci{ABlrBrlABl}: each letter \mot{A} has been replaced by the pattern \mot{ABl} and at the same time each letter \mot{B} has been replaced by \mot{Br}.
 
 \emph{Warning!} You should not get \ci{ABrlrBrlABrl}. If this is the case, it is because you used the \ci{replace_1()} function first to replace the \ci{A}, then a second time to replace the \ci{B} (but after the first replacement, new \ci{B} appeared). A new function must be programmed to avoid this. 
 
@@ -270,7 +270,7 @@ rule2=("Y","rAXrY")
 
 The letters \ci{X} and \ci{Y} do not correspond to an action.
 
-	\item A variant of the Sierpinski triangle, where \ci{angle = 60} :	
+	\item A variant of the Sierpinski triangle, where \ci{angle = 60}:	
 \mycenterline{\ci{	
 start="A"    
 rule1=("A","BrArB")    

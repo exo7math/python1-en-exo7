@@ -80,7 +80,7 @@ what do the following instructions return?
     \item The command \ci{mylist_squares = [ x**2 for x in mylist ]} returns the list of squares of the items in the initial list. So this is the list \ci{[1,4,9,16,...]}.
     
     \item The command \ci{mylist_partial = [x for x in mylist if x > 2]}
-    extracts the list composed only of elements strictly greater than $2$. So this is the list \ci{[3,4,5,6,7,6,5,4,3]}.
+    extracts the list composed only of elements greater than $2$. So this is the list \ci{[3,4,5,6,7,6,5,4,3]}.
 	\end{itemize}
 	
 	 
@@ -248,7 +248,7 @@ $$S_n = \frac{n(n^2+1)}{2}.$$
 
 
 \begin{enumerate}
-  \item \textbf{Examples.} Define an array for each of the above examples $3 \times 3$ and $4 \times 4$ and display them on the screen (use the previous activity).
+  \item \textbf{Examples.} Define an array for each of the $3 \times 3$ and $4 \times 4$ examples above and display them on the screen (use the previous activity).
   
   \item \textbf{To be or not to be.} Define an \ci{is_magic_square(square)} function that tests whether a given array is (or isn't) a magic square (use the previous activity for diagonals).
   
@@ -273,7 +273,7 @@ $$\begin{array}{ccc}
 then fill it with the correct values using commands of the type:
 \mycenterline{\ci{new_square[i][j] = ...}}
 
-  \item \textbf{Multiplication.} Define a function \ci{multiplication_square(square,k)}
+  \item \textbf{Multiplication.} Define a \ci{multiplication_square(square,k)} function
   which multiplies all the elements of the array by $k$. With the example of the  $3\times 3$ square, the \ci{multiplication_square(square,2)} command multiplies all the elements by $2$ and thus returns an array that would be displayed as follows:
 $$\begin{array}{ccc}
 8&18&4\\6&10&14\\16&2&12
@@ -360,7 +360,7 @@ $$
      \item Output: a magic square $C$ of size $(nm)\times(nm)$.
    \end{itemize}
 
-  Create square $C_{3a}$ by subtracting $1$ from all elements of $C_2$. (Use the \ci{addition_square(square2,-1)} command.)
+  \item Create square $C_{3a}$ by subtracting $1$ from all elements of $C_2$. (Use the \ci{addition_square(square2,-1)} command.)
   
   \item Define square $C_{3b}$ as the homothety of square $C_{3a}$ of ratio $n$. (Use the \ci{homothety(square3a,n) command}.)
   

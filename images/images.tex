@@ -22,7 +22,7 @@ From this image we calculate a new image by moving each pixel according to a tra
 
 We cut the original image into small $2\times2$ squares.
 Each small square is therefore composed of four pixels. Each of these pixels is sent to four different locations in the new image:
-the pixel at the top left remains in an area at the top left, the pixel at the top right of the small square, is sent to an area at the top right of the new image,...
+the pixel at the top left remains in an area at the top left, the pixel at the top right of the small square is sent to an area at the top right of the new image,...
 
 \myfigure{0.7}{
 \tikzinput{fig-images-1}
@@ -32,7 +32,7 @@ For example, the pixel in position $(1,1)$ (symbolized by the letter \mot{D}) is
 
 \medskip
 
-Let's explain this principle through formulas. For each couple $(i,j)$, we calculate its image $(i',j')$ using the photo booth transformation according to the following formulas:
+Let's explain this principle through formulas. For each pair $(i,j)$, we calculate its image $(i',j')$ using the photo booth transformation according to the following formulas:
 \begin{itemize}
   \item If $i$ and $j$ are even: $(i',j') = (i//2,j//2)$.
   \item If $i$ is even and $j$ is odd: $(i',j') = (i//2,(n+j)//2)$.  
@@ -192,7 +192,7 @@ For example, with \ci{array = [ [128,192,128,192,128], [224,...] ]}, the \ci{arr
   
   \item \textbf{Image to array.} 
   
-  Program a \ci{image_to_array(image_name)} function 
+  Program an \ci{image_to_array(image_name)} function 
   which takes an image file in \og{}pgm\fg{} format and returns an array of gray levels.
 \end{enumerate}
 
@@ -239,7 +239,7 @@ $$\begin{array}{cccc}
   9&13&10&14&11&15&12&16
 \end{array}$$
   
-  \item \textbf{Fold.} The principle is as follows: the right part of a stretched array is turned upside down, then added under the left part. Starting from a $\frac n2 \times 2n$ array you get a $n \times n$ array.
+  \item \textbf{Fold.} The principle is as follows: the right part of a stretched array is turned upside down, then added under the left part. Starting from a $\frac n2 \times 2n$ array you get an $n \times n$ array.
 
  
 \myfigure{0.7}{
@@ -249,7 +249,7 @@ $$\begin{array}{cccc}
 \emph{Formulas.} 
 For $0 \le i < \frac n2$ and $0 \le j < n$ the elements in position $(i,j)$ of the array are kept in place.
 For $\frac n2 \le i < n$ and $0 \le j < n$ an element of the array 
-$(i,j)$, corresponds to an element $\big(\frac{n}{2} - i - 1,2n-1-j\big)$ of the source array. 
+$(i,j)$ corresponds to an element $\big(\frac{n}{2} - i - 1,2n-1-j\big)$ of the source array. 
 
 
 \emph{Example.} 
@@ -333,7 +333,7 @@ Here are the images for $k=12,13,14,15$ iterations:
 $$ 
   \item Program a  \ci{baker_images(image_name,kmax)} function that calculates the images corresponding to baker's transformation, with iterations ranging from $k=1$ to $k=k_{\max}$.
   
-  \item Experiment with different values of the size $n$, to see after how many iterations we get back to the original image. 
+  \item Experiment with different values of the size $n$ to see after how many iterations we get back to the original image. 
   
   \emph{Caution!} It sometimes takes many iterations to get back to the original image. For example when $n=4$, we return to the starting image after $k=5$ iterations; when $n=256$ it takes $k=17$. Conjecture a return value in the case where $n$ is a power of $2$. However, for $n=10$, you need $k = 56\,920$ iterations!
    
@@ -346,14 +346,14 @@ Here is an example with an image of size $256 \times 256$, first the initial ima
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_1.png}\qquad
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_2.png}
 \end{center}
-$k=3,4,5$ :
+$k=3,4,5$:
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_3.png}\qquad
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_4.png}\qquad
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_5.png}
 \end{center}
 
-$k=15,16,17$ :
+$k=15,16,17$:
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_15.png}\qquad
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_16.png}\qquad

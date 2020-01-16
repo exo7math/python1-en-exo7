@@ -8,7 +8,7 @@
 \chapitre{Binary I}
 %====================================================================
 
-\objectifs{The computers transform all data into numbers and manipulate only those numbers. These numbers are stored in the form of lists of $0$'s and $1$'s. It's the binary numeral system of numbers. To better understand this binary numeral system, you must first need to understand the decimal numeral system better.}
+\objectifs{The computers transform all data into numbers and manipulate only those numbers. These numbers are stored in the form of lists of $1$'s and $0$'s. It's the binary numeral system of numbers. To better understand this binary numeral system, you must first need to understand the decimal numeral system better.}
 
 \index{binary}
 
@@ -63,7 +63,7 @@ $$n = {\color{blue}d_{p-1}} \times 10^{p-1} + {\color{blue}d_{p-2}} \times 10^{p
 
 \objectifs{Goal: from the decimal notation, find the integer.}
 
-Write a function \ci{decimal_to_integer(list_decimal)} which takes a list representing the decimal notation and calculates the corresponding integer.
+Write a \ci{decimal_to_integer(list_decimal)} function which takes a list representing the decimal notation and calculates the corresponding integer.
   
   \begin{fonction}[\ci{decimal_to_integer()}]
   Use: \ci{decimal_to_integer(list_decimal)} \\\
@@ -173,7 +173,7 @@ $$n = {\color{red}b_{p-1}} \times 2^{p-1} + {\color{red}b_{p-2}} \times 2^{p-2} 
   \end{itemize}
   
 
-  \item Write a function \ci{binary_to_integer(list_binary)} which takes in a list representing a binary system value and calculates the corresponding integer.
+  \item Write a \ci{binary_to_integer(list_binary)} function which takes in a list representing a binary system value and calculates the corresponding integer.
   
   \begin{fonction}[\ci{binary_to_integer()}]
   Use: \ci{binary_to_integer(list_binary)} \\\
@@ -197,7 +197,7 @@ $$n = {\color{red}b_{p-1}} \times 2^{p-1} + {\color{red}b_{p-2}} \times 2^{p-2} 
   \item Here is an algorithm that does the same conversion: it allows the calculation of the integer from the binary notation, but it has the advantage of never directly calculating powers of $2$. Program this algorithm into a \ci{binary_to_integer_bis()} function that has the same characteristics as the previous function.
   
   \begin{algorithme}
-  Input: \ci{mylist} : a list of $1$'s and $0$'s 
+  Input: \ci{mylist}, a list of $1$'s and $0$'s 
   
   Output: the associated binary number 
 
@@ -205,7 +205,7 @@ $$n = {\color{red}b_{p-1}} \times 2^{p-1} + {\color{red}b_{p-2}} \times 2^{p-2} 
     \item Initialize a variable $n$ to $0$.
 
     
-    \item For each element $b$ from \ci{mylist} :
+    \item For each element $b$ from \ci{mylist}:
     
      \begin{itemize} 
        \item if $b$ is $0$, then make $n \leftarrow 2n$,
@@ -310,14 +310,14 @@ Program the function \ci{integer_to_decimal()} using the following algorithm.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\bigskip
 
 \begin{cours}[Binary system with \Python]
 
 \Python{} calculates the binary value of an integer very well using the \ci{bin()} function.
 \index{bin@\ci{bin}}
   
-   \begin{fonctionpython}[\ci{python : bin()}]
+   \begin{fonctionpython}[\ci{python: bin()}]
     Use: \ci{bin(n)}\\
     Input: an integer \\
     Output: the binary numeral system of $n$ in the form of a string starting with \ci{'0b'}
@@ -340,7 +340,7 @@ Calculating the binary value of an integer $n$, is the same as calculating the d
 
 So we need:
   \begin{itemize}
-    \item $n\%2$ : the remainder of the Euclidean division of $n$ by $2$ (also called $n$ modulo $2$); the remainder is either $0$ or $1$.
+    \item $n\%2$: the remainder of the Euclidean division of $n$ by $2$ (also called $n$ modulo $2$); the remainder is either $0$ or $1$.
     \item and $n//2$: the quotient of this division. 
   \end{itemize}
   
@@ -412,7 +412,7 @@ The successive remainders are 0, 1, 0, 0, 1, 1, so the binary notation of 50 is 
   \end{itemize} 
   
   \item
-  Program the \ci{integer_to_binary()} function using the following algorithm.
+  Program an \ci{integer_to_binary()} function using the following algorithm.
 
   \begin{algorithme}
   Input: an integer $n>0$

@@ -26,11 +26,11 @@ In this activity \ci{mylist} refers to a list of numbers (integer or floating po
 
 \begin{enumerate}
   \item Write your own function \ci{mysum(mylist)} which calculates the sum of the elements of a given list.
-  Compare your result with the function \ci{sum()} described below which already exists in \Python{}. Especially for an empty list, check that your result is $0$. 
+  Compare your result with the \ci{sum()} function described below which already exists in \Python{}. Especially for an empty list, check that your result is $0$. 
   
   \index{sum@\ci{sum}}
   
-  \begin{fonctionpython}[\ci{python : sum()}]
+  \begin{fonctionpython}[\ci{python: sum()}]
    Use: \ci{sum(mylist)}\\
    Input: a list of numbers\\
    Output: a number
@@ -43,20 +43,20 @@ In this activity \ci{mylist} refers to a list of numbers (integer or floating po
   \emph{You can now use the function \ci{sum()} in your programs!}
   
   
-  \item Write a function \ci{mean(mylist)} that calculates the average of the items in a given list (and returns $0$ if the list is empty). \index{average}
+  \item Write a \ci{mean(mylist)} function that calculates the average of the items in a given list (and returns $0$ if the list is empty). \index{average}
   
-  \item Write your own function \ci{minimum(mylist)} that returns the smallest value of the items in a given list. Compare your result with the \Python{} function \ci{min()} described below (which can also calculate the minimum of two numbers).
+  \item Write your own \ci{minimum(mylist)} function that returns the smallest value of the items in a given list. Compare your result with the \Python{} \ci{min()} function described below (which can also calculate the minimum of two numbers).
   
   \index{min@\ci{min}}  
   
-  \begin{fonctionpython}[\ci{python : min()}]
+  \begin{fonctionpython}[\ci{python: min()}]
    Use: \ci{min(mylist)} \ or \ \ci{min(a,b)}\\
    Input: a list of numbers or two numbers\\
    Output: a number
   
   \medskip
      
-   Example : 
+   Example: 
   \begin{itemize}  
     \item \ci{min(12,7)} returns \ci{7}  
     \item \ci{min([10,5,9,12])} returns \ci{5}
@@ -64,21 +64,21 @@ In this activity \ci{mylist} refers to a list of numbers (integer or floating po
 
   \end{fonctionpython}   
   
-  \emph{You can now use the function \ci{min()}, and of course also the function \ci{max()} in your programs!}\index{max@\ci{max}} 
+  \emph{You can now use the \ci{min()} function and of course also the \ci{max()} function in your programs!}\index{max@\ci{max}} 
   
   \item The \defi{variance}\index{variance} of a data series $(x_1,x_2,\ldots,x_n)$ is defined as the average of the squares of deviations from the mean. That is to say:
   $$v = \frac{1}{n}\big((x_1-m)^2 + (x_2-m)^2 + \cdots + (x_n-m)^2\big)$$
   where $m$ is the average of $(x_1,x_2,\ldots,x_n)$.
   
-  Write a function \ci{variance(mylist)} that calculates the variance of the elements in a list.
+  Write a \ci{variance(mylist)} function that calculates the variance of the elements in a list.
   
   For example, for the series $(6,8,2,10)$, the average is $m = 6.5$, the variance is
   $$v = \frac{1}{4} \big((6-6.5)^2 + (8-6.5)^2 + (2-6.5)^2 + (10-6.5)^2\big) = 8.75.$$
   
   \item The \defi{standard deviation}\index{standard deviation@standard deviation} of a series $(x_1,x_2,\ldots,x_n)$ is the square root of the variance:
-  $$e = \sqrt{v}$$
-  where $v$ is the variance. Program a function \ci{standard_deviation(mylist)}.
-  With the example above we find $e = \sqrt{v} = \sqrt{8.75} = 2.95\ldots$
+  $$\sigma = \sqrt{v}$$
+  where $v$ is the variance. Program a \ci{standard_deviation(mylist)} function.
+  With the example above we find $\sigma = \sqrt{v} = \sqrt{8.75} = 2.95\ldots$
   
 %The square root function \ci{sqrt()} is not available by default in \Python. To use it, you must call the module of mathematical functions by the command: \\
 % \centerline{\ci{from math import *}}
@@ -154,7 +154,7 @@ Some explanations:
   
   \item An ellipse is traced by the command \ci{create_oval(x1,y1,x2,y2)}, where $(x_1,y_1)$, $(x_2,y_2)$ are the coordinates of two opposite vertices of a rectangle framing the desired ellipse (see figure). A circle is obtained when the corresponding rectangle is a square!  
   
-  \item Text is displayed by the command \ci{canvas.create_text(x,y,text="My text")} specifying the coordinates $(x,y)$ of the point from which you want to display the text. 
+  \item Text is displayed by the command \ci{canvas.create_text(x,y,text="My text")} specifying the $(x,y)$ coordinates of the point from which you want to display the text. 
   
 \end{itemize}
 
@@ -190,7 +190,7 @@ Some explanations:
 \end{center}
 
 \begin{enumerate}
-  \item \textbf{Bar graphics.} Write a function \ci{bar_graphics(mylist)} that displays the values of a list as vertical bars.
+  \item \textbf{Bar graphics.} Write a \ci{bar_graphics(mylist)} function that displays the values of a list as vertical bars.
   
 
 
@@ -207,15 +207,15 @@ mylist = [randint(1,20) for i in range(10)]
 
 \end{itemize}
 
-  \item \textbf{Cumulative graph.} Write a function \ci{cumulative_graphics(mylist)} that displays the values of a list in the form of rectangles one above the other.
+  \item \textbf{Cumulative graph.} Write a \ci{cumulative_graphics(mylist)} function that displays the values of a list in the form of rectangles one above the other.
   
 
   
-  \item \textbf{Graphics with percentage.} Write a function \ci{percentage_graphics(mylist)} that displays the values of a list in a horizontal rectangle of fixed size (for example $500$ pixels) and is divided into sub-rectangles representing the values.
+  \item \textbf{Graphics with percentage.} Write a \ci{percentage_graphics(mylist)} function that displays the values of a list in a horizontal rectangle of fixed size (for example $500$ pixels) and is divided into sub-rectangles representing the values.
   
 
 
-  \item \textbf{Pie chart.} Write a function \ci{sector_graphics(mylist)} that displays the values of a list as a pie chart (a fixed size disk divided into sectors representing the values). 
+  \item \textbf{Pie chart.} Write a \ci{sector_graphics(mylist)} function that displays the values of a list as a pie chart (a fixed size disk divided into sectors representing the values). 
  
 The \ci{tkinter} \ci{create_arc()} function, which allows you to draw arcs of circles, is not very intuitive. Imagine that we draw a circle, by specifying the coordinates of the corners of a square that surrounds it, then by specifying the starting angle and the angle of the sector (in degrees). 
 
@@ -279,7 +279,7 @@ root.mainloop()
 Some explanations:
 \begin{itemize}
   \item A button is created by the command \ci{Button}. The \ci{text} option customizes the text displayed on the button. The button created is added to the window by the method \ci{pack}.
-  \item The most important thing is the action associated with the button! It is the option \ci{command} that receives the name of the function to be executed when the button is clicked. For our example \ci{command=action_button}, associate the click on the button with a change of color.
+  \item The most important thing is the action associated with the button! It is the option \ci{command} that receives the name of the function to be executed when the button is clicked. For our example \ci{command=action_button}, associates the click on the button with a change of color.
   
   \item Attention! You have to give the name of the function without brackets: \ci{commande=my_function} and not \ci{command=my_function()}.
   
@@ -358,7 +358,7 @@ Some explanations:
 
 \begin{activite}[Box plot]
 
-\objectifs{Goal: drawing box plots.}
+\objectifs{Goal: draw box plots.}
 
 A \defi{box plot} is a diagram that represents the main characteristics of a statistical series: minimum, maximum, median and quartiles. The schematic diagram is as follows:
 
@@ -389,13 +389,13 @@ Write a \ci{box_plot(grade_count)} function that draws the box plot of a class's
 
 \begin{enumerate}
   \item Simulate the stock market price of the \emph{NISDUQ} index over 365 days.
-  At the beginning, the day $j=0$, the index is equal to $1000$. Then the index for a day is determined by adding a random value (positive or negative) to the value of the previous day's index:  
+  At the beginning, day $j=0$, the index is equal to $1000$. Then the index for a day is determined by adding a random value (positive or negative) to the value of the previous day's index:  
   \mycenterline{index of the day $j$ = index of the day $(j-1)$ \ + \ random value.}
   
   For this random value, you can try a formula like:  
   \mycenterline{\ci{value = randint(-10,12)/3}}
   
-  Write a function \ci{index_stock_exchange()}, without parameters, which returns a list of $365$ index values using this method.
+  Write an \ci{index_stock_exchange()} function, without parameters, which returns a list of $365$ index values using this method.
   
   \item Trace point by point the index curve over a year. (To draw a point, you can display a square with a size of $1$ pixel.)
   
@@ -407,7 +407,7 @@ Write a \ci{box_plot(grade_count)} function that draws the box plot of a class's
    
    The $7$-day moving average at the day $j$, is the average of the last $7$ indices. For example: the $7$-day moving average for the day $j = 7$ is the average of the day's indices $j=1,2,3,4,5,6,7$. You can change the duration: for example the $30$-day moving average is the average of the last $30$ indices.
    
-   Write a function \ci{moving_average(mylist,duration)} that returns a list of all moving averages in a data set with respect to a fixed time.
+   Write a \ci{moving_average(mylist,duration)} function that returns a list of all moving averages in a data set with respect to a fixed time.
    
     \item Trace these data point by point on the same graph: the index curve over a year\couleurnb{ (shown in red below)}{}, the $7$-day moving average curve\couleurnb{  (shown in blue below)}{} and the $30$-day moving average curve\couleurnb{ (shown in brown below)}{}. Note that the longer the duration, the more the curve is \og{}smooth\fg{}. (Of course the $30$-day moving average curve only starts from the thirtieth day.)
    

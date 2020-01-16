@@ -143,7 +143,7 @@ Robin Vador 8.0 8.0 11.0
    \end{itemize}
     
   
-  \item Read the file \ci{grades.txt} that you produced. Calculate the average of each person's grades and write the result to a file \ci{averages.txt} where each line is of the form:   
+  \item Read the \ci{grades.txt} file that you produced. Calculate the average of each person's grades and write the result to an \ci{averages.txt} file where each line is of the form:   
   \mycenterline{\ci{Firstname Lastname average}} 
  
 For example:  
@@ -168,11 +168,11 @@ Robin Vador 9.00
 
   \emph{Hints.}
   \begin{itemize}
-    	\item For each line read from the file \ci{grades.txt}, you get the data as a list by using the command \ci{line.split()}.
+    	\item For each line read from the \ci{grades.txt} file, you get the data as a list by using the command \ci{line.split()}.
     	
-    	\item \textbf{Please note!} The data read is a string. You can convert a string \ci{"12.5"} to the number \ci{12.5} by using the instruction \ci{float(string)}.
+    	\item \textbf{Please note!} The data read is a string. You can convert a string \ci{"12.5"} to the number \ci{12.5} by using the \ci{float(string)} instruction.
     	
-    	\item To convert a number to a string with only two decimal places after the dot, you can use the command \ci{'\{0:.2f\}'.format(number)}.
+    	\item To convert a number to a string with only two decimal places after the dot, you can use the \ci{'\{0:.2f\}'.format(number)} command.
     	
     	\item Don't forget to close all your files.
     	
@@ -186,8 +186,8 @@ Robin Vador 9.00
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{cours}[Files with format \emph{csv}]
-The format \emph{csv}\index{csv@\emph{csv}} (for \emph{comma-separated values}) is a very simple text file format containing data.
+\begin{cours}[Files with \emph{csv} format]
+The \emph{csv}\index{csv@\emph{csv}} format (for \emph{comma-separated values}) is a very simple text file format containing data.
 Each line of the file contains a series of values (numbers or text). On the same line the values are separated by a comma (hence the name of the format, even if other separators are possible).
 
 \medskip
@@ -249,7 +249,7 @@ Volley ball,900,550,790,510,930,800
 \includegraphics[scale=\myscale,scale=0.45]{screen-files-2b-en}
 \end{center} 
 
-  \item Read the file \ci{sales.csv} to display the sales curves.
+  \item Read the \ci{sales.csv} file to display the sales curves.
   \begin{center}
 \includegraphics[scale=\myscale,scale=0.4]{screen-files-2c-en}
 \end{center}  
@@ -281,7 +281,7 @@ plt.show()
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{cours}[Images \emph{bitmap}]
+\begin{cours}[\emph{Bitmap} images]
 
 \index{pbm@\emph{pbm/pgm/ppm}}
 \index{image}
@@ -291,11 +291,11 @@ depending on whether the image is in black and white, grayscale, or color.
 
 \medskip
 
-\textbf{Black and white picture, format \og{}pbm\fg{}.}
+\textbf{Black and white picture, \og{}pbm\fg{} format.}
 
 The image is described by $1$'s and $0$'s.
 
-Here is an example: the file \ci{image_bw.pbm} is on the left (read as a text file) and on the right is its visualization (using an image reader, here very enlarged).
+Here is an example: the \ci{image_bw.pbm} file is on the left (read as a text file) and on the right is its visualization (using an image reader, here very enlarged).
 \begin{center}
 \begin{minipage}{0.3\textwidth}
 \begin{lstlisting}
@@ -322,10 +322,10 @@ Here is the description of the format:
   
 \medskip
 
-\textbf{Grayscale image, format \og{}pgm\fg{}.}
+\textbf{Grayscale image, \og{}pgm\fg{} format.}
 
 The image is described by different values for different grayscales.
-Here is an example: the file \ci{image_gray.pbm} is on the left and on the right is its visualization.
+Here is an example: the \ci{image_gray.pbm} file is on the left and on the right is its visualization.
 \begin{center}
 \begin{minipage}{0.3\textwidth}
 \begin{lstlisting}
@@ -354,7 +354,7 @@ Here is the description of the format:
 
 \medskip
 
-\textbf{Image in colors, format \og{}ppm\fg{}.}
+\textbf{Image in colors, \og{}ppm\fg{} format.}
 
 
 The image is described by three values per pixel: one for red, one for green, and one for blue.
@@ -391,22 +391,22 @@ Here is the description of the format:
 % Activity 3
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{activite}[Images \emph{bitmap}]
+\begin{activite}[\emph{Bitmap} images]
 
 \objectifs{Goal: define your own images pixel by pixel.}
 
 
 \begin{enumerate}
-  \item Generate a file \ci{image_bw.pbm} that represents a black and white image (e.g. of size $300 \times 200$) according to the following pattern:
+  \item Generate an \ci{image_bw.pbm} file that represents a black and white image (e.g. of size $300 \times 200$) according to the following pattern:
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.5]{screen-image_nb}
 \end{center}   
 
-\emph{Hints.} If $i$ designates the line number and $j$ the column number (from the top left), then the pixel in position $(i,j)$ is white if $i+j$ is between $0$ and $9$, between $20$ and $29$, or between $40$ and $49$,\ldots{} This is obtained by the formula :
+\emph{Hints.} If $i$ designates the line number and $j$ the column number (from the top left), then the pixel in position $(i,j)$ is white if $i+j$ is between $0$ and $9$, between $20$ and $29$, or between $40$ and $49$,\ldots{} This is obtained by the formula:
 \mycenterline{\ci{col = (i+j)//10 \% 2}}
 which returns $0$ or $1$ as desired.
 
-  \item Generate a file \ci{image_gray.pgm} that represents a grayscale image (for example of size $200 \times 200$ with $256$ grayscale) according to the following pattern:
+  \item Generate an \ci{image_gray.pgm} file that represents a grayscale image (for example of size $200 \times 200$ with $256$ grayscale) according to the following pattern:
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.7]{screen-image_gris}
 \end{center}   
@@ -415,7 +415,7 @@ which returns $0$ or $1$ as desired.
 \mycenterline{\ci{col = (i**2 + j**2) \% 256}}
 which returns an integer between $0$ and $255$.
 
-   \item Generate a file \ci{image_col.ppm} that represents a color image (e.g. of size $200 \times 200$, with $256$ red, green and blue levels) according to the following pattern:
+   \item Generate an \ci{image_col.ppm} file that represents a color image (e.g. of size $200 \times 200$, with $256$ red, green and blue levels) according to the following pattern:
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.7]{screen-image_coul}
 \end{center}   
@@ -426,7 +426,7 @@ which returns an integer between $0$ and $255$.
 \mycenterline{\ci{B = (i + j)//3 \% 256}}
 which gives the red, green and blue levels of the pixel $(i,j)$.
 
-\item Write a function \ci{inverse_black_white(filename)} that reads a black and white image file \ci{.pbm} and creates a new file in which the white pixels have turned black and vice versa. 
+\item Write an \ci{inverse_black_white(filename)} function that reads a black and white image \ci{.pbm} file and creates a new file in which the white pixels have turned black and vice versa. 
 
 Example: on the left the start image, on the right the finish image.
 \begin{center}
@@ -434,7 +434,7 @@ Example: on the left the start image, on the right the finish image.
 \includegraphics[scale=\myscale,scale=0.3]{screen-simple_nb_inverse}
 \end{center} 
 
-\item Write a function \ci{colors_to_gray(filename)} that reads a color image file in \ci{.ppm} format and creates a new file in \ci{.pgm} format in which the color pixels are transformed into grayscale. 
+\item Write a \ci{colors_to_gray(filename)} function that reads a color image file in \ci{.ppm} format and creates a new file in \ci{.pgm} format in which the color pixels are transformed into grayscale. 
 
 You can use the formula: \index{rgb@\emph{rgb}}
 $$g = 0,21 \times R \  + \  0,72 \times G \  + \  0,07 \times B$$
@@ -536,7 +536,7 @@ And here is the output file produced by the program:
 	$$a = \left(\sin\left(\frac{\varphi_1+\varphi_2}{2}\right)\right)^2 + \cos(\varphi_1)\cdot \cos(\varphi_2) \cdot \left(\sin\left( \frac{\lambda_2-\lambda_1}{2} \right)\right)^2$$
     The exact distance is then:
     $$d = 2 \cdot R \cdot \text{atan2}\left(\sqrt{a},\sqrt{1-a}\right)$$
-    where $\text{atan2}(y,x)$ is the function \og{}arctangent\fg{} which is obtained by the command \ci{atan2(y,x)} from the module \ci{math}.	
+    where $\text{atan2}(y,x)$ is the function \og{}arctangent\fg{} which is obtained by the \ci{atan2(y,x)} command from the \ci{math} module.	
 	
 	\item For the Earth radius we will take $R = 6371$ km.
 

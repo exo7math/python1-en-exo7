@@ -32,7 +32,7 @@
   No one can prove this conjecture, but you will see that there are good reasons to believe it is true.
   
   \begin{enumerate}
-    \item Program a function \ci{number_solutions_goldbach(n)} which for a given even integer $n$, finds how many decompositions $n=p+q$ there are where $p$ and $q$ are prime numbers and $p\le q$.
+    \item Program a \ci{number_solutions_goldbach(n)} function which for a given even integer $n$, finds how many decompositions $n=p+q$ there are where $p$ and $q$ are prime numbers and $p\le q$.
     
     For example, for $n=8$, there is only one solution $8=3+5$, but for $n=10$ there are two solutions $10 = 3+7$ and $10=5+5$.
  
@@ -52,7 +52,7 @@
 where $p$ is a prime number and $k$ is an integer (possibly zero).}
   
   \begin{enumerate}
-    \item Program a function \ci{is_decomposition_goldbach(n)} that returns \og{}True\fg{} when there is a decomposition of the form $n=p+2k^2$.
+    \item Program an \ci{is_decomposition_goldbach(n)} function that returns \og{}True\fg{} when there is a decomposition of the form $n=p+2k^2$.
     
     \item Show that Goldbach's second guess is wrong! There are two integers smaller than $10\,000$ that do not have a decomposition of this form. Find them!
   \end{enumerate} 
@@ -77,7 +77,7 @@ You will see that this conjecture looks true for $N$ that are rather small, but 
 \begin{enumerate}
   \item \textbf{Number of divisors.}
   
-  Program a function \ci{number_of_divisors(n)} that returns the number of integers dividing $n$.
+  Program a \ci{number_of_divisors(n)} function that returns the number of integers dividing $n$.
   
   For example: \ci{number_of_divisors(100)} returns $9$ because there are $9$ divisors of $n=100$ :
   $$1,2,4,5,10,20,25,50,100$$
@@ -91,7 +91,7 @@ You will see that this conjecture looks true for $N$ that are rather small, but 
    
    \item \textbf{4 or 8 divisors.}
    
-   Program a function \ci{four_and_eight_divisors(Nmin,Nmax)} that returns two numbers: (1) the number of integers $n$ with $N_{\text{min}} \le n < N_{\text{max}}$ that admit exactly $4$ divisors and (2) the number of integers $n$ with $N_{\text{min}} \le n < N_{\text{max}}$ that admit exactly $8$ divisors.
+   Program a \ci{four_and_eight_divisors(Nmin,Nmax)} function that returns two numbers: (1) the number of integers $n$ with $N_{\text{min}} \le n < N_{\text{max}}$ that admit exactly $4$ divisors and (2) the number of integers $n$ with $N_{\text{min}} \le n < N_{\text{max}}$ that admit exactly $8$ divisors.
    
    For example \ci{four_and_eight_divisors(1,100)} returns \ci{(32,10)} because there are $32$ integers between $1$ and $99$ that admit $4$ divisors, but only $10$ integers that admit $8$.
    
@@ -142,7 +142,7 @@ For example $U_0 = 12$, $U_1 = 121$, $U_2 = 1211$, \ldots
   For example: $n = 143 = 11 \times 13$ and $r=10$, then \ci{is_almost_prime(n,r)} is
   \og{}True\fg{} because $n$ does not allow any divisor less than or equal to $10$. (But of course, $n$ is not a prime number.)
   
-  \emph{Hint.} Adapt your function \ci{is_prime(n)}!
+  \emph{Hint.} Adapt your \ci{is_prime(n)} function!
   
   \item Find all the integers $U_k$ with $0\le k \le 150$ which are almost prime for 
   $r = 1 \,000\,000$ (i.e. they are not divisible by any integer $d$ with $1<d \le 1\,000\,000$).
@@ -182,7 +182,7 @@ Examples:
   \begin{itemize}
     \item For this question only, you can use the \ci{math} module of \Python. 
     \item In this module \ci{sqrt()} returns the real square root.
-    \item The function \ci{floor()} of the same module returns the number rounded down to the nearest integer.
+    \item The \ci{floor()} function of the same module returns the number rounded down to the nearest integer.
   \end{itemize}
   
   \item Write a second function that calculates the integer square root of an integer $n$, but this time according to the following method:
@@ -202,10 +202,10 @@ Examples:
   \begin{itemize}
     \item Start with $a=1$ and $b=n$.
     
-    \item as long as $|a-b| > 1$, repeat:
+    \item As long as $|a-b| > 1$, repeat:
     \begin{itemize} 
      \item $a \leftarrow (a+b)//2$ ;
-     \item $b \leftarrow n // a$ 
+     \item $b \leftarrow n // a$. 
     \end{itemize}          
          
     \item Return the minimum between $a$ and $b$: this is the integer square root of $n$.
@@ -240,6 +240,7 @@ In the last step, the difference between $a$ and $b$ is less than or equal to $1
     
 \end{enumerate}  
   
+  \smallskip
   
 \textbf{Bonus.} Compare the execution speeds of the three methods using \ci{timeit()}. See the \og{}Functions\fg{} chapter.
 
@@ -260,15 +261,15 @@ Here are some examples that use this \ci{break} command. As it is rarely an eleg
 
 Here are different codes for a countdown from $10$ to $0$.
 
-\begin{minipage}{0.35\textwidth}
+\begin{minipage}{0.33\textwidth}
 \begin{lstlisting}
 # Countdown
 n = 10
-while True: # Infinite loop
+while True: #Infinite loop
     print(n)
     n = n - 1
     if n < 0:
-        break # Immediate stop
+        break #Immediate stop
 \end{lstlisting}
 \end{minipage}\qquad\qquad
 \begin{minipage}{0.35\textwidth}
@@ -286,7 +287,6 @@ while not finished:
 \begin{minipage}{0.2\textwidth}
 \begin{lstlisting}
 # Even better 
-# (reformulation)
 n = 10
 while n >= 0:
     print(n)
@@ -335,7 +335,7 @@ for element in mylist:
         break
     print(sqrt(element))
 \end{lstlisting}
-\end{minipage}\qquad
+\end{minipage}\qquad\quad
 \begin{minipage}{0.4\textwidth}
 \begin{lstlisting}
 # Better with try/except
@@ -344,8 +344,9 @@ for element in mylist:
     try: 
         print(sqrt(element))
     except:
-        print("Warning, I don't know how to 
-        compute the square root of",element)
+        print("Warning, I don't know 
+        how to compute the 
+        square root of",element)
 \end{lstlisting}
 \end{minipage}
 \end{exemple}

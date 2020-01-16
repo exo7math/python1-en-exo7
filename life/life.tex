@@ -30,7 +30,7 @@ Here are the rules:
 }
 
   \item If a square containing a cell at day $j$, has either $2$ or $3$ neighboring cells: then the cell continues to live.
-  In other cases the cell dies (with $0$ or $1$, it dies of isolation, with more than $4$ neighbors, it dies of overpopulation).
+  In other cases the cell dies (with $0$ or $1$ neighbors, it dies of isolation, with more than $4$ neighbors, it dies of overpopulation).
   
   \medskip
   
@@ -92,7 +92,7 @@ We model the living space of the cells by a double entry table, containing integ
 \ci{00000000}
 \end{center}
 
-  \emph{Hint.} By default the \ci{print()} start a new line on each call (i effectively adds \ci{"\\n"} which is the end of line character). It can be specified not to do sthis by the option \ci{print("My text",end="")}.
+  \emph{Hint.} By default the \ci{print()} function starts a new line on each call (it effectively adds \ci{"\\n"} which is the end of line character). It can be specified not to do this by the option \ci{print("My text",end="")}.
   
 \end{enumerate}
 \end{activite}
@@ -143,7 +143,7 @@ We model the living space of the cells by a double entry table, containing integ
     \item For counting, it is necessary to be very careful with the cells that are placed near an edge (and have less than $8$ possible neighbors).
   \end{itemize}
   
-  \item Program a \ci{evolution(array)} function that receives a table as an input and returns a new array corresponding to the situation on the next day, according to the rules of the game of life described at the beginning.
+  \item Program an \ci{evolution(array)} function that receives a table as an input and returns a new array corresponding to the situation on the next day, according to the rules of the game of life described at the beginning.
  For example, if the table on the left corresponds to the input, then the output corresponds to the table on the right:
 
 \begin{center}
@@ -200,7 +200,7 @@ We model the living space of the cells by a double entry table, containing integ
   \item Perfect your program so that the user can draw the configuration he wants with mouse clicks. Clicking on an extinguished cell turns it on, clicking on an living cell turns it off. 
   You can break this task down into three functions:
   \begin{itemize}
-    \item \ci{on_off(i,j)}, which switches the cell $(i,j)$ ;
+    \item \ci{on_off(i,j)}, which switches the cell $(i,j)$.
     \item \ci{xy_to_ij(x,y)} that converts graphic coordinates $(x,y)$ into integers coordinates $(i,j)$ (use the \ci{scale}  variable and the integer division).
     \item \ci{action_click_mouse(event)} to retrieve the coordinates $(x,y)$ with a mouse click (see course below) and switch the clicked box.
   \end{itemize}   
@@ -282,7 +282,7 @@ You will find many more on the Internet but above all have fun discovering new o
 
 In particular, find configurations:
 \begin{itemize}
-  \item that remain fixed over time;
+  \item which remain fixed over time;
   \item which evolve, then become fixed;
   \item which are periodic (the same configurations come back in loops) with a period of $2$, $3$ or more;
   \item which travel;
