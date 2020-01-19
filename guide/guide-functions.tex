@@ -24,9 +24,9 @@
 
 \bigskip
 
-\textbf{Module \og{}math\fg{}}
+\textbf{\og{}math\fg{} module}
 
-The use of other mathematical functions requires the module \ci{math} which is called by the command:
+The use of other mathematical functions requires the \ci{math} module which is called by the command:
 \mycenterline{\ci{from math import *}}
 
 \begin{itemize}
@@ -39,14 +39,14 @@ The use of other mathematical functions requires the module \ci{math} which is c
  \end{itemize}
  \bigskip
 
-\textbf{Module \og{}random\fg{}}
+\textbf{\og{}random\fg{} module}
 
 The \ci{random} module generates numbers in a pseudo-random way. It is called by the command:
 \mycenterline{\ci{from random import *}}
 
 \begin{itemize}
-  \item \ci{random()}\quad on each call, returns a floating number $x$ at random satisfying $0 \le x < 1$.
-  \item \ci{randint(a,b)} \quad for each call, returns an integer $n$ at random satisfying $a \le n \le b$.
+  \item \ci{random()}\quad on each call, returns a floating number $x$ at random, satisfying $0 \le x < 1$.
+  \item \ci{randint(a,b)} \quad for each call, returns an integer $n$ at random, satisfying $a \le n \le b$.
   \item \ci{choice(mylist)} \quad on each call, randomly draws an item from the list.
   \item \ci{mylist.shuffle()} \quad mixes the list (the list is modified).
  \end{itemize}
@@ -99,7 +99,7 @@ The following comparison tests return a boolean.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Strings I}
 
-\textbf{Chains}
+\textbf{Strings}
 
 \begin{itemize}
   \item \ci{"A"} \quad or \quad \ci{'A'} \quad one character
@@ -126,7 +126,7 @@ Rank & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
 \textbf{Number/string conversion}
 
 \begin{itemize}
-  \item \textbf{Chain.} \ci{str(number)}\quad converts a number (integer or floating point number) into a string.
+  \item \textbf{String.} \ci{str(number)}\quad converts a number (integer or floating point number) into a string.
   Examples: \ci{str(7)} returns the string \ci{"7"}; \ci{str(1.234)} returns the string \ci{"1.234"}.
   
   \item \textbf{Integer.} \ci{int(string)}\quad returns the integer corresponding to the string. Example: \ci{int("45")} returns the integer \ci{45}.
@@ -140,16 +140,16 @@ Rank & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
 \textbf{Substrings}
 
 \begin{itemize}
-  \item \ci{string[i:j]}\quad returns the substring of characters with a rank of $i$ to $j-1$ from \ci{string}.
+  \item \ci{string[i:j]}\quad returns the substring of characters with from rank $i$ to rank $j-1$ of \ci{string}.
   
    Example: with \ci{string = "This is a string"}, \ci{string[2:7]} returns \ci{"is is"}.
    
-  \item \ci{string[i:]}\quad returns characters with a rank of $i$ until the end of \ci{string}. 
+  \item \ci{string[i:]}\quad returns characters from rank $i$ until the end of \ci{string}. 
   
   Example :
   \ci{string[5:]} returns \ci{"is a string"}.
   
-  \item\ci{string[:j]}\quad returns characters from the beginning to the rank $j-1$ of \ci{string}. Example: \ci{string[:4]} returns \ci{"This"}.
+  \item\ci{string[:j]}\quad returns characters from the beginning to rank $j-1$ of \ci{string}. Example: \ci{string[:4]} returns \ci{"This"}.
   
 \end{itemize}
 
@@ -169,7 +169,7 @@ The \ci{format()} method allows you to format text or numbers. This function ret
  \end{center}
  
   \begin{itemize}
-    \item \ci{'\{:10\}'.format('Test')} \quad left aligned (on 10 characters)
+    \item \ci{'\{:10\}'.format('Test')} \quad left alignment (on 10 characters)
     \item \ci{'\{:>10\}'.format('Test')} \quad right alignment
     \item \ci{'\{:\^10\}'.format('Test')} \quad centered 
   \end{itemize}
@@ -234,7 +234,7 @@ The beginning of the ASCII/unicode table is given below.
 \textbf{Upper/lower-case}
 
 \begin{itemize}
-  \item \ci{string.upper()} returns a string in upper case.
+  \item \ci{string.upper()} returns a string in uppercase.
   \item \ci{string.lower()} returns a string in lowercase.  
 \end{itemize}
 
@@ -280,9 +280,9 @@ The beginning of the ASCII/unicode table is given below.
    Examples:
    
      \begin{itemize}  
-       \item \ci{"".join(["To", "be", "or", "not", "to", "be."])} returns \ci{'Tobeornottobe.'} Spaces are missing.
+       \item \ci{"".join(["To", "be", "or", "not", "to", "be."])} returns the string \ci{'Tobeornottobe.'} Spaces are missing.
        \item \ci{" ".join(["To", "be", "or", "not", "to", "be."])} returns \ci{'To be or not to be.'} It's better when the separator is a space.
-       \item \ci{"--".join(["To", "be", "or", "not", "to", "be."])} returns \ci{'To--be--or--not--to--be.'}  
+       \item \ci{"--".join(["To", "be", "or", "not", "to", "be."])} returns the string  \ci{'To--be--or--not--to--be.'}  
      \end{itemize}
  
 
@@ -296,8 +296,8 @@ The beginning of the ASCII/unicode table is given below.
 
 Examples:
 \begin{itemize}
-    \item \ci{mylist1 = [5,4,3,2,1]} \quad a list of integers $5$.
-    \item \ci{mylist2 = ["Friday","Saturday","Sunday"]} \quad a list of $3$ strings.
+    \item \ci{mylist1 = [5,4,3,2,1]} \quad a list of five integers.
+    \item \ci{mylist2 = ["Friday","Saturday","Sunday"]} \quad a list of three strings.
     \item \ci{mylist3 = []} \quad the empty list.
     \item \ci{list(range(n))} \quad list of integers from $0$ to $n-1$.
     \item \ci{list(range(a,b))} \quad list of integers from $a$ to $b-1$.
@@ -309,7 +309,7 @@ Examples:
 \textbf{Get an item}
 
 \begin{itemize}
-    \item \ci{mylist[i]} \quad returns the element of rank $i$. Be careful, the rank starts at $0$.
+    \item \ci{mylist[i]} \quad returns the element at rank $i$. Be careful, the rank starts at $0$.
 
 Example: \ci{mylist = ["A","B","C","D","E","F"]} then \ci{mylist[2]} returns \ci{"C"}.
 
@@ -368,7 +368,7 @@ At the end \ci{list_squares} is:
 \begin{itemize}
   \item \ci{len(mylist)} \quad returns the length of the list. Example: \ci{len([5,4,3,2,1])} returns $5$.
     
-  \item Just browse a list (and here display each item):
+  \item Browse a list (and here display each item):
 \begin{lstlisting}
 for element in mylist:
     print(element)
@@ -403,11 +403,11 @@ for i in range(n):
 \textbf{Slicing lists}
   
   \begin{itemize}
-    \item \ci{mylist[a:b]} \quad returns the sublist of elements from the rank $a$ to the rank $b-1$.
+    \item \ci{mylist[a:b]} \quad returns the sublist of elements from rank $a$ to rank $b-1$.
     
-    \item \ci{mylist[a:]} \quad returns the list of elements of rank $a$ until the end.
+    \item \ci{mylist[a:]} \quad returns the list of elements from rank $a$ until the end.
       
-    \item \ci{mylist[:b]} \quad returns the list of items from the beginning to the rank $b-1$.
+    \item \ci{mylist[:b]} \quad returns the list of items from the beginning to rank $b-1$.
     
 
 \end{itemize}
@@ -428,7 +428,7 @@ Rank & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
     \item \ci{mylist[1:4]} \quad returns \ci{["B","C","D"]}.
     \item \ci{mylist[:2]} \quad is like \ci{mylist[0:2]} and returns \ci{["A","B"]}.   
     \item \ci{mylist[4:]} \quad returns \ci{["E","F","G"]}.  It's the same thing 
-     than \ci{mylist[4:n]} where \ci{n = len(mylist)}.
+     as \ci{mylist[4:n]} where \ci{n = len(mylist)}.
   \end{itemize} 
 
 \bigskip
@@ -548,7 +548,7 @@ A table of $n$ rows and $p$ columns.
   \item \textbf{Separator.} \ci{print(...,sep="...")} \quad changes the separator (by default the separator is the space character). Example: \ci{print("Bob",17,13,16,sep="; ")} displays
   \ci{Bob; 17; 13; 16}.
   
-   \item \textbf{End of line.} \ci{print(...,end="...")} \quad changes the character placed at the end (by default it is the line break \ci{\\n}).
+   \item \textbf{End of line.} \ci{print(...,end="...")} \quad changes the character placed at the end (by default it is the line break character \ci{\\n}).
    Example \ci{print(17,end="")} then \ci{print(76)} displays \ci{1776} on a single line.
    
 \end{itemize}
@@ -557,7 +557,7 @@ A table of $n$ rows and $p$ columns.
 
 \textbf{Keyboard entry}
 
-\ci{input()} \quad pauses the program and waits for the user to send a message on the keyboard (end by pressing the \og{}Enter\fg{} key). The message is a string.
+\ci{input()} \quad pauses the program and waits for the user to send a message on the keyboard (ended by pressing the \og{}Enter\fg{} key). The message is a string.
 
 Here is a small program that asks for the user's first name and age and displays a message like 
 \og{}Hello Kevin\fg{} then \og{}You are a minor/adult\fg{} according to age. 
@@ -583,9 +583,9 @@ else:
 \textbf{Order} 
 
 \begin{itemize}
-  \item \ci{fi = open("my_file.txt","r")} \quad opening in reading (\ci{"r"} = \emph{read}).
-  \item \ci{fi = open("my_file.txt","w")} \quad opening in writing (\ci{"w"} = \emph{write}). The file is created if it does not exist, if it existed the previous content is first deleted.
-  \item \ci{fi = open("my_file.txt","a")} \quad opening for writing, the data will be written at the end of the current data (\ci{"a"} = \emph{append}).
+  \item \ci{fi = open("my_file.txt","r")} \quad opening in reading (\ci{"r"} for read).
+  \item \ci{fi = open("my_file.txt","w")} \quad opening in writing (\ci{"w"} for write). The file is created if it does not exist, if it existed the previous content is first deleted.
+  \item \ci{fi = open("my_file.txt","a")} \quad opening for writing, the data will be written at the end of the current data (\ci{"a"} for append).
   
   \item \ci{fi.write("one line")} \quad write to the file.
   \item \ci{fi.read()} \quad reads the whole file (see below for another method).
@@ -651,7 +651,7 @@ The \ci{turtle} module is called by the command:
   \item \ci{backward(length)} goes backwards
   \item \ci{right(angle)} turns to the right (without advancing) at a given angle in degrees
   \item \ci{left(angle)} turns left
-  \item \ci{setheading(direction)} points in one direction ($0$ = right, $90$ = top, $-90$ = bottom, $180$ = left)
+  \item \ci{setheading(direction)} points in a direction ($0$ = right, $90$ = top, $-90$ = bottom, $180$ = left)
   \item \ci{goto(x,y)} moves to the point $(x,y)$
   \item \ci{setx(newx)} changes the value of the abscissa
   \item \ci{sety(newy)} changes the value of the ordinate
@@ -713,9 +713,9 @@ plt.show()
 \textbf{Main functions.}
 
 \begin{itemize}
-  \item \ci{plt.plot(mylist)} traces the points of a list (in the form $(i,\ell_i)$)  that are linked by segments. 
-  \item \ci{plt.plot(list_x,list_y)} traces the points of a list (in the form of $(x_i,y_i)$ where $x_i$ browses the first list and $y_i$ the second).    
-  \item \ci{plt.scatter(x,y,color='red',s=100)} displays a point in $(x,y)$ (of a size \ci{s}).
+  \item \ci{plt.plot(mylist)} traces the points of a list (in the form $(i,\ell_i)$)  that are joined by segments. 
+  \item \ci{plt.plot(list_x,list_y)} traces the points of a list (of the form  $(x_i,y_i)$ where $x_i$ browses the first list and $y_i$ the second).    
+  \item \ci{plt.scatter(x,y,color='red',s=100)} displays a point at $(x,y)$ (of a size \ci{s}).
   \item \ci{plt.grid()} draws a grid.  
   \item \ci{plt.show()} displays everything. 
   \item \ci{plt.close()} exits the display.
@@ -805,7 +805,7 @@ canvas.pack(fill="both", expand=True)
 
 def action_button():
     canvas.delete("all")      # Clear all
-    colors = ["red","orange","yellow","green","cyan","blue","violet","purple"]
+    colors = ["red","orange","yellow","green","cyan","blue","purple"]
     col = choice(colors)      # Random color
     canvas.create_rectangle(100,50,300,150,width=5,fill=col)
     return
@@ -824,9 +824,9 @@ Some explanations:
   \item A button is created by the command \ci{Button}. The \ci{text} option customizes the text displayed on the button. The button created is added to the window by the method \ci{pack}.
   \item The most important thing is the action associated with the button! It is the option \ci{command} that receives the name of the function to be executed when the button is clicked. For our example \ci{command=action_button}, associate the click on the button with a change of color.
   
-  \item Attention! You have to give the name of the function without brackets: \ci{commande=my_function} and not \ci{command=my_function()}.
+  \item Attention! You have to give the name of the function without brackets: \ci{command = my_function} and not \ci{command = my_function()}.
   
-  \item To associate the button with \og{}Quit\fg{} and close the window, the argument is \ci{command=root.quit}.
+  \item To associate the button with \og{}Quit\fg{} and close the window, the argument is \ci{command = root.quit}.
   
   \item The instruction \ci{canvas.delete("all")} deletes all drawings from our graphic window.
   
@@ -866,7 +866,7 @@ Some explanations:
   \item We remind you that for the graphic coordinates, the $y$-axis is directed downwards. To define a rectangle, simply specify the coordinates 
   $(x_1,y_1)$ and $(x_2,y_2)$ from two opposite vertices (see figure below). 
   
-  \item The text is displayed by the command \ci{canvas.create_text()}. It is necessary to specify the coordinates $(x,y)$ of the point from which you want to display the text. 
+  \item The text is displayed by the command \ci{canvas.create_text()}. It is necessary to specify the $(x,y)$ coordinates of the point from which you want to display the text. 
   
   \item The \ci{text} option allows you to pass the string to display.
   
@@ -874,7 +874,7 @@ Some explanations:
   
   \item The \ci{fill} option allows you to specify the text color.
   
-  \item The option \ci{font} allows you to define the font (i.e. the style and size of the characters). Here are some examples of fonts, it's up to you to test them:
+  \item The \ci{font} option allows you to define the font (i.e. the style and size of the characters). Here are some examples of fonts, it's up to you to test them:
   \begin{itemize}
     \item \ci{Font(family="Times", size=20)} 
     \item \ci{Font(family="Courier", size=16, weight="bold")} in \textbf{bold}
@@ -921,14 +921,14 @@ root.mainloop()
 
 Here are some explanations:
 \begin{itemize}
-  \item The creation of the window is usual. The program ends with the launch by the command  \ci{mainloop()}.
+  \item The creation of the window is usual. The program ends with the launch using the command  \ci{mainloop()}.
   
   \item The first key point is to associate a mouse click to an action, that's what the line does: 
 \mycenterline{\ci{canvas.bind("<Button-1>", action_mouse_click)}}
 
-Each time the left mouse button is clicked, \Python{} executes the function \ci{action_mouse_click}. (Note that there are no brackets for the call to the function.)
+Each time the left mouse button is clicked, \Python{} executes the \ci{action_mouse_click} function. (Note that there are no brackets for the call to the function.)
 
-   \item Second key point: the \ci{action_mouse_click} function retrieves the click coordinates and then does two things here: it displays a small rectangle at the click location and displays the $(x,y)$ coordinates in the terminal window.
+   \item Second key point: the \ci{action_mouse_click} function retrieves the click coordinates and then does two things here: it displays a small rectangle at the click location and prints the $(x,y)$ coordinates in the terminal window.
    
    \item The coordinates $x$ and $y$ are expressed in pixels; $(0,0)$ refers to the upper left corner of the window (the area delimited by \ci{canvas}).
 \end{itemize}
@@ -963,7 +963,7 @@ the_width = 400
 the_height = 200
 
 root = Tk()     
-canvas = Canvas(root, width=the_width, height=the_height, background="white")
+canvas = Canvas(root,width=the_width,height=the_height,background="white")
 canvas.pack(fill="both", expand=True)
 
 # Coordinates and speed

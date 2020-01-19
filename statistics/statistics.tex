@@ -262,12 +262,12 @@ canvas.pack(fill="both", expand=True)
 
 def action_button():
     canvas.delete("all")      # Clear all
-    colors = ["red","orange","yellow","green","cyan","blue","violet","purple"]
+    colors = ["red","orange","yellow","green","cyan","blue","purple"]
     col = choice(colors)      # Random color
     canvas.create_rectangle(100,50,300,150,width=5,fill=col)
     return
 
-button_color = Button(root,text="View", width=20, command=action_button)
+button_color = Button(root,text="View",width=20,command=action_button)
 button_color.pack(pady=10)
 
 button_quit = Button(root,text="Quit", width=20, command=root.quit)
@@ -281,7 +281,7 @@ Some explanations:
   \item A button is created by the command \ci{Button}. The \ci{text} option customizes the text displayed on the button. The button created is added to the window by the method \ci{pack}.
   \item The most important thing is the action associated with the button! It is the option \ci{command} that receives the name of the function to be executed when the button is clicked. For our example \ci{command=action_button}, associates the click on the button with a change of color.
   
-  \item Attention! You have to give the name of the function without brackets: \ci{commande=my_function} and not \ci{command=my_function()}.
+  \item Attention! You have to give the name of the function without brackets: \ci{command=my_function} and not \ci{command=my_function()}.
   
   \item To associate the button with \og{}Quit\fg{} and close the window, the argument is \ci{command=root.quit}.
   
