@@ -24,7 +24,7 @@
 \index{\ci{//}}
 \index{\ci{\%}}
 
-Let us recall what Euclidean division is. Here is the division of $a$ by $b$, $a$ is a positive integer, $b$ is a strictly positive integer (with the example of $100$ divided by $7$) :
+Let us recall what Euclidean division is. Here is the division of $a$ by $b$, $a$ is a positive integer, $b$ is a strictly positive integer (with the example of $100$ divided by $7$):
 
 \myfigure{1}{
 \tikzinput{fig-while-en}
@@ -36,7 +36,7 @@ $$a = b \times q  + r \qquad \text{ and } \qquad 0 \le r < b$$
 For example, for the division of $a=100$ by $b=7$: we have the quotient $q=14$ and the remainder $r=2$ that verify $a = b \times q  + r$ because $100 = 7 \times 14 + 2$ and also $r<b$ because $2<7$.
 
 \mybox{
-With \Python{} :
+With \Python{}:
 \begin{itemize}
   \item \ci{a // b} \quad returns the quotient,
   \item \ci{a \% b} \quad returns the remainder.
@@ -59,7 +59,7 @@ It is easy to check that:
 
 
 \begin{enumerate}
-  \item Program a function named \ci{quotient_remainder(a,b)} that does the following tasks for two integers $a\ge0$ and $b>0$ :
+  \item Program a function named \ci{quotient_remainder(a,b)} that does the following tasks for two integers $a\ge0$ and $b>0$:
   \begin{itemize}
     \item It displays the quotient $q$ of the Euclidean division of $a$ per $b$,
     \item it displays the remainder $r$ of this division,
