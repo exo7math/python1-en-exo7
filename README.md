@@ -85,6 +85,6 @@ The English version of the book as been translated:
 * and a homemade tool [GitHub arnbod](https://github.com/arnbod)
 * followed by a careful reading by Emily Gubski.
 
-![Logo Python Exo7](cover/logo-python-en.png "logo Python Exo7")
+![Logo Python Exo7](cover/python-logo-en.png "logo Python Exo7")
 
 This book is distributed under the license *Creative Commons -- BY-NC-SA -- 4.0*.
