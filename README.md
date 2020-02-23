@@ -25,7 +25,7 @@ Book
 The book will be on sale on Amazon at cost price (once it has been finalized). 
 
 You can also download it from this site: 
-[Book "Python in high school - volume 1" (3 Mo)](book-python1.pdf).
+[Book "Python in high school" (3 Mo)](book-python1.pdf).
 
 
 Activities
@@ -77,14 +77,14 @@ Author
 
 Arnaud Bodin
 
-French version. Acknowledgements to: Stéphanie Bodin, Michel Bodin, François Recher, Éric Wegrzynowski, Philippe Marquet, Kroum Tzanev.
+Acknowledgements to: Stéphanie Bodin, Michel Bodin, François Recher, Éric Wegrzynowski, Philippe Marquet, Kroum Tzanev.
 
-English version. The first version of the English book as been translated:
+The English version of the book as been translated:
 
 * using [DeepL](https://www.deepl.com/)
 * and a homemade tool [GitHub arnbod](https://github.com/arnbod)
-* followed by a careful reading!
+* followed by a careful reading by Emily Gubski.
 
-![Logo Python Exo7](cover/logo-python.png "logo Python Exo7")
+![Logo Python Exo7](cover/logo-python-en.png "logo Python Exo7")
 
 This book is distributed under the license *Creative Commons -- BY-NC-SA -- 4.0*.
