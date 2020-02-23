@@ -55,7 +55,7 @@ what do the following instructions return?
    \ci{mylist.index(5)} returns $2$.
 
   \item \index{in@\ci{in}} 
-  If you just want to know if an item belongs to a list, then the statement :
+  If you just want to know if an item belongs to a list, then the statement:
   \mycenterline{\ci{element in mylist}}  
   
   returns \ci{True} or \ci{False}.
@@ -68,10 +68,10 @@ what do the following instructions return?
   
   \index{list!comprehension}
   
-  A set can be defined by listing all its elements, for example $E = \{0,2,4,6,8,10\}$. Another way is to say that the elements of the set must verify a certain property. For example, the same set $E$ can be defined by :
+  A set can be defined by listing all its elements, for example $E = \{0,2,4,6,8,10\}$. Another way is to say that the elements of the set must verify a certain property. For example, the same set $E$ can be defined by:
   $$E = \{ x \in \Nn \mid x \le 10 \text{ and } x \text{ is even} \}.$$
   
-  With \Python{} there is such a way to define lists. It is an extremely powerful and efficient syntax. Let's look at some examples:
+  With \Python{} there is a way to define lists this way. It is an extremely powerful and efficient syntax. Let's look at some examples:
   \begin{itemize}
     \item Let's start from a list, for example \ci{mylist = [1,2,3,4,5,6,7,6,5,4,3,2,1]}.
     
@@ -80,7 +80,7 @@ what do the following instructions return?
     \item The command \ci{mylist_squares = [ x**2 for x in mylist ]} returns the list of squares of the items in the initial list. So this is the list \ci{[1,4,9,16,...]}.
     
     \item The command \ci{mylist_partial = [x for x in mylist if x > 2]}
-    extracts the list composed only of elements strictly greater than $2$. So this is the list \ci{[3,4,5,6,7,6,5,4,3]}.
+    extracts the list composed only of elements greater than $2$. So this is the list \ci{[3,4,5,6,7,6,5,4,3]}.
 	\end{itemize}
 	
 	 
@@ -97,8 +97,8 @@ what do the following instructions return?
   We will be interested in lists that contain lists of integers, which we will call \defi{arrays}. For example:   
   \mycenterline{\ci{array = [ [2,14,5], [3,5,7], [15,19,4], [8,6,5] ]}}
   
-  Then \ci{array[i]} returns the sublist of rank $i$, while
-  \ci{array[i][j]} returns the integer located at the rank $j$ in the sublist of rank $i$. For example:
+  Then \ci{array[i]} returns the sublist of index $i$, while
+  \ci{array[i][j]} returns the integer located at the index $j$ in the sublist of index $i$. For example:
   \begin{itemize}
   \item \ci{array[0]} returns the list \ci{[2,14,5]},
   \item \ci{array[1]} returns the list \ci{[3,5,7]},
@@ -120,18 +120,18 @@ what do the following instructions return?
 \objectifs{Goal: practice list comprehension. In this activity the lists are lists of integers.}
 
 \begin{enumerate}
-  \item Program a function \ci{multiplication(mylist,k)} that multiplies each item in the list by $k$. For example, \ci{multiplication([1,2,3,4,5],2)} returns \ci{[2,4,6,8,10]}.
+  \item Program a \ci{multiplication(mylist,k)} function that multiplies each item in the list by $k$. For example, \ci{multiplication([1,2,3,4,5],2)} returns \ci{[2,4,6,8,10]}.
   
-  \item Program a function \ci{power(mylist,k)} that raises each element of the list to the power $k$. For example, \ci{power([1,2,3,4,5],3)} returns \ci{[1,8,27,64,125]}.
+  \item Program a \ci{power(mylist,k) function} that raises each element of the list to the power $k$. For example, \ci{power([1,2,3,4,5],3)} returns \ci{[1,8,27,64,125]}.
   
-  \item Program a function \ci{addition(mylist1,mylist2)} that adds together the elements of two lists of the same length. For example, \ci{addition([1,2,3],[4,5,6])} returns \ci{[5,7,9]}.
+  \item Program an \ci{addition(mylist1,mylist2)} function that adds together the elements of two lists of the same length. For example, \ci{addition([1,2,3],[4,5,6])} returns \ci{[5,7,9]}.
   
-  \emph{Hint.} This one is an example of a task where lists comprehension is not used!
+  \emph{Hint.} This is an example of a task where list comprehension is not used!
   
 
-  \item Program a function \ci{non_zero(mylist)} that returns a list of all non-zero elements. For example, \ci{non_zero([1,0,2,3,0,4,5,0])} returns \ci{[1,2,3,4,5]}.
+  \item Program a \ci{non_zero(mylist)} function that returns a list of all non-zero elements. For example, \ci{non_zero([1,0,2,3,0,4,5,0])} returns \ci{[1,2,3,4,5]}.
   
-  \item Program a function \ci{even(mylist)} that returns a list of all even elements. For example, \ci{even([1,0,2,3,0,4,5,0])} returns \ci{[0,2,0,4,0]}.
+  \item Program an \ci{even(mylist)} function that returns a list of all even elements. For example, \ci{even([1,0,2,3,0,4,5,0])} returns \ci{[0,2,0,4,0]}.
   
 \end{enumerate}
 
@@ -148,7 +148,7 @@ what do the following instructions return?
 \objectifs{Goal: try to reach the total of $100$ in a list of numbers.}
 
 We consider a list of $n$ integers between $1$ and $99$ (included).
-For example the list of 25 integers:
+For example, this list of 25 integers:
 \mycenterline{\ci{[16,2,85,27,9,45,98,73,12,26,46,25,26,49,18,99,10,86,7,42]}}
 which was obtained at random by the command:
 \mycenterline{\ci{mylist_20 = [randint(1,99) for i in range(20)]}}
@@ -156,18 +156,18 @@ which was obtained at random by the command:
 We are looking for different ways to find numbers from the list whose sum is exactly $100$.
 
 \begin{enumerate}
-  \item Program a function \ci{sum_twoinarow_100(mylist)} that tests if there are two consecutive elements in the list whose sum is exactly $100$. The function returns \og{}True\fg{} or \og{}False\fg{} (but it can also display numbers and their position for verification). For the example given the function returns \ci{False}.
+  \item Program a \ci{sum_twoinarow_100(mylist)} function that tests if there are two consecutive elements in the list whose sum is exactly $100$. The function returns \ci{True} or \ci{False} (but it can also display numbers and their position for verification). For the example given, this function returns \ci{False}.
   
-  \item Program a function \ci{sum_two_100(mylist)} that tests if there are two items in the list, located at different positions, whose sum is equal to $100$. 
- For the example given the function returns \ci{True} and can display the integers $2$ and $98$ (at ranks $1$ and $6$ of the list). 
+  \item Program a \ci{sum_two_100(mylist)} function that tests if there are two items in the list, located at different positions, whose sum is equal to $100$. 
+ For the example given, this function returns \ci{True} and can display the integers $2$ and $98$ (at ranks $1$ and $6$ of the list). 
  
  
-  \item Program a function \ci{sum_seq_100(mylist)} that tests if there are consecutive elements in the list whose sum is equal to $100$. 
- For the example given the function returns \ci{True} and can display the sequence of integers $25$, $26$, $49$ (at ranks $11$, $12$ and $13$).
+  \item Program a \ci{sum_seq_100(mylist)} function that tests if there are consecutive elements in the list whose sum is equal to $100$. 
+ For the example given, this function returns \ci{True} and can display the sequence of integers $25$, $26$, $49$ (at ranks $11$, $12$ and $13$).
  
- \item \emph{(Optional.)} The larger the size of the list, the more likely it is to get the total of $100$. For each of the three previous situations, determines from which size $n$ of the list, the probability of obtaining a sum of $100$ is greater than $1/2$. 
+ \item \emph{(Optional.)} The larger the size of the list, the more likely it is to have values in the list whose sum is $100$. For each of the three previous situations, determine the size $n$ of the list such that the probability of obtaining a sum of $100$ is greater than $1/2$. 
  
-  \emph{Hints.} For each case, you get an estimate of this integer $n$, by writing a function \ci{proba(n,N)} that performs a large number $N$ of random draws of lists having $n$ items (with for example $N=10\,000$). The probability is approximated by the number of favorable cases (where the function returns true) divided by the total number of cases (here $N$).
+  \emph{Hints.} For each case, you can get an estimate of this integer $n$, by writing a \ci{proba(n,N)} function that performs a large number $N$ of random draws of lists having $n$ items ($N=10\,000$ for example). The probability is approximated by the number of successful cases (where the function returns \ci{True}) divided by the total number of cases (here $N$).
  
  
   
@@ -188,21 +188,21 @@ We are looking for different ways to find numbers from the list whose sum is exa
 In this activity we work with arrays of size $n \times n$ containing integers.
 The object \ci{array} is therefore a list of $n$ lists, each having $n$ elements.
 
-For example (with $n=3$): 
+For example ($n=3$): 
 \mycenterline{\ci{array = [ [1,2,3], [4,5,6], [7,8,9] ]}}
 represents the array:
 $$\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}$$
 
 \begin{enumerate}
-  \item Write a function \ci{sum_diagonal(array)} that calculates the sum of the elements located on the main diagonal of an array.
+  \item Write a \ci{sum_diagonal(array)} function that calculates the sum of the elements located on the main diagonal of an array.
   The main diagonal of the example given is $1$, $5$, $9$, so the sum is $15$.
   
-  \item Write a function \ci{sum_antidiagonal(array)} that calculates the sum of the elements located on the other diagonal.
+  \item Write a \ci{sum_antidiagonal(array)} function that calculates the sum of the elements located on the other diagonal.
   The anti-diagonal of the example given is composed of $3$, $5$, $7$, the sum is still $15$.
   
-  \item Write a function \ci{sum_all(array)} that calculates the total sum of all elements. For the example the total sum is $45$.
+  \item Write a \ci{sum_all(array)} function that calculates the total sum of all elements. In this example the total sum is $45$.
   
-  \item Write a function \ci{print_array(array)} that displays an array properly on the screen. You can use the command:
+  \item Write a \ci{print_array(array)} function that displays an array properly on the screen. You can use the command:
 \mycenterline{\ci{print('\{:>3d\}'.format(array[i][j]), end="")}}  
 
 \emph{Explanations.}
@@ -228,7 +228,7 @@ $$\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}$$
 \objectifs{Goal: build magic squares as big as you want! You must first have done the previous activity.}
 
 
-A \defi{magic square} is a square array of size $n\times n$ that contains all integers from $1$ to $n^2$ and satisfies that:
+A \defi{magic square} is a square array of size $n\times n$ that contains all the integers from $1$ to $n^2$ and satisfies that:
 the sum of each row, the sum of each column, the sum of the main diagonal and the sum of the anti-diagonal all have the same value.
 
 Here is an example of a magic square with a size of $3\times 3$ and one of size  $4\times 4$.
@@ -248,11 +248,11 @@ $$S_n = \frac{n(n^2+1)}{2}.$$
 
 
 \begin{enumerate}
-  \item \textbf{Examples.} Define an array for each of the above examples $3 \times 3$ and $4 \times 4$ and display them on the screen (use the previous activity).
+  \item \textbf{Examples.} Define an array for each of the $3 \times 3$ and $4 \times 4$ examples above and display them on the screen (use the previous activity).
   
-  \item \textbf{To be or not to be.} Define a \ci{is_magic_square(square)} function that tests whether a given array is (or not) a magic square (use the previous activity for diagonals).
+  \item \textbf{To be or not to be.} Define an \ci{is_magic_square(square)} function that tests whether a given array is (or isn't) a magic square (use the previous activity for diagonals).
   
-  \item \textbf{Random squares.} \emph{(Optional.)} Randomly generate squares containing integers from $1$ to $n^2$ using a function \ci{random_square(n)}. Experimentally verify that it is rare to obtain a magic square in this way! 
+  \item \textbf{Random squares.} \emph{(Optional.)} Randomly generate squares containing integers from $1$ to $n^2$ using a \ci{random_square(n)} function. Experimentally verify that it is rare to obtain a magic square in this way! 
 
   \emph{Hints.} For a list \ci{mylist}, the command \ci{shuffle(mylist)}\index{shuffle@\ci{shuffle}} (from the \ci{random} module) randomly mixes the list (the list is modified in place). 
  
@@ -262,24 +262,24 @@ $$S_n = \frac{n(n^2+1)}{2}.$$
   \emph{The purpose of the remaining questions is to create large magic squares.}
 	 
   
-  \item \textbf{Addition.} Define a function \ci{addition_square(square,k)}
-  which adds an integer $k$ to all the elements of the array. With the example of the square $3\times 3$, the command \ci{addition_square(square,-1)} subtracts $1$ from all the elements and returns an array that would look like this:
+  \item \textbf{Addition.} Define an \ci{addition_square(square,k)} function
+  which adds an integer $k$ to all the elements of the array. With the example of the $3\times 3$ square, the command \ci{addition_square(square,-1)} subtracts $1$ from all the elements and returns an array that would look like this:
 $$\begin{array}{ccc}
 3&8&1\\2&4&6\\7&0&5
 \end{array}$$  
 
-\emph{Hints.} To define a new square, start by filling it with $0$:
+\emph{Hints.} To define a new square, start by filling it with $0$'s:
 \mycenterline{\ci{new_square = [[0 for j in range(n)] for i in range(n)]}}
-then fill it with the correct values by commands of the type:
+then fill it with the correct values using commands of the type:
 \mycenterline{\ci{new_square[i][j] = ...}}
 
-  \item \textbf{Multiplication.} Define a function \ci{multiplication_square(square,k)}
-  which multiplies all the elements of the array by $k$. With the example of the square $3\times 3$, the command \ci{multiplication_square(square,2)} multiplies all the elements by $2$ and thus returns an array that would be displayed as follows:
+  \item \textbf{Multiplication.} Define a \ci{multiplication_square(square,k)} function
+  which multiplies all the elements of the array by $k$. With the example of the  $3\times 3$ square, the \ci{multiplication_square(square,2)} command multiplies all the elements by $2$ and thus returns an array that would be displayed as follows:
 $$\begin{array}{ccc}
 8&18&4\\6&10&14\\16&2&12
 \end{array}$$ 
   
-  \item \textbf{Homothety.} Define a function \ci{homothety_square(square,k)}
+  \item \textbf{Homothety.} Define a \ci{homothety_square(square,k)} function
   which enlarges the array by a factor of $k$ as shown in the examples below. 
   Here is an example of the $3 \times 3$ square with a homothety ratio of $k=3$.
  $$
@@ -302,7 +302,7 @@ $$\begin{array}{ccc}
   \end{array}
 $$
   
-Here is an example of a square $4\times 4$ with a homothety ratio of $k=2$.
+Here is an example of a $4\times 4$ square with a homothety ratio of $k=2$.
 $$  
   \begin{array}{c|c|c|c}  
   1& 14& 15& 4\\\hline
@@ -323,7 +323,7 @@ $$
  \end{array}
   $$
   
-\item \textbf{Block addition.} Define a \ci{block_addition_square(big_square,small_square)} function that adds a small array of size $n \times n$ to the large array of size $nm \times nm$ per block as shown in the example below with $n=2$ and $m=3$ (hence $nm=6$). The small square $2 \times 2$ on the left is added to the large square in the center to give the result on the right. For this addition the large square is divided into $9$ blocks, there is a total of $36$ additions.
+\item \textbf{Block addition.} Define a \ci{block_addition_square(big_square,small_square)} function that adds a small array of size $n \times n$ to each block of the larger $nm \times nm$ sized array as shown in the example below with $n=2$ and $m=3$ (hence $nm=6$). The small $2 \times 2$ square on the left is added to the large square in the center to give the result on the right. For this addition the large square is divided into $9$ blocks, there is a total of $36$ additions.
 $$
   \begin{array}{cc} 
   1& 2  \\
@@ -349,7 +349,7 @@ $$
   \end{array}
 $$
 
- \item \textbf{Products of magic squares.} Define a function \ci{product_squares(square1,square2)} which from two magic squares, calculates a large magic square called the product of the two squares. The algorithm is as follows:
+ \item \textbf{Products of magic squares.} Define a \ci{product_squares(square1,square2)} function which from two magic squares, calculates a larger magic square called the product of the two squares. The algorithm is as follows:
 
  \begin{algorithme}
   \sauteligne 
@@ -360,13 +360,13 @@ $$
      \item Output: a magic square $C$ of size $(nm)\times(nm)$.
    \end{itemize}
 
-  Set the square $C_{3a}$ by subtracting $1$ from all elements of $C_2$. (Use the command \ci{addition_square(square2,-1)}.)
+  \item Create square $C_{3a}$ by subtracting $1$ from all elements of $C_2$. (Use the \ci{addition_square(square2,-1)} command.)
   
-  \item Define the square $C_{3b}$ as the homothety of the square $C_{3a}$ of ratio $n$. (Use the command \ci{homothety(square3a,n)}.)
+  \item Define square $C_{3b}$ as the homothety of square $C_{3a}$ of ratio $n$. (Use the \ci{homothety(square3a,n) command}.)
   
-  \item Define the square $C_{3c}$ by multiplying all the terms of the square $C_{3b}$ by $n^2$. (Use the command \ci{multiplication_square(square3b,n**2)}.)
+  \item Define square $C_{3c}$ by multiplying all the terms of square $C_{3b}$ by $n^2$. (Use the \ci{multiplication_square(square3b,n**2)} command.)
   
-  \item Define the square $C_{3d}$ by adding the square $C_1$ to the square $C_{3c}$ per block. (Use the command \ci{block_addition_square(square3c,square1)}.)
+  \item Define square $C_{3d}$ by adding square $C_1$ to square $C_{3c}$  block by block. (Use the \ci{block_addition_square(square3c,square1)} command.)
   
   \item Return the square $C_{3d}$.
    
@@ -377,7 +377,7 @@ $$
    \item Implement this algorithm. 
    \item Test it on examples, checking that the square obtained is indeed a magic square.
    \item Build a magic square of size $36 \times 36$.
-   \item Also checks that the order of the product is important: $C_1 \times C_2$ is not the same square as $C_2 \times C_1$. 
+   \item Also confirm that the order of the product is important: $C_1 \times C_2$ is not the same square as $C_2 \times C_1$. 
   \end{itemize}  
 
 \end{enumerate}

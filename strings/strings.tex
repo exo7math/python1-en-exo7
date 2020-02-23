@@ -21,11 +21,11 @@
 \begin{cours}[Characters and strings]
 \sauteligne
 \begin{enumerate}
-  \item A \defi{character}\index{character@character} is a unique symbol, for example a lowercase letter \codeinline{"a"}, a capital letter \codeinline{"B"}, a special symbol \codeinline{"\&"}, a symbol representing a number \codeinline{"7"}, a space \codeinline{" "} that we will also note \lstinline[showstringspaces=true]!" "!.
+  \item A \defi{character}\index{character@character} is a unique symbol, some examples of characters include: a lowercase letter \codeinline{"a"}, a capital letter \codeinline{"B"}, a special symbol \codeinline{"\&"}, a symbol representing a number \codeinline{"7"}, a space \codeinline{" "} that we will also note \lstinline[showstringspaces=true]!" "!.
   
 To designate a character, it must be put in single quotation marks \codeinline{'z' } or double quotation marks \codeinline{"z"}.
   
-  \item A \defi{string}\index{string} is a sequence of characters, such as a word \codeinline{"Hello"}, a sentence \codeinline{'It is sunny.'}, a password \codeinline{"N[w5ms\}e\!"}.
+  \item A \defi{string}\index{string} is a sequence of characters, such as a word \codeinline{"Hello"}, a sentence \codeinline{'It is sunny.'} or a password \codeinline{"N[w5ms\}e\!"}.
   
   \item The type of a character or string is \codeinline{str}\index{str@\ci{str}}.
 
@@ -44,7 +44,7 @@ To designate a character, it must be put in single quotation marks \codeinline{'
  
   \item The empty string \ci{""} is useful when you want to initialize a string before adding other characters.
   
-  \item The \defi{length} of a string is the number of characters it contains. It is obtained by the function \ci{len()}\index{len@\ci{len}}.
+  \item The \defi{length} of a string is the number of characters it contains. It is obtained by calling the function \ci{len()}\index{len@\ci{len}}.
   For example \lstinline[showstringspaces=true]!len("Hello World")! returns $11$ (a space counts as a character).
   
   \item If \ci{word} is a string then you can retrieve each character by the command \ci{word[i]}. For example, if 
@@ -66,7 +66,7 @@ Rank   & 0 & 1 & 2 & 3 & 4 \\ \hline
 \end{tabular}
 \end{center}
 
-  Note that there are $5$ letters in the word \ci{"plane"} and that you access it through the ranks starting with $0$. The indices are therefore here $0$, $1$, $2$, $3$, and $4$ for the last letter.  More generally, if \ci{word} is a string, characters are obtained by \ci{word[i]} for \ci{i} varying from \ci{0} to \ci{len(word)-1}.
+  Note that there are $5$ letters in the word \ci{"plane"} and that you access it through the ranks starting with $0$. The indices are therefore $0$, $1$, $2$, $3$, and $4$ for the last letter.  More generally, if \ci{word} is a string, characters are obtained by \ci{word[i]} for \ci{i} varying from \ci{0} to \ci{len(word)-1}.
 \end{cours}
 
 
@@ -104,21 +104,21 @@ Another example: \ci{word[1:len(word)-1]} returns the word but with its first an
 
 \begin{activite}[Plurals of words]
 
-\objectifs{Goal: write step by step a program that returns the plural of a given word.}
+\objectifs{Goal: write a step by step program that returns the plural of a given word.}
 
 \begin{enumerate}
-  \item For a string \ci{word}, for example \ci{"cat"}, displays the plural of this word by adding a \ci{"s"}. 
+  \item For a string \ci{word}, for example \ci{"cat"}, the program should display the plural of this word by adding an \ci{"s"}. 
   
-  \item For a word, for example \ci{"bus"}, display the last letter of this string (here \ci{"s"}). Improve your program of the first question, by testing if the last letter is already a \ci{"s"}:
+  \item For a word, for example \ci{"bus"}, it should display the last letter of this string (here \ci{"s"}). Improve your program for the first question, by testing if the last letter is already an \ci{"s"}:
   \begin{itemize}
     \item if this is the case, then add \ci{"es"} to form the plural (\ci{"bus"} becomes \ci{"buses"}),
     \item otherwise you have to add \ci{"s"}.
   \end{itemize} 
 
-  \item Test if a word ends with \ci{"y"}. If so, display the plural in \ci{"ies"} (the plural of \ci{"city"}
+  \item Check if a word ends with a \ci{"y"}. If so, display the plural with \ci{"ies"} (the plural of \ci{"city"}
   is \ci{"cities"}). (Exceptions are not taken into account.)
   
-  \item Collect all your work from the first three questions in a function \ci{plural()}. The function displays nothing, but returns the word in the plural.
+  \item Wrap all your work from the first three questions in a function called \ci{plural()}. The function displays nothing, but returns the word in its plural form.
   
   \medskip
   
@@ -163,7 +163,7 @@ Another example: \ci{word[1:len(word)-1]} returns the word but with its first an
 \sauteligne
 
 \begin{enumerate}
-  \item A loop \ci{for ... in ...} allows you to browse a string, character by character: \index{loop!for}\index{for@\ci{for}}
+  \item A \ci{for ... in ...} loop allows you to browse a string, character by character: \index{loop!for}\index{for@\ci{for}}
   \begin{center}
   \begin{minipage}{0.4\textwidth}
   \ci{for charac in word:}\\
@@ -171,7 +171,7 @@ Another example: \ci{word[1:len(word)-1]} returns the word but with its first an
   \end{minipage}
   \end{center}
 
-  \item You can test if a character belongs to a certain list of characters. For example: 
+  \item You can test if a character belongs to a given list of characters. For example: 
     
   \smallskip
     
@@ -193,7 +193,7 @@ Another example: \ci{word[1:len(word)-1]} returns the word but with its first an
 
 \begin{activite}[Word games]
 
-\objectifs{Goal: manipulating words in a fun way.}
+\objectifs{Goal: manipulate words in a fun way.}
 
   
   %\medskip
@@ -261,7 +261,7 @@ Write a function \ci{hamming_distance()} that calculates the Hamming distance be
   %\medskip
   
   \item \textbf{Pig latin.} 
-  Pig latin is word play, here are the rules according to \emph{Wikipedia}:
+  Pig latin is a made up language, here are the rules according to \emph{Wikipedia}:
   \begin{itemize}
   
    \item For words that begin with vowel sounds, one just adds "way" to the end. Examples are:
@@ -285,7 +285,7 @@ Write a function \ci{hamming_distance()} that calculates the Hamming distance be
    
  \end{itemize}
  
-  Write a function \ci{pig_latin()} that transforms a word according to this procedure.
+  Write a \ci{pig_latin()} function that translates into pig latin a word according to this procedure.
   
   \begin{fonction}[\ci{pig_latin()}]
   Use: \ci{pig_latin(word)} \\\
@@ -296,7 +296,7 @@ Write a function \ci{hamming_distance()} that calculates the Hamming distance be
     
   Examples: 
   \begin{itemize}
-    \item \ci{pig_latin("DUCK")} returns \ci{"UCKDWAY"}
+    \item \ci{pig_latin("DUCK")} returns \ci{"UCKDAY"}
     \item \ci{pig_latin("ALWAYS")} returns \ci{"ALWAYSWAY"}
   \end{itemize}    
   \end{fonction} 
@@ -320,7 +320,7 @@ In a DNA strand there are only four types of nucleotides that are noted \mot{A},
 }\index{DNA}
 
 \begin{enumerate}
-  \item Write a function \ci{presence_of_A()} that tests if a sequence contains the nucleotide \mot{A}.
+  \item Write a \ci{presence_of_A()} function that tests if a sequence contains the nucleotide \mot{A}.
   
   \begin{fonction}[\ci{presence_of_A()}]
   Use: \ci{presence_of_A(sequence)} \\
@@ -334,12 +334,12 @@ In a DNA strand there are only four types of nucleotides that are noted \mot{A},
   
 
    
-  \item Write a function \ci{position_of_AT()} that tests if a sequence contains the nucleotide \mot{A} followed by the nucleotide \mot{T} and returns the position of the first occurrence found.
+  \item Write a \ci{position_of_AT()} function that tests if a sequence contains the nucleotide \mot{A} followed by the nucleotide \mot{T} and returns the position of the first occurrence found.
   
   \begin{fonction}[\ci{position_of_AT()}]
   Use: \ci{position_of_AT(sequence)} \\
   Input: a DNA sequence (a string whose characters are among A, C, T, G) \\
-  Output: the position of the first sequence \og{}AT\fg{} found (starting at 0); \ci{None} if not found.
+  Output: the position of the first \og{}AT\fg{} sequence found (starting at 0); \ci{None} if not found.
   
   \medskip
     
@@ -351,11 +351,11 @@ In a DNA strand there are only four types of nucleotides that are noted \mot{A},
   \end{itemize} 
   \end{fonction}
   
-  \emph{Hint.} \ci{None}\index{none@\ci{None}} is assigned to a variable to indicate the absence of value. 
+  \emph{Hint.} \ci{None}\index{none@\ci{None}} is assigned to a variable to indicate the absence of a value. 
   
 \medskip
    
-  \item Write a function \ci{position()} that tests if a sequence contains a given code and returns the position of the first occurrence.
+  \item Write a \ci{position()} function that tests if a sequence contains a given code and returns the position of the first occurrence.
   
    \medskip
    
@@ -372,7 +372,7 @@ In a DNA strand there are only four types of nucleotides that are noted \mot{A},
     \medskip
   
   \item A crime has been committed in the castle of Adeno. 
-You recovered two strands of DNA, from two distant positions from the culprit's DNA. There are four suspects, whose DNA you sequenced.
+You recovered two strands of the culprit's DNA, from two distant positions in the DNA sequence. There are four suspects, whose DNA you sequenced.
 Can you find out who did it?
 
 First code of the culprit: \mot{CATA} 
@@ -420,7 +420,7 @@ CTGCAGGAACTTCTTCTGGAAGTACTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAG
 \index{character encoding}
 
 A character is stored by the computer as an integer.
-For ASCII/unicode encoding, the capital letter \og{}A\fg{} is encoded by $65$, the lowercase letter \og{}h\fg{} is encoded by $104$, the symbol \og{}\#\fg{} by $35$.
+For ASCII/unicode encoding, the capital letter \og{}A\fg{} is encoded by $65$, the lowercase letter \og{}h\fg{} is encoded by $104$, and the symbol \og{}\#\fg{} by $35$.
 
 Here is the table of the first characters. Numbers $0$ to $32$ are not printable characters. However, the number $32$ is the space character \lstinline[showstringspaces=true]!" "!.
 
@@ -434,9 +434,9 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
 
 \begin{enumerate}  
 
-  \item The function \ci{chr()}\index{chr@\ci{chr}} is a \Python{} function that returns the character associated to a code.
+  \item The \ci{chr()}\index{chr@\ci{chr}} function is a \Python{} function that returns the character associated to a code.
   
-  \begin{fonctionpython}[\ci{python : chr()}]
+  \begin{fonctionpython}[\ci{python: chr()}]
   Use: \ci{chr(code)}\\
   Input: a code (an integer)\\
   Output: a character
@@ -450,11 +450,11 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
   \end{itemize} 
   \end{fonctionpython} 
   
-  \item The function \ci{ord()}\index{ord@\ci{ord}} is a \Python{} function corresponding to the reverse operation: it returns the code associated with a character.
+  \item The \ci{ord()}\index{ord@\ci{ord}} function is a \Python{} function corresponding to the reverse operation: it returns the code associated with a character.
   
   \smallskip
   
-  \begin{fonctionpython}[\ci{python : ord()}]
+  \begin{fonctionpython}[\ci{python: ord()}]
   Use: \ci{ord(charac)}\\
   Input: a character (a string of length $1$)\\
   Output: an integer
@@ -481,7 +481,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
 
 
 \begin{enumerate}
-  \item Decodes by hand the encrypted message hidden under the following codes: 
+  \item Decode by hand the encrypted hidden message: 
 \mycenterline{80-121-116-104-111-110 \quad 105-115 \quad 99-64-64-108}
 
 % "Python is c@@l"
@@ -490,7 +490,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
   
   \item What does the command \ci{chr(ord("a")-32)}  return? And \ci{chr(ord("B")+32)}?
   
-  \item Write a function \ci{upper_letter()} that transforms a lowercase letter into its uppercase letter.
+  \item Write an \ci{upper_letter()} function that transforms a lowercase letter into its uppercase letter.
   
   \begin{fonction}[\ci{upper_letter()}]
   
@@ -503,7 +503,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
    Example: \ci{upper_letter("t")} returns \ci{"T"}
   \end{fonction} 
   
-    \item Write a function \ci{uppercase()} which from a sentence written in lower case returns the same sentence written in upper case. Characters that are not lowercase letters remain unchanged.
+    \item Write an \ci{uppercase()} function that takes a sentence written in lower case and returns the same sentence written in upper case. Characters that are not lowercase letters remain unchanged.
   
   \begin{fonction}[\ci{uppercase()}]
    Use: \ci{uppercase(sentence)}\\
@@ -515,15 +515,15 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
    Example: \ci{uppercase("Hello world\!")} returns \ci{"HELLO WORLD\!"}
   \end{fonction} 
    
-   Do the same work for a function \ci{lowercase()}.
+   Do the same thing for a \ci{lowercase()} function.
   
    \item Write a function \ci{format_full_name()} that returns the first name and last name formatted according to the style \mot{First\_name LAST\_NAME}.
    
    
   \begin{fonction}[\ci{format_full_name()}]
   Use: \ci{format_full_name(somebody)}\\
-  Input: a person's first name and surname (without accent, separated by a space)\\
-  Output: the full name following the format \ci{"First name LAST NAME"}
+  Input: a person's first name and surname (separated by a space)\\
+  Output: the full name following the format \ci{"Firstname LASTNAME"}
   
   \medskip
      
@@ -547,7 +547,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
 \objectifs{Goal: determine the language of a text from the analysis of letter frequencies.}
 
 \begin{enumerate}
-  \item Write a function \ci{occurrences_letter()} that counts the number of times the given letter appears in a sentence (in upper case).
+  \item Write a function called \ci{occurrences_letter()} that counts the number of times the given letter appears in a sentence (in upper case).
   
     \begin{fonction}[\ci{occurrences_letter()}]
    Use: \ci{occurrences_letter(letter,sentence)}\\\
@@ -559,7 +559,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
    Example: \ci{occurrences_letter("E","IS THERE ANYBODY OUT THERE")} returns \ci{4}
   \end{fonction}
   
- \item Write a function \ci{number_letters()} that counts the total number of letters that appear in a sentence (in upper case). Do not count spaces or punctuation.
+ \item Write a function called \ci{number_letters()} that counts the total number of letters that appear in a sentence (in upper case). Do not count spaces or punctuation.
  
      \begin{fonction}[\ci{number_letters()}]
    Use: \ci{number_letters(sentence)}\\
@@ -568,10 +568,10 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
   
   \medskip
      
-   Example: \ci{number_letters("IS THERE ANYBODY OUT THERE")} returns \ci{22}.
+   Example: \ci{number_letters("IS THERE ANYBODY OUT THERE")} returns \ci{22}
   \end{fonction}
  
- \item The \defi{frequency of appearance} of a letter in a text or sentence is the percentage given according to the formula :
+ \item The \defi{frequency of appearance} of a letter in a text or sentence is the percentage given according to the formula:
  $$\text{frequency of appearance of a letter} = \frac{\text{number of occurrences of the letter}}{\text{total number of letters}} \times 100.$$
  
  \medskip
@@ -581,7 +581,7 @@ Here is the table of the first characters. Numbers $0$ to $32$ are not printable
   $$f_E = \frac{\text{number of occurrences of E}}{\text{total number of letters}} \times 100  = \frac{4}{22} \times  100 \simeq 16.66$$
  The frequency is therefore about $17\%$.
   
-  Write a function \ci{percentage_letter()} that calculates this frequency of appearance.
+  Write a function called \ci{percentage_letter()} that calculates this frequency of appearance.
   
   \begin{fonction}[\ci{percentage_letter()}]
   Use: \ci{percentage_letter(letter,sentence)}\\\
@@ -636,7 +636,7 @@ z&0.074\%&0.326\%&1.134\%&0.467\% \\
 
 \bigskip
 
-In your opinion, in which languages were written the following four texts (the letters of each word were mixed).
+In your opinion, which languages were written the following four texts written in (the letters of each word were mixed)?
 
 {\small
 \begin{center}

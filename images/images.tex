@@ -15,24 +15,24 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{cours}[Transformation of the photo booth]
+\begin{cours}[Photo booth transformation]
 
-We start from an array $n\times n$, with $n$ even, each element of the table represents a pixel. The rows are indexed from $i=0$ to $i=n-1$, the columns from $j=0$ to $j=n-1$.
+We start from an $n\times n$ array, with even $n$, each element of the table represents a pixel. The rows are indexed from $i=0$ to $i=n-1$, the columns from $j=0$ to $j=n-1$.
 From this image we calculate a new image by moving each pixel according to a transformation, called the \defi{photo booth transformation}.
 
-We cut the original image into small squares of size $2\times2$.
+We cut the original image into small $2\times2$ squares.
 Each small square is therefore composed of four pixels. Each of these pixels is sent to four different locations in the new image:
-the pixel at the top left remains in an area at the top left, the pixel at the top right of the small square, is sent to an area at the top right of the new image,...
+the pixel at the top left remains in an area at the top left, the pixel at the top right of the small square is sent to an area at the top right of the new image,...
 
 \myfigure{0.7}{
 \tikzinput{fig-images-1}
 }
 
-For example, the pixel in position $(1,1)$ (symbolized by the letter \mot{D}) is sent in position $(4,4)$.
+For example, the pixel in position $(1,1)$ (symbolized by the letter \mot{D}) is sent to position $(4,4)$.
 
 \medskip
 
-Let's explain this principle through formulas. For each couple $(i,j)$, we calculate its image $(i',j')$ by the photo booth transformation  according to the following formulas:
+Let's explain this principle through formulas. For each pair $(i,j)$, we calculate its image $(i',j')$ using the photo booth transformation according to the following formulas:
 \begin{itemize}
   \item If $i$ and $j$ are even: $(i',j') = (i//2,j//2)$.
   \item If $i$ is even and $j$ is odd: $(i',j') = (i//2,(n+j)//2)$.  
@@ -43,7 +43,7 @@ Let's explain this principle through formulas. For each couple $(i,j)$, we calcu
 
 \medskip
 
-Here is an example of an array $4\times 4$ before (left) and after (right) the transformation of the photo booth. 
+Here is an example of a $4\times 4$ array before (left) and after (right) the photo booth transformation. 
 $$\begin{array}{cccc} 
   1& 2& 3& 4\\ 
   5& 6& 7& 8\\  
@@ -57,7 +57,7 @@ $$\begin{array}{cccc}
  13&15&14&16
 \end{array}$$
 
-Here is an image $256 \times 256$ and its first transformation:
+Here is a $256 \times 256$ image and its first transformation:
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/pi_gimp_new_photo_0.png}\qquad\qquad
@@ -76,7 +76,7 @@ Here is what happens if you repeat the photo booth transformation several times:
 \includegraphics[scale=\myscale,scale=0.3]{images_chapter/pi_gimp_new_photo_7.png}\qquad
 \includegraphics[scale=\myscale,scale=0.3]{images_chapter/pi_gimp_new_photo_8.png}
 \end{center}
-The image becomes more and more blurred, but after some number of repetitions of the transformation, we fall back on the original image!
+The image becomes more and more blurred, but after some number transformation, we fall back to the original image!
 \end{cours}
 
 
@@ -87,18 +87,18 @@ The image becomes more and more blurred, but after some number of repetitions of
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{activite}[Transformation of the photo booth]
+\begin{activite}[Photo booth transformation]
 
-\objectifs{Goal: program the transformation of the photo booth that decomposes an image into sub-pictures. When this transformation is iterated, the image gradually disintegrates, then suddenly re-formed.}
+\objectifs{Goal: program the photo booth transformation that decomposes an image into sub-pictures. When this transformation is iterated, the image gradually disintegrates, then suddenly re-formes.}
 
 
 
 \begin{enumerate}
-  \item Program a function \ci{transformation(i,j,n)} that realize the formula of the photo booth transformation and returns the coordinates $(i',j')$ of the pixel image $(i,j)$.
+  \item Program a \ci{transformation(i,j,n)} function that uses the photo booth transformation formula and returns the new coordinates $(i',j')$ of the pixel  $(i,j)$, in the image.
   
   For example, \ci{transformation(1,1,8)} returns \ci{(4,4)}.
   
-  \item Program a function \ci{photo_booth(array)} that returns the table calculated after transformation.
+  \item Program a \ci{photo_booth(array)} function that returns the table calculated by completing a transformation.
 
 For example, the array on the left is transformed into the array on the right.
 $$\begin{array}{cccc} 
@@ -120,17 +120,17 @@ $$\begin{array}{cccc}
   Then fill it with commands of the type: 
   \mycenterline{\ci{new_array[ii][jj] = array[i][j]}}
 
-  \item Program a function \ci{photo_booth_iterate(array,k)} that returns the table calculated after $k$ iterations of the photo booth transformation.
+  \item Program a \ci{photo_booth_iterate(array,k)} function that returns the table calculated after $k$ iterations of the photo booth transformation.
   
   \item \emph{To be finished after completing activity 2.}
   
-  Program a function \ci{photo_booth_images(image_name,kmax)} that calculates the images corresponding to the transformation, for all iterations from $k=1$ to $k=k_{\max}$.
+  Program a \ci{photo_booth_images(image_name,kmax)} function that calculates the images corresponding to the transformation, for all iterations from $k=1$ to $k=k_{\max}$.
   
-  \item Experiment for different values of the size $n$, to see after how many iterations we find the original image.
+  \item Experiment for different values of the size $n$, to see after how many iterations we return to the original image.
   
 \end{enumerate}
 
-Here is the starting image size $256 \times 256$ and the images obtained by iterations of the photo booth transformation for $k=1$ up to $k=8$. After $8$ iterations we find the initial image again.
+Here is the starting image of size $256 \times 256$ and the images obtained by iterations of the photo booth transformation for $k=1$ up to $k=8$. After $8$ iterations we return to the initial image again.
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/cat_gimp_new_photo_0.png}
 \end{center}
@@ -158,14 +158,14 @@ Here is the starting image size $256 \times 256$ and the images obtained by iter
 
 \begin{activite}[Conversion array/image]
 
-\objectifs{Goal: switch from an array to an image file and vice versa. The format to display the images is the format \og{}pgm\fg{} which has been manipulated in the chapter \og{}Files\fg{}.}
+\objectifs{Goal: switch from an array to an image file and vice versa. The image is displayed in the \og{}pgm\fg{} format which has been manipulated in the \og{}Files\fg{} chapter.}
 
 \index{pbm@\emph{pbm/pgm/ppm}}
 
 \begin{enumerate}
   \item \textbf{Array to image.}
   
-  Program a function \ci{array_to_image(array,image_name)} that writes an image file in format \og{}pgm\fg{} from a grayscale table.
+  Program an \ci{array_to_image(array,image_name)} function that writes an image  from a grayscale table to a file in \og{}pgm\fg{} format.
   
 \begin{center}
 \begin{minipage}{0.3\textwidth}
@@ -186,14 +186,14 @@ P2
 \end{center}
 \end{minipage}
 \end{center}
-For example with \ci{array = [ [128,192,128,192,128], [224,...] ]}, the command \ci{array_to_image(array,"test")} writes a file \ci{test.pgm} (on the left) that would be displayed as the image on the right.
+For example, with \ci{array = [ [128,192,128,192,128], [224,...] ]}, the \ci{array_to_image(array,"test")} command writes a \ci{test.pgm} file (on the left) to be displayed as the image on the right.
 
   
   
   \item \textbf{Image to array.} 
   
-  Program a function \ci{image_to_array(image_name)} 
-  which from an image file in format \og{}pgm\fg{}, returns an array of gray levels.
+  Program an \ci{image_to_array(image_name)} function 
+  which takes an image file in \og{}pgm\fg{} format and returns an array of gray levels.
 \end{enumerate}
 
 \end{activite}
@@ -203,11 +203,10 @@ For example with \ci{array = [ [128,192,128,192,128], [224,...] ]}, the command 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{cours}[Baker's transformation]
 
-We start from an array $n\times n$, with $n$ even, each element representing a pixel. 
-We will apply two elementary transformations each time:
+We start from an $n\times n$ array, with even $n$, where each element represents a pixel. We will apply two elementary transformations each time:
 
 \begin{itemize}
-  \item \textbf{Stretching.} The principle is as follows: the first two lines (each with a length of $n$) produce a single line with a length of $2n$ by mixing the values of each line by alternating an upper element and a lower element.
+  \item \textbf{Stretching.} The principle is as follows: the first two lines (each with a length of $n$) produce a single line with a length of $2n$. We mix the values of each line by alternating an upper element and a lower element.
 
 \medskip
  
@@ -226,7 +225,7 @@ Here is how two lines mix into one:
 
 \medskip
 
-\emph{Example.} Here is an array $4 \times 4$ on the left, and the stretched array $2 \times 8$ on the right.
+\emph{Example.} Here is a $4 \times 4$ array, and the stretched $2 \times 8$ array.
 The rows $0$ and $1$ on the left give the row $0$ on the right.
 The rows $2$ and $3$ on the left give the row $1$ on the right.
 $$\begin{array}{cccc} 
@@ -240,7 +239,7 @@ $$\begin{array}{cccc}
   9&13&10&14&11&15&12&16
 \end{array}$$
   
-  \item \textbf{Fold.} The principle is as follows: the right part of a stretched array is turned upside down, then added under the left part. Starting from an array $\frac n2 \times 2n$ you get an array $n \times n$.
+  \item \textbf{Fold.} The principle is as follows: the right part of a stretched array is turned upside down, then added under the left part. Starting from a $\frac n2 \times 2n$ array you get an $n \times n$ array.
 
  
 \myfigure{0.7}{
@@ -248,13 +247,13 @@ $$\begin{array}{cccc}
 }  
 
 \emph{Formulas.} 
-For $0 \le i < \frac n2$ and $0 \le j < n$ the elements in position $(i,j)$ of the array are kept.
+For $0 \le i < \frac n2$ and $0 \le j < n$ the elements in position $(i,j)$ of the array are kept in place.
 For $\frac n2 \le i < n$ and $0 \le j < n$ an element of the array 
-$(i,j)$, corresponds to an element $\big(\frac{n}{2} - i - 1,2n-1-j\big)$ of the source array. 
+$(i,j)$ corresponds to an element $\big(\frac{n}{2} - i - 1,2n-1-j\big)$ of the source array. 
 
 
 \emph{Example.} 
-From the stretched array $2 \times 8$ on the left, we obtain a folded array $4 \times 4$ on the right. 
+From the stretched $2 \times 8$ array on the left, we obtain a folded $4 \times 4$ array on the right. 
 $$ 
 \begin{array}{cccccccc} 
   1& 5& 2& 6& 3& 7& 4& 8  \\
@@ -269,11 +268,11 @@ $$
 \end{itemize}
 
 
-The \defi{transformation of the baker} is the succession of a stretching and a folding. Starting from an array $n \times n$ we still get an array $n \times n$.
+The \defi{baker transformation} is the succession of stretching and folding, starting and ending with an $n \times n$ array.
 
 
-Let's see an example of the action of several transformations of the baker.
-On the left the initial image size $128 \times 128$, then the result of $k=1,2,3$ iterations. 
+Let's see an example of several baker transformations.
+On the left is the initial $128 \times 128$ image, then the result of $k=1,2,3$ iterations. 
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.65]{images_chapter/surf_gimp_new_baker_0.png}\qquad
@@ -295,26 +294,23 @@ Here are the images for $k=12,13,14,15$ iterations:
 \end{cours}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Activity 3 - Baker processing
+% Activity 3 - Baker transformation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{activite}[Baker's transformation]
 
-\objectifs{Goal: program a new transformation that stretches and folds an image. Once again, the image becomes more and more distorted but, after a certain number of iterations, we find the original image again.}
+\objectifs{Goal: program a new transformation that stretches and folds an image. Once again, the image becomes more and more distorted but, after a certain number of iterations, we return to the original image again.}
 
 
 \begin{enumerate}
-  \item Program a function \ci{baker_stretch(array)} that returns a new array obtained by \og{}stretching\fg{} the table given as input.
+  \item Program a \ci{baker_stretch(array)} function that returns the new array obtained by \og{}stretching\fg{} the input table.
 
-
-
-    \item Program a function \ci{baker_fold(array)} that returns a table obtained by \og{}folding\fg{} the table given as input.
+    \item Program a \ci{baker_fold(array)} function that returns the table obtained by \og{}folding\fg{} the input table.
   
+   \item Program a \ci{baker_iterate(array,k)} function that returns the table calculated after $k$ iterations of baker's transformation.
   
-   \item Program a function \ci{baker_iterate(array,k)} that returns the table calculated after $k$ iterations of the baker's transformation.
-  
-  For example, here is a table $4 \times 4$ on the left, its image by the transformation ($k=1$) and its image after a second transformation ($k=2$).
+  For example, the original $4 \times 4$ table is on the left, its image after a transformation ($k=1$) and its image after a second transformation ($k=2$) are also shown.
   
  $$\begin{array}{cccc} 
   1& 2& 3& 4\\ 
@@ -335,11 +331,11 @@ Here are the images for $k=12,13,14,15$ iterations:
  14&    6&   10&    2
 \end{array}
 $$ 
-  \item Program a function  \ci{baker_images(image_name,kmax)} that calculates the images corresponding to the transformation of the baker, with iterations ranging from $k=1$ to $k=k_{\max}$.
+  \item Program a  \ci{baker_images(image_name,kmax)} function that calculates the images corresponding to baker's transformation, with iterations ranging from $k=1$ to $k=k_{\max}$.
   
-  \item Experiment for different values of the size $n$, to see after how many iterations we find the original image. 
+  \item Experiment with different values of the size $n$ to see after how many iterations we get back to the original image. 
   
-  \emph{Caution!} It sometimes takes a lot of iterations to get back to the original image. For example with $n=4$, we find the starting image after $k=5$ iterations; with $n=256$ it is $k=17$. Conjecture a return value in the case where $n$ is a power of $2$. However, for $n=10$, you need $k = 56\,920$ iterations!
+  \emph{Caution!} It sometimes takes many iterations to get back to the original image. For example when $n=4$, we return to the starting image after $k=5$ iterations; when $n=256$ it takes $k=17$. Conjecture a return value in the case where $n$ is a power of $2$. However, for $n=10$, you need $k = 56\,920$ iterations!
    
   
 \end{enumerate}
@@ -350,21 +346,21 @@ Here is an example with an image of size $256 \times 256$, first the initial ima
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_1.png}\qquad
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_2.png}
 \end{center}
-$k=3,4,5$ :
+$k=3,4,5$:
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_3.png}\qquad
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_4.png}\qquad
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_5.png}
 \end{center}
 
-$k=15,16,17$ :
+$k=15,16,17$:
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_15.png}\qquad
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_16.png}\qquad
 \includegraphics[scale=\myscale,scale=0.4]{images_chapter/clock_gimp_new_baker_17.png}
 \end{center}
 
-For $k=17$ you find the original image!
+For $k=17$ you get back to the original image!
 
 \end{activite}
 

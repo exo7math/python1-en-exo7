@@ -40,9 +40,9 @@ A player plays a game of chance: he throws a coin; depending on the result he wi
     \item If the coin is well balanced ($50$ chances out of $100$ to win),
     then for a large number of $N$ draws, the player will win about as many times as he loses; his winnings will be close to $0$ and so the expected value will be close to $\frac{0}{N} = 0$. On average he earns $0$ dollar per draw.
     
-    \item If the coin is faked and the player wins all the time, then after $N$ draws, he has pocketed $N$ dollars. The expected value is therefore $\frac{N}{N}=1$.
+    \item If the coin is rigged and the player wins all the time, then after $N$ draws, he has pocketed $N$ dollars. The expected value is therefore $\frac{N}{N}=1$.
     
-    \item If the coin is faked so that the player loses all the time, then after $N$ draws, his win is $-N$ dollars. The expected value is therefore $\frac{-N}{N}=-1$.
+    \item If the coin is rigged so that the player loses all the time, then after $N$ draws, his win is $-N$ dollars. The expected value is therefore $\frac{-N}{N}=-1$.
     
     \item An expected value of $-0.5$ means that on average the player loses $0.5$ dollar per draw. This is possible with an unbalanced coin that wins in only one out of four cases. (Check the calculation!) If the player plays $1000$ times, we can estimate that he will lose $500$ dollars ($-0.5 \times 1000 = -500$).
  \end{itemize}     
@@ -60,29 +60,29 @@ A player plays a game of chance: he throws a coin; depending on the result he wi
 
 \begin{activite}[Game A: first losing game]
 
-\objectifs{Goal: model a first simple game, which on average makes the player loses.}
+\objectifs{Goal: first, model a simple game, where, on average, the player loses.}
 
-\textbf{Game A.} In this first game, we throw a slightly unbalanced coin: the player wins one dollar in $49$ cases on $100$; he loses one dollar in $51$ cases on $100$.
+\textbf{Game A.} In this first game, we throw a slightly unbalanced coin: the player wins one dollar in $49$ cases out of $100$; he loses one dollar in $51$ cases out of $100$.
 
 \begin{enumerate}
   \item \textbf{One draw.}
-  Write a function \ci{throw_game_A()} that does not depend on any argument and that models a draw of the game A. For this purpose:
+  Write a \ci{throw_game_A()} function that does not depend on any argument and that models a draw of the game A. For this purpose:
   \begin{itemize}
     \item Pick a random number $0 \le x < 1$ using the \ci{random()} function of the \ci{random} module.
     \item Returns $+1$ if $x$ is smaller than $0.49$; and $-1$ otherwise.
   \end{itemize}
   
   
-  \item \textbf{Gain.} Write a function \ci{gain_game_A(N)} that models $N$ draws from game A and returns the total winnings of these draws. Of course, the result depends on the actual runs, it can vary from one time to another.
+  \item \textbf{Gain.} Write a \ci{gain_game_A(N)} function that models $N$ draws from game A and returns the total winnings of these draws. Of course, the result depends on the actual runs, it can vary from one time to another.
   
-  \item \textbf{Expected value.} Write a function \ci{expected_value_game_A(N)} that returns an estimate of the expected value of the game A according to the formula:
+  \item \textbf{Expected value.} Write an \ci{expected_value_game_A(N)} function that returns an estimate of the expected value of game A according to the formula:
    $$\text{expected value} \  \simeq \  \frac{\text{winnings afters $N$ throws}}{N} \qquad \text{with large $N$}.$$   
    
   \item \textbf{Conclusion.}
   \begin{enumerate}
     \item Estimate the expected value by making at least one million draws.
     \item What does it mean that the expected value is negative?
-    \item Deduct from the value of the expected value, the win (or loss) that I can expect by playing $1000$ times in game A.
+    \item Deduct from the expected value how much I can expect to win (or lose) by playing $1000$ times in game A.
   \end{enumerate}
 
 \end{enumerate}
@@ -98,28 +98,28 @@ A player plays a game of chance: he throws a coin; depending on the result he wi
 
 \begin{activite}[Game B: second losing game]
 
-\objectifs{Goal: model a second game that is a little more complicated which on average still makes the player loses.}
+\objectifs{Goal: model a second game that is a little more complicated where on average the player still loses.}
 
 \textbf{Game B.} The second game is a little more complicated. At the beginning, the player starts with a zero win: $g=0$. Then, depending on this gain, he plays one of the following two subgames:
 \begin{itemize}
-  \item \textbf{Subgame B1.} If the gain $g$ is a multiple of $3$, then he throws a very disadvantageous coin: the player wins a dollar in only $9$ cases on $100$ (so he loses a dollar in $91$ cases on $100$).
+  \item \textbf{Subgame B1.} If the gain $g$ is a multiple of $3$, then he throws a very disadvantageous coin: the player wins a dollar in only $9$ cases out of $100$ (so he loses a dollar in $91$ cases out of $100$).
   
-  \item \textbf{Subgame B2.} If the gain $g$ is not a multiple of $3$, then he throws an advantageous coin: the player wins a dollar in $74$ cases on $100$ (so he loses a dollar in $26$ cases on $100$).
+  \item \textbf{Subgame B2.} If the gain $g$ is not a multiple of $3$, then he throws an advantageous coin: the player wins a dollar in $74$ cases out of $100$ (so he loses a dollar in $26$ cases out of $100$).
 \end{itemize}
 
 \begin{enumerate}
   \item \textbf{One draw.}
-  Write a \ci{throw_game_B(g)} function that depends on the win already acquired and models a draw from game B. You can use the \ci{g\%3 == 0} test to find out if $g$ is a multiple of $3$.
+  Write a \ci{throw_game_B(g)} function that depends on the amount already acquired and models a draw from game B. You can use the \ci{g\%3 == 0} test to find out if $g$ is a multiple of $3$.
   
-  \item \textbf{Gain.} Write a function \ci{gain_game_B(N)} that models $N$ draws playing game B (starting from a zero initial gain) and returns the total gain of these draws.
+  \item \textbf{Gain.} Write a \ci{gain_game_B(N)} function that models $N$ draws playing game B (starting from a zero initial gain) and returns the total gain of these draws.
   
  
   
-  \item \textbf{Expected value.} Write a function \ci{expected_value_game_B(N)} that returns an estimate of the expected value of the game B.
+  \item \textbf{Expected value.} Write an \ci{expected_value_game_B(N)} function that returns an estimate of the expected value of game B.
   
   \item \textbf{Conclusion.}
   \begin{enumerate}
-    \item Estimates the expected value by making at least one million draws.
+    \item Estimate the expected value by making at least one million draws.
     \item How much can I expect to win or lose by playing $1000$ times in game B?
   \end{enumerate}
 
@@ -136,9 +136,9 @@ A player plays a game of chance: he throws a coin; depending on the result he wi
 
 \begin{activite}[Games A and B: a winning game!]
 
-\objectifs{Goal: invent a new game by playing at each round game A or game B; strangely enough this game makes you win on average! That's Parrondo's paradox.}
+\objectifs{Goal: invent a new game where at each round you play either game A or game B; strangely enough, on average, this game makes you win! That's Parrondo's paradox.}
 
-\textbf{Games AB.} In this third game, we play each round either game A or game B (the choice is made at random). 
+\textbf{Game AB.} In this third game, each round you play either game A or game B (the choice is made at random). 
 At the beginning the player starts with a zero win: $g=0$. 
 At each step, he chooses at random ($50\%$ of luck each):
 \begin{itemize}
@@ -148,17 +148,17 @@ At each step, he chooses at random ($50\%$ of luck each):
 
 \begin{enumerate}
   \item \textbf{One draw.}
-  Write a \ci{throw_game_AB(g)} function that depends on the win already acquired and models a draw of the AB game.
+  Write a \ci{throw_game_AB(g)} function that depends on the amount already acquired and models a draw of the AB game.
   
-  \item \textbf{Gain.} Write a function \ci{gain_game_AB(N)} that models $N$ draws from the AB game (starting from a zero initial gain) and returns the total gain of these draws.
+  \item \textbf{Gain.} Write a \ci{gain_game_AB(N)} function that models $N$ draws from the AB game (starting from a zero initial gain) and returns the total gain of these draws.
   
-  \item \textbf{Expected value.} Write a function \ci{expected_value_game_AB(N)} that returns an estimate of the expected value of the AB game.
+  \item \textbf{Expected value.} Write an \ci{expected_value_game_AB(N)} function that returns an estimate of the expected value of the AB game.
   
   \item \textbf{Conclusion.}
   \begin{enumerate}
     \item Estimate the expected value by performing at least one million game turns.
-    \item What can we say this time about the sign of expected value?
-    \item How much can I expect to win or lose by playing AB game $1000$ times? Surprising, isn't it?
+    \item What can we say this time about the sign of the expected value?
+    \item How much can I expect to win or lose by playing the AB game $1000$ times? Surprising, isn't it?
   \end{enumerate}
 
 \end{enumerate}

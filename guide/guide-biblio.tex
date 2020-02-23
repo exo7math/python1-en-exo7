@@ -7,7 +7,7 @@
 \chapitre{Notes and references}
 %====================================================================
 
-\objectifs{You will find here comments and readings on each of the activities.}
+\objectifs{You will find here comments and readings for each activity.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{General resources}
@@ -20,17 +20,16 @@
 %  \href{https://inforef.be/swi/python.htm}{inforef.be/swi/python.htm}
 %}
 
-  \item The official documentation of \Python{} contains tutorials and explanations of each of the functions. 
-  % Unfortunately some pages are in English  
+  \item The official \Python{} documentation contains tutorials and explanations of each function. 
   \mycenterline{
 \href{https://docs.python.org/3/}{docs.python.org/3/}
 }  
 
   \item \emph{Wikipedia} is a reliable source for learning more about some concepts (mainly projects) but the level is not always suitable for a high school student.
   
-  \item \emph{Internet} and in particular the forums often have the answer to the questions you ask yourself! 
+  \item \emph{Internet} and in particular the forums often have answers to questions you ask yourself! 
   
-  \item The most experienced among you can participate in the \emph{Euler project} which offers a list of mathematics-with-computer puzzles. Hang on! Hang on!  
+  \item The most experienced among you can participate to the \emph{Euler project} which offers a list of mathematics-with-computer puzzles.
   \mycenterline{
   \href{https://projecteuler.net/}{projecteuler.net}
 }  
@@ -39,9 +38,9 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Hello world}
+\section{Hello world!}
 
-Learning a programming language can be very difficult. It's hard enough to learn alone in your own corner. It is not uncommon to stay blocked for several hours for a stupid syntax error. You have to start small, don't hesitate to copy code already written by others, be persistent and ask for help quickly!
+Learning a programming language can be very difficult. It's hard enough to learn alone and it is not uncommon to stay blocked for several hours for a stupid syntax error. You have to start small, don't hesitate to copy code written by others, be persistent and quickly ask for help!
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,7 +52,7 @@ The ideal is to master \emph{Scratch} before attacking \Python{}.
 %\href{http://exo7.emath.fr/}{exo7.emath.fr} \qquad and \qquad  
 %\href{https://www.youtube.com/ScratchAuCollege}{youtube.com/ScratchAuCollege}
 %}
-\Python{} offers a module \emph{Turtle} that works on the same principle as  \emph{Scratch}.
+\Python{} offers a \emph{Turtle} module that works on the same principle as  \emph{Scratch}.
 Of course instead of moving blocks, you have to write the code!
 It is a good exercise to transcribe into \Python{} all the activities you can do with \emph{Scratch}.
 
@@ -61,7 +60,7 @@ It is a good exercise to transcribe into \Python{} all the activities you can do
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{If ... then ...}
 
-We really start the programming with the test \og{}if/else\fg{}.
+We really start the programming with the \og{}if/else\fg{} test.
 The computer therefore acts in one way or another depending on the situation. It is no longer an automaton that always does the same thing. In addition to the keyboard entry, we can start having interactive programs.
 
 The classic syntax errors are:
@@ -73,7 +72,6 @@ These errors will be reported by \Python{} with the line number where there is a
 On the other hand, if the program starts but does not do the right thing, it is surely the condition that is incorrectly formulated. It is more complicated to understand the right condition: a little logic and reflection with paper and pencil are welcome. 
 Some editors also allow a step-by-step execution of the \Python{} program.
 
-We will then come back to the \og{}true\fg{} and the \og{}false\fg{}.
 There is also the test
 \mycenterline{\ci{if ... elif ... elif ... else ...}}
 which allows you to run the tests in sequence and which is not covered here. 
@@ -108,13 +106,13 @@ For our part, we will refrain from these checks assuming that the user/programme
 We will only use \Python3. If you don't know which version you have, type
 \ci{7/2}: \Python3 returns \ci{3.5} while \Python2 returns \ci{3} (in version 2, \Python{} considered that the division of two integers should return an integer).
 
-With \Python3 it is clearer, \ci{a / b} is the usual division (real numbers) while \ci{a // b} is the Euclidean division between two integers and returns the quotient.
+With \Python3 it is clearer, \ci{a/b} is the usual division (real numbers) while \ci{a//b} is the Euclidean division between two integers and returns the quotient.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Strings -- Analysis of a text}
 
-Handling the strings allows you to do fun activities and leave the mathematical world a little bit. You can code quizzes, programs that chat with the user\ldots{}
+Handling strings allows you to do fun activities and leave the mathematical world a little bit. You can code quizzes, programs that chat with the user\ldots{}
 Strings are especially a good introduction to the notion of list, which is an essential tool later on.
 
 %For those who like cryptography, it's very nice to program the ciphers of Caesar, Vigenère, with secret keys\ldots{} What's even nicer is to automate the decryption of encrypted messages as if you were a spy. With a little logic and a good frequency analysis it's easy!
@@ -124,7 +122,7 @@ Strings are especially a good introduction to the notion of list, which is an es
 \section{Lists I}
 
 \Python{} is particularly flexible and agile for using lists.
-The \og{}old\fg{} languages often only allowed lists containing a single type of element, and to browse a list you always had to do this:
+\og{}Old\fg{} languages often only allowed lists containing a single type of element, and to browse a list you always had to do this:
 \begin{lstlisting}
 for i in range(len(mylist)):
     print(mylist[i])
@@ -145,7 +143,7 @@ Sorting a list is a difficult operation, there are many sorting algorithms. The 
 
 If all readers can program the calculations of sum, mean, standard deviation, median\ldots{} and their visualization, then the objective of this book is achieved! This demonstrates a good understanding of basic mathematical and computer tools.
 
-The \ci{tkinter} module allows a graphic display. To begin with, you have to copy the lines of a code that works without asking yourself too many questions, then adapt it to your needs.
+The \ci{tkinter} module allows a graphic display. To begin with, you have to copy lines of code that works without asking yourself too many questions, then adapt it to your needs.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,16 +152,14 @@ The \ci{tkinter} module allows a graphic display. To begin with, you have to cop
 The files make it possible to communicate \Python{} with the outside world: for example, you can retrieve a file of grades to calculate the averages and produce a report card for each student.
 % For the more advanced among you the files are a good opportunity to use error handling with \ci{try/except}.
 
-The activities on the images are nice and these image formats will be used later, even if this format has the big disadvantage of producing large files. Nevertheless they are standard and recognized by image software (\emph{Gimp} for example). Note that some software writes files with only one data per line (or all data on a single line). It is a good exercise to implement the reading of all possible formats.
+The activities on the images are nice and these image formats will be used later, even if this format has the big disadvantage of producing large files. Nevertheless they are standard and recognized by image software (\emph{Gimp} for example). Note that some software write files with only one data per line (or all data on a single line). It is a good exercise to implement the reading of all possible formats.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Arithmetic -- While loop -- II}
 
 Arithmetic in general and prime numbers in particular are very important in computer science. They are the foundation of modern cryptography and ensure the security of transactions on the Internet.
-
 The algorithms presented here are of course elementary. There are sophisticated techniques to say in a few seconds if a number of several hundred digits is prime or not. However, factoring a large integer remains a difficult problem.
-
 A computer shows its power when it handles a large quantity of numbers or very large numbers. With arithmetic, we have both at the same time!
 
 
@@ -200,7 +196,7 @@ This activity is based on the article \og{}Parrondo's paradox\fg{} by Hélène D
 \section{Find and replace}
 
 Searching and replacing are two actions so common that you don't always realize how strong they are.
-First of all, it is a good exercise to program the search and replacement operations yourself. There is a sophisticated version of these operations called regular expressions (\emph{regex}). It is a language in its own right, very powerful, but a little esoteric.
+First of all, it is a good exercise to program the search and replacement operations yourself. There is a sophisticated version of these operations called regular expressions (\emph{regex}). It is a language in itself, very powerful, but a little esoteric.
 
 There is also the mathematics of \og{}find/replace\fg{}! The proposed activities are examples that illustrate the main theorem of the article \emph{A complete characterization of termination of $0^p1^q \rightarrow 1^r0^s$}, by H.~Zantema and A.~Geser (\emph{AAECC}, 2000).
 % which is introduced by Pierre Lescanne on the site \og{}Images de mathématiques\fg{}: \href{http://images.math.cnrs.fr/Est-ce-que-ca-s-arrete.html}{Does it stop? }
@@ -217,11 +213,11 @@ Polish notation (the exact name is \og{}reverse Polish notation\fg{}) is another
 }
 which represents $(5 + 4) \times 3$ or in Polish notation $5 \ 4 \ +\  3 \ \times$.
 
-We have tried to postpone as much as possible the change of a global variable in a function, but here it is natural. The use of \ci{global} is to be avoided in general.
+We tried to postpone as much as possible the change of a global variable in a function, but here this is natural. The use of \ci{global} should be avoided in general.
 
-The notion of a stack is a very simple way to structure and access data.
+The notion of stack is a very simple way to structure and access data.
 However, this is the right way to manage an expression with brackets. The analogy with the sorting station should be illuminating. 
-We will find the stacks again in the activity on L-systems.
+We will encounter stacks again in the activity on L-systems.
 
 
 A stack works on the principle of \og{}first in, last out\fg{} (\emph{filo}). Another possible data management is on the principle \og{}first in, first out\fg{} (\emph{fifo}) as in a queue.
@@ -230,7 +226,7 @@ A stack works on the principle of \og{}first in, last out\fg{} (\emph{filo}). An
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Text viewer -- Markdown}
 
-The purpose of this chapter is twofold: to discover the \emph{Markdown} which is a very practical language for formatting a text, but also to understand the justification of a paragraph.
+The purpose of this chapter is twofold: to discover \emph{Markdown} which is a very practical language for formatting a text, but also to understand the justification of a paragraph.
 
 Obviously the \emph{Markdown} language has more tags than those presented here. We could continue the project by doing the justification with fonts of different sizes and shapes, or even create a complete small word processor.
 
@@ -238,12 +234,12 @@ Obviously the \emph{Markdown} language has more tags than those presented here. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{L-systems}
 
-We come back to the theme \og{}find/replace\fg{} but this time with a geometric vision. The figures obtained are beautiful, easy to program using the turtle, but the most beautiful is to see in live the layout from the L-systems.
+We come back to the theme \og{}find/replace\fg{} but this time with a geometric vision. The figures obtained are nice, easy to program using the turtle, but the most beautiful is to see in live the layout from L-systems.
 For L-systems defined by expressions containing brackets, we find again the notion of stacks. 
 
 The formulas are taken from the book \emph{The algorithmic beauty of plants}, by 
-P.~Prusinkiewicz and A.~Lindenmayer (Springer-Verlag, 2004) with free access here:
-\href{http://algorithmicbotany.org/papers/abop/abop.pdf}{\emph{The algorithmic beauty of plants} (pdf)}.
+P.~Prusinkiewicz and A.~Lindenmayer (Springer-Verlag, 2004) with free access:
+\href{http://algorithmicbotany.org/papers/abop/abop.pdf}{\emph{The algorithmic beauty of plants}}.
 
 The illustrations that begin each part of this book are iterations of the L-system called the Hilbert curve and defined by:
 \mycenterline{
@@ -265,7 +261,7 @@ This activity is based on the article \og{}Blurred images, recovered images\fg{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Game of life}
 
-A great classic of fun computing! There are dozens of sites on the Internet with buildings having incredible properties and many other ideas. But the most fascinating thing is that extremely simple rules lead to complex behaviors that resemble the life and death of cells.
+A great classic of fun computing! There are dozens of sites on the Internet with configurations having incredible properties and many other ideas. But the most fascinating thing is that extremely simple rules lead to complex behaviors that resemble the life and death of cells.
 
 
 
@@ -273,7 +269,7 @@ A great classic of fun computing! There are dozens of sites on the Internet with
 \section{Ramsey graphs and combinatorics}
 
 Graphs are very common objects in mathematics and computer science.
-The problem presented here is simple and fun. But what we may have to remember from this chapter is how the difficulty increases with the number of vertices. 
+The problem presented here is simple and fun. But what we should remember from this chapter is how the difficulty increases with the number of vertices. 
 Here we do the calculations up to $6$ vertices and we can't go much further with our exhaustive verification method.
 
 

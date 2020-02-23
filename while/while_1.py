@@ -18,7 +18,7 @@ def quotient_remainder(a,b):
 
     q = a // b
     r = a % b
-    print("Division of a =",a,"per b =",b)
+    print("Division of a =",a,"by b =",b)
     print("The quotient is q =",q)
     print("The remainder is r =",r)
 

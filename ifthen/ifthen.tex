@@ -17,7 +17,7 @@ If a condition is met, it acts in a certain way, otherwise it does something els
 
 \begin{cours}[If ... then ...]
 
-Here's how to use the test \og{}\ci{if}\fg{} with \Python{}:
+Here's how to use the \og{}\ci{if}\fg{} test with \Python{}:
 \index{if/then}
 \index{if@\ci{if}}
 
@@ -69,7 +69,7 @@ else:
 
 \index{enter@entry}
 
-To be able to interact with the user, you can ask him to enter a text on the keyboard.
+To be able to interact with the user, you can ask him to enter text on the keyboard.
 Here is a small program that asks for the user's first name and age and displays a message like \og{}Hello Kevin\fg{} then \og{}You are a minor/adult!\fg{} according to age.
 
 \begin{center}
@@ -92,7 +92,7 @@ else:
 \emph{Explanations.}
 \begin{itemize}
   \item The command \ci{input()}\index{input@\ci{input}}
-  pauses the execution of the program and waits for the user to send a text (ended by pressing the \og{}Enter\fg{} key).
+  pauses the execution of the program and waits for the user to send a text input (ended by pressing the \og{}Enter\fg{} key).
   
   \item This command returns a string.
   
@@ -107,7 +107,7 @@ else:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{cours}[The module \og{}random\fg{}]
+\begin{cours}[The \og{}random\fg{} module]
 
 % \index{random}
 \index{random@\ci{random}}
@@ -118,12 +118,12 @@ The \ci{random} module generates numbers as if they were randomly drawn.
   \item Here is the command to place at the beginning of the program to call this module:
   \mycenterline{\ci{from random import *}}
   
-  \item The command \ci{randint(a,b)}\index{randint@\ci{randint}} returns a random integer between $a$ and $b$.
+  \item The \ci{randint(a,b)}\index{randint@\ci{randint}} command returns a random integer between $a$ and $b$.
   
-  For example after the instruction \ci{n = randint(1,6)}, $n$ is a random integer with $1 \le n \le 6$.
+  For example after the instruction \ci{n = randint(1,6)}, $n$ is a random integer such that $1 \le n \le 6$.
   If you repeat the instruction \ci{n = randint(1,6)}, $n$ takes a new value. It's like rolling a 6-face dice.
   
-  \item The command \ci{random()}, without argument, returns a floating number (i.e.~a decimal number) between $0$ and $1$.  
+  \item The \ci{random()} command, without argument, returns a floating number (i.e.~a decimal number) between $0$ and $1$.  
   For example, after the instruction \ci{x = random()}, then $x$ is a floating point number with $0 \le x < 1$.
 \end{itemize}
 
@@ -137,7 +137,7 @@ The \ci{random} module generates numbers as if they were randomly drawn.
 
 \begin{activite}[Multiplication quiz]
 
-\objectifs{Goal: program a small test on the multiplication tables.}
+\objectifs{Goal: program a small multiplication tables test.}
 
 \begin{itemize}
   \item Define a variable $a$, to which you assign a random value between $1$ and $12$.
@@ -145,7 +145,7 @@ The \ci{random} module generates numbers as if they were randomly drawn.
   \item Same thing for a variable $b$.
   
   
-  \item Display the question on the screen: \og{}How much is the product  $a \times b$?\fg{}. (Replace $a$ and $b$ by their value!)
+  \item Display the question on the screen: \og{}What is the product  $a \times b$?\fg{}. (Replace $a$ and $b$ by their value!)
   
   \item Retrieve the user's answer and transform it into an integer.
   
@@ -159,10 +159,10 @@ The \ci{random} module generates numbers as if they were randomly drawn.
 
 \mycenterline{\ci{if x == y:}}
 
-The equality test is written with the double symbol equal \og{}\ci{==}\fg{}.
+The equality test is written with the double equal symbol \og{}\ci{==}\fg{}.
 For example \og{}\ci{x == 3}\fg{} returns \og{}True\fg{} if $x$ is equal to $3$ and \og{}False\fg{} otherwise.
 
-Attention! The instruction \og{}\ci{x = 3}\fg{} has nothing to do with it, this instruction stores $3$ in the variable $x$.
+Attention! The instruction \og{}\ci{x = 3}\fg{} has nothing to do with testing equality, this instruction stores $3$ in the variable $x$.
 \end{minipage}
 }
 
@@ -177,7 +177,7 @@ Attention! The instruction \og{}\ci{x = 3}\fg{} has nothing to do with it, this 
 
 \objectifs{Goal: guide the turtle with a word, each character corresponding to an instruction.}
 
-You give the \Python{} turtle a word, for example 
+You give the turtle a word, for example 
 \mot{FlFrfflFrfF}, in which each character (read from left to right) corresponds to an instruction that the turtle must execute.
 
 \begin{itemize}
@@ -206,8 +206,8 @@ for c in word:
 \end{lstlisting}
 \end{minipage} 
 \end{center} 
+Finally remember that \ci{up()} and \ci{down()} set the position of the pen.
 
-   
 \end{activite}
 
 
@@ -218,9 +218,9 @@ for c in word:
 \begin{cours}[Booleans]
 \sauteligne
 \begin{itemize}
-  \item A \defi{bolean}\index{boolean} is a data that is either equal to the value \og{}True\fg{} or the value \og{}False\fg{}. In \Python{} the values are \ci{True}\index{true@\ci{True}} and \ci{False}\index{false@\ci{False}} (with a capital letter).
+  \item A \defi{boolean}\index{boolean} is a type of data that is either equal to the value \og{}True\fg{} or the value \og{}False\fg{}. In \Python{} the values are \ci{True}\index{true@\ci{True}} and \ci{False}\index{false@\ci{False}} (with a capital letter).
   
-  \item We obtain a boolean for example as a result of the comparison of two numbers.
+  \item We can obtain a boolean as a result of the comparison of two numbers.
   For example \ci{7 < 4} is equal to \ci{False} (because $7$ is not smaller than $4$). 
   Check that \ci{print(7 < 4)} displays \ci{False}.
   
@@ -254,7 +254,7 @@ for c in word:
   \item We can compare something other than numbers. For example,  
   \og{}\ci{char == "A"}\fg{} tests if the variable \ci{char} is equal to \ci{"A"}; \og{}\ci{its_raining == True}\fg{} tests if the variable \ci{its_raining} is true\ldots
   
-  \item Booleans are useful in the test \og{}if \ldots{} then \ldots\fg{} and in the loops \og{}while \ldots{} then \ldots\fg{}.
+  \item Booleans are useful in \og{}if \ldots{} then \ldots\fg{} tests and in \og{}while \ldots{} then \ldots\fg{} loops.
   
   \item \textbf{Operations between booleans.}
   \index{logic operation}
@@ -299,9 +299,9 @@ for t in range(10):
 \end{minipage} 
 \end{center} 
   
-  \item Find all integers between $0$ and $999$ that check all the following properties:
+  \item Find all integers between $0$ and $999$ that satisfy all the following properties:
   \begin{itemize}
-    \item the integer ends with $3$,
+    \item the integer ends with a $3$,
     
     \item the sum of the digits is greater than or equal to $15$,
     
@@ -309,7 +309,7 @@ for t in range(10):
   \end{itemize}
    
   
-  \item Modify your previous program to count and display the number of integers checking these properties.
+  \item Modify your previous program to count and display the number of integers that satisfy these properties.
   
 \end{enumerate}
 
@@ -326,7 +326,7 @@ for t in range(10):
 \objectifs{Goal: determine the properties of a triangle from the three lengths of the sides.}
 \index{triangle}
 
-We give ourselves three lengths $a$, $b$ and $c$. You will determine the properties of the triangle whose lengths would be $a$, $b$, $c$.
+We give ourselves the three lengths $a$, $b$ and $c$. You will determine the properties of the triangle whose lengths would be $a$, $b$, $c$.
 
 \myfigure{1.1}{
 \tikzinput{fig-ifthen-1}
@@ -336,24 +336,24 @@ We give ourselves three lengths $a$, $b$ and $c$. You will determine the propert
 Define three variables $a$, $b$ and $c$ with integer values and $a \le b \le c$ (or ask the user for three values).
 
 \begin{enumerate}
-  \item \textbf{Order.} Ask \Python{} to test if the lengths check $a \le b \le c$. Display a sentence for the answer.
+  \item \textbf{Order.} Ask \Python{} to test if the lengths satisfy $a \le b \le c$. Display a sentence for the answer.
   
   \item \textbf{Existence.} There is a triangle corresponding to these lengths if and only if:
   $$a + b \ge c.$$
   Ask \Python{} to test if this is the case and display the answer.
   
   
-  \item \textbf{Rectangle triangle.} Ask \Python{} to test if the triangle is a rectangular triangle. (Think of Pythagoras' theorem.)
+  \item \textbf{Right triangle.} Ask \Python{} to test if the triangle is a right triangle. (Think of Pythagorean theorem.)
   
    \item \textbf{Equilateral triangle.} Test if the triangle is equilateral. 
    
    \item \textbf{Isosceles triangle.} Test if the triangle is isosceles.   
    
-   \item \textbf{Acute triangle.} Tests if all angles are acute (i.e.~less than or equal to $90$ degrees).
+   \item \textbf{Acute triangle.} Test if all angles are acute (i.e.~less than or equal to $90$ degrees).
    
     \emph{Hints.} 
     \begin{itemize}
-      \item The cosine law allows to calculate an angle according to the lengths:
+      \item The cosine law allows us to calculate an angle according to the lengths:
       
  \myfigure{1.1}{
 \tikzinput{fig-ifthen-3}
@@ -388,7 +388,7 @@ Define three variables $a$, $b$ and $c$ with integer values and $a \le b \le c$ 
 
 \begin{activite}[The mystery number]
 
-\objectifs{Goal: code the essential game when learning to program. The computer chooses a random number. The user must guess this number by following the indications \og{}larger\fg{} or \og{}smaller\fg{} given by the computer. As this game is quickly boring, we introduce variants where the computer is allowed to lie or cheat!}
+\objectifs{Goal: code the classic game when learning to program. The computer chooses a random number, the user must guess this number by following the indications \og{}larger\fg{} or \og{}smaller\fg{} given by the computer. As this game is quickly boring, we introduce variants where the computer is allowed to lie or cheat!}
 
 
 \begin{enumerate}
@@ -405,14 +405,13 @@ Define three variables $a$, $b$ and $c$ with integer values and $a \le b \le c$ 
   
   Program this game!
   
-  \emph{Hints.} To leave a loop \ci{for} before the last proposal, you can use the command \ci{break}. Use this when the player finds the right answer.
+  \emph{Hints.} To leave a \ci{for} loop before the last proposal, you can use the command \ci{break}. Use this when the player finds the right answer.
 
   
   \item \textbf{The computer is lying.}
   
   To complicate the game, the computer has the right to lie from time to time.
-  For example, about one in four times the computer gives the wrong indication \og{}larger\fg{}
-  or \og{}smaller\fg{}.
+  For example, about one in four times the computer can give the wrong hint of \og{}larger\fg{} or \og{}smaller\fg{}.
   
   \emph{Hints.} To decide when the computer is lying, each turn, draw a random number between $1$ and $4$, if it is $4$ the computer will lie!
   
@@ -421,7 +420,7 @@ Define three variables $a$, $b$ and $c$ with integer values and $a \le b \le c$ 
   
   \item \textbf{The computer is cheating.}
   
-  Now the computer is cheating (but it no longer lies)! Each turn the computer changes a little bit the mystery number to find.
+  Now the computer is cheating (but it no longer lies)! Each turn the computer changes the mystery number a little bit.
   
     \emph{Hints.} Each round, draw a random number, between $-3$ and $+3$ for example, and add it to the mystery number. (Be careful not to exceed the $0$ and $99$ limits.)
   

@@ -27,7 +27,7 @@
 
 \begin{scope}[xshift=5cm]
   \draw[thick] (0,0) -- (1,0);
-  \draw[thick] (0,-0.75) -- (0,0.75);
+  \draw[thick] (0,-0.75) -- (0,0);
 
   \node at (0.5,0.4) {$6$};
 

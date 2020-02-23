@@ -8,8 +8,8 @@
 \chapitre{Arithmetic -- While loop -- II}
 %====================================================================
 
-\objectifs{Our study of numbers is further developed with the loop \og{}while\fg{}. For this chapter you need your function \ci{is_prime()} built in the part
-\og{}Arithmetic -- While loop -- I\fg{}.}
+\objectifs{Our study of numbers is further developed with the \og{}while\fg{} loop. For this chapter you will need the \ci{is_prime()} function you wrote in the
+\og{}Arithmetic -- While loop -- I\fg{} part.}
 
 
 
@@ -20,7 +20,7 @@
 
 \begin{activite}[Goldbach's conjecture(s)]
 
-\objectifs{Goal: study two Goldbach conjectures. A conjecture is a statement that you think is true but you can't prove it.}
+\objectifs{Goal: study two Goldbach conjectures. A conjecture is a statement that you think is true but you not know how to prove it.}
 \index{Goldbach}
 
 \begin{enumerate}
@@ -32,7 +32,7 @@
   No one can prove this conjecture, but you will see that there are good reasons to believe it is true.
   
   \begin{enumerate}
-    \item Program a function \ci{number_solutions_goldbach(n)} which for a given even integer $n$, finds how many decompositions $n=p+q$ there are with $p$ and $q$ two prime numbers and $p\le q$.
+    \item Program a \ci{number_solutions_goldbach(n)} function which for a given even integer $n$, finds how many decompositions $n=p+q$ there are where $p$ and $q$ are prime numbers and $p\le q$.
     
     For example, for $n=8$, there is only one solution $8=3+5$, but for $n=10$ there are two solutions $10 = 3+7$ and $10=5+5$.
  
@@ -43,7 +43,7 @@
      \item we have a solution when $p \le q$ and $p$ and $q$ are both prime numbers.
    \end{itemize}
    
-   \item Proves with the machine that the Goldbach conjecture is verified for all even integers $n$ between $4$ and $10\,000$.
+   \item Prove with the machine that the Goldbach conjecture is verified for all even integers $n$ between $4$ and $10\,000$.
     
   \end{enumerate}
   
@@ -52,9 +52,9 @@
 where $p$ is a prime number and $k$ is an integer (possibly zero).}
   
   \begin{enumerate}
-    \item Program a function \ci{is_decomposition_goldbach(n)} that returns \og{}True\fg{} when there is a decomposition of the form $n=p+2k^2$.
+    \item Program an \ci{is_decomposition_goldbach(n)} function that returns \og{}True\fg{} when there is a decomposition of the form $n=p+2k^2$.
     
-    \item Show that Goldbach's second guess is wrong! There are two integers smaller than $10\,000$ that do not have such decomposition. Find them!
+    \item Show that Goldbach's second guess is wrong! There are two integers smaller than $10\,000$ that do not have a decomposition of this form. Find them!
   \end{enumerate} 
 \end{enumerate}   
      
@@ -72,14 +72,14 @@ where $p$ is a prime number and $k$ is an integer (possibly zero).}
 
 \textbf{Conjecture: } \emph{Between $1$ and $N$, there are more integers that have exactly $4$ divisors than integers that have exactly $8$ divisors.}
 
-You will see that this conjecture looks true for $N$ rather small, but you will show that this conjecture is false by finding a large $N$ that contradicts this statement.
+You will see that this conjecture looks true for $N$ that are rather small, but you will show that this conjecture is false by finding a large $N$ that contradicts this statement.
 
 \begin{enumerate}
   \item \textbf{Number of divisors.}
   
-  Program a function \ci{number_of_divisors(n)} that returns the number of integers dividing $n$.
+  Program a \ci{number_of_divisors(n)} function that returns the number of integers dividing $n$.
   
-  For example: \ci{number_of_divisors(100)} returns $9$ because there are $9$ divisors of $n=100$ :
+  For example: \ci{number_of_divisors(100)} returns $9$ because there are $9$ divisors of $n=100$:
   $$1,2,4,5,10,20,25,50,100$$
   
   \emph{Hints.}
@@ -91,16 +91,16 @@ You will see that this conjecture looks true for $N$ rather small, but you will 
    
    \item \textbf{4 or 8 divisors.}
    
-   Program a function \ci{four_and_eight_divisors(Nmin,Nmax)} that returns two numbers: (1) the number of integers $n$ with $N_{\text{min}} \le n < N_{\text{max}}$ that admit exactly $4$ divisors and (2) the number of integers $n$ with $N_{\text{min}} \le n < N_{\text{max}}$ that admit exactly $8$ divisors.
+   Program a \ci{four_and_eight_divisors(Nmin,Nmax)} function that returns two numbers: (1) the number of integers $n$ with $N_{\text{min}} \le n < N_{\text{max}}$ that admit exactly $4$ divisors and (2) the number of integers $n$ with $N_{\text{min}} \le n < N_{\text{max}}$ that admit exactly $8$ divisors.
    
    For example \ci{four_and_eight_divisors(1,100)} returns \ci{(32,10)} because there are $32$ integers between $1$ and $99$ that admit $4$ divisors, but only $10$ integers that admit $8$.
    
    \item \textbf{Proof that the conjecture is false.}
    
-   Experiment that for \og{}small\fg{} values of $N$ (up to $N = 10\,000$ for example) there are more integers with $4$ divisors than $8$. But calculate that for $N=300\,000$ this is no longer the case.
+   Check that for \og{}small\fg{} values of $N$ (up to $N = 10\,000$ for example) there are more integers with $4$ divisors than $8$. But check that for $N=300\,000$ this is no longer the case.
    
    \emph{Hints.} As there are many calculations, you can split them into slices (the slice of integers $1\le n < 50\,000$, then $50\,000 \le n < 100\,000$,...) and then add them up.
-   This allows you to share your calculations between several computers.
+   This allows you to split your calculations between several computers.
    
 \end{enumerate}   
      
@@ -131,18 +131,18 @@ For example $U_0 = 12$, $U_1 = 121$, $U_2 = 1211$, \ldots
   \emph{Hint.} You can notice that starting with $U_0=12$, we have the relationship
   $U_{k+1} = 10 \cdot U_k + 1$. So you can start with \ci{u = 12} and repeat a number of times \ci{u  = 10*u + 1}.
   
-  \item Check with the machine that $U_0,\ldots,U_{20}$ are not prime numbers. 
+  \item Check with your machine that $U_0,\ldots,U_{20}$ are not prime numbers. 
   
   \medskip
   
- \emph{You might think it's still the case, but it's not true. The integer $U_{136}$ is a prime number! Unfortunately it is too big to be verified with our algorithms. In the following we will define what is a \emph{almost prime number} to be able to push the calculations further.}
+ \emph{You might think it's still the case, but it's not true. The integer $U_{136}$ is a prime number! Unfortunately it is too big to be verified with our algorithms. In the following point we will define what is an \emph{almost prime number} to be able to push the calculations further.}
   
-  \item Program a function \ci{is_almost_prime(n,r)} that returns \og{}True\fg{} if the integer $n$ does not admit any divisor $d$ such as $1< d \le r$ (we assume $r<n$). 
+  \item Program a function \ci{is_almost_prime(n,r)} that returns \og{}True\fg{} if the integer $n$ does not admit any divisor $d$ such that $1< d \le r$ (we assume $r<n$). 
   
   For example: $n = 143 = 11 \times 13$ and $r=10$, then \ci{is_almost_prime(n,r)} is
   \og{}True\fg{} because $n$ does not allow any divisor less than or equal to $10$. (But of course, $n$ is not a prime number.)
   
-  \emph{Hint.} Adapt your function \ci{is_prime(n)}!
+  \emph{Hint.} Adapt your \ci{is_prime(n)} function!
   
   \item Find all the integers $U_k$ with $0\le k \le 150$ which are almost prime for 
   $r = 1 \,000\,000$ (i.e. they are not divisible by any integer $d$ with $1<d \le 1\,000\,000$).
@@ -166,23 +166,23 @@ For example $U_0 = 12$, $U_1 = 121$, $U_2 = 1211$, \ldots
 
 Let $n \ge 0$ be an integer. 
 The \defi{integer square root of $n$} is the largest integer $r\ge0$ such as $r^2 \le  n$. 
-Another definition is to say that the integer square root of $n$ is the integer part of $\sqrt{n}$.
+Another definition is to say that the integer square root of $n$ is $\sqrt{n}$ rounded down to the nearest integer.
 
 Examples:
 \begin{itemize}
-  \item $n=21$, then the integer square root of $n$ is $4$ (because $4^2 \le 21$, but $5^2 > 21$). In other words, $\sqrt{21} = 4.58\ldots$, and we only keep the integer part (the integer to the left of the dot), so it is $4$.
+  \item $n=21$, then the integer square root of $n$ is $4$ (because $4^2 \le 21$, but $5^2 > 21$). In other words, $\sqrt{21} = 4.58\ldots$, and we round down to the nearest integer, so it is $4$.
   
   \item $n=36$, then the integer square root of $n$ is $6$ (because $6^2 \le 36$, but $7^2 > 36$). In other words, $\sqrt{36} = 6$ and the integer square root is of course also $6$.    
 \end{itemize}
 
 \begin{enumerate}
-  \item Write a first function that calculates the integer square root of an integer $n$, first calculating $\sqrt{n}$, then taking the integer part.
+  \item Write a first function that calculates the integer square root of an integer $n$, first by calculating $\sqrt{n}$, then rounding down.
   
   \emph{Hints.}
   \begin{itemize}
-    \item For this question only, you can use the module \ci{math} of \Python. 
+    \item For this question only, you can use the \ci{math} module of \Python. 
     \item In this module \ci{sqrt()} returns the real square root.
-    \item The function \ci{floor()} of the same module returns the integer part of a number.
+    \item The \ci{floor()} function of the same module returns the number rounded down to the nearest integer.
   \end{itemize}
   
   \item Write a second function that calculates the integer square root of an integer $n$, but this time according to the following method:
@@ -190,7 +190,7 @@ Examples:
     \item Start with $p=0$.
     \item As long as $p^2 \le n$, increment the value of $p$ by $1$.
   \end{itemize}
-  Test carefully what the returned value should be (beware of the offset!).
+  Think carefully about what the returned value should be (beware of the offset!).
   
   \item Write a third function that still calculates the integer square root of an integer $n$ with the algorithm described below. This algorithm is called the Babylonian method (or Heron's method or Newton's method).
   
@@ -202,10 +202,10 @@ Examples:
   \begin{itemize}
     \item Start with $a=1$ and $b=n$.
     
-    \item as long as $|a-b| > 1$:
+    \item As long as $|a-b| > 1$, repeat:
     \begin{itemize} 
-     \item $a \leftarrow (a+b)//2$ ;
-     \item $b \leftarrow n // a$ 
+     \item $a \leftarrow (a+b)//2$,
+     \item $b \leftarrow n // a$. 
     \end{itemize}          
          
     \item Return the minimum between $a$ and $b$: this is the integer square root of $n$.
@@ -240,8 +240,9 @@ In the last step, the difference between $a$ and $b$ is less than or equal to $1
     
 \end{enumerate}  
   
+  \smallskip
   
-\textbf{Bonus.} Compare the execution speeds of the three methods using \ci{timeit()}. See the chapter \og{}Functions\fg{}.
+\textbf{Bonus.} Compare the execution speeds of the three methods using \ci{timeit()}. See the \og{}Functions\fg{} chapter.
 
 \end{activite}
 
@@ -251,25 +252,24 @@ In the last step, the difference between $a$ and $b$ is less than or equal to $1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{cours}[Exit a loop]
 
-It is not always easy to find the right condition for a loop \og{}while\fg{}. \Python{} has a command to immediately exit a loop \og{}while\fg{}
-or a loop \og{}for\fg{}: this is the instruction 
-\ci{break}\index{break@\ci{break}}\index{loop!quit}.
+It is not always easy to find the right condition for a \og{}while\fg{} loop. \Python{} has a command to immediately exit a \og{}while\fg{} loop
+or a \og{}for\fg{} loop: this is the \ci{break}\index{break@\ci{break}}\index{loop!quit} command.
 
-Here are some examples that use this command \ci{break}. As it is rarely an elegant way to write your program, alternatives are also presented.
+Here are some examples that use this \ci{break} command. As it is rarely an elegant way to write your program, alternatives are also presented.
 
 \begin{exemple}
 
 Here are different codes for a countdown from $10$ to $0$.
 
-\begin{minipage}{0.35\textwidth}
+\begin{minipage}{0.33\textwidth}
 \begin{lstlisting}
 # Countdown
 n = 10
-while True: # Infinite loop
+while True: #Infinite loop
     print(n)
     n = n - 1
     if n < 0:
-        break # Immediate stop
+        break #Immediate stop
 \end{lstlisting}
 \end{minipage}\qquad\qquad
 \begin{minipage}{0.35\textwidth}
@@ -287,7 +287,6 @@ while not finished:
 \begin{minipage}{0.2\textwidth}
 \begin{lstlisting}
 # Even better 
-# (reformulation)
 n = 10
 while n >= 0:
     print(n)
@@ -336,7 +335,7 @@ for element in mylist:
         break
     print(sqrt(element))
 \end{lstlisting}
-\end{minipage}\qquad
+\end{minipage}\qquad\quad
 \begin{minipage}{0.4\textwidth}
 \begin{lstlisting}
 # Better with try/except
@@ -345,8 +344,9 @@ for element in mylist:
     try: 
         print(sqrt(element))
     except:
-        print("Warning, I don't know how to 
-        compute the square root of",element)
+        print("Warning, I don't know 
+        how to compute the 
+        square root of",element)
 \end{lstlisting}
 \end{minipage}
 \end{exemple}

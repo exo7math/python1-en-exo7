@@ -1,0 +1,166 @@
+%\documentclass[11pt]{report}
+\documentclass[10pt,twoside,openright]{report}
+
+%\usepackage[screen]{python}
+\usepackage[print]{python}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titre + préface + sommaire
+%\renewcommand{\contentsname}{Sommaire}
+
+% Préface
+\pagenumbering{roman}
+\import{misc/}{preface_book_python.tex}
+\debutchapitres
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Les feuilles
+
+\clearemptydoublepage
+
+%======================================
+% Getting started
+%======================================
+
+\part{Getting started}
+
+% 1 - Hello world!
+\import{hello_world/}{hello_world.tex}
+
+% 2 - Turtle (Scratch with Python)
+\import{turtle/}{turtle.tex}
+
+
+\clearemptydoublepage
+
+
+%======================================
+% Basics
+%======================================
+
+\part{Basics}
+
+% 1 - If ... then ...
+\import{ifthen/}{ifthen.tex}
+
+% 2 - Functions
+\import{functions/}{functions.tex}
+
+% 3 - While- Arithmetic - I
+\import{while/}{while-1.tex}
+
+% 4 - Strings
+\import{strings/}{strings.tex}
+
+% 5 - Lists I
+\import{lists/}{lists-1.tex}
+
+
+\clearemptydoublepage
+
+%======================================
+% Advanced concepts
+%======================================
+
+\part{Advanced concepts}
+
+% 1 - Statistics
+\import{statistics/}{statistics.tex}
+
+% 2 - Files
+\import{files/}{files.tex}
+
+% 3 - While - Arithmetic - II
+\import{while/}{while-2.tex}
+
+% 4 - Binary I
+\import{binary/}{binary-1.tex}
+
+% 5 - Lists II
+\import{lists/}{lists-2.tex}
+
+% 6 - Binary II
+\import{binary/}{binary-2.tex}
+
+
+\clearemptydoublepage
+
+%======================================
+% Projects
+%======================================
+
+\part{Projects}
+
+% 1 - Probabilities
+\import{proba/}{proba.tex}
+
+% 2 - Find
+\import{find/}{find.tex}
+
+% 3 - Stacks
+\import{stacks/}{stacks.tex}
+
+% 4 - Markdown
+\import{markdown/}{text_markdown.tex}
+
+% 5 - L-systems
+\import{lsystems/}{lsystems.tex}
+
+% 6 - Dynamic images
+\import{images/}{images.tex}
+
+% 7 - Game of life
+\import{life/}{life.tex}
+
+% 8 - Graphs and Ramsey combinatorics
+\import{ramsey/}{ramsey.tex}
+
+% 9 - Bitcoin
+\import{bitcoin/}{bitcoin.tex}
+
+% 10 - Random blocks
+\import{blocks/}{blocks.tex}
+
+
+\clearemptydoublepage
+
+%======================================
+% Guide
+%======================================
+\part{Guides}
+
+% 1 - Python
+\import{guide/}{guide-python.tex}
+
+% 2 - Main functions
+\import{guide/}{guide-functions.tex}
+
+% 2 - Notes and references
+\import{guide/}{guide-biblio.tex} 
+
+
+
+\clearemptydoublepage
+
+%======================================
+% Postface et index
+%======================================
+
+\import{misc/}{postface_book_python.tex}
+
+\newpage
+
+~
+\vfill
+\bigskip
+\bigskip
+
+\mycenterline{Version 1.00 -- February 2020}
+
+
+
+\end{document}
+

@@ -22,13 +22,13 @@
 
 \begin{cours}[Ramsey's problem]
 
-\objectifs{Proposition. In a group of $6$ people, there is always $3$ friends (the three know each other two by two) or $3$ foreigners (all three are strangers to each other).}
+\objectifs{Proposition. In a group of $6$ people, there is always $3$ friends (the three know each other) or $3$ foreigners (all three are strangers to each other).}
 
-The purpose of this chapter is to have the computer demonstrate this statement. For that we will model the problem by graphs, then we will check the statement for each of the $32\,768$ possible graphs.
+The purpose of this chapter is to have the computer demonstrate this statement. For that, we will model the problem by graphs, then we will check the statement for each of the $32\,768$ possible graphs.
 
 \bigskip 
 
-We consider $n$ people. For two of them, either they know each other (they are friends) or they do not know each other (they are strangers to each other). We schematize this by a graph:
+We consider $n$ people. For two of them, either they know each other (they are friends) or they do not know each other (they are strangers to each other). We represent this using a graph:
 \begin{itemize}
   \item a person is represented by a vertex (numbered from $0$ to $n-1$);
   \item if two people are friends, the corresponding vertices are connected by a green solid edge;
@@ -56,13 +56,13 @@ Here is an example of $5$ peoples that verify the statement: there is group of $
 \begin{cours}[Model]
 
 
-\objectifs{We model a graph by an array, containing $0$ and $1$.}
+\objectifs{We model a graph using an array, containing $0$'s and $1$'s.}
 
 Let be a graph with $n$ vertices, numbered from $0$ to $n-1$.
 The \defi{array of the graph} is a table of size $n \times n$ in which we place a $1$ in position $(i,j)$ if the vertices $i$ and $j$ are connected by an edge, otherwise we place a $0$.
 
 \bigskip
-First example below: the vertices $0$ and $2$ are friends (because they are connected by a green edge) so the table contains a $1$ in position $(0,2)$ and also in $(2,0)$. Similarly $1$ and $3$ are friends, so the table contains a $1$ in position $(1,3)$ and $(3,1)$. The rest of the table contains $0$.
+First example below: the vertices $0$ and $2$ are friends (because they are connected by a green edge) so the table contains a $1$ in position $(0,2)$ and also in $(2,0)$. Similarly $1$ and $3$ are friends, so the table contains a $1$ in positions $(1,3)$ and $(3,1)$. The rest of the table contains $0$.
 
 \myfigure{0.7}{
   \tikzinput{fig-ramsey-1a}
@@ -104,9 +104,9 @@ Here is a more complicated graph and its array:
   Then add commands: 
   \mycenterline{\ci{array[i][j] = 1} \quad and \quad \ci{array[j][i] = 1}}
   
-  Don't forget that if the $i$ vertex is connected to the $j$ vertex by an edge, then you have to put a $1$ in position $(i,j)$ but also in position $(j,i)$. 
+  Don't forget that if vertex $i$ is connected to the vertex $j$ by an edge, then you have to put a $1$ in position $(i,j)$ but also in position $(j,i)$. 
   
-  \item Define a function \ci{print_graph(array)} that allows you to display on the screen the table of a graph.
+  \item Define a \ci{print_graph(array)} function that allows you to display the table of a graph on the screen.
   Thus the third example above (with $n=5$) should be displayed as follows:
 \begin{center}
 \ci{0 0 1 1 0}\\
@@ -116,9 +116,9 @@ Here is a more complicated graph and its array:
 \ci{0 1 0 1 0}\\
 \end{center}
 
-  \item We set three vertices $i$, $j$, $k$ of a graph. Write a function \ci{have_3_fix_friends(array,i,j,k)} that tests if the vertices $i$, $j$, $k$ are three friends (the function returns \og{}True\fg{} or \og{}False\fg{}). Do the same work with a \ci{have_3_fix_strangers(array,i,j,k)} function to find out if these vertices are strangers.
+  \item We set the three vertices $i$, $j$, $k$ of a graph. Write a \ci{have_3_fix_friends(array,i,j,k)} function that tests if the vertices $i$, $j$, $k$ are three friends (the function returns \ci{True} or \ci{False}). Do the same thing for a \ci{have_3_fix_strangers(array,i,j,k)} function to find out if these vertices are strangers.
   
-Find by hand on the fourth example, three friend or foreign vertices and check your answer using the functions you have just defined on these vertices.
+Find on the fourth example (without computer), three friend or foreign vertices and check your answer using the functions you have just defined on these vertices.
 
 \end{enumerate}   
      
@@ -138,19 +138,19 @@ Find by hand on the fourth example, three friend or foreign vertices and check y
 \end{center}
 
 
-Program the graphical display of a graph by a function \ci{display_graph(array)}.
+Program the graphical display of a graph by a \ci{display_graph(array)} function.
      
 \bigskip
      
-\emph{Hints.} This activity is not necessary for the next steps, it just helps to visualize the graphs. It is necessary to use the module \ci{tkinter} and the functions \ci{create_line()}, \ci{create_oval()} and possibly \ci{create_text()}. 
+\emph{Hints.} This activity is not necessary for the next steps, it just helps to visualize the graphs. It is necessary to use the \ci{tkinter} module and the \ci{create_line()}, \ci{create_oval()} and possibly \ci{create_text()} functions. 
 % See previous sheets.
 
-The most delicate point is to obtain the coordinates of the vertices. You will need the sine and cosine functions (available in the module \ci{math}).
-The coordinates $(x_i,y_i)$ of the vertex number $i$ of a graph with $n$ elements can be calculated by the formulas :
+The most delicate point is to obtain the coordinates of the vertices. You will need the sine and cosine functions (available in the \ci{math} module).
+The coordinates $(x_i,y_i)$ of the vertex number $i$ of a graph with $n$ elements can be calculated by using the formulas:
 $$x_i = r \cos\left(\frac{2 i \pi}{n}\right) \qquad \text{ and } \qquad y_i = r\sin\left(\frac{2 i \pi}{n}\right).$$
 
 These vertices are located on the circle of radius $r$, centered at $(0,0)$. 
-You will have to choose $r$ large enough (for example $r=200$) and shift the circle to display it on the screen.
+You will have to choose a large enough $r$ (for example $r=200$) and shift the circle to display it on the screen.
 
 
 \myfigure{0.7}{
@@ -169,23 +169,23 @@ You will have to choose $r$ large enough (for example $r=200$) and shift the cir
 \index{binary}
 
 
-Program an \ci{integer_to_binary(p,n)} function that displays the binary notation of an integer $p$ on $n$ bits. The result is a list of $0$ and $1$.
+Program an \ci{integer_to_binary(p,n)} function that displays an integer $p$ in binary notation using $n$ bits. The result is a list of $0$'s and $1$'s.
 
 \bigskip
 
 Example.
 \begin{itemize}
-  \item The binary notation of $p=37$ is $1.0.0.1.0.1$. If you want its binary notation on $n=8$ bits you have to add two $0$ in front of it: $0.0.1.0.0.1.0.1$. 
+  \item The binary notation of $p=37$ is $1.0.0.1.0.1$. If you want its binary notation using $n=8$ bits you have to add two $0$'s in front of it: $0.0.1.0.0.1.0.1$. 
   \item So the result of the command \ci{integer_to_binary(37,8)} must be \ci{[0, 0, 1, 0, 0, 1, 0, 1]}.
-  \item The command \ci{integer_to_binary(37,10)} returns the binary notation of $37$ on $10$ bits: \ci{[0, 0, 0, 0, 1, 0, 0, 1, 0, 1]}.
+  \item The command \ci{integer_to_binary(37,10)} returns $37$ in binary notation using $10$ bits: \ci{[0, 0, 0, 0, 1, 0, 0, 1, 0, 1]}.
 \end{itemize}
 
 \bigskip
 
 \emph{Hints.}
 \begin{itemize}
-  \item You can use the command \ci{bin(p)}.
-  \item The command \ci{list(mystring)}\index{list@\ci{list}}\index{string} returns the list of characters making up \ci{mystring}.
+  \item You can use the \ci{bin(p)} command.
+  \item The \ci{list(mystring)}\index{list@\ci{list}}\index{string} command returns the list of characters making up \ci{mystring}.
   \item Attention! We want a list of integers \ci{0} or \ci{1}, not of characters \ci{'0'} or \ci{'1'}. The command \ci{int('0')} returns \ci{0} and \ci{int('1')} returns \ci{1}.
   
   \item \ci{mylist = mylist + [element]} adds an item at the end of the list, while \ci{mylist = [element] + mylist} adds the item at the beginning of the list.
@@ -253,9 +253,9 @@ Here is how we associate to each integer $p$ verifying $0 \le p < 2^n$ a subset 
 
 Let's start with an example, with $n = 6$ and $p=26$:
 \begin{itemize}
-  \item the binary notation of $p=26$ on $n=6$ bits is 
+  \item the binary notation of $p=26$ using $n=6$ bits is 
   \ci[0,1,1,0,1,0];
-  \item there are $1$ at ranks $1$, $2$ and $4$ (starting at rank $0$ on the left);
+  \item there are $1$'s at ranks $1$, $2$ and $4$ (starting at rank $0$ on the left);
   \item the associated subset is then $\{1,2,4\}$.
 \end{itemize}
 
@@ -269,7 +269,7 @@ Let's start with an example, with $n = 6$ and $p=26$:
 
 Other examples.
 \begin{itemize}
-  \item With $n = 8$ and $p = 57$ whose binary notation on $8$ bits is \ci{[0,0,1,1,1,0,0,1]}, the associated subset corresponds to the ranks $2,3,4,7$, so it is $\{2,3,4,7\}$.
+  \item With $n = 8$ and $p = 57$ whose binary notation using $8$ bits is \ci{[0,0,1,1,1,0,0,1]}, the associated subset corresponds to the ranks $2,3,4,7$, so it is $\{2,3,4,7\}$.
   
   \smallskip
   
@@ -278,8 +278,8 @@ Other examples.
 }  
 
   
-  \item With $p=0$, the binary notation is only formed of $0$, the associated subset is the empty set.
-  \item With $p = 2^n - 1$, the binary notation is full of $1$, the associated subset is the whole set $E_n = \{0,1,\ldots, n-1\}$ itself.
+  \item With $p=0$, the binary notation is only formed of $0$'s, the associated subset is the empty set.
+  \item With $p = 2^n - 1$, the binary notation is full of $1$'s, the associated subset is the whole set $E_n = \{0,1,\ldots, n-1\}$ itself.
 \end{itemize}
 
 \bigskip
@@ -295,7 +295,7 @@ For example:
 
 
 \begin{enumerate}
-  \item Program a function \ci{subsets(n)} which returns the list of all possible subsets of $E_n =  \{0,1,2,\ldots,n-1\}$.
+  \item Program a \ci{subsets(n)} function which returns the list of all possible subsets of $E_n =  \{0,1,2,\ldots,n-1\}$.
   For example, with $n=3$, \ci{subsets(n)} returns the list (which itself contains lists):
 \mycenterline{\ci{[ [], [2], [1], [1, 2], [0], [0, 2], [0, 1], [0, 1, 2]  ]}}
 
@@ -304,7 +304,7 @@ $$\varnothing \quad \{2\}\quad \{1\}\quad \{1,2\}\quad \{0\}\quad \{0,2\}\quad \
 
 \emph{Hint.} To test your program, check that the returned list contains $2^n$ subsets.
 
-  \item Deduce a function \ci{fix_subsets(n,k)} from it that returns only subsets of $E_n$ with $k$ elements.
+  \item Deduce  from it a \ci{fix_subsets(n,k)} function that returns only subsets of $E_n$ having exactly $k$ elements.
   
  For example, for $n=3$ and $k=2$, \ci{fix_subsets(n,k)} returns the list of pairs:
 \mycenterline{\ci{[ [0, 1], [0, 2], [1, 2] ]}}
@@ -339,20 +339,20 @@ In particular, for $n=6$, there are $20$ triples included in $\{0,1,2,3,4,5\}$:
 \objectifs{Goal: check that all graphs with $6$ vertices contain three friends or three strangers.}
 
 \begin{enumerate}
-  \item Program a function \ci{have_3(array)} that tests if a graph contains $3$ friends or $3$ foreigners. You must therefore call the functions \ci{have_3_fix_friends(array,i,j,k)} and \ci{have_3_fix_strangers(array,i,j,k)} of the first activity for all possible triples of vertices $(i,j,k)$.
+  \item Program a \ci{have_3(array)} function that tests if a graph contains $3$ friends or $3$ foreigners. You must therefore call the functions \ci{have_3_fix_friends(array,i,j,k)} and \ci{have_3_fix_strangers(array,i,j,k)} of the first activity for all possible triples of vertices $(i,j,k)$.
  
- For the four examples of the first activity, only the fourth (with $6$ summits) checks the test.
+ For the four examples of the first activity, only the fourth (with $6$ summits) passes the test.
   
-  \item Program a function \ci{all_graphs(n)} that computes all possible graph arrays with $n$ vertices. There are $N = \frac{(n-1)n}{2}$ possible arrays. You can generate them by a method similar to the one for subsets:
+  \item Program an \ci{all_graphs(n)} function that computes all possible graph arrays with $n$ vertices. There are $N = \frac{(n-1)n}{2}$ possible arrays. You can generate them by a method similar to the one for subsets:
   \begin{itemize}
     \item for each integer $p$ that verifies $0 \le p < 2^N$,
     \item calculate the binary notation of $p$ on $N$ bits,
-    \item fill in the array element by element, with the $0$ and $1$ of the binary notation.
+    \item fill in the array element by element, with the $0$'s and $1$'s of the binary notation.
   \end{itemize}
 
 
 \emph{Hints.}
-To fill an array from a given binary notation of $p$ named \ci{binary_notation} (that is to say a list of $0$ and $1$), you can use a double loop like:
+To fill an array from a given binary notation of $p$ named \ci{binary_notation} (that is to say a list of $0$'s and $1$'s), you can use a double loop like:
 
 \begin{lstlisting}
 for j in range(0,n):
@@ -363,18 +363,18 @@ for j in range(0,n):
 \end{lstlisting}
   
 Here is the principle of this loop that fills the part above the diagonal (and also the part below it by symmetry).
-This loop takes the last bit of the list and places it on the first free box above the diagonal; then the penultimate bit is placed on the second free box\ldots; the first bit of the list fills the last free square.
+This loop takes the last bit of the list and places it on the first empty box above the diagonal; then the penultimate bit is placed on the second empty box\ldots; the first bit of the list fills the last empty square.
 
 
  \myfigure{0.6}{
   \tikzinput{fig-ramsey-5}
 } 
   
-  \item Convert the previous function into a function \ci{test_all_graphs(n)}
+  \item Convert the previous function into a \ci{test_all_graphs(n)} function
 which tests the conjecture \og{}there are three friends or three strangers\fg{} for all graphs with $n$ vertices.
 You must find that:
 \begin{itemize}
-\item for $n=4$ and $n=5$ the guess is wrong. Give a graph having $4$ vertices (then $5$ vertices) that has neither $3$ friends, nor $3$ foreigners;
+\item for $n=4$ and $n=5$ the conjecture is false. Give a graph having $4$ vertices (then $5$ vertices) that has neither $3$ friends, nor $3$ foreigners;
 \item for $n=6$ let the computer check that, for each of the $N = 2^{\frac{5 \times 6}{2}} = 32\,768$ graphs with $6$ vertices, either it has $3$ friends or it has $3$ foreigners.
 \end{itemize}
 \end{enumerate}   
@@ -385,18 +385,18 @@ You must find that:
 
 \begin{activite}[To go further]
 
-\objectifs{Goal: improve your program and prove other guesses. Optional activity. }
+\objectifs{Goal: improve your program and prove other conjectures. Optional activity.}
 
 \begin{enumerate}
-  \item Improve your program so that it checks the guess for $n=6$ in less than a second.
+  \item Improve your program so that it checks the conjecture for $n=6$ in less than a second.
   
   
 \emph{Ideas.}
   \begin{itemize}
     \item The list of triples must be generated once and for all at the beginning of the program (and not at each new graph).
     \item It is not necessary to generate a list of all possible graphs, then test them in a second step. It is better to generate one and then test it before moving on to the next.
-    \item As soon as you find $3$ friends (or $3$ foreigners) it's won! Immediately stop the loop even if it means using the instruction \ci{break} and move to the next graph.
-    \item You can only test the graphs that correspond to $p$ between $0$ and $2^{N}/2$ (because for the next $p$ it is like exchanging the green segments for red and vice versa).
+    \item As soon as you find $3$ friends (or $3$ foreigners) it's won! Immediately stop the loop, even if it means using the instruction \ci{break}, and move to the next graph.
+    \item You can only test the graphs that correspond to $p$ between $0$ and $2^{N}/2$ (because for the next $p$'s it is like exchanging the green segments for red and vice versa).
   \end{itemize}
   
 \medskip

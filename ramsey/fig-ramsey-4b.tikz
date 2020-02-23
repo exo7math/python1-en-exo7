@@ -31,7 +31,7 @@
 \node at (6.5,-0.5) {6};
 \node[blue]  at (7.5,-0.5) {7};
 
-\node at(4,-1.5) {\bf Binary notation of $p$ on $n$ bits};
+\node at(4,-1.5) {\bf Binary notation of $p$ using $n$ bits};
 
 
 \draw[->,>=latex,ultra thick, blue] (9,0.5)--++(2,0);
