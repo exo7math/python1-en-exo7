@@ -24,7 +24,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{cours}[Fall of blocks]
-Square blocks are dropped into a grid, on the principle of the game \og{}Connect 4\fg{}: after choosing a column, a block falls from top to bottom. The blocks are placed on the bottom of the grid or on other blocks or next to other blocks. There is a big difference with the game \og{}Connect 4\fg{}, here the blocks are \og{}sticky\fg{}, i.e. a block stays stuck as soon as it meets a neighbor on the left or right.
+Square blocks are dropped into a grid, similar to the game \og{}Connect 4\fg{}: after choosing a column, a block falls from top to bottom. The blocks are placed on the bottom of the grid, on the other blocks, or next to the other blocks. There is a big distinction from the game \og{}Connect 4\fg{}, here the blocks are \og{}sticky\fg{}, i.e. a block stays stuck as soon as it meets a neighbor on the left or the right.
 
 
 Here is an example of how to throw blocks:
@@ -51,7 +51,7 @@ The random throwing of hundreds of blocks on a large grid produces pretty geomet
 
 \begin{activite}[Fall of blocks]
 
-\objectifs{Goal: program the drop of the blocks (without graphic display).}
+\objectifs{Goal: program dropping blocks (without graphic display).}
 
 The workspace is modeled by an array of $n$ rows and $p$ columns. At the beginning the array only contains $0$'s;
  then the presence of a block is represented by $1$.
@@ -62,7 +62,7 @@ The table is modified by instructions of the type:
 \mycenterline{\ci{array[i][j] = 1}}
 
 
-Here is an example of a table (left) to represent the graphical situation on the right (the block at the top right is falling).
+Here is an example of a table (left) that represents the graphical situation on the right (the block at the top right is falling).
 
 \begin{center}
 \begin{minipage}{0.3\textwidth}
@@ -91,7 +91,7 @@ $$\begin{array}{cccccc}
   \end{itemize}
   
   \item Program a \ci{drop_one_block(j)} function
-which drops a block in the $j$ column until it can no longer go down.
+that drops a block in the $j$ column until it can no longer go down.
 This function modifies the array.  
   
   For example, here is the table before (left) and after (right) dropping a block in the $j=3$ column.  
@@ -116,7 +116,7 @@ $$
 
  
   \item Program a \ci{drop_blocks(k)} function that launches 
-  $k$ blocks one by one, each time choosing a random column (i.e. an integer $j$ with $0 \le j < p$). 
+  $k$ blocks one by one, each time choosing a random column (i.e. an integer $j$,  $0 \le j < p$). 
   
   Here is an example of a table obtained after throwing $10$ blocks:
   
@@ -149,9 +149,9 @@ $$
 
 \begin{activite}[Falling blocks (continued)]
 
-\objectifs{Goal: program the graphic display of the blocks.}
+\objectifs{Goal: program a graphic display of the blocks.}
 
-\textbf{Static display.} Program the graphical display of blocks from an array.
+\textbf{Static display.} Program a graphic display of blocks from an array.
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.3]{screen-blocks-bloc1-en}
@@ -160,7 +160,7 @@ $$
 
 \emph{Hints.}
 \begin{itemize}
-  \item Use the module \ci{tkinter}, see chapter \og{}Statistics -- Data visualization\fg{}.
+  \item Use the module \ci{tkinter}, see the \og{}Statistics -- Data visualization\fg{} chapter.
   \item You can add a button that launches a block (or several at once). 
 \end{itemize}
 
@@ -203,7 +203,7 @@ The principle is as follows:
 \begin{itemize}
   \item We start from a grid (this time we have to imagine that it is drawn flat on a table). In its center, we place a first fixed block, the \emph{seed}.
   
-  \item A random new block is created on the grid. At each step, this block moves at random to one of the eight adjacent squares, we are talking about a \emph{brownian movement}. 
+  \item A random new block is created on the grid. At each step, this block moves at random to one of the eight adjacent squares, this called a \emph{brownian movement}. 
 
   \item As soon as this block touches another block from one side, it sticks to it and no longer moves.
 
@@ -218,7 +218,7 @@ The principle is as follows:
   \tikzinput{fig-blocks-tree1}
 } 
 
-Gradually, we obtain a kind of tree that looks like coral. The calculations are very long because many blocks come out of the grid or take a long time to fix (especially at the beginning). In addition, the blocks can only be thrown one by one.
+Gradually, we obtain a kind of tree that looks like coral. The calculations are very long because many blocks leave the grid or take a long time to fix (especially at the beginning). In addition, the blocks can only be thrown one by one.
 
 \end{cours}
 
@@ -239,7 +239,7 @@ Gradually, we obtain a kind of tree that looks like coral. The calculations are 
   
   \item Program an \ci{is_inside(i,j)} function which determines if the position $(i,j)$ is in the grid (otherwise the block is coming out).
     
-  \item Program a \ci{can_move(i,j)} function that determines if the block in position $(i,j)$ can move (the function returns \ci{True}) or if it is hung on (the function returns \ci{False}).
+  \item Program a \ci{can_move(i,j)} function that determines if the block in position $(i,j)$ can move (the function returns \ci{True}) or if it is stuck (the function returns \ci{False}).
 
   \item Program a \ci{launch_one_block()} function, without parameters, that simulates the creation of a block and its random movement, until it sticks or leaves the grid.
   
@@ -289,7 +289,7 @@ Here are the main points:
 \begin{itemize}
   \item A  \ci{rect} object is defined, it is a global variable, as well as its coordinates \ci{x0}, \ci{y0}.
   
-  \item This object is (a little bit) moved by the \ci{mymove()} function which shifts the rectangle by \ci{(dx,dy)}.
+  \item This object is moved by the \ci{mymove()} function which shifts the rectangle by \ci{(dx,dy)}.
     
   \item The key point is that this function will be executed again after a short period of time. The command: 
   \mycenterline{\ci{canvas.after(50,mymove)}}  

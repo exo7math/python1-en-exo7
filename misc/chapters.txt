@@ -1,0 +1,77 @@
+
+
+Python in High School
+Algorithms and Mathematics
+Exo7 Books 1
+Edition nb (optional) 1
+
+
+Python is the ideal language to learn programming. It is a powerful language that will immerse you in the world of algorithms. 
+This book guides you step by step through original mathematical and computer activities adapted to high school. It is complemented by online resources: all the \emph{Python} codes and colourful chapters. You have everything you need to succeed!
+
+• Hello world! • Turtle (Scratch with Python) • If ... then ... • Functions • Arithmetic - While loop - I • Strings - Analysis of a text • Lists I • Statistics - Data visualization • Files • Arithmetic - While loop - II • Binary I • Lists II • Binary II • Probabilities - Parrondo’s paradox • Find and replace • Polish calculator - Stacks • Text viewer -Markdown • L-systems • Dynamic images • Game of life • Ramsey graphs and combinatorics • Bitcoin • Random blocks •
+
+
+
+Mathematics
+Algorithms
+Computer science
+Python
+High school
+
+
+Nonfiction > Computers > Programming Languages > Python 
+Education & Reference > Education > Computers & Technology 
+
+
+
+ISBN: 9798617580107
+Imprint: Independently published 
+
+
+Publication date: 
+
+Interior b&w, white paper
+
+Size 7.5 x 9.25 in
+
+No bleed
+
+Cover: glossy
+
+Countries: 
+
+price: 
+
+
+
+# NEW 
+Code ISBN : 9781091267510 
+Marque éditoriale : Independently published 
+prix 6,28 €
+
+
+ • Premiers pas
+ • Tortue (Scratch avec Python)
+ • Si ... alors ...
+ • Fonctions
+ • Arithmétique – Boucle tant que – I
+ • Chaînes de caractères
+ • Listes I
+ • Statistique – Visualisation de données
+ • Fichiers
+ • Arithmétique – Boucle tant que – II
+ • Binaire I
+ • Listes II
+ • Binaire II
+ • Probabilités – Paradoxe de Parrondo
+ • Chercher et remplacer
+ • Calculatrice polonaise – Piles
+ • Visualiseur de texte – Markdown
+ • L-système
+ • Images dynamiques
+ • Jeu de la vie
+ • Graphes et combinatoire de Ramsey
+ • Bitcoin
+ • Constructions aléatoires
+

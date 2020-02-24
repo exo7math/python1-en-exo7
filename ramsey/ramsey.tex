@@ -22,7 +22,7 @@
 
 \begin{cours}[Ramsey's problem]
 
-\objectifs{Proposition. In a group of $6$ people, there is always $3$ friends (the three know each other) or $3$ foreigners (all three are strangers to each other).}
+\objectifs{Proposition. In a group of $6$ people, there is always $3$ friends (the three know each other) or $3$ strangers (all three are strangers to each other).}
 
 The purpose of this chapter is to have the computer demonstrate this statement. For that, we will model the problem by graphs, then we will check the statement for each of the $32\,768$ possible graphs.
 
@@ -40,7 +40,7 @@ The graph below means that $0$ is friend with $2$; $1$ is friend with $3$. The o
   \tikzinput{fig-ramsey-0a}
 }
 
-A graph checks the Ramsey problem, if there are among its vertices, either $3$ friends, or either $3$ foreigners.
+A graph checks the Ramsey problem, if there are among its vertices, either $3$ friends, or either $3$ strangers.
 \myfigure{0.4}{
   \tikzinput{fig-ramsey-0b}
 }
@@ -216,7 +216,7 @@ What are the subsets of $E_n$? For example there are $8$ subsets of $E_3$, these
       \item the subset $\{0,2\}$;
       \item the subset $\{1,2\}$; 
       \item the subset $\{0, 1,2\}$ composed of all elements;
-      \item and the empty set $\varnothing$ which contains no elements!    
+      \item and the empty set $\varnothing$, which contains no elements!    
     \end{itemize} 
 
 \medskip
@@ -225,7 +225,7 @@ What are the subsets of $E_n$? For example there are $8$ subsets of $E_3$, these
 
 \medskip
 
-For example $E_4 = \{ 0,1,2,3 \}$ has $2^4 = 16$ possible subsets. Have fun finding them all! For $E_6$ there is $2^6 = 64$ possible subsets.
+For example $E_4 = \{ 0,1,2,3 \}$ has $2^4 = 16$ possible subsets. Have fun finding them all! For $E_6$ there are $2^6 = 64$ possible subsets.
 
 \bigskip
 
@@ -237,7 +237,7 @@ Examples:
 \begin{itemize}
   \item For $n = 3$ and $k = 2$, the subsets having two elements and contained in $E_3 = \{ 0,1,2 \}$ are the three pairs: $\{0,1\}$, $\{0,2\}$, $\{1,2\}$.
 
-  \item For $n = 5$ and $k = 3$, the subsets having three elements and contained in $E_5 = \{ 0,1,2,3,4 \}$ are the $10$ triples:
+  \item For $n = 5$ and $k = 3$, the subsets having three elements and contained in $E_5 = \{ 0,1,2,3,4 \}$ are the $10$ triplets:
   $\{0, 1, 2\}$, $\{0, 1, 3\}$, $\{0, 2, 3\}$, $\{1, 2, 3\}$, $\{0, 1, 4\}$, $\{0, 2, 4\}$, $\{1, 2, 4\}$, $\{0, 3, 4\}$, $\{1, 3, 4\}$, $\{2, 3, 4\}$.
   
 \end{itemize}
@@ -247,15 +247,15 @@ Examples:
 
 \begin{activite}[Subsets]
 
-\objectifs{Goal: generate all subsets to test all triples of vertices. For this we will use binary notation.}
+\objectifs{Goal: generate all subsets in order to test all triplets of vertices. For this we will use binary notation.}
 
-Here is how we associate to each integer $p$ verifying $0 \le p < 2^n$ a subset of $E_n = \{0,1,\ldots, n-1\}$.
+Here is how we associate a subset of $E_n = \{0,1,\ldots, n-1\}$ to each integer $p$ verifying $0 \le p < 2^n$.
 
-Let's start with an example, with $n = 6$ and $p=26$:
+Let's start with the example $n = 6$ and $p=26$:
 \begin{itemize}
   \item the binary notation of $p=26$ using $n=6$ bits is 
   \ci[0,1,1,0,1,0];
-  \item there are $1$'s at ranks $1$, $2$ and $4$ (starting at rank $0$ on the left);
+  \item there are $1$'s at indices $1$, $2$ and $4$ (starting at rank $0$ on the left);
   \item the associated subset is then $\{1,2,4\}$.
 \end{itemize}
 
@@ -269,7 +269,7 @@ Let's start with an example, with $n = 6$ and $p=26$:
 
 Other examples.
 \begin{itemize}
-  \item With $n = 8$ and $p = 57$ whose binary notation using $8$ bits is \ci{[0,0,1,1,1,0,0,1]}, the associated subset corresponds to the ranks $2,3,4,7$, so it is $\{2,3,4,7\}$.
+  \item With $n = 8$ and $p = 57$ whose binary notation using $8$ bits is \ci{[0,0,1,1,1,0,0,1]}, the associated subset corresponds to the indices $2,3,4,7$, so the associated subset is $\{2,3,4,7\}$.
   
   \smallskip
   
@@ -278,8 +278,8 @@ Other examples.
 }  
 
   
-  \item With $p=0$, the binary notation is only formed of $0$'s, the associated subset is the empty set.
-  \item With $p = 2^n - 1$, the binary notation is full of $1$'s, the associated subset is the whole set $E_n = \{0,1,\ldots, n-1\}$ itself.
+  \item When $p=0$, the binary notation is only formed of $0$'s, the associated subset is the empty set.
+  \item When $p = 2^n - 1$, the binary notation is full of $1$'s, the associated subset is the whole set $E_n = \{0,1,\ldots, n-1\}$ itself.
 \end{itemize}
 
 \bigskip
@@ -287,16 +287,16 @@ Other examples.
 We model a set as a list of elements.
 For example:
 \begin{itemize}
-  \item The set $E_4$ is for us the list \ci{[0,1,2,3]}.
-  \item A subset of $E_4$ is for example the pair \ci{[1,3]}.
+  \item For us the set $E_4$ is the list \ci{[0,1,2,3]}.
+  \item  \ci{[1,3]} is an example of a subset of $E_4$.
   \item The empty set is represented by the empty list \ci{[]}.
 \end{itemize}
 
 
 
 \begin{enumerate}
-  \item Program a \ci{subsets(n)} function which returns the list of all possible subsets of $E_n =  \{0,1,2,\ldots,n-1\}$.
-  For example, with $n=3$, \ci{subsets(n)} returns the list (which itself contains lists):
+  \item Program a \ci{subsets(n)} function which returns the list of all the  possible subsets of $E_n =  \{0,1,2,\ldots,n-1\}$.
+  For example, when $n=3$, \ci{subsets(n)} returns the list (which itself contains lists):
 \mycenterline{\ci{[ [], [2], [1], [1, 2], [0], [0, 2], [0, 1], [0, 1, 2]  ]}}
 
 That is to say the $8$ subsets (starting with the empty set):
@@ -304,23 +304,23 @@ $$\varnothing \quad \{2\}\quad \{1\}\quad \{1,2\}\quad \{0\}\quad \{0,2\}\quad \
 
 \emph{Hint.} To test your program, check that the returned list contains $2^n$ subsets.
 
-  \item Deduce  from it a \ci{fix_subsets(n,k)} function that returns only subsets of $E_n$ having exactly $k$ elements.
+  \item Derive from it a \ci{fix_subsets(n,k)} function that returns only the subsets of $E_n$ that have exactly $k$ elements.
   
  For example, for $n=3$ and $k=2$, \ci{fix_subsets(n,k)} returns the list of pairs:
 \mycenterline{\ci{[ [0, 1], [0, 2], [1, 2] ]}}
  
 Test your program:
 \begin{itemize}
-  \item For $n=4$ and $k=3$, the list returned by \ci{fix_subsets(n,k)} contains $4$ triples.
-  \item For $n=5$ and $k=3$, there are $10$ triples possible.
+  \item For $n=4$ and $k=3$, the list returned by \ci{fix_subsets(n,k)} contains $4$ triplets.
+  \item For $n=5$ and $k=3$, there are $10$ possible triplets.
   \item For $n=10$ and $k=4$, there are $210$ possible subsets!
 \end{itemize}
 
 \end{enumerate}  
 
 
-In the following we will use mainly subsets having $3$ elements.
-In particular, for $n=6$, there are $20$ triples included in $\{0,1,2,3,4,5\}$:
+From now on we will mostly use subsets with $3$ elements.
+In particular, for $n=6$, there are $20$ triplets included in $\{0,1,2,3,4,5\}$:
 \begin{center}
 \ci{[[3, 4, 5], [2, 4, 5], [2, 3, 5], [2, 3, 4], [1, 4, 5], }
 \ci{ [1, 3, 5], [1, 3, 4], [1, 2, 5], [1, 2, 4], [1, 2, 3],}
@@ -339,20 +339,20 @@ In particular, for $n=6$, there are $20$ triples included in $\{0,1,2,3,4,5\}$:
 \objectifs{Goal: check that all graphs with $6$ vertices contain three friends or three strangers.}
 
 \begin{enumerate}
-  \item Program a \ci{have_3(array)} function that tests if a graph contains $3$ friends or $3$ foreigners. You must therefore call the functions \ci{have_3_fix_friends(array,i,j,k)} and \ci{have_3_fix_strangers(array,i,j,k)} of the first activity for all possible triples of vertices $(i,j,k)$.
+  \item Program a \ci{have_3(array)} function that tests if a graph contains $3$ friends or $3$ strangers. You must therefore call the functions \ci{have_3_fix_friends(array,i,j,k)} and \ci{have_3_fix_strangers(array,i,j,k)} from the first activity on all possible triplets of vertices $(i,j,k)$.
  
- For the four examples of the first activity, only the fourth (with $6$ summits) passes the test.
+ For the four examples from the first activity, only the fourth (with $6$ summits) passes the test.
   
-  \item Program an \ci{all_graphs(n)} function that computes all possible graph arrays with $n$ vertices. There are $N = \frac{(n-1)n}{2}$ possible arrays. You can generate them by a method similar to the one for subsets:
+  \item Program an \ci{all_graphs(n)} function that computes all the possible graph arrays with $n$ vertices. There are $N = \frac{(n-1)n}{2}$ possible arrays. You can generate them by using a method similar to the one for subsets:
   \begin{itemize}
-    \item for each integer $p$ that verifies $0 \le p < 2^N$,
-    \item calculate the binary notation of $p$ on $N$ bits,
-    \item fill in the array element by element, with the $0$'s and $1$'s of the binary notation.
+    \item for each integer $p$ that satisfies $0 \le p < 2^N$,
+    \item calculate the binary notation of $p$ using $N$ bits,
+    \item fill the array in element by element, with the $0$'s and $1$'s of the binary notation.
   \end{itemize}
 
 
 \emph{Hints.}
-To fill an array from a given binary notation of $p$ named \ci{binary_notation} (that is to say a list of $0$'s and $1$'s), you can use a double loop like:
+To write a function to fill an array from a given binary notation of $p$ named \ci{binary_notation} (that is to say a list of $0$'s and $1$'s), you can use a double loop like:
 
 \begin{lstlisting}
 for j in range(0,n):
@@ -362,8 +362,8 @@ for j in range(0,n):
         array[j][i] = b
 \end{lstlisting}
   
-Here is the principle of this loop that fills the part above the diagonal (and also the part below it by symmetry).
-This loop takes the last bit of the list and places it on the first empty box above the diagonal; then the penultimate bit is placed on the second empty box\ldots; the first bit of the list fills the last empty square.
+Here is the principle of the loop that fills in the part above the diagonal in the grid (and also the part below it by symmetry).
+This loop takes the last bit of the list and places it in the first empty box above the diagonal; then the second last bit is placed in the second empty box\ldots; the first bit of the list fills the last empty square.
 
 
  \myfigure{0.6}{
@@ -374,8 +374,8 @@ This loop takes the last bit of the list and places it on the first empty box ab
 which tests the conjecture \og{}there are three friends or three strangers\fg{} for all graphs with $n$ vertices.
 You must find that:
 \begin{itemize}
-\item for $n=4$ and $n=5$ the conjecture is false. Give a graph having $4$ vertices (then $5$ vertices) that has neither $3$ friends, nor $3$ foreigners;
-\item for $n=6$ let the computer check that, for each of the $N = 2^{\frac{5 \times 6}{2}} = 32\,768$ graphs with $6$ vertices, either it has $3$ friends or it has $3$ foreigners.
+\item for $n=4$ and $n=5$ the conjecture is false. Give a graph having $4$ vertices (then $5$ vertices) that has neither $3$ friends, nor $3$ strangers;
+\item for $n=6$ let the computer check that, for each of the $N = 2^{\frac{5 \times 6}{2}} = 32\,768$ graphs with $6$ vertices, either it has $3$ friends or it has $3$ strangers.
 \end{itemize}
 \end{enumerate}   
      
@@ -393,10 +393,10 @@ You must find that:
   
 \emph{Ideas.}
   \begin{itemize}
-    \item The list of triples must be generated once and for all at the beginning of the program (and not at each new graph).
+    \item The list of triplets must only be generated once at the beginning of the program (and not for each new graph).
     \item It is not necessary to generate a list of all possible graphs, then test them in a second step. It is better to generate one and then test it before moving on to the next.
-    \item As soon as you find $3$ friends (or $3$ foreigners) it's won! Immediately stop the loop, even if it means using the instruction \ci{break}, and move to the next graph.
-    \item You can only test the graphs that correspond to $p$ between $0$ and $2^{N}/2$ (because for the next $p$'s it is like exchanging the green segments for red and vice versa).
+    \item As soon as you find $3$ friends (or $3$ strangers) it's a win! Immediately stop the loop, even if it means using the \ci{break} instruction, and move on to the next graph.
+    \item You can only test the graphs that correspond to $p$ between $0$ and $2^{N}/2$ (because for the rest of the $p$'s it is like exchanging the green segments for red and vice versa).
   \end{itemize}
   
 \medskip
@@ -419,28 +419,28 @@ You must find that:
 
 
  
-  \item There is a more difficult statement. It is a question of finding out at which size $n$ a graph always contains either $4$ friends or $3$ foreigners. 
-  Being $4$ friends means that two by two they are connected by a green segment, as below:
+  \item Here is a more difficult task. It is a question of finding out at what size $n$, a graph will always contain either $4$ friends or $3$ strangers. 
+  Being $4$ friends means every pair is connected by a green segment, as below:
   \myfigure{1}{
   \tikzinput{fig-ramsey-6}
 }  
 
   \begin{enumerate}
-    \item Find graphs with $n=6$ (then $n=7$) vertices that do not check this statement.
-    \item By searching a little with the machine find graphs with $8$ vertices that do not satisfy this statement.
-    \item Prove that any graph having $9$ vertices contains $4$ friends or $3$ foreigners! 
+    \item Find graphs with $n=6$ (then $n=7$) vertices that do not satisfy this statement.
+    \item By searching a little with your computer find graphs with $8$ vertices that do not satisfy this statement.
+    \item Prove that any graph that has $9$ vertices contains $4$ friends or $3$ strangers! 
      
-  \emph{Hints.} It is necessary to test all the graphs corresponding to integers $p$ between $0$ and $2^N = 2^{\frac{8 \times 9}{2}} = 68\,719\,476\,736$. The total calculation time is about 20 days! You can share the calculations between several computers: one computer does the calculations for $0 \le p \le 1\,000\,000$, a second computer for $1\,000\,001 \le p \le 2\,000\,000$,\ldots
+  \emph{Hints.} It is necessary to test all the graphs corresponding to the  integer $p$ between $0$ and $2^N = 2^{\frac{8 \times 9}{2}} = 68\,719\,476\,736$. The total calculation time is about 20 days! You can split the calculations between several computers: one computer does the calculations for $0 \le p \le 1\,000\,000$, a second computer for $1\,000\,001 \le p \le 2\,000\,000$,\ldots
     
   \end{enumerate}
   
   \item 
   \begin{itemize}
-    \item There are arguments to prove with pencil and paper that for $n=6$ there is always $3$ friends or $3$ foreigners. Look for such reasoning! With a little more effort, we can also prove that it is $n=9$ that answers the problem of $4$ friends/$3$ foreigners.
+    \item There are sets of arguments that prove with pencil and paper that for $n=6$ there are always $3$ friends or $3$ strangers. Look for this kind of reasoning! With a little more effort, we can also prove that $n=9$ answers the $4$ friends/$3$ strangers problem.
     
-    \item We know how to prove that we need $n=18$ to always have $4$ friends or $4$ foreigners.
+    \item We know how to prove that we need $n=18$ to always have $4$ friends or $4$ strangers.
     
-    \item However, no one in the world knows what the smallest $n$ is for the $5$ friends/$5$ foreigners problem!
+    \item However, no one in the world knows what the smallest $n$ is for the $5$ friends/$5$ strangers problem!
   \end{itemize}
 
 \end{enumerate}

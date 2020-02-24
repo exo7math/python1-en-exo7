@@ -5,24 +5,13 @@ Python in high school - volume 1
 Python is the ideal language to learn programming.
 It is a powerful language that will allow you to dive into the world of algorithms. 
 
-This book guides you step by step through original mathematical and computer activities adapted to the high school. It is complemented by online resources: color sheets and the full codes. You have everything you need to succeed!
-
-
-Help wanted
-===========
-
-I am looking for people whose mother tongue is English and who would like to read the whole book (or some chapters) again:
-
-* on the one hand to correct the sentences,
-* on the other hand to verify that the terms for mathematics and computer science are well used.
-
-Feel free to contact me!
+This book guides you step by step through original mathematical and computer activities adapted to the high school. It is complemented by online resources: color chapters and the full codes. You have everything you need to succeed!
 
 
 Book
 ====
 
-The book will be on sale on Amazon at cost price (once it has been finalized). 
+The book will be soon on sale on Amazon at cost price. 
 
 You can also download it from this site: 
 [Book "Python in high school" (3 Mo)](book-python1.pdf).
@@ -67,9 +56,15 @@ Guides
 Codes
 =====
 
-You can find the source files by browsing the GitHub directories.
+You can find the source files by browsing the [GitHub project](https://github.com/exo7math/python1-en-exo7)
 
 All the codes are grouped here: [Python Code](code/code.pdf)
+
+
+Contribute
+==========
+
+If you find any error or want to improve the translation, feel free to contact me!
 
 
 Author
