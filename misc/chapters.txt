@@ -6,10 +6,13 @@ Exo7 Books 1
 Edition nb (optional) 1
 
 
-Python is the ideal language to learn programming. It is a powerful language that will immerse you in the world of algorithms. 
-This book guides you step by step through original mathematical and computer activities adapted to high school. It is complemented by online resources: all the \emph{Python} codes and colourful chapters. You have everything you need to succeed!
+Python is the ideal language to learn programming. It is a powerful language that will immerse you in the world of algorithms.
 
-• Hello world! • Turtle (Scratch with Python) • If ... then ... • Functions • Arithmetic - While loop - I • Strings - Analysis of a text • Lists I • Statistics - Data visualization • Files • Arithmetic - While loop - II • Binary I • Lists II • Binary II • Probabilities - Parrondo’s paradox • Find and replace • Polish calculator - Stacks • Text viewer -Markdown • L-systems • Dynamic images • Game of life • Ramsey graphs and combinatorics • Bitcoin • Random blocks •
+This book guides you step by step through original mathematical and computer activities adapted to high school. It is complemented by online resources: all the Python codes and colourful chapters. You have everything you need to succeed!
+
+
+
+• Hello world! • Turtle (Scratch with Python) • If ... then ... • Functions • Arithmetic - While loop - I • Strings - Analysis of a text • Lists I • Statistics - Data visualization • Files • Arithmetic - While loop - II • Binary I • Lists II • Binary II • Probabilities - Parrondo’s paradox • Find and replace • Polish calculator - Stacks • Text viewer - Markdown • L-systems • Dynamic images • Game of life • Ramsey graphs and combinatorics • Bitcoin • Random blocks •
 
 
 

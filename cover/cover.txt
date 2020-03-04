@@ -1,0 +1,13 @@
+# Instructions pour la couverture
+
+# couleur violet : d01a55
+# couleur vert   : c1d208
+# couleur gris   : 666666 (gris 60%)
+
+# fonte  : Roboto Condensed bold
+
+Livre Pyhton 1 - en
+266 pages
+
+Size 7.5 x 9.25 in
+Template cover : 403 x 241 mm
