@@ -21,80 +21,82 @@
    version="1.1"><metadata
      id="metadata8"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
      id="defs6"><linearGradient
-       inkscape:collect="always"
-       id="linearGradient2738"><stop
-         style="stop-color:#999999;stop-opacity:1;"
-         offset="0"
-         id="stop2734" /><stop
-         style="stop-color:#999999;stop-opacity:0;"
-         offset="1"
-         id="stop2736" /></linearGradient><linearGradient
-       id="linearGradient2684"
-       osb:paint="solid"><stop
-         style="stop-color:#cccccc;stop-opacity:1;"
-         offset="0"
-         id="stop2682" /></linearGradient><mask
-       maskUnits="userSpaceOnUse"
-       x="0"
-       y="0"
-       width="1"
-       height="1"
-       id="mask86"><image
-         width="1"
-         height="1"
-         style="image-rendering:optimizeSpeed"
-         preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAloAAAEICAAAAACingVXAAAAAXNCSVQI5gpbmQAAArFJREFUeJzt0kENACAQwDDAv+dDxUJCWgV7bM+CwnkdwK+sRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpELmfCAw9X6kejAAAAAElFTkSuQmCC"
-         id="image88" /></mask><clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipPath178"><path
-         d="M 0,0 H 1141.779 V 684 H 0 Z"
-         id="path176"
-         inkscape:connector-curvature="0" /></clipPath><linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient11301-848-671-592-83-366"
-       id="linearGradient11307-599-504-39-470-845"
-       x1="89.136749"
-       y1="111.92053"
-       x2="147.77737"
-       y2="168.1012"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(4.1048538,0,0,-4.1343951,738.58049,926.15741)" /><linearGradient
-       inkscape:collect="always"
-       id="linearGradient11301-848-671-592-83-366"><stop
-         style="stop-color:#d01a55;stop-opacity:1;opacity:1"
-         offset="0"
-         id="stop1187" /><stop
-         style="stop-color:#d01a55;stop-opacity:1;opacity:1"
-         offset="1"
-         id="stop1189" /></linearGradient><linearGradient
-       gradientTransform="matrix(4.1048538,0,0,-4.1343951,738.58049,926.15741)"
-       gradientUnits="userSpaceOnUse"
-       y2="131.85291"
-       x2="110.14919"
-       y1="77.070274"
-       x1="55.549179"
-       id="linearGradient9521-507-554-170-459-44-484"
-       xlink:href="#linearGradient9515-212-280-323-73-527-71"
-       inkscape:collect="always" /><linearGradient
-       id="linearGradient9515-212-280-323-73-527-71"
-       inkscape:collect="always"><stop
-         id="stop1083"
-         offset="0"
-         style="stop-color:#c1d208;stop-opacity:1;opacity:1" /><stop
-         id="stop1085"
-         offset="1"
-         style="stop-color:#c1d208;stop-opacity:1;opacity:1" /></linearGradient><linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient2738"
-       id="linearGradient2740"
-       x1="46.235565"
-       y1="872.80609"
-       x2="1473.1016"
-       y2="47.755226"
-       gradientUnits="userSpaceOnUse" /></defs><sodipodi:namedview
+   inkscape:collect="always"
+   id="linearGradient2738"><stop
+     style="stop-color:#999999;stop-opacity:1;"
+     offset="0"
+     id="stop2734" /><stop
+     style="stop-color:#999999;stop-opacity:0;"
+     offset="1"
+     id="stop2736" /></linearGradient><linearGradient
+   id="linearGradient2684"
+   osb:paint="solid"><stop
+     style="stop-color:#cccccc;stop-opacity:1;"
+     offset="0"
+     id="stop2682" /></linearGradient><mask
+   maskUnits="userSpaceOnUse"
+   x="0"
+   y="0"
+   width="1"
+   height="1"
+   id="mask86"><image
+     width="1"
+     height="1"
+     style="image-rendering:optimizeSpeed"
+     preserveAspectRatio="none"
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAloAAAEICAAAAACingVXAAAAAXNCSVQI5gpbmQAAArFJREFUeJzt0kENACAQwDDAv+dDxUJCWgV7bM+CwnkdwK+sRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpErEXEWkSsRcRaRKxFxFpELmfCAw9X6kejAAAAAElFTkSuQmCC"
+     id="image88" /></mask><clipPath
+   clipPathUnits="userSpaceOnUse"
+   id="clipPath178"><path
+     d="M 0,0 H 1141.779 V 684 H 0 Z"
+     id="path176"
+     inkscape:connector-curvature="0" /></clipPath><linearGradient
+   inkscape:collect="always"
+   xlink:href="#linearGradient11301-848-671-592-83-366"
+   id="linearGradient11307-599-504-39-470-845"
+   x1="89.136749"
+   y1="111.92053"
+   x2="147.77737"
+   y2="168.1012"
+   gradientUnits="userSpaceOnUse"
+   gradientTransform="matrix(4.1048538,0,0,-4.1343951,738.58049,926.15741)" /><linearGradient
+   inkscape:collect="always"
+   id="linearGradient11301-848-671-592-83-366"><stop
+     style="stop-color:#d01a55;stop-opacity:1;opacity:1"
+     offset="0"
+     id="stop1187" /><stop
+     style="stop-color:#d01a55;stop-opacity:1;opacity:1"
+     offset="1"
+     id="stop1189" /></linearGradient><linearGradient
+   gradientTransform="matrix(4.1048538,0,0,-4.1343951,738.58049,926.15741)"
+   gradientUnits="userSpaceOnUse"
+   y2="131.85291"
+   x2="110.14919"
+   y1="77.070274"
+   x1="55.549179"
+   id="linearGradient9521-507-554-170-459-44-484"
+   xlink:href="#linearGradient9515-212-280-323-73-527-71"
+   inkscape:collect="always" /><linearGradient
+   id="linearGradient9515-212-280-323-73-527-71"
+   inkscape:collect="always"><stop
+     id="stop1083"
+     offset="0"
+     style="stop-color:#c1d208;stop-opacity:1;opacity:1" /><stop
+     id="stop1085"
+     offset="1"
+     style="stop-color:#c1d208;stop-opacity:1;opacity:1" /></linearGradient><linearGradient
+   inkscape:collect="always"
+   xlink:href="#linearGradient2738"
+   id="linearGradient2740"
+   x1="46.235565"
+   y1="872.80609"
+   x2="1473.1016"
+   y2="47.755226"
+   gradientUnits="userSpaceOnUse" />
+
+</defs><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1"
@@ -108,18 +110,18 @@
      id="namedview4"
      showgrid="false"
      units="mm"
-     inkscape:zoom="1.0350877"
-     inkscape:cx="1247.1688"
-     inkscape:cy="438.75214"
+     inkscape:zoom="0.73191753"
+     inkscape:cx="715.01629"
+     inkscape:cy="554.68434"
      inkscape:window-x="67"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" /><g
+     inkscape:current-layer="svg2" /><g
      id="g10"
      inkscape:groupmode="layer"
      inkscape:label="Template KDP 7.5x9.25_BW_270"
      transform="matrix(1.3333333,0,0,-1.3333333,0,912)"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true"><g
    id="g12"
    transform="translate(980.6541,675.0406)"><path
@@ -177,6 +179,8 @@
      sodipodi:role="line"
      id="tspan42">Front</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,1066.1371,38.6297)"
    style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:Verdana;-inkscape-font-specification:Verdana;writing-mode:lr-tb;fill:#7b7979;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -186,6 +190,8 @@
      sodipodi:role="line"
      id="tspan46">7.5” x 9.25”</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,1019.8323,29.1297)"
    style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:Verdana;-inkscape-font-specification:Verdana;writing-mode:lr-tb;fill:#7b7979;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -194,6 +200,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan50">(190.5mm x 234.9mm)</tspan></text>
+
+
 
 <path
    d="M 17.942,18.013 H 540 V 666.04 H 17.942 Z"
@@ -208,6 +216,8 @@
      sodipodi:role="line"
      id="tspan56">Back</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,27.4105,38.6297)"
    style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:Verdana;-inkscape-font-specification:Verdana;writing-mode:lr-tb;fill:#7b7979;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -217,6 +227,8 @@
      sodipodi:role="line"
      id="tspan60">7.5” x 9.25”</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,27.4105,29.1297)"
    style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:Verdana;-inkscape-font-specification:Verdana;writing-mode:lr-tb;fill:#7b7979;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -225,6 +237,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan64">(190.5mm x 234.9mm)</tspan></text>
+
+
 
 <path
    d="m 386.856,27.113 h 144 v 86.4 h -144 z"
@@ -239,6 +253,8 @@
      sodipodi:role="line"
      id="tspan70">Barcode</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,406.8368,65.9662)"
    style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12px;font-family:Verdana;-inkscape-font-specification:Verdana-Bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -248,6 +264,8 @@
      sodipodi:role="line"
      id="tspan74">Location &amp; Size</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,427.951,47.9662)"
    style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12px;font-family:Verdana;-inkscape-font-specification:Verdana-Bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -256,6 +274,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan78">2” X 1.2”</tspan></text>
+
+
 
 <g
    id="g82"><g
@@ -277,6 +297,8 @@
      sodipodi:role="line"
      id="tspan92">Paperback Book </tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,774.2947,565.7053)"
    style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;font-family:Verdana;-inkscape-font-specification:Verdana-Bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -285,6 +307,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan96">Cover Template</tspan></text>
+
+
 
 <text
    transform="matrix(1,0,0,-1,741.6863,508.6765)"
@@ -295,6 +319,8 @@
      sodipodi:role="line"
      id="tspan100">7.5” X 9.25” Book </tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,770.0115,487.6765)"
    style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;font-family:Verdana;-inkscape-font-specification:Verdana-Bold;writing-mode:lr-tb;fill:#7b7979;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -303,6 +329,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan104">(190.5mm X 234.9mm)</tspan></text>
+
+
 
 <text
    transform="matrix(1,0,0,-1,803.0066,356.686)"
@@ -313,6 +341,8 @@
      sodipodi:role="line"
      id="tspan108">White Paper</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,780.405,410.0048)"
    style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:Verdana;-inkscape-font-specification:Verdana-Bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -321,6 +351,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan112">0.61” Spine Width</tspan></text>
+
+
 
 <text
    transform="matrix(1,0,0,-1,812.4148,392.0048)"
@@ -331,6 +363,8 @@
      sodipodi:role="line"
      id="tspan116">(15.444mm)</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,27.02,620.8826)"
    style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9px;font-family:Verdana;-inkscape-font-specification:Verdana-Bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -339,6 +373,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan120">Black Dotted Line = Trim Size</tspan></text>
+
+
 
 <text
    transform="matrix(1,0,0,-1,27.02,611.3826)"
@@ -349,6 +385,8 @@
      sodipodi:role="line"
      id="tspan124">This is where your book will be cut to produce the fnal trim size.</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,27.02,591.8826)"
    style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9px;font-family:Verdana;-inkscape-font-specification:Verdana-Bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -357,6 +395,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan128">Blue Dotted Line = Spine Fold</tspan></text>
+
+
 
 <text
    transform="matrix(1,0,0,-1,27.02,581.8826)"
@@ -367,6 +407,8 @@
      sodipodi:role="line"
      id="tspan132">Fold placement may vary slightly.</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,27.02,561.8826)"
    style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9px;font-family:Verdana;-inkscape-font-specification:Verdana-Bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -375,6 +417,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan136">White Area = Live Area</tspan></text>
+
+
 
 <text
    transform="matrix(1,0,0,-1,27.02,551.8826)"
@@ -385,6 +429,8 @@
      sodipodi:role="line"
      id="tspan140">Position logos, text, and essential images in this area.</tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,27.02,531.8826)"
    style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9px;font-family:Verdana;-inkscape-font-specification:Verdana-Bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -393,6 +439,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan144">Red Area = Out of Live/Bleed</tspan></text>
+
+
 
 <text
    transform="matrix(1,0,0,-1,27.02,522.3826)"
@@ -403,6 +451,8 @@
      sodipodi:role="line"
      id="tspan148">Your background artwork must fll the red area. Do not place logos, text, or essential images in the red area. If your artwork does </tspan></text>
 
+
+
 <text
    transform="matrix(1,0,0,-1,27.02,512.8826)"
    style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5999999px;font-family:Verdana;-inkscape-font-specification:Verdana;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -411,6 +461,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan152">not meet these requirements, it may be rejected.</tspan></text>
+
+
 
 <g
    id="g156"
@@ -469,6 +521,8 @@
      y="0"
      sodipodi:role="line"
      id="tspan194">Spine Width 0.61” (15.444mm)</tspan></text>
+
+
 
 <g
    id="g198"
@@ -542,6 +596,8 @@
      y="378.56754"
      style="stroke-width:4.11959791">PYTHON</tspan></text>
 
+
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:54.92797089px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#666666;fill-opacity:1;stroke:none;stroke-width:4.11959791"
@@ -554,6 +610,8 @@
      x="973.15674"
      y="441.84525"
      style="stroke-width:4.11959791">IN</tspan></text>
+
+
 
 <text
    xml:space="preserve"
@@ -568,6 +626,8 @@
      y="491.96622"
      style="stroke-width:4.11959791">HIGHSCHOOL</tspan></text>
 
+
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:54.92799759px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#666666;fill-opacity:1;stroke:none"
@@ -578,26 +638,27 @@
      id="tspan345"
      x="1147.6703"
      y="63.54377"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#666666">Arnaud Bodin</tspan></text>
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.66666603px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#666666">Arnaud Bodin</tspan></text>
+
+
 
 <g
-   id="g2753"
-   transform="translate(6.0349029,32.926019)"><rect
-   ry="14.345879"
-   y="726.18671"
-   x="1098.4845"
-   height="43.720772"
-   width="452.23685"
+   id="g1015"><rect
+   ry="15.722213"
+   y="775.49115"
+   x="1201.6772"
+   height="31.444426"
+   width="383.55475"
    id="rect2746"
-   style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /><text
+   style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.20450497;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /><text
    id="text351"
-   y="758.97729"
-   x="1300.693"
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:54.92799759px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#666666;fill-opacity:1;stroke:none;stroke-opacity:1"
+   y="799.58685"
+   x="1350.2672"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40.36301422px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#666666;fill-opacity:1;stroke:none;stroke-width:0.73483497;stroke-opacity:1"
    xml:space="preserve"><tspan
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#666666;stroke:none;stroke-opacity:1"
-     y="758.97729"
-     x="1300.693"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:23.51471901px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#666666;stroke:none;stroke-width:0.73483497;stroke-opacity:1"
+     y="799.58685"
+     x="1350.2672"
      id="tspan349"
      sodipodi:role="line">Algorithms and Mathematics</tspan></text>
 
@@ -675,108 +736,122 @@
      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.14020157px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#d01a55;fill-opacity:1;stroke-width:1.96051514">PYTHON<tspan
    style="fill:#c1d208;fill-opacity:1;stroke-width:1.96051514"
    id="tspan3252">IN</tspan>HIGHSCHOOL</tspan></text>
+
+
 </g><g
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Rectangle au dos"
      style="opacity:0.5"
      sodipodi:insensitive="true"><rect
-       style="opacity:1;fill:#ececec;fill-opacity:1;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#ececec;fill-opacity:1;stroke:none;stroke-width:2.68295312;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3271"
-       width="621.97198"
-       height="504.22318"
-       x="60.412529"
-       y="187.241" /></g><g
+       width="591.97198"
+       height="423.7179"
+       x="78.412529"
+       y="217.44118" /></g><g
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="Texte au dos"
      sodipodi:insensitive="true"><flowRoot
-       transform="matrix(1.2652074,0,0,1.1805515,-97.382685,-68.835633)"
-       xml:space="preserve"
-       id="flowRoot3273"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.09171867px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"><flowRegion
-         id="flowRegion3275"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.09171867px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke:none;stroke-opacity:1"><rect
-           id="rect3277"
-           width="446.49435"
-           height="191.92082"
-           x="147.53796"
-           y="255.98694"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.09171867px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
-         id="flowPara3281" /></flowRoot><text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-       x="557.67285"
+   transform="matrix(1.2652074,0,0,1.1805515,-97.382685,-68.835633)"
+   xml:space="preserve"
+   id="flowRoot3273"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.09171867px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"><flowRegion
+     id="flowRegion3275"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.09171867px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke:none;stroke-opacity:1"><rect
+       id="rect3277"
+       width="446.49435"
+       height="191.92082"
+       x="147.53796"
        y="255.98694"
-       id="text3340"><tspan
-         sodipodi:role="line"
-         id="tspan3338"
-         x="557.67285"
-         y="268.24722"></tspan><tspan
-         sodipodi:role="line"
-         x="557.67285"
-         y="284.91388"
-         id="tspan3342" /></text>
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.09171867px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
+     id="flowPara3281" /></flowRoot><text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+   x="557.67285"
+   y="255.98694"
+   id="text3340"><tspan
+     sodipodi:role="line"
+     id="tspan3338"
+     x="557.67285"
+     y="268.24722" /><tspan
+     sodipodi:role="line"
+     x="557.67285"
+     y="284.91388"
+     id="tspan3342" /></text>
+
+
 <flowRoot
-       xml:space="preserve"
-       id="flowRoot3346"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
-       transform="translate(18.838983,-82.118645)"><flowRegion
-         id="flowRegion3348"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"><rect
-           id="rect3350"
-           width="208.67796"
-           height="231.8644"
-           x="107.23729"
-           y="482.08475"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
-         id="flowPara3352">• Hello world! </flowPara><flowPara
-         id="flowPara3354">• Turtle (Scratch with Python) </flowPara><flowPara
-         id="flowPara3356">• If ... then ... </flowPara><flowPara
-         id="flowPara3358">• Functions </flowPara><flowPara
-         id="flowPara3360">• Arithmetic - While loop - I </flowPara><flowPara
-         id="flowPara3362">• Strings - Analysis of a text </flowPara><flowPara
-         id="flowPara3364">• Lists I </flowPara><flowPara
-         id="flowPara3366">• Statistics - Data visualization </flowPara><flowPara
-         id="flowPara3368">• Files </flowPara><flowPara
-         id="flowPara3370">• Arithmetic - While loop - II </flowPara><flowPara
-         id="flowPara3372">• Binary I </flowPara><flowPara
-         id="flowPara3374">• Lists II </flowPara><flowPara
-         id="flowPara3376">• Binary II</flowPara></flowRoot><flowRoot
-       xml:space="preserve"
-       id="flowRoot3346-0"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
-       transform="translate(291.62459,-58.376172)"><flowRegion
-         id="flowRegion3348-0"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"><rect
-           id="rect3350-6"
-           width="227.51694"
-           height="196.6017"
-           x="107.23729"
-           y="482.08475"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
-         id="flowPara3376-3">• Probabilities - Parrondo’s paradox </flowPara><flowPara
-         id="flowPara3528">• Find and replace </flowPara><flowPara
-         id="flowPara3530">• Polish calculator - Stacks </flowPara><flowPara
-         id="flowPara3532">• Text viewer - Markdown </flowPara><flowPara
-         id="flowPara3534">• L-systems </flowPara><flowPara
-         id="flowPara3536">• Dynamic images </flowPara><flowPara
-         id="flowPara3538">• Game of life </flowPara><flowPara
-         id="flowPara3540">• Ramsey graphs and combinatorics </flowPara><flowPara
-         id="flowPara3542">• Bitcoin </flowPara><flowPara
-         id="flowPara3544">• Random blocks</flowPara></flowRoot><flowRoot
-       xml:space="preserve"
-       id="flowRoot3551"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-       transform="translate(19.127838,17.761564)"><flowRegion
-         id="flowRegion3553"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"><rect
-           id="rect3555"
-           width="463.85004"
-           height="153.70584"
-           x="121.5984"
-           y="218.61589"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara3557">Python is the ideal language to learn programming. It is a powerful language that will immerse you in the world of algorithms.</flowPara><flowPara
-         id="flowPara3559"></flowPara><flowPara
-         id="flowPara3561">This book guides you step by step through original mathematical and computer activities adapted to high school. It is complemented by online resources: all the Python codes and colourful chapters. You have everything you need to succeed!</flowPara></flowRoot></g></svg>
+   xml:space="preserve"
+   id="flowRoot3346"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+   transform="translate(18.838983,-82.118645)"><flowRegion
+     id="flowRegion3348"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"><rect
+       id="rect3350"
+       width="208.67796"
+       height="231.8644"
+       x="107.23729"
+       y="482.08475"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
+     id="flowPara3352">• Hello world! </flowPara><flowPara
+     id="flowPara3354">• Turtle (Scratch with Python) </flowPara><flowPara
+     id="flowPara3356">• If ... then ... </flowPara><flowPara
+     id="flowPara3358">• Functions </flowPara><flowPara
+     id="flowPara3360">• Arithmetic - While loop - I </flowPara><flowPara
+     id="flowPara3362">• Strings - Analysis of a text </flowPara><flowPara
+     id="flowPara3364">• Lists I </flowPara><flowPara
+     id="flowPara3366">• Statistics - Data visualization </flowPara><flowPara
+     id="flowPara3368">• Files </flowPara><flowPara
+     id="flowPara3370">• Arithmetic - While loop - II </flowPara><flowPara
+     id="flowPara3372">• Binary I </flowPara><flowPara
+     id="flowPara3374">• Lists II </flowPara><flowPara
+     id="flowPara3376">• Binary II</flowPara></flowRoot><flowRoot
+   xml:space="preserve"
+   id="flowRoot3346-0"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+   transform="translate(291.62459,-58.376172)"><flowRegion
+     id="flowRegion3348-0"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"><rect
+       id="rect3350-6"
+       width="227.51694"
+       height="196.6017"
+       x="107.23729"
+       y="482.08475"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
+     id="flowPara3376-3">• Probabilities - Parrondo’s paradox </flowPara><flowPara
+     id="flowPara3528">• Find and replace </flowPara><flowPara
+     id="flowPara3530">• Polish calculator - Stacks </flowPara><flowPara
+     id="flowPara3532">• Text viewer - Markdown </flowPara><flowPara
+     id="flowPara3534">• L-systems </flowPara><flowPara
+     id="flowPara3536">• Dynamic images </flowPara><flowPara
+     id="flowPara3538">• Game of life </flowPara><flowPara
+     id="flowPara3540">• Ramsey graphs and combinatorics </flowPara><flowPara
+     id="flowPara3542">• Bitcoin </flowPara><flowPara
+     id="flowPara3544">• Random blocks</flowPara></flowRoot><flowRoot
+   xml:space="preserve"
+   id="flowRoot3551"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+   transform="translate(19.127838,17.761564)"><flowRegion
+     id="flowRegion3553"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"><rect
+       id="rect3555"
+       width="463.85004"
+       height="153.70584"
+       x="121.5984"
+       y="218.61589"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle" /></flowRegion><flowPara
+     id="flowPara3557">Python is the ideal language to learn programming. It is a powerful language that will immerse you in the world of algorithms.</flowPara><flowPara
+     id="flowPara3559" /><flowPara
+     id="flowPara3561">This book guides you step by step through original mathematical and computer activities adapted to high school. It is complemented by online resources: all the Python codes and colourful chapters. You have everything you need to succeed!</flowPara></flowRoot></g><text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="1393.1187"
+     y="514.93219"
+     id="text1011"><tspan
+       sodipodi:role="line"
+       id="tspan1009"
+       x="1393.1187"
+       y="527.19244" /></text>
+</svg>
