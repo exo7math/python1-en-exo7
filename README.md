@@ -11,7 +11,12 @@ This book guides you step by step through original mathematical and computer act
 Book
 ====
 
-The book will be soon on sale on Amazon at cost price. 
+The book is on sale on Amazon at cost price:
+
+* [Amazon.com](https://www.amazon.com/dp/B085RQRSHL)
+* [Amazon.ca](https://www.amazon.ca/dp/B085RQRSHL)
+* [Amazon.uk](https://www.amazon.co.uk/dp/B085RQRSHL)
+* [Amazon.fr](https://www.amazon.fr/dp/B085RQRSHL)
 
 You can also download it from this site: 
 [Book "Python in high school" (3 Mo)](book-python1.pdf).
